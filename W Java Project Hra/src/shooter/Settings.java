@@ -12,4 +12,6 @@ public class Settings {
 	public static final int REFRESH_RATE = 10; // ms, 1000 = kazdu sekundu, 1000/60 zabezpeci 60 FPS
 	
 	public static final int PLAYER_SPEED = 2;
+	
+	test
 }
