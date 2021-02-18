@@ -13,5 +13,5 @@ public class Settings {
 	
 	public static final int PLAYER_SPEED = 2;
 	
-	public static final boolean test = true;
+	public static final int test = 5;
 }
