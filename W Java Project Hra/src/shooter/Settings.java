@@ -13,5 +13,4 @@ public class Settings {
 	
 	public static final int PLAYER_SPEED = 2;
 	
-	//test hovadina - Tomas
 }
