@@ -15,10 +15,10 @@ public class Strela extends Sprite {
 	// premenne kazdeho objektu hry
 
 	// premenne pre poziciu objektu
-		private double poziciaX;
-		private double poziciaY;
-		private int centerX;
-		private int centerY;
+		private int poziciaX;
+		private int poziciaY;
+		private double centerX;
+		private double centerY;
 	
 	// premenne potrebne na vykreslovanie objektu
 		private Platno platno;
@@ -44,8 +44,8 @@ public class Strela extends Sprite {
 	 * @param platno JPanel na ktorom sa strela bude vykreslovat
 	 */
 	public Strela(double[] strelaParam, Platno platno) {
-		this.poziciaX = strelaParam[0];
-		this.poziciaY = strelaParam[1];
+		this.centerX = strelaParam[0];
+		this.centerY = strelaParam[1];
 		this.platno = platno;
 		this.zobrazit = true;
 		
@@ -56,7 +56,7 @@ public class Strela extends Sprite {
 			
 			this.width = image.getWidth(platno);
 			this.height = image.getHeight(platno);
-			this.rectangle.setBounds((int)poziciaX, (int)poziciaY, width*1/40, height*1/40);
+			this.rectangle.setBounds(poziciaX, poziciaY, width*1/40, height*1/40);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -91,10 +91,10 @@ public class Strela extends Sprite {
 		// otoci pod uhlom (v radianoch), okolo stredu
 		g.rotate(rotacia, centerX, centerY);
 		// vykresli stvorec okolo strely
-		g.drawRect((int)poziciaX, (int)poziciaY, image.getWidth(platno), image.getHeight(platno));
+		g.drawRect(poziciaX, poziciaY, image.getWidth(platno), image.getHeight(platno));
 		g.draw(rectangle);
 		// vykresli obrazok strely
-		g.drawImage(image, (int)poziciaX, (int)poziciaY, null);
+		g.drawImage(image, poziciaX, poziciaY, null);
 		
 		g.dispose();
 	}
@@ -103,8 +103,8 @@ public class Strela extends Sprite {
 	 * Aktualizuje strelu - len pohyb
 	 */
 	private void refresh() {
-		rectangle.setBounds((int)poziciaX, (int)poziciaY, image.getWidth(platno), image.getHeight(platno));
 		pohni();
+		rectangle.setBounds(poziciaX, poziciaY, image.getWidth(platno), image.getHeight(platno));
 	}
 
 	/**
@@ -112,13 +112,14 @@ public class Strela extends Sprite {
 	 */
 	private void pohni() {
 		//pohyb
-		poziciaX+=vecX*speed;
-		poziciaY+=vecY*speed;
+		centerX+=vecX*speed;
+		centerY+=vecY*speed;
 		// skontroluj ci neni mimo platna, ak ano zmaz strelu
 		if (poziciaX>Settings.WINDOW_WIDTH || poziciaX<0 || poziciaY>Settings.WINDOW_HEIGHT || poziciaY<0) {
 			platno.zmazObjekt(this);
 		}
-		this.centerX = (int)poziciaX + (width/2);
-		this.centerY = (int)poziciaY + (height/2);
+		
+		poziciaX = (int) (centerX -(width/2));
+		poziciaY = (int) (centerY - (height/2));
 	}
 }
