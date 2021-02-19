@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+
 import javax.imageio.ImageIO;
 
 /**
@@ -82,7 +84,7 @@ public class Player extends Sprite{
 	 */
 	private void refresh() {
 		aktualizujRotaciu();
-		aktualizujVektoryPohybu();
+		//aktualizujVektoryPohybu();
 		pohni();
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
@@ -91,32 +93,26 @@ public class Player extends Sprite{
 	 * Pohne hracom
 	 */
 	private void pohni() {
+
+		if (vecX!=0) {
+			poziciaX += vecX*Settings.PLAYER_SPEED;	
+		}
+		if (vecY!=0) {
+			poziciaY += vecY*Settings.PLAYER_SPEED;	
+		}
 		
-		
-		if (vecY == -1) {	// dolava
-			poziciaX -= Settings.PLAYER_SPEED; 
-		}
-		if (vecY == 1) {		// doprava
-			poziciaX += Settings.PLAYER_SPEED;
-		}
-		if (vecX == -1) {	// hore
-			poziciaY -= Settings.PLAYER_SPEED;
-		}
-		if (vecX == 1) {		// dole
-			poziciaY += Settings.PLAYER_SPEED;
-		}
 		this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
 	}
 
-	/**
-	 * Aktualizuje vektory pohybu
-	 */
-	private void aktualizujVektoryPohybu() {
-		int[] move = Klavesnica.getMove();
-		this.vecX = move[0];
-		this.vecY = move[1];
+	public void setVecX(double vecX) {
+		this.vecX = vecX;
 	}
+
+	public void setVecY(double vecY) {
+		this.vecY = vecY;
+	}
+
 	
 	/**
 	 * Aktualizuje uhol rotacie hraca

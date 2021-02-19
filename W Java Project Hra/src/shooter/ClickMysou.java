@@ -33,8 +33,7 @@ public class ClickMysou implements MouseListener {
 		// 1 = lave tlacidlo mysi
 		// 2 = stredne tlacidlo mysi
 		// 3 = prave tlacidlo mysi
-		
-		System.out.println(e.getButton());
+
 		int clicked = e.getButton();
 		if (clicked == 1) {
 			player.shoot();

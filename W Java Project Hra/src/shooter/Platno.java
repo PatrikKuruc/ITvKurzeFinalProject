@@ -5,7 +5,9 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -24,10 +26,14 @@ public class Platno extends JPanel implements ActionListener{
 	private ArrayList<JComponent> strely = new ArrayList<>();
 	private ArrayList<JComponent> objektyMapy = new ArrayList<>();
 	
+	private Klavesnica klavesnica;
+	
 	/**
 	 * Vytvor panel
+	 * @param klavesnica 
 	 */
-	public Platno() {
+	public Platno(Klavesnica klavesnica) {
+		this.klavesnica = klavesnica;
 		// velkost platna nacita z nastaveni
 		setPreferredSize(Settings.PANEL_SIZE);
 		
@@ -51,9 +57,17 @@ public class Platno extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// prekresli sa cele platno (JPanel) nanovo
-		repaint();	
+		getKeysInput();
+		repaint();
 	}
 	
+	private void getKeysInput() {
+		int[] move = klavesnica.getMove();
+		
+		player.setVecX(move[0]); 
+		player.setVecY(move[1]);
+	}
+
 	/**
 	 * Vykreslovanie platna
 	 */

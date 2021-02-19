@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 public class Klavesnica implements KeyListener{
 		
 	// vektory pohybu
-	private static final int[] Move = {0,0};
+	private int[] Move = {0,0};
 
 	/**
 	 * Vykona prikazy po kliknuti tlacidla
@@ -27,16 +27,16 @@ public class Klavesnica implements KeyListener{
 		// aktualizuje vektory pohybu podla stlacenej klavesnice
 		char keyPressed = e.getKeyChar();
 		if (keyPressed == 'a') {
-			Move[1] = -1;
-		}
-		if (keyPressed == 'd') {
-			Move[1] = 1;
-		}
-		if (keyPressed == 'w') {
 			Move[0] = -1;
 		}
-		if (keyPressed == 's') {
+		if (keyPressed == 'd') {
 			Move[0] = 1;
+		}
+		if (keyPressed == 'w') {
+			Move[1] = -1;
+		}
+		if (keyPressed == 's') {
+			Move[1] = 1;
 		}
 	}
 
@@ -46,18 +46,18 @@ public class Klavesnica implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// zresetuje vektory pohybu
-		char keyPressed = e.getKeyChar();
-		if (keyPressed == 'a') {
-			Move[1] = 0;
-		}
-		if (keyPressed == 'd') {
-			Move[1] = 0;
-		}
-		if (keyPressed == 'w') {
+		char keyReleased = e.getKeyChar();
+		if (keyReleased == 'a') {
 			Move[0] = 0;
 		}
-		if (keyPressed == 's') {
+		if (keyReleased == 'd') {
 			Move[0] = 0;
+		}
+		if (keyReleased == 'w') {
+			Move[1] = 0;
+		}
+		if (keyReleased == 's') {
+			Move[1] = 0;
 		}
 	}
 
@@ -65,7 +65,7 @@ public class Klavesnica implements KeyListener{
 	 * Vrati vektor pohybu
 	 * @return Move vektory pohybu
 	 */
-	public static int[] getMove() {
+	public int[] getMove() {
 		return Move;
 	}
 	
