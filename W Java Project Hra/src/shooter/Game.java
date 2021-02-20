@@ -17,13 +17,15 @@ public class Game extends JFrame {
 		setResizable(false);
 		setTitle("Pow Pow Pow");
 
-		// vytvor JPanel (platno) a prida ho do okna
-		Platno hra = new Platno();
-		add(hra, BorderLayout.CENTER);
+		
 		
 		// vytvori a prida posluchac klavesnice do okna
 		Klavesnica klavesnica = new Klavesnica();
 		addKeyListener(klavesnica);
+		
+		// vytvor JPanel (platno) a prida ho do okna
+		Platno hra = new Platno(klavesnica);
+		add(hra, BorderLayout.CENTER);
 	
 		// prisposobi velkost okna Jframe velkosti komponentov (preferredSize) v okne (v nasom pripade Jpanel - Platno)
 		pack();
