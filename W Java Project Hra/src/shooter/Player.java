@@ -21,6 +21,7 @@ public class Player extends Sprite{
 		private int poziciaY;
 		private int centerX;
 		private int centerY;
+		private int test;
 		
 		// premenne potrebne na vykreslovanie objektu
 		private Platno platno;
