@@ -23,12 +23,13 @@ public class Enemy extends ObjektHry {
 			private double vecY;
 			Random randomPohyb = new Random();
 			
-			int pohyb=0, zivot=100;
+			int pohyb=0;
 			
 	public Enemy(int poziciaX, int poziciaY, Platno platno, Handler handler) {
 		super(poziciaX, poziciaY, platno, handler);
 		width = 50;
 		height = 50;
+		zivot=100;
 		
 		try {
 			image = ImageIO.read(new File("obr/zoimbie1_hold.png"));
@@ -60,16 +61,8 @@ public class Enemy extends ObjektHry {
                     vecY *= -1;
                 }
             } else if(pohyb == 0){
-
             	vecX = (randomPohyb.nextInt(3- -3) + -3);
             	vecY = (randomPohyb.nextInt(3- -3) + -3);
-            }
-            if(objektHry instanceof Strela){
-
-                if(getBounds().intersects(objektHry.getBounds())) {
-                    zivot -= 50;
-                    handler.removeObject(objektHry);
-                }
             }
         }
         if(zivot <= 0){
@@ -81,6 +74,7 @@ public class Enemy extends ObjektHry {
 		poziciaY+= new Random().nextInt(3- -3)+-2.5;
 	}
 
+	
 	@Override
 	public void vykresli(Graphics gr) {
 		// vykresli obrazok o par pixelov mensi ako rectangle na kolizie

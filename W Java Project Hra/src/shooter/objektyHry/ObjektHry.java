@@ -23,6 +23,7 @@ public abstract class ObjektHry extends JComponent {
  		protected int width;
  		protected Rectangle rectangle = new Rectangle();
    
+ 		int zivot;
 
     public int getCenterX() {
 			return centerX;
@@ -52,6 +53,12 @@ public abstract class ObjektHry extends JComponent {
     public abstract void aktualizujObjektHry();
     public abstract void vykresli(Graphics g);
 
+
+	public void takeDamage(int dmg) {
+		zivot -= dmg;
+		
+	}
+    
     public Rectangle getBounds() {
         return new Rectangle(poziciaX-5,poziciaY-5,width+5,height+5);
     }

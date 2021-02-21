@@ -109,8 +109,6 @@ public class Player extends PohyblivyObjektHry{
 
 	@Override
 	public void vykresli(Graphics gr) {
-		// aktualizuje parametre hraca
-
 		Graphics2D g = (Graphics2D) gr.create();
 		// otoci pod uhlom (v radianoch), okolo stredu
 		g.rotate(rotacia, centerX, centerY);

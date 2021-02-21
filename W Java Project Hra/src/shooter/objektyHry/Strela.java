@@ -80,9 +80,22 @@ public class Strela extends ObjektHry {
 
 	@Override
 	public void aktualizujObjektHry() {
-		
 		pohni();
 		rectangle.setBounds(poziciaX, poziciaY, image.getWidth(platno), image.getHeight(platno));
+		for(int i = 0; i < handler.objekty.size(); i++){
+            ObjektHry objektHry = handler.objekty.get(i);
+		        if(getBounds().intersects(objektHry.getBounds())) {
+		        	if(objektHry instanceof Enemy){
+			        	objektHry.takeDamage(50);
+			            handler.removeObject(this);
+			        }
+		        	if (objektHry instanceof Stena) {
+						handler.removeObject(this);
+					}
+			    }
+				
+				
+		}
 	}
 
 	@Override
