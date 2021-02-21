@@ -28,6 +28,74 @@ public class Handler {
 		this.platno = platno;
 	}
 
+	public void nahraj() throws FileNotFoundException {
+		nahrajPozadie();
+		nahrajObjekty();
+		nahrajHraca();
+	}
+	
+	public void nahrajPozadie() throws FileNotFoundException {
+		int x = 0;
+	    int y = 0;
+	    File file = new File("mapy/mapa.txt");
+	    Scanner scanner = new Scanner(file);
+	    while (scanner.hasNextLine()){
+	        if(scanner.nextInt() == 1){
+	            addObject(new Stena(x,y,platno, this));
+	            x += 32;
+	        }
+	        else {
+	            x += 32;
+	        }
+	        if (x > 1000){
+	            y += 32;
+	            x = 0;
+	        }
+	    }
+	    scanner.close();
+	}
+
+	public void nahrajObjekty() throws FileNotFoundException{
+		int x = 0;
+	    int y = 0;
+	    File file = new File("mapy/mapa.txt");
+	    Scanner scanner = new Scanner(file);
+	    while (scanner.hasNextLine()){
+	        if(scanner.nextInt() == 4){
+	            addObject(new Enemy(x,y,platno, this));
+	            x += 32;
+	        }
+	        else {
+	            x += 32;
+	        }
+	        if (x > 1000){
+	            y += 32;
+	            x = 0;
+	        }
+	    }
+	    scanner.close();
+	}
+	private void nahrajHraca() throws FileNotFoundException{
+	    int x = 0;
+	    int y = 0;
+	    File file = new File("mapy/mapa.txt");
+	    Scanner scanner = new Scanner(file);
+	    while (scanner.hasNextLine()){
+	        if(scanner.nextInt() == 2){
+	            addObject(new Player(x,y,platno, this));
+	            x += 32;
+	        }
+	        else {
+	            x += 32;
+	        }
+	        if (x > 1000){
+	            y += 32;
+	            x = 0;
+	        }
+	    }
+	    scanner.close();
+	}
+	
 	public int getMouseX() {
 		return mouseX;
 	}
@@ -56,55 +124,7 @@ public class Handler {
 		}
 	}
 
-	public void nahrajPozadie() throws FileNotFoundException {
-		int x = 0;
-	    int y = 0;
-	    File file = new File("mapy/mapa.txt");
-	    Scanner scanner = new Scanner(file);
-	    while (scanner.hasNextLine()){
-	        if(scanner.nextInt() == 1){
-	            addObject(new Stena(x,y,platno, this));
-	            x += 32;
-	        }
-	        else {
-	            x += 32;
-	        }
-	        if (x > 1000){
-	            y += 32;
-	            x = 0;
-	        }
-	    }
-	    scanner.close();
-	}
-
-	public void nahrajObjekty() throws FileNotFoundException{
-		nahrajHraca();
-		for (int i = 0; i < 10; i++) {
-			int x = new Random().nextInt(900)+50;
-			int y = new Random().nextInt(700)+50;
-			addObject(new Enemy(x,y,platno,this));
-		}
-	}
-	private void nahrajHraca() throws FileNotFoundException{
-	    int x = 0;
-	    int y = 0;
-	    File file = new File("mapy/mapa.txt");
-	    Scanner scanner = new Scanner(file);
-	    while (scanner.hasNextLine()){
-	        if(scanner.nextInt() == 2){
-	            addObject(new Player(x,y,platno, this));
-	            x += 32;
-	        }
-	        else {
-	            x += 32;
-	        }
-	        if (x > 1000){
-	            y += 32;
-	            x = 0;
-	        }
-	    }
-	    scanner.close();
-	}
+	
 	
 	/**
      * Akutalizuje okno hry s objektami 60 krat za sekundu.
@@ -176,4 +196,6 @@ public class Handler {
     public void setLeft(boolean left) {
         this.left = left;
     }
+
+
 }

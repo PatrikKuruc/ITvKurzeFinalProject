@@ -46,8 +46,7 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		addMouseListener(Mys);
 		addMouseMotionListener(Mys);
 		
-		handler.nahrajPozadie();
-		handler.nahrajObjekty();
+		handler.nahraj();
 		
 		run();
 	}
