@@ -1,4 +1,4 @@
-package shooter;
+package shooter.objektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -7,10 +7,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import shooter.Platno;
+
 /**
  * Trieda vytvara hraca
  */
-public class Player extends ObjektHry{
+public class Player extends PohyblivyObjektHry{
 	// premenne ktore maju vsetky pohyblive objekty - strely, hrac, enemy 
 		private double uholX;
 		private double uholY;
@@ -43,21 +45,16 @@ public class Player extends ObjektHry{
 	
 	@Override
 	public void aktualizujObjektHry() {
-		
-		
-		if (!zistiKoliziu()) {
-			pohni();
-			rectangle.setBounds(poziciaX, poziciaY, width, height);
-			aktualizujRotaciu();
-		}
-		
-		
+		pohni();
+		zistiKoliziu();
+		rectangle.setBounds(poziciaX, poziciaY, width, height);
+		aktualizujRotaciu();
 	}
 
 	/**
 	 * Pohne hracom
 	 */
-	private void pohni() {
+	public void pohni() {
 		poziciaX += vecX;
         poziciaY += vecY;
         
@@ -96,18 +93,18 @@ public class Player extends ObjektHry{
 		rotacia=Math.atan2(uholY, uholX);
 	}
 
-	private boolean zistiKoliziu() {
+	public void zistiKoliziu() {
 		 for(int i = 0; i < handler.objekty.size(); i++){
 
 	            ObjektHry objektHry = handler.objekty.get(i);
 
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
-	                        return true;
+	                    	poziciaX -= vecX;
+	                        poziciaY -= vecY;
 	                }
 	            }
 	        }
-		 return false;
 	}
 
 	@Override

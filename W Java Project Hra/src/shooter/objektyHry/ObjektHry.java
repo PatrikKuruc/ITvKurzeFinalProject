@@ -1,8 +1,10 @@
-package shooter;
+package shooter.objektyHry;
 
 import java.awt.*;
 
 import javax.swing.JComponent;
+
+import shooter.Platno;
 
 /**
  * Trieda ObjektHry reprezentuje zaklad pre vsetky objekty hry - steny, hrac, strela, atd. 

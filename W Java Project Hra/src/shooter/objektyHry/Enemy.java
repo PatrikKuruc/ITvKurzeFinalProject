@@ -1,4 +1,4 @@
-package shooter;
+package shooter.objektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
+
+import shooter.Platno;
 
 /**
  * Trieda vytvara objekty hry typu enemy  

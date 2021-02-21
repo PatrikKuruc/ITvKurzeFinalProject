@@ -3,6 +3,8 @@ package shooter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import shooter.objektyHry.Handler;
+
 /**
  * Trieda sluzi na spracovanie vstupov z klavesnice
  */

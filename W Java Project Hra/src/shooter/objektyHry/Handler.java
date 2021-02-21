@@ -1,4 +1,4 @@
-package shooter;
+package shooter.objektyHry;
 
 import java.awt.Graphics;
 import java.io.File;
@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
+
+import shooter.Platno;
 
 /**
  * Trieda Handler sluzi na spracovanie roznych objekov hry.

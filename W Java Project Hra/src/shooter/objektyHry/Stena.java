@@ -1,9 +1,11 @@
-package shooter;
+package shooter.objektyHry;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+
+import shooter.Platno;
 
 public class Stena extends ObjektHry{
     /**

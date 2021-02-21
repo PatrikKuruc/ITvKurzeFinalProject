@@ -3,6 +3,8 @@ package shooter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import shooter.objektyHry.Handler;
+
 
 /**
  * Sluzi na ziskanie suradnic kurzora mysi

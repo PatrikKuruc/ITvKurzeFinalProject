@@ -14,6 +14,9 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import shooter.objektyHry.Handler;
+import shooter.objektyHry.Player;
+
 /**
  * Trieda sluzi na vykreslovanie objektov hry
  */
