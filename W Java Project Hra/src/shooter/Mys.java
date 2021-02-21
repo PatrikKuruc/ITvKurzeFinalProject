@@ -1,27 +1,39 @@
 package shooter;
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
+
 /**
- * Trieda sluzi na spracovanie vstupu z tlacidiel mysi.
+ * Sluzi na ziskanie suradnic kurzora mysi
  */
-public class ClickMysou implements MouseListener {
+public class Mys extends MouseAdapter{
+	
+	Handler handler;
+	
+	public Mys(Handler handler) {
+		this.handler = handler;
+	}
 
-	private Player player;
 
-	/**
-	 * Vytvori mouse listener
-	 * @param player hrac
-	 */
-	public ClickMysou(Player player) {
-		this.player = player;
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		handler.setMouseX(e.getX());
+		handler.setMouseY(e.getY());
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent e) {
 	}
 	/**
 	 * Vykonava prikazy po kliknuti tlacidla
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
+		//e.getButton(); - vrati integer, podla toho ktorym tlacidlom mysi kliknes
+		// 1 = lave tlacidlo mysi
+		// 2 = stredne tlacidlo mysi
+		// 3 = prave tlacidlo mysi
 	}
 
 	/**
@@ -29,23 +41,14 @@ public class ClickMysou implements MouseListener {
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
-		//e.getButton(); - vrati integer, podla toho ktorym tlacidlom mysi kliknes
-		// 1 = lave tlacidlo mysi
-		// 2 = stredne tlacidlo mysi
-		// 3 = prave tlacidlo mysi
-
-		int clicked = e.getButton();
-		if (clicked == 1) {
-			player.shoot();
-		}
-	}
+		handler.playerShoot();
+    }
 	
 	/**
 	 * Vykonava prikazy po pusteni stlaceneho tlacidla
 	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		
 	}
 
 	/**
@@ -53,7 +56,6 @@ public class ClickMysou implements MouseListener {
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		
 	}
 
 	/**
@@ -61,7 +63,5 @@ public class ClickMysou implements MouseListener {
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
-		
 	}
-
 }

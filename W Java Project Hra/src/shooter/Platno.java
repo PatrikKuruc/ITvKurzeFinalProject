@@ -12,19 +12,17 @@ import java.util.Arrays;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
 /**
  * Trieda sluzi na vykreslovanie objektov hry
  */
-public class Platno extends JPanel implements ActionListener{
+public class Platno extends JPanel implements ActionListener, Runnable{
 	
 	// casovac, ktory bude zodpovedny za aktualizacie a vykreslovanie objektov
 	private Timer timer = new Timer(Settings.REFRESH_RATE, this);
 	
-	private static Player player;
-	
-	// Arraylist sluzi na jednoduchsie prekreslovanie objektov hry, kazdy objekt hry musi byt podtriedou JComponentu
-	private ArrayList<JComponent> strely = new ArrayList<>();
-	private ArrayList<JComponent> objektyMapy = new ArrayList<>();
+	private static Handler handler;
+	private Player player;
 	
 	private Klavesnica klavesnica;
 	
@@ -32,24 +30,20 @@ public class Platno extends JPanel implements ActionListener{
 	 * Vytvor panel
 	 * @param klavesnica 
 	 */
-	public Platno(Klavesnica klavesnica) {
-		this.klavesnica = klavesnica;
+	public Platno() {
+		this.handler = new Handler(this);
+		
 		// velkost platna nacita z nastaveni
 		setPreferredSize(Settings.PANEL_SIZE);
-		
-		// vytvor hraca na suradniciach
-		this.player = new Player(150,150,this);
-		
+				
 		// vytvori posluchac pohybu mysky, prida ho na platno
-		PohybMysou pohybMysou = new PohybMysou();
-		addMouseMotionListener(pohybMysou);
+		Mys Mys = new Mys(handler);
+		addMouseListener(Mys);
+		addMouseMotionListener(Mys);
 		
-		// vytvori posluchac klikania mysky, prida ho na platno
-		ClickMysou myska = new ClickMysou(this.player);
-		addMouseListener(myska);
-
-		// spusti casovac
-		timer.start();
+		
+		handler.addObject(new Player(50,50,this,handler));
+		run();
 	}
 
 	// telo posluchaca, vykonava sa 60-krat za sekundu
@@ -57,21 +51,18 @@ public class Platno extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// prekresli sa cele platno (JPanel) nanovo
-		getKeysInput();
+		handler.aktualizujObjektyHry();
 		repaint();
+		
 	}
 	
-	private void getKeysInput() {
-		int[] move = klavesnica.getMove();
-		
-		player.setVecX(move[0]); 
-		player.setVecY(move[1]);
-	}
 
 	/**
 	 * Vykreslovanie platna
 	 */
 	protected void paintComponent(Graphics g) {
+		// chyba: buffer TODO:
+		
 		// pri kazdom dalsom prekresleni treba najprv nakreslit JPanel nanovo
 		super.paintComponent(g);
 		
@@ -83,27 +74,18 @@ public class Platno extends JPanel implements ActionListener{
 		g.drawOval(50, 100, 50, 100);
 		
 		// nakresli hraca
-		player.draw(g);
+		handler.vykresli(g);
 		
-		// nakresli vsetky strely
-		for (JComponent strela : strely) {
-			((Strela) strela).draw(g);
-		}
 
 	}
 
-	// prida objekt do listu podla typu
-	public void spawn(JComponent objekt) {
-		if (objekt instanceof Strela) {
-			strely.add(objekt);
-		}
+	@Override
+	public void run() {
+		// spusti timer
+		timer.start();
 	}
 
-	// zmaze objekt z listu podla typu
-	public void zmazObjekt(JComponent objekt) {
-		if (objekt instanceof Strela) {
-			strely.remove(objekt);
-			//objekt.nezobrazuj()
-		}
+	public static Handler getHandler() {
+		return handler;
 	}
 }

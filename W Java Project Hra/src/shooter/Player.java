@@ -2,33 +2,15 @@ package shooter;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
 /**
  * Trieda vytvara hraca
  */
-public class Player extends Sprite{
-	//premenne ktore budu mat vsetky objekty hry - steny, mapa, zbrane, nepriatelia, vsetko...
-	
-		// premenne pre poziciu objektu
-		private int poziciaX;
-		private int poziciaY;
-		private int centerX;
-		private int centerY;
-		
-		// premenne potrebne na vykreslovanie objektu
-		private Platno platno;
-		private Image image;
-		private int height;
-		private int width;
-		private Rectangle rectangle = new Rectangle();
-		
+public class Player extends ObjektHry{
 	// premenne ktore maju vsetky pohyblive objekty - strely, hrac, enemy 
 		private double uholX;
 		private double uholY;
@@ -42,10 +24,8 @@ public class Player extends Sprite{
 	 * @param poziciaY pozicia hraca, Y suradnica laveho horneho rohu
 	 * @param platno JPanel na ktory sa hrac vykresli
 	 */
-	public Player(int poziciaX, int poziciaY, Platno platno) {
-		this.poziciaX = poziciaX;
-		this.poziciaY = poziciaY;
-		this.platno = platno;
+	public Player(int poziciaX, int poziciaY, Platno platno, Handler handler) {
+		super(poziciaX, poziciaY, platno, handler);
 		
 		// nacitaj obrazok a ziskaj z obrazku parametre pre hraca
 		// 			sirka, vyska, rect (pre kolizie)
@@ -60,46 +40,27 @@ public class Player extends Sprite{
 			e.printStackTrace();
 		}
 	}
-	
-	/**
-	 * Vykresli hraca
-	 */
-	public void draw(Graphics graf) {
-		// aktualizuje parametre hraca
-		refresh();
-
-		Graphics2D g = (Graphics2D) graf.create();
-		// otoci pod uhlom (v radianoch), okolo stredu
-		g.rotate(rotacia, centerX, centerY);
-		// vykresli stvorec okolo hraca
-		g.draw(rectangle);
-		// vykresli obrazok hraca
-		g.drawImage(image, poziciaX, poziciaY, null);
-		
-		g.dispose();
-	}
-
-	/**
-	 * Aktualizuje hraca
-	 */
-	private void refresh() {
-		aktualizujRotaciu();
-		//aktualizujVektoryPohybu();
-		pohni();
-		rectangle.setBounds(poziciaX, poziciaY, width, height);
-	}
 
 	/**
 	 * Pohne hracom
 	 */
 	private void pohni() {
+		poziciaX += vecX;
+        poziciaY += vecY;
+        
+        // pohyb hraca
+        if(handler.isUp()) vecY = -5;
+        else if(!handler.isDown()) vecY = 0;
 
-		if (vecX!=0) {
-			poziciaX += vecX*Settings.PLAYER_SPEED;	
-		}
-		if (vecY!=0) {
-			poziciaY += vecY*Settings.PLAYER_SPEED;	
-		}
+        if(handler.isDown()) vecY = 5;
+        else if(!handler.isUp()) vecY = 0;
+
+        if(handler.isRight()) vecX = 5;
+        else if(!handler.isLeft()) vecX = 0;
+
+        if(handler.isLeft()) vecX = -5;
+        else if(!handler.isRight()) vecX = 0;	
+		
 		
 		this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
@@ -112,25 +73,38 @@ public class Player extends Sprite{
 	public void setVecY(double vecY) {
 		this.vecY = vecY;
 	}
-
 	
 	/**
 	 * Aktualizuje uhol rotacie hraca
 	 */
 	private void aktualizujRotaciu() {
-		uholX = PohybMysou.getMouseX() - centerX;
-		uholY = PohybMysou.getMouseY() - centerY;
+		uholX = handler.getMouseX() - centerX;
+		uholY = handler.getMouseY() - centerY;
 		rotacia=Math.atan2(uholY, uholX);
 	}
 
-	/**
-	 * Vytvori objekt triedy Strela na hracovej pozicii
-	 */
-	public void shoot() {
-		
-		for (int i = 0; i < 1; i++) {
-			double[] x = {centerX+5*i, centerY+5*i, uholX, uholY};
-			platno.spawn(new Strela(x, platno));
-		}
+	@Override
+	public void aktualizujObjektHry() {
+		aktualizujRotaciu();
+		//aktualizujVektoryPohybu();
+		pohni();
+		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
+
+	@Override
+	public void vykresli(Graphics gr) {
+		// aktualizuje parametre hraca
+
+		Graphics2D g = (Graphics2D) gr.create();
+		// otoci pod uhlom (v radianoch), okolo stredu
+		g.rotate(rotacia, centerX, centerY);
+		// vykresli stvorec okolo hraca
+		g.draw(this.rectangle);
+		// vykresli obrazok hraca
+		g.drawImage(image, poziciaX, poziciaY, null);
+		
+		g.dispose();
+		
+	}
+
 }

@@ -11,21 +11,7 @@ import javax.imageio.ImageIO;
 /**
  * Trieda vytvara strelu
  */
-public class Strela extends Sprite {
-	// premenne kazdeho objektu hry
-
-	// premenne pre poziciu objektu
-		private int poziciaX;
-		private int poziciaY;
-		private double centerX;
-		private double centerY;
-	
-	// premenne potrebne na vykreslovanie objektu
-		private Platno platno;
-		private Image image;
-		private int height;
-		private int width;
-		private Rectangle rectangle = new Rectangle();
+public class Strela extends ObjektHry {
 	
 	// premenne pohybliveho objektu
 		private double uholX;
@@ -43,10 +29,10 @@ public class Strela extends Sprite {
 	 * @param strelaParam parametre strely
 	 * @param platno JPanel na ktorom sa strela bude vykreslovat
 	 */
-	public Strela(double[] strelaParam, Platno platno) {
-		this.centerX = strelaParam[0];
-		this.centerY = strelaParam[1];
-		this.platno = platno;
+	public Strela(int poziciaX, int poziciaY, Platno platno, Handler handler) {
+		super(poziciaX, poziciaY, platno, handler);
+		int smerX = handler.getMouseX();
+		int smerY = handler.getMouseY();
 		this.zobrazit = true;
 		
 		// nacitaj obrazok a ziskaj z obrazku parametre pre strelu
@@ -68,25 +54,40 @@ public class Strela extends Sprite {
 		image = image.getScaledInstance(width, height, Image.SCALE_FAST);
 		
 		// vypocitaj vektory uhla, pod ktorym bola strela vystrelena
-		this.uholX = strelaParam[2];
-		this.uholY = strelaParam[3];
+		this.uholX = smerX-poziciaX;
+		this.uholY = smerY-poziciaY;
 		// zarotuj obrazok strely podla uhla (v radianoch)
 		this.rotacia=Math.atan2(uholY, uholX);	
 		
 		// vypocet vektorov pohybu strely (pytagorova veta)
-		double prep = Math.sqrt(Math.pow(uholX, 2)+Math.pow(uholY, 2));
-		this.vecX = uholX / prep;
-		this.vecY = uholY / prep;
+		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
+        double rychlost = 15;
+        vecX = (float) (uholX * rychlost / vzdialenost);
+        vecY = (float) (uholY * rychlost / vzdialenost);
 	}
 
 	/**
-	 * Vykresli strelu
+	 * Pohne strelou
 	 */
-	public void draw(Graphics graf) {
+	private void pohni() {
+		poziciaX += vecX;
+        poziciaY += vecY;
 		
+		this.centerX = poziciaX + (width/2);
+		this.centerY = poziciaY + (height/2);
+	}
+
+	@Override
+	public void aktualizujObjektHry() {
+		
+		pohni();
+		rectangle.setBounds(poziciaX, poziciaY, image.getWidth(platno), image.getHeight(platno));
+	}
+
+	@Override
+	public void vykresli(Graphics g2) {
 		// aktualizuje parametre strely
-		refresh();
-		Graphics2D g = (Graphics2D) graf.create();	
+		Graphics2D g = (Graphics2D) g2.create();	
 		
 		// otoci pod uhlom (v radianoch), okolo stredu
 		g.rotate(rotacia, centerX, centerY);
@@ -97,29 +98,6 @@ public class Strela extends Sprite {
 		g.drawImage(image, poziciaX, poziciaY, null);
 		
 		g.dispose();
-	}
-
-	/**
-	 * Aktualizuje strelu - len pohyb
-	 */
-	private void refresh() {
-		pohni();
-		rectangle.setBounds(poziciaX, poziciaY, image.getWidth(platno), image.getHeight(platno));
-	}
-
-	/**
-	 * Pohne strelou
-	 */
-	private void pohni() {
-		//pohyb
-		centerX+=vecX*speed;
-		centerY+=vecY*speed;
-		// skontroluj ci neni mimo platna, ak ano zmaz strelu
-		if (poziciaX>Settings.WINDOW_WIDTH || poziciaX<0 || poziciaY>Settings.WINDOW_HEIGHT || poziciaY<0) {
-			platno.zmazObjekt(this);
-		}
 		
-		poziciaX = (int) (centerX -(width/2));
-		poziciaY = (int) (centerY - (height/2));
 	}
 }

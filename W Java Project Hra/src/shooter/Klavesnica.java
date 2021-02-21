@@ -8,8 +8,11 @@ import java.awt.event.KeyListener;
  */
 public class Klavesnica implements KeyListener{
 		
-	// vektory pohybu
-	private int[] Move = {0,0};
+	Handler handler;
+
+	public Klavesnica(Handler handler) {
+		this.handler = handler;
+	}
 
 	/**
 	 * Vykona prikazy po kliknuti tlacidla
@@ -27,16 +30,16 @@ public class Klavesnica implements KeyListener{
 		// aktualizuje vektory pohybu podla stlacenej klavesnice
 		char keyPressed = e.getKeyChar();
 		if (keyPressed == 'a') {
-			Move[0] = -1;
+			handler.setLeft(true);
 		}
 		if (keyPressed == 'd') {
-			Move[0] = 1;
+			handler.setRight(true);
 		}
 		if (keyPressed == 'w') {
-			Move[1] = -1;
+			handler.setUp(true);
 		}
 		if (keyPressed == 's') {
-			Move[1] = 1;
+			handler.setDown(true);
 		}
 	}
 
@@ -48,25 +51,19 @@ public class Klavesnica implements KeyListener{
 		// zresetuje vektory pohybu
 		char keyReleased = e.getKeyChar();
 		if (keyReleased == 'a') {
-			Move[0] = 0;
+			handler.setLeft(false);
 		}
 		if (keyReleased == 'd') {
-			Move[0] = 0;
+			handler.setRight(false);
 		}
 		if (keyReleased == 'w') {
-			Move[1] = 0;
+			handler.setUp(false);
 		}
 		if (keyReleased == 's') {
-			Move[1] = 0;
+			handler.setDown(false);
 		}
 	}
 
-	/**
-	 * Vrati vektor pohybu
-	 * @return Move vektory pohybu
-	 */
-	public int[] getMove() {
-		return Move;
-	}
+
 	
 }
