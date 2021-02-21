@@ -3,7 +3,11 @@ package shooter;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
 
 /**
  * Trieda vytvara objekty hry typu enemy  
@@ -23,6 +27,17 @@ public class Enemy extends ObjektHry {
 		super(poziciaX, poziciaY, platno, handler);
 		width = 50;
 		height = 50;
+		
+		try {
+			image = ImageIO.read(new File("obr/zoimbie1_hold.png"));
+			this.height = image.getHeight(platno);
+			this.width = image.getWidth(platno)*2/3;
+			this.rectangle.setBounds(poziciaX, poziciaY, width, height);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public Rectangle getBoundsBig() {
         return new Rectangle(poziciaX -16 , poziciaY - 16,64,64);
@@ -72,7 +87,7 @@ public class Enemy extends ObjektHry {
 		// vykresli stvorec okolo hraca
 		g.draw(this.rectangle);
 		// vykresli obrazok 
-		//g.drawImage(image, poziciaX, poziciaY, null);
+		g.drawImage(image, poziciaX, poziciaY, null);
 		
 		g.dispose();
 	}

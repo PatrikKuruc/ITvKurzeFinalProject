@@ -1,8 +1,11 @@
 package shooter;
 
 import java.awt.Graphics;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Trieda Handler sluzi na spracovanie roznych objekov hry.
@@ -16,7 +19,7 @@ public class Handler {
 
     private boolean up = false, down = false, right = false, left = false;
     private int mouseX, mouseY;
-
+    Scanner scanner;
 	private Platno platno;
 
     public Handler(Platno platno) {
@@ -51,24 +54,57 @@ public class Handler {
 		}
 	}
 
-	public void nahrajPozadie() {
-		for (int i = 0; i < 1000/32+1; i++) {
-			addObject(new Stena(i*32,0,platno,this));
-			addObject(new Stena(i*32,800-32,platno,this));
-		}
-		for (int i = 0; i < 800/32+1; i++) {
-			addObject(new Stena(0,i*32,platno,this));
-			addObject(new Stena(1000-32,i*32,platno,this));
-		}
+	public void nahrajPozadie() throws FileNotFoundException {
+		int x = 0;
+	    int y = 0;
+	    File file = new File("mapy/mapa.txt");
+	    System.out.println(file);
+	    Scanner scanner = new Scanner(file);
+	    while (scanner.hasNextLine()){
+	        if(scanner.nextInt() == 1){
+	            addObject(new Stena(x,y,platno, this));
+	            x += 32;
+	        }
+	        else {
+	            x += 32;
+	        }
+	        if (x > 1000){
+	            y += 32;
+	            x = 0;
+	        }
+	    }
+	    scanner.close();
 	}
 	
 
-	public void nahrajObjekty() {
+	public void nahrajObjekty() throws FileNotFoundException{
+		nahrajHraca();
 		for (int i = 0; i < 10; i++) {
 			int x = new Random().nextInt(900)+50;
 			int y = new Random().nextInt(700)+50;
 			addObject(new Enemy(x,y,platno,this));
 		}
+	}
+	private void nahrajHraca() throws FileNotFoundException{
+	    int x = 0;
+	    int y = 0;
+	    File file = new File("mapy/mapa.txt");
+	    System.out.println(file);
+	    Scanner scanner = new Scanner(file);
+	    while (scanner.hasNextLine()){
+	        if(scanner.nextInt() == 2){
+	            addObject(new Player(x,y,platno, this));
+	            x += 32;
+	        }
+	        else {
+	            x += 32;
+	        }
+	        if (x > 1000){
+	            y += 32;
+	            x = 0;
+	        }
+	    }
+	    scanner.close();
 	}
 	
 	/**

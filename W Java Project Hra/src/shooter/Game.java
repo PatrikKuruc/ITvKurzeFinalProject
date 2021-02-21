@@ -1,6 +1,7 @@
 package shooter;
 
 import java.awt.BorderLayout;
+import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
 /**
@@ -9,8 +10,9 @@ import javax.swing.JFrame;
 public class Game extends JFrame {
 	/**
 	 * Vytvori okno (JFrame) hry
+	 * @throws FileNotFoundException 
 	 */
-	public Game() {
+	public Game() throws FileNotFoundException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(Settings.WINDOW_HEIGHT, Settings.WINDOW_WIDTH);
 		setLocationRelativeTo(null);

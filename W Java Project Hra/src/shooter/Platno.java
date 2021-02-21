@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -29,8 +30,9 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 	/**
 	 * Vytvor panel
 	 * @param klavesnica 
+	 * @throws FileNotFoundException 
 	 */
-	public Platno() {
+	public Platno() throws FileNotFoundException {
 		this.handler = new Handler(this);
 		
 		// velkost platna nacita z nastaveni
@@ -44,7 +46,6 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		handler.nahrajPozadie();
 		handler.nahrajObjekty();
 		
-		handler.addObject(new Player(100,100,this,handler));
 		run();
 	}
 

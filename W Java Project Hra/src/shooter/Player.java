@@ -85,7 +85,7 @@ public class Player extends ObjektHry{
 
 	@Override
 	public void aktualizujObjektHry() {
-		//aktualizujRotaciu();
+		aktualizujRotaciu();
 		zistiKoliziu();
 		pohni();
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
