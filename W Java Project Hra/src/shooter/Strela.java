@@ -60,7 +60,7 @@ public class Strela extends ObjektHry {
 		
 		// vypocet vektorov pohybu strely (pytagorova veta)
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
-        double rychlost = 5;
+        double rychlost = 15;
         vecX = (float) (uholX * rychlost / vzdialenost);
         vecY = (float) (uholY * rychlost / vzdialenost);
 	}

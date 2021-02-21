@@ -58,7 +58,6 @@ public class Handler {
 		int x = 0;
 	    int y = 0;
 	    File file = new File("mapy/mapa.txt");
-	    System.out.println(file);
 	    Scanner scanner = new Scanner(file);
 	    while (scanner.hasNextLine()){
 	        if(scanner.nextInt() == 1){
@@ -75,7 +74,6 @@ public class Handler {
 	    }
 	    scanner.close();
 	}
-	
 
 	public void nahrajObjekty() throws FileNotFoundException{
 		nahrajHraca();
@@ -89,7 +87,6 @@ public class Handler {
 	    int x = 0;
 	    int y = 0;
 	    File file = new File("mapy/mapa.txt");
-	    System.out.println(file);
 	    Scanner scanner = new Scanner(file);
 	    while (scanner.hasNextLine()){
 	        if(scanner.nextInt() == 2){

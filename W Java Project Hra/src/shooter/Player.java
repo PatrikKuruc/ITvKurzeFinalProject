@@ -40,6 +40,19 @@ public class Player extends ObjektHry{
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public void aktualizujObjektHry() {
+		
+		
+		if (!zistiKoliziu()) {
+			pohni();
+			rectangle.setBounds(poziciaX, poziciaY, width, height);
+			aktualizujRotaciu();
+		}
+		
+		
+	}
 
 	/**
 	 * Pohne hracom
@@ -83,26 +96,18 @@ public class Player extends ObjektHry{
 		rotacia=Math.atan2(uholY, uholX);
 	}
 
-	@Override
-	public void aktualizujObjektHry() {
-		aktualizujRotaciu();
-		zistiKoliziu();
-		pohni();
-		rectangle.setBounds(poziciaX, poziciaY, width, height);
-	}
-
-	private void zistiKoliziu() {
+	private boolean zistiKoliziu() {
 		 for(int i = 0; i < handler.objekty.size(); i++){
 
 	            ObjektHry objektHry = handler.objekty.get(i);
 
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
-	                        poziciaX += vecX * -1;
-	                        poziciaY += vecY * -1;
+	                        return true;
 	                }
 	            }
 	        }
+		 return false;
 	}
 
 	@Override

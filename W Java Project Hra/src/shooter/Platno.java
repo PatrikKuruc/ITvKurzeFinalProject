@@ -70,9 +70,6 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		// najprv nakresli mapu (staticke objekty)
 		setBackground(new Color(20,100,80));
 		
-		// nakresli objekty (pohyblive objekty - v zmysle, veci ktore menia svoju poziciu alebo stav - cize aj itemy
-		g.drawOval(50, 100, 50, 100);
-		
 		// nakresli hraca
 		handler.vykresli(g);
 	}
