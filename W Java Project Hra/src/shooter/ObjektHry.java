@@ -6,7 +6,6 @@ import javax.swing.JComponent;
 
 /**
  * Trieda ObjektHry reprezentuje zaklad pre vsetky objekty hry - steny, hrac, strela, atd. 
- *
  */
 public abstract class ObjektHry extends JComponent {
 	

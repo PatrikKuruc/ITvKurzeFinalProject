@@ -2,6 +2,7 @@ package shooter;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Trieda Handler sluzi na spracovanie roznych objekov hry.
@@ -50,6 +51,26 @@ public class Handler {
 		}
 	}
 
+	public void nahrajPozadie() {
+		for (int i = 0; i < 1000/32+1; i++) {
+			addObject(new Stena(i*32,0,platno,this));
+			addObject(new Stena(i*32,800-32,platno,this));
+		}
+		for (int i = 0; i < 800/32+1; i++) {
+			addObject(new Stena(0,i*32,platno,this));
+			addObject(new Stena(1000-32,i*32,platno,this));
+		}
+	}
+	
+
+	public void nahrajObjekty() {
+		for (int i = 0; i < 10; i++) {
+			int x = new Random().nextInt(900)+50;
+			int y = new Random().nextInt(700)+50;
+			addObject(new Enemy(x,y,platno,this));
+		}
+	}
+	
 	/**
      * Akutalizuje okno hry s objektami 60 krat za sekundu.
      */

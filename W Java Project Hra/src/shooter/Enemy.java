@@ -23,6 +23,8 @@ public class Enemy extends ObjektHry {
 
 	@Override
 	public void vykresli(Graphics gr) {
+		// vykresli obrazok o par pixelov mensi ako rectangle na kolizie
+		
 		Graphics2D g = (Graphics2D) gr.create();
 		// vykresli stvorec okolo hraca
 		g.draw(this.rectangle);

@@ -41,16 +41,15 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		addMouseListener(Mys);
 		addMouseMotionListener(Mys);
 		
+		handler.nahrajPozadie();
+		handler.nahrajObjekty();
 		
 		handler.addObject(new Player(50,50,this,handler));
-		handler.addObject(new Enemy(250,750,this,handler));
-		handler.addObject(new Enemy(500,500,this,handler));
-		handler.addObject(new Enemy(750,250,this,handler));
 		run();
 	}
 
 	// telo posluchaca, vykonava sa 60-krat za sekundu
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// prekresli sa cele platno (JPanel) nanovo

@@ -2,6 +2,7 @@ package shooter;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 public class Stena extends ObjektHry{
@@ -18,9 +19,11 @@ public class Stena extends ObjektHry{
 
 
     @Override
-    public void vykresli(Graphics g) {
+    public void vykresli(Graphics g2) {
+    	Graphics2D g = (Graphics2D) g2.create();
         g.setColor(Color.black);
         g.fillRect(poziciaX,poziciaY,32,32);
+        g.dispose();
     }
 
     @Override
