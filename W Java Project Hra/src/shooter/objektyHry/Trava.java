@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 
 import shooter.Platno;
 
-public class Stena extends ObjektHry{
+public class Trava extends ObjektHry{
     /**
      * Zostroji sa objekt hry
      *
@@ -20,11 +20,11 @@ public class Stena extends ObjektHry{
      * @param y  suradnica y, na ktorej sa ma objekt hry vytvorit
      * @param id rozpoznovacie id, aby sa vedelo, o aky typ objektu sa jedna
      */
-    public Stena(int x, int y, Platno platno, Handler handler) {
+    public Trava(int x, int y, Platno platno, Handler handler) {
         super(x, y, platno, handler);
         
         try {
-			image = ImageIO.read(new File("obr/stena.png"));
+			image = ImageIO.read(new File("obr/trava.png"));
 			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -34,10 +34,10 @@ public class Stena extends ObjektHry{
 
 
     @Override
-    public void vykresli(Graphics g2) {
-    	Graphics2D g = (Graphics2D) g2.create();
-    	g.drawImage(image, poziciaX, poziciaY, null);
-        g.dispose();
+    public void vykresli(Graphics gr) {
+    	Graphics2D g = (Graphics2D) gr.create();
+		g.drawImage(image, poziciaX, poziciaY, null);
+		g.dispose();
     }
 
     @Override

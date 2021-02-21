@@ -8,10 +8,15 @@ import shooter.objektyHry.Handler;
 /**
  * Trieda sluzi na spracovanie vstupov z klavesnice
  */
+
 public class Klavesnica implements KeyListener{
 		
 	Handler handler;
 
+	/**
+	 * 
+	 * @param handler
+	 */
 	public Klavesnica(Handler handler) {
 		this.handler = handler;
 	}
@@ -65,7 +70,4 @@ public class Klavesnica implements KeyListener{
 			handler.setDown(false);
 		}
 	}
-
-
-	
 }
