@@ -85,10 +85,27 @@ public class Player extends ObjektHry{
 
 	@Override
 	public void aktualizujObjektHry() {
-		aktualizujRotaciu();
-		//aktualizujVektoryPohybu();
-		pohni();
+		//aktualizujRotaciu();
+		
+		boolean vKolizii = zistiKoliziu();
+		if (!vKolizii ) {
+			pohni();
+		}
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
+	}
+
+	private boolean zistiKoliziu() {
+		for(int i = 0; i < handler.objekty.size(); i++){
+
+            ObjektHry objektHry = handler.objekty.get(i);
+
+                if(objektHry instanceof Stena){
+                    if(getBounds().intersects(objektHry.getBounds())){
+                        return true;
+                }
+            }
+        }
+		return false;
 	}
 
 	@Override

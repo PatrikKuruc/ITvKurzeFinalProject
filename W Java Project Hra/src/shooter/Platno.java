@@ -44,7 +44,7 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		handler.nahrajPozadie();
 		handler.nahrajObjekty();
 		
-		handler.addObject(new Player(50,50,this,handler));
+		handler.addObject(new Player(100,100,this,handler));
 		run();
 	}
 

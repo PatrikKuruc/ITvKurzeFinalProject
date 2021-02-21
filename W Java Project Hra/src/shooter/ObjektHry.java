@@ -46,14 +46,12 @@ public abstract class ObjektHry extends JComponent {
         this.handler = handler;
     }
 
-
  // abstraktne metody, ktore zdedia vsetky objekty hry, ktore dedia triedu ObjektHry
     public abstract void aktualizujObjektHry();
     public abstract void vykresli(Graphics g);
 
-
     public Rectangle getBounds() {
-        return new Rectangle(poziciaX,poziciaY,width,height);
+        return new Rectangle(poziciaX-5,poziciaY-5,width+5,height+5);
     }
     
 	public void setPoziciaX(int poziciaX) {
