@@ -43,6 +43,9 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		
 		
 		handler.addObject(new Player(50,50,this,handler));
+		handler.addObject(new Enemy(250,750,this,handler));
+		handler.addObject(new Enemy(500,500,this,handler));
+		handler.addObject(new Enemy(750,250,this,handler));
 		run();
 	}
 
@@ -53,9 +56,7 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		// prekresli sa cele platno (JPanel) nanovo
 		handler.aktualizujObjektyHry();
 		repaint();
-		
 	}
-	
 
 	/**
 	 * Vykreslovanie platna
@@ -66,17 +67,14 @@ public class Platno extends JPanel implements ActionListener, Runnable{
 		// pri kazdom dalsom prekresleni treba najprv nakreslit JPanel nanovo
 		super.paintComponent(g);
 		
-		// najprv nakresli mapu
-		// zatial len nastavi pozadie, akoze trava :D
+		// najprv nakresli mapu (staticke objekty)
 		setBackground(new Color(20,100,80));
 		
-		// nakresli objekty
+		// nakresli objekty (pohyblive objekty - v zmysle, veci ktore menia svoju poziciu alebo stav - cize aj itemy
 		g.drawOval(50, 100, 50, 100);
 		
 		// nakresli hraca
 		handler.vykresli(g);
-		
-
 	}
 
 	@Override

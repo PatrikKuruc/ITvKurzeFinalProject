@@ -22,7 +22,6 @@ public class Strela extends ObjektHry {
 	
 		boolean zobrazit = false;
 	
-	private double speed=5;
 
 	/**
 	 * Vytvori strelu
@@ -61,7 +60,7 @@ public class Strela extends ObjektHry {
 		
 		// vypocet vektorov pohybu strely (pytagorova veta)
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
-        double rychlost = 15;
+        double rychlost = 5;
         vecX = (float) (uholX * rychlost / vzdialenost);
         vecY = (float) (uholY * rychlost / vzdialenost);
 	}

@@ -48,17 +48,14 @@ public class Handler {
 				break;
 			}
 		}
-		
 	}
 
 	/**
      * Akutalizuje okno hry s objektami 60 krat za sekundu.
      */
     public void aktualizujObjektyHry(){
-
         for(int i = 0; i < objekty.size(); i++){
             ObjektHry novyObjekt = objekty.get(i);
-            
             novyObjekt.aktualizujObjektHry();
         }
     }
@@ -68,7 +65,6 @@ public class Handler {
      * @param g graficke platno
      */
     public void vykresli(Graphics g){
-    	
         for(int i = 0; i < objekty.size(); i++){
             ObjektHry novyObjekt = objekty.get(i);
             novyObjekt.vykresli(g);
