@@ -25,7 +25,7 @@ public class Platno extends JPanel implements ActionListener{
 	 * Vytvor panel
 	 * @throws FileNotFoundException 
 	 */
-	public Platno() throws FileNotFoundException {
+	public Platno() throws FileNotFoundException{
 		// vytvori handler a nahra mapu a objekty hry
 		Platno.handler = new Handler(this);
 		handler.nahraj();
@@ -33,9 +33,9 @@ public class Platno extends JPanel implements ActionListener{
 		setPreferredSize(Settings.PANEL_SIZE);
 				
 		// vytvori posluchac mysky, prida ho na platno
-		Mys Mys = new Mys(handler);
-		addMouseListener(Mys);
-		addMouseMotionListener(Mys);
+		UserInput UserInput = new UserInput(handler);
+		addMouseListener(UserInput);
+		addMouseMotionListener(UserInput);
 		
 		// spusti hru
 		run();

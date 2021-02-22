@@ -13,7 +13,6 @@ import shooter.Platno;
  * Trieda vytvara hraca
  */
 public class Player extends PohyblivyObjektHry{
-	
 
 	/**
 	 * Vytvori hraca

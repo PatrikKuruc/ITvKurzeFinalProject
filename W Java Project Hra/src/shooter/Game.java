@@ -24,7 +24,7 @@ public class Game extends JFrame {
 		add(hra, BorderLayout.CENTER);
 	
 		// vytvori a prida posluchac klavesnice do okna
-		Klavesnica klavesnica = new Klavesnica(Platno.handler);
+		UserInput klavesnica = new UserInput(Platno.handler);
 		addKeyListener(klavesnica);
 		
 		// prisposobi velkost okna JFrame velkosti komponentov (ich preferredSize) v okne (v nasom pripade sa prisposobi velkosti JPanelu - Platno)
