@@ -29,7 +29,7 @@ public class Enemy extends PohyblivyObjektHry {
 		zivot=100;
 		
 		try {
-			image = ImageIO.read(new File("obr/zoimbie1_hold.png"));
+			image = ImageIO.read(new File("obr/enemy/1.png"));
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

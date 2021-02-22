@@ -29,7 +29,7 @@ public class Trava extends ObjektHry{
         this.height = 32;
         
         try {
-			image = ImageIO.read(new File("obr/trava.png"));
+			image = ImageIO.read(new File("obr/trava/1.png"));
 			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

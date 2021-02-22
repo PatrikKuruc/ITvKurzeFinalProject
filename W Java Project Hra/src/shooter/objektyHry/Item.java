@@ -25,7 +25,7 @@ public class Item extends ObjektHry{
         this.height = 32;
         
         try {
-			image = ImageIO.read(new File("obr/item.png"));
+			image = ImageIO.read(new File("obr/item/1.png"));
 			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

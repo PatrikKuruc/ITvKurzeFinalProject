@@ -25,7 +25,7 @@ public class Stena extends ObjektHry{
         this.width = 32;
         this.height = 32;
         try {
-			image = ImageIO.read(new File("obr/stena.png"));
+			image = ImageIO.read(new File("obr/stena/drevo/11.png"));
 			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

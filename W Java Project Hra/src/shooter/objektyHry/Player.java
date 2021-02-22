@@ -29,7 +29,7 @@ public class Player extends PohyblivyObjektHry{
 		this.width = 49;
 		
 		try {
-			image = ImageIO.read(new File("obr/player_gun.png"));
+			image = ImageIO.read(new File("obr/hrac/modry/3.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
