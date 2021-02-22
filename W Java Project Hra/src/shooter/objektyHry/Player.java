@@ -24,15 +24,13 @@ public class Player extends PohyblivyObjektHry{
 	 */
 	public Player(int poziciaX, int poziciaY,  Handler handler) {
 		super(poziciaX, poziciaY, handler);
+		this.height = 43;
+		this.width = 49;
 		
 		// nacitaj obrazok a ziskaj z obrazku parametre pre hraca
 		// 			sirka, vyska, rect (pre kolizie)
 		try {
 			image = ImageIO.read(new File("obr/player_gun.png"));
-			this.height = 42;
-			this.width = 32;
-			this.rectangle.setBounds(poziciaX, poziciaY, width, height);
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,7 +45,7 @@ public class Player extends PohyblivyObjektHry{
 		pohni();
 		
 	}
-
+	
 	public void zistiSmer() {
         // pohyb hraca
         if(handler.isUp()) vecY = -5;
@@ -106,10 +104,4 @@ public class Player extends PohyblivyObjektHry{
 	            }
 	        }
 	}
-
-	@Override
-	public void vykresli(Graphics gr) {
-		super.vykresli(gr);
-	}
-
 }

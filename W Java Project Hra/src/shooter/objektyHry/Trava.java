@@ -33,22 +33,15 @@ public class Trava extends ObjektHry{
 		}
     }
 
-
     @Override
-    public void vykresli(Graphics gr) {
-    	Graphics2D g = (Graphics2D) gr.create();
+    public void vykresli(Graphics g2) {
+    	Graphics2D g = (Graphics2D) g2.create();
 		g.drawImage(image, poziciaX, poziciaY, null);
 		g.dispose();
-    }
-
-    @Override
-    public Rectangle getBounds() {
-        return new Rectangle(poziciaX,poziciaY,32,32);
     }
 
 	@Override
 	public void aktualizujObjektHry() {
 		// TODO Auto-generated method stub
-		
 	}
 }

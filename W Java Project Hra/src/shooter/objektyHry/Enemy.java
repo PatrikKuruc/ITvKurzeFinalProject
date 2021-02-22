@@ -23,15 +23,12 @@ public class Enemy extends PohyblivyObjektHry {
 			
 	public Enemy(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
-		width = 50;
-		height = 50;
+		width = 35;
+		height = 43;
 		zivot=100;
 		
 		try {
 			image = ImageIO.read(new File("obr/zoimbie1_hold.png"));
-			//this.height = image.getHeight(platno);
-			//this.width = image.getWidth(platno)*2/3;
-			this.rectangle.setBounds(poziciaX, poziciaY, width, height);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -39,46 +36,18 @@ public class Enemy extends PohyblivyObjektHry {
 		}
 	}
 	
-	public Rectangle getBoundsBig() {
-        return new Rectangle(poziciaX -16 , poziciaY - 16,64,64);
-    }
-	
 	@Override
 	public void aktualizujObjektHry() {
-		
         zistiKoliziu();
-        
         pohni();
-		
-		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
-
 	
-	@Override
-	public void vykresli(Graphics gr) {
-		// vykresli obrazok o par pixelov mensi ako rectangle na kolizie
-		
-		Graphics2D g = (Graphics2D) gr.create();
-		// vykresli stvorec okolo hraca
-		g.draw(this.rectangle);
-		// vykresli obrazok 
-		g.drawImage(image, poziciaX, poziciaY, null);
-		
-		g.dispose();
-	}
-	@Override
-	public void pohni() {
-		poziciaX += vecX;
-        poziciaY += vecY;
-        pohyb = randomPohyb.nextInt(10);
-		
-	}
 	@Override
 	public void zistiKoliziu() {
 		for(int i = 0; i < handler.objekty.size(); i++){
             ObjektHry objektHry = handler.objekty.get(i);
             if(objektHry instanceof Stena){
-                if(getBoundsBig().intersects(objektHry.getBounds())){
+                if(getBounds().intersects(objektHry.getBounds())){
                     poziciaX += (vecX*5) * -1;
                     poziciaY += (vecY*5) * -1;
                     vecX *= -1;
@@ -92,6 +61,14 @@ public class Enemy extends PohyblivyObjektHry {
         if(zivot <= 0){
             handler.removeObject(this);
         }
-		
 	}
+	
+	@Override
+	public void pohni() {
+		poziciaX += vecX;
+        poziciaY += vecY;
+        pohyb = randomPohyb.nextInt(10);
+        rectangle.setBounds(poziciaX, poziciaY, width, height);
+	}
+
 }

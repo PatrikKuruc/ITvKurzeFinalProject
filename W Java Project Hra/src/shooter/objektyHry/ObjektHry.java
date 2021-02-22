@@ -30,11 +30,9 @@ public abstract class ObjektHry extends JComponent {
 			return centerX;
 		}
 
-
 		public int getCenterY() {
 			return centerY;
 		}
-
 
 	/**
      * Zostroji sa objekt hry
@@ -49,28 +47,26 @@ public abstract class ObjektHry extends JComponent {
         this.handler = handler;
     }
 
- // abstraktne metody, ktore zdedia vsetky objekty hry, ktore dedia triedu ObjektHry
+    // abstraktne metody, ktore zdedia vsetky objekty hry, ktore dedia triedu ObjektHry
+    // metody, ktore sa pre rozne typy objektov lisia
     public abstract void aktualizujObjektHry();
     
     public void vykresli(Graphics gr) {
     	Graphics2D g = (Graphics2D) gr.create();
-		
-		// vykresli stvorec okolo hraca
-		g.draw(this.rectangle);
+		// vykresli stvorec okolo objektu
+		g.draw(getBounds());
 		// vykresli obrazok hraca
 		g.drawImage(image, poziciaX, poziciaY, null);
-		
 		g.dispose();	
     };
 
 
 	public void takeDamage(int dmg) {
 		zivot -= dmg;
-		
 	}
     
     public Rectangle getBounds() {
-        return new Rectangle(poziciaX-5,poziciaY-5,width+5,height+5);
+        return new Rectangle(poziciaX-5,poziciaY-5,width+10,height+10);
     }
     
 	public void setPoziciaX(int poziciaX) {

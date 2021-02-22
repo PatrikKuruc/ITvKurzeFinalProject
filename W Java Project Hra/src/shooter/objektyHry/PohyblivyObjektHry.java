@@ -2,6 +2,7 @@ package shooter.objektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import shooter.Platno;
 import shooter.Handler;
@@ -21,11 +22,11 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		super(poziciaX, poziciaY, handler);
 	}
 
+	
 	@Override
-	public void aktualizujObjektHry() {
-		// TODO Auto-generated method stub
-		
-	}
+	public Rectangle getBounds() {
+        return new Rectangle(poziciaX-5,poziciaY-5,width+10,height+10);
+    }
 
 	@Override
 	public void vykresli(Graphics gr) {
