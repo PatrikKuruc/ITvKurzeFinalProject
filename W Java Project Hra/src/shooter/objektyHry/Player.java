@@ -2,12 +2,14 @@ package shooter.objektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 import shooter.Platno;
+import shooter.Handler;
 
 /**
  * Trieda vytvara hraca
@@ -20,15 +22,15 @@ public class Player extends PohyblivyObjektHry{
 	 * @param poziciaY pozicia hraca, Y suradnica laveho horneho rohu
 	 * @param platno JPanel na ktory sa hrac vykresli
 	 */
-	public Player(int poziciaX, int poziciaY, Platno platno, Handler handler) {
-		super(poziciaX, poziciaY, platno, handler);
+	public Player(int poziciaX, int poziciaY,  Handler handler) {
+		super(poziciaX, poziciaY, handler);
 		
 		// nacitaj obrazok a ziskaj z obrazku parametre pre hraca
 		// 			sirka, vyska, rect (pre kolizie)
 		try {
 			image = ImageIO.read(new File("obr/player_gun.png"));
-			this.height = image.getHeight(platno);
-			this.width = image.getWidth(platno)*2/3;
+			this.height = 42;
+			this.width = 32;
 			this.rectangle.setBounds(poziciaX, poziciaY, width, height);
 			
 		} catch (IOException e) {
@@ -40,12 +42,10 @@ public class Player extends PohyblivyObjektHry{
 	@Override
 	public void aktualizujObjektHry() {
 		zistiSmer();
+		aktualizujRotaciu();
 		zistiKoliziu();
 		pohni();
 		
-		rectangle.setBounds(poziciaX, poziciaY, width, height);
-		
-		aktualizujRotaciu();
 	}
 
 	public void zistiSmer() {
@@ -72,6 +72,8 @@ public class Player extends PohyblivyObjektHry{
         
 		this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
+		
+		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
 
 	public void setVecX(double vecX) {

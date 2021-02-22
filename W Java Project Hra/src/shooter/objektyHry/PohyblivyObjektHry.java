@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import shooter.Platno;
+import shooter.Handler;
 
 public abstract class PohyblivyObjektHry extends ObjektHry {
 	// premenne ktore maju vsetky pohyblive objekty - strely, hrac, enemy 
@@ -16,8 +17,8 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	public abstract void pohni();
 	public abstract void zistiKoliziu();
 	
-	public PohyblivyObjektHry(int poziciaX, int poziciaY, Platno platno, Handler handler) {
-		super(poziciaX, poziciaY, platno, handler);
+	public PohyblivyObjektHry(int poziciaX, int poziciaY, Handler handler) {
+		super(poziciaX, poziciaY, handler);
 	}
 
 	@Override

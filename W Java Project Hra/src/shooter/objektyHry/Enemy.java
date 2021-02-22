@@ -10,31 +10,27 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 import shooter.Platno;
+import shooter.Handler;
 
 /**
  * Trieda vytvara objekty hry typu enemy  
  */
-public class Enemy extends ObjektHry {
-	// premenne ktore maju vsetky pohyblive objekty - strely, hrac, enemy 
-			private double uholX;
-			private double uholY;
-			private double rotacia;
-			private double vecX;
-			private double vecY;
-			Random randomPohyb = new Random();
+public class Enemy extends PohyblivyObjektHry {
+
+	Random randomPohyb = new Random();
 			
 			int pohyb=0;
 			
-	public Enemy(int poziciaX, int poziciaY, Platno platno, Handler handler) {
-		super(poziciaX, poziciaY, platno, handler);
+	public Enemy(int poziciaX, int poziciaY, Handler handler) {
+		super(poziciaX, poziciaY, handler);
 		width = 50;
 		height = 50;
 		zivot=100;
 		
 		try {
 			image = ImageIO.read(new File("obr/zoimbie1_hold.png"));
-			this.height = image.getHeight(platno);
-			this.width = image.getWidth(platno)*2/3;
+			//this.height = image.getHeight(platno);
+			//this.width = image.getWidth(platno)*2/3;
 			this.rectangle.setBounds(poziciaX, poziciaY, width, height);
 			
 		} catch (IOException e) {
@@ -42,39 +38,15 @@ public class Enemy extends ObjektHry {
 			e.printStackTrace();
 		}
 	}
+	
 	public Rectangle getBoundsBig() {
         return new Rectangle(poziciaX -16 , poziciaY - 16,64,64);
     }
 	
-	/**
-	 * Pohne 
-	 */
-	private void pohni() {
-		poziciaX += vecX;
-        poziciaY += vecY;
-        pohyb = randomPohyb.nextInt(10);
-	}
-	
 	@Override
 	public void aktualizujObjektHry() {
 		
-        for(int i = 0; i < handler.objekty.size(); i++){
-            ObjektHry objektHry = handler.objekty.get(i);
-            if(objektHry instanceof Stena){
-                if(getBoundsBig().intersects(objektHry.getBounds())){
-                    poziciaX += (vecX*5) * -1;
-                    poziciaY += (vecY*5) * -1;
-                    vecX *= -1;
-                    vecY *= -1;
-                }
-            } else if(pohyb == 0){
-            	vecX = (randomPohyb.nextInt(3- -3) + -3);
-            	vecY = (randomPohyb.nextInt(3- -3) + -3);
-            }
-        }
-        if(zivot <= 0){
-            handler.removeObject(this);
-        }
+        zistiKoliziu();
         
         pohni();
 		
@@ -93,5 +65,33 @@ public class Enemy extends ObjektHry {
 		g.drawImage(image, poziciaX, poziciaY, null);
 		
 		g.dispose();
+	}
+	@Override
+	public void pohni() {
+		poziciaX += vecX;
+        poziciaY += vecY;
+        pohyb = randomPohyb.nextInt(10);
+		
+	}
+	@Override
+	public void zistiKoliziu() {
+		for(int i = 0; i < handler.objekty.size(); i++){
+            ObjektHry objektHry = handler.objekty.get(i);
+            if(objektHry instanceof Stena){
+                if(getBoundsBig().intersects(objektHry.getBounds())){
+                    poziciaX += (vecX*5) * -1;
+                    poziciaY += (vecY*5) * -1;
+                    vecX *= -1;
+                    vecY *= -1;
+                }
+            } else if(pohyb == 0){
+            	vecX = (randomPohyb.nextInt(3- -3) + -3);
+            	vecY = (randomPohyb.nextInt(3- -3) + -3);
+            }
+        }
+        if(zivot <= 0){
+            handler.removeObject(this);
+        }
+		
 	}
 }

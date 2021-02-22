@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import shooter.Handler;
 import shooter.Platno;
 
 public class Trava extends ObjektHry{
@@ -20,8 +21,8 @@ public class Trava extends ObjektHry{
      * @param y  suradnica y, na ktorej sa ma objekt hry vytvorit
      * @param id rozpoznovacie id, aby sa vedelo, o aky typ objektu sa jedna
      */
-    public Trava(int x, int y, Platno platno, Handler handler) {
-        super(x, y, platno, handler);
+    public Trava(int x, int y, Handler handler) {
+        super(x, y, handler);
         
         try {
 			image = ImageIO.read(new File("obr/trava.png"));

@@ -5,6 +5,8 @@ import java.awt.*;
 import javax.swing.JComponent;
 
 import shooter.Platno;
+import shooter.Handler;
+
 
 /**
  * Trieda ObjektHry reprezentuje zaklad pre vsetky objekty hry - steny, hrac, strela, atd. 
@@ -16,7 +18,6 @@ public abstract class ObjektHry extends JComponent {
     protected int centerX,centerY;
 
  // premenne potrebne na vykreslovanie objektu
- 		protected Platno platno;
  		protected Handler handler;
  		protected Image image;
  		protected int height;
@@ -42,10 +43,9 @@ public abstract class ObjektHry extends JComponent {
      * @param y suradnica y, na ktorej sa ma objekt hry vytvorit
      * @param id rozpoznovacie id, aby sa vedelo, o aky typ objektu sa jedna
      */
-    public ObjektHry(int poziciaX, int poziciaY, Platno platno, Handler handler){
+    public ObjektHry(int poziciaX, int poziciaY, Handler handler){
         this.poziciaX = poziciaX;
         this.poziciaY = poziciaY;
-        this.platno = platno;
         this.handler = handler;
     }
 
@@ -90,11 +90,6 @@ public abstract class ObjektHry extends JComponent {
 
 	public void setCenterY(int centerY) {
 		this.centerY = centerY;
-	}
-
-
-	public void setPlatno(Platno platno) {
-		this.platno = platno;
 	}
 
 

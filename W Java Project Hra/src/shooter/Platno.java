@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import shooter.objektyHry.Handler;
+import shooter.Handler;
 
 /**
  * Trieda sluzi na vykreslovanie objektov hry
@@ -27,7 +27,7 @@ public class Platno extends JPanel implements ActionListener{
 	 */
 	public Platno() throws FileNotFoundException{
 		// vytvori handler a nahra mapu a objekty hry
-		Platno.handler = new Handler(this);
+		Platno.handler = new Handler();
 		handler.nahraj();
 		
 		setPreferredSize(Settings.PANEL_SIZE);
