@@ -1,26 +1,27 @@
 package shooter.objektyHry;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-import shooter.Platno;
 import shooter.Handler;
 
 /**
- * Trieda vytvara objekty hry typu enemy  
+ * Trieda vytvara pohyblivy objekt typu enemy  
  */
 public class Enemy extends PohyblivyObjektHry {
-
+	
 	Random randomPohyb = new Random();
-			
-			int pohyb=0;
-			
+	int pohyb=0;
+	
+	/**
+	 * Vytvori objek typu Enemy
+	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
+	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
+	 * @param handler handler
+	 */
 	public Enemy(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
 		width = 35;
@@ -38,6 +39,7 @@ public class Enemy extends PohyblivyObjektHry {
 	
 	@Override
 	public void aktualizujObjektHry() {
+		pohyb = randomPohyb.nextInt(10);
         zistiKoliziu();
         pohni();
 	}
@@ -62,13 +64,4 @@ public class Enemy extends PohyblivyObjektHry {
             handler.removeObject(this);
         }
 	}
-	
-	@Override
-	public void pohni() {
-		poziciaX += vecX;
-        poziciaY += vecY;
-        pohyb = randomPohyb.nextInt(10);
-        rectangle.setBounds(poziciaX, poziciaY, width, height);
-	}
-
 }

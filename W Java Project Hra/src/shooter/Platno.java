@@ -1,6 +1,5 @@
 package shooter;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,8 +7,6 @@ import java.io.FileNotFoundException;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-import shooter.Handler;
 
 /**
  * Trieda sluzi na vykreslovanie objektov hry
@@ -41,10 +38,10 @@ public class Platno extends JPanel implements ActionListener{
 		run();
 	}
 
-	
+	// telo posluchaca, vykonava sa FPS-krat za sekundu
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// telo posluchaca, FPS-krat za sekundu aktualizuje objekty hry a prekresli platno
+		// aktualizuje objekty hry a prekresli vsetky komponenty na platne
 		handler.aktualizujObjektyHry();
 		repaint();
 	}
@@ -53,11 +50,9 @@ public class Platno extends JPanel implements ActionListener{
 	 * Vykreslovanie komponentov platna
 	 */
 	protected void paintComponent(Graphics g) {
-		// buffer
-		
+		// sem pride buffer ak ho budeme chciet pouzit
 		// pri kazdom dalsom prekresleni treba najprv nakreslit JPanel nanovo
 		super.paintComponent(g);
-		
 		handler.vykresliObjektyHry(g);
 	}
 

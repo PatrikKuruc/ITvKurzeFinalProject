@@ -36,5 +36,4 @@ public class Game extends JFrame {
 	public void run() {
 		setVisible(true);
 	}
-
 }

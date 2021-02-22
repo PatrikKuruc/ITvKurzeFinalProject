@@ -4,53 +4,41 @@ import java.awt.*;
 
 import javax.swing.JComponent;
 
-import shooter.Platno;
 import shooter.Handler;
-
 
 /**
  * Trieda ObjektHry reprezentuje zaklad pre vsetky objekty hry - steny, hrac, strela, atd. 
  */
 public abstract class ObjektHry extends JComponent {
-	
-	// x, y suradnice vykreslenia objektu
+	// x, y suradnice objektu
     protected int poziciaX,poziciaY;
     protected int centerX,centerY;
 
- // premenne potrebne na vykreslovanie objektu
- 		protected Handler handler;
- 		protected Image image;
- 		protected int height;
- 		protected int width;
- 		protected Rectangle rectangle = new Rectangle();
+    // premenne potrebne na vykreslovanie objektu   *P: momentalne nacitanie obr prebieha v kazdom objekte zvlast.. tiez to moze prist sem
+ 	protected Handler handler;
+ 	protected Image image;
+ 	protected int height;
+ 	protected int width;
+ 	protected Rectangle rectangle = new Rectangle();
    
- 		int zivot;
-
-    public int getCenterX() {
-			return centerX;
-		}
-
-		public int getCenterY() {
-			return centerY;
-		}
+ 	int zivot;
 
 	/**
-     * Zostroji sa objekt hry
-     * @param platno2 
-     * @param x suradnica x, na ktorej sa ma objekt hry vytvorit
-     * @param y suradnica y, na ktorej sa ma objekt hry vytvorit
-     * @param id rozpoznovacie id, aby sa vedelo, o aky typ objektu sa jedna
+     * Zostroji objekt hry
+     * @param poziciaX suradnica x, na ktorej sa ma objekt hry vytvorit
+     * @param poziciaY suradnica y, na ktorej sa ma objekt hry vytvorit
+     * @param handler handler
      */
     public ObjektHry(int poziciaX, int poziciaY, Handler handler){
         this.poziciaX = poziciaX;
         this.poziciaY = poziciaY;
         this.handler = handler;
     }
-
-    // abstraktne metody, ktore zdedia vsetky objekty hry, ktore dedia triedu ObjektHry
-    // metody, ktore sa pre rozne typy objektov lisia
-    public abstract void aktualizujObjektHry();
     
+    /**
+     * Vykresli objekt
+     * @param gr graficky kontext
+     */
     public void vykresli(Graphics gr) {
     	Graphics2D g = (Graphics2D) gr.create();
 		// vykresli stvorec okolo objektu
@@ -58,54 +46,21 @@ public abstract class ObjektHry extends JComponent {
 		// vykresli obrazok hraca
 		g.drawImage(image, poziciaX, poziciaY, null);
 		g.dispose();	
-    };
+    }
 
-
+    /**
+     * Zmeni zivot objektu
+     * @param dmg damage
+     */
 	public void takeDamage(int dmg) {
 		zivot -= dmg;
 	}
     
+	/**
+	 * Vrati rectangle objektu pouzivany pri koliziach
+	 */
     public Rectangle getBounds() {
-        return new Rectangle(poziciaX-5,poziciaY-5,width+10,height+10);
+        return new Rectangle(poziciaX-1,poziciaY-1,width+2,height+2);
     }
-    
-	public void setPoziciaX(int poziciaX) {
-		this.poziciaX = poziciaX;
-	}
-
-
-	public void setPoziciaY(int poziciaY) {
-		this.poziciaY = poziciaY;
-	}
-
-
-	public void setCenterX(int centerX) {
-		this.centerX = centerX;
-	}
-
-
-	public void setCenterY(int centerY) {
-		this.centerY = centerY;
-	}
-
-
-	public void setImage(Image image) {
-		this.image = image;
-	}
-
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-
-	public void setRectangle(Rectangle rectangle) {
-		this.rectangle = rectangle;
-	}
     
 }

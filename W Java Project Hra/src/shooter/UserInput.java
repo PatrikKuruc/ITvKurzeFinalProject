@@ -4,11 +4,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelListener;
 
 import shooter.Handler;
 
 /**
- * Trieda Mys sluzi na ziskanie vstupov mysi
+ * Trieda Mys sluzi na ziskanie vstupov mysi.
+ * Kombinuje KeyListener a MouseAdapter
+ * Mouse Adapter implementuje MouseListener (click mysou), MouseWheelListener (scrollovanie koleckom mysi) a MouseMotionListener (pohyb mysi).
  */
 
 public class UserInput extends MouseAdapter implements KeyListener{

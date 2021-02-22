@@ -1,29 +1,29 @@
 package shooter.objektyHry;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
-import shooter.Platno;
 import shooter.Handler;
 
+/**
+ * Trieda vytvara nepohyblivy objekt typu Stena
+ */
 public class Stena extends ObjektHry{
-    /**
-     * Zostroji sa objekt hry
-     *
-     * @param x  suradnica x, na ktorej sa ma objekt hry vytvorit
-     * @param y  suradnica y, na ktorej sa ma objekt hry vytvorit
-     * @param id rozpoznovacie id, aby sa vedelo, o aky typ objektu sa jedna
-     */
-    public Stena(int x, int y, Handler handler) {
-        super(x, y, handler);
-        
+	
+	/**
+	 * Vytvori objekt typu Stena (neprechodny, nepouzitelny, bez pohybu)
+	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
+	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
+	 * @param handler handler
+	 */
+    public Stena(int poziciaX, int poziciaY,  Handler handler) {
+        super(poziciaX, poziciaY, handler);
+        this.width = 32;
+        this.height = 32;
         try {
 			image = ImageIO.read(new File("obr/stena.png"));
 			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
@@ -33,14 +33,11 @@ public class Stena extends ObjektHry{
 		}
     }
 
+    //prepisana metoda vykresli, len kvoli tomu aby pri tychto objektoch nekreslilo stvorec okolo - kedze aj tak kolizie neriesime
     @Override
-    public Rectangle getBounds() {
-        return new Rectangle(poziciaX,poziciaY,32,32);
+    public void vykresli(Graphics g2) {
+    	Graphics2D g = (Graphics2D) g2.create();
+		g.drawImage(image, poziciaX, poziciaY, null);
+		g.dispose();
     }
-
-	@Override
-	public void aktualizujObjektHry() {
-		// TODO Auto-generated method stub
-		
-	}
 }

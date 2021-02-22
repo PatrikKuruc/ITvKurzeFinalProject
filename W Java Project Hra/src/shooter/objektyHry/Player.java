@@ -1,14 +1,12 @@
 package shooter.objektyHry;
 
+import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import shooter.Platno;
 import shooter.Handler;
 
 /**
@@ -20,15 +18,16 @@ public class Player extends PohyblivyObjektHry{
 	 * Vytvori hraca
 	 * @param poziciaX pozicia hraca, X suradnica laveho horneho rohu
 	 * @param poziciaY pozicia hraca, Y suradnica laveho horneho rohu
-	 * @param platno JPanel na ktory sa hrac vykresli
+	 * @param handler handler
 	 */
+	int poziciaHlavneX;
+	int poziciaHlavneY;
+	
 	public Player(int poziciaX, int poziciaY,  Handler handler) {
 		super(poziciaX, poziciaY, handler);
 		this.height = 43;
 		this.width = 49;
 		
-		// nacitaj obrazok a ziskaj z obrazku parametre pre hraca
-		// 			sirka, vyska, rect (pre kolizie)
 		try {
 			image = ImageIO.read(new File("obr/player_gun.png"));
 		} catch (IOException e) {
@@ -38,16 +37,41 @@ public class Player extends PohyblivyObjektHry{
 	}
 	
 	@Override
+	public void vykresli(Graphics gr) {
+		super.vykresli(gr);
+		vykresliHealthbar(gr);
+	}
+	
+	
+	private void vykresliHealthbar(Graphics gr) {
+		// cele vykreslovanie score sem
+		gr.setColor(Color.white);
+		gr.drawString("Naboje: ", 250, 250);
+	}
+
+	@Override
 	public void aktualizujObjektHry() {
 		zistiSmer();
 		aktualizujRotaciu();
 		zistiKoliziu();
 		pohni();
 		
+		poziciaHlavneX = centerX;
+		poziciaHlavneY = centerY;
 	}
 	
+	public int getPoziciaHlavneX() {
+		return poziciaHlavneX;
+	}
+
+	public int getPoziciaHlavneY() {
+		return poziciaHlavneY;
+	}
+	
+	/**
+	 * Metoda zisti smer pohybu hraca podla vstupov od uzivatela
+	 */
 	public void zistiSmer() {
-        // pohyb hraca
         if(handler.isUp()) vecY = -5;
         else if(!handler.isDown()) vecY = 0;
 
@@ -59,19 +83,6 @@ public class Player extends PohyblivyObjektHry{
 
         if(handler.isLeft()) vecX = -5;
         else if(!handler.isRight()) vecX = 0;	
-	}
-	
-	/**
-	 * Pohne hracom
-	 */
-	public void pohni() {
-		poziciaX += vecX;
-        poziciaY += vecY;
-        
-		this.centerX = poziciaX + (width/2);
-		this.centerY = poziciaY + (height/2);
-		
-		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
 
 	public void setVecX(double vecX) {
