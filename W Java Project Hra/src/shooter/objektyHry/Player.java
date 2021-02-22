@@ -22,6 +22,7 @@ public class Player extends PohyblivyObjektHry{
 	 */
 	int poziciaHlavneX;
 	int poziciaHlavneY;
+
 	
 	public Player(int poziciaX, int poziciaY,  Handler handler) {
 		super(poziciaX, poziciaY, handler);
@@ -53,8 +54,9 @@ public class Player extends PohyblivyObjektHry{
 	public void aktualizujObjektHry() {
 		zistiSmer();
 		aktualizujRotaciu();
-		zistiKoliziu();
 		pohni();
+		zistiKoliziu();
+		
 		
 		poziciaHlavneX = centerX;
 		poziciaHlavneY = centerY;
@@ -109,8 +111,8 @@ public class Player extends PohyblivyObjektHry{
 
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
-	                    	poziciaX += vecX*-1.5;
-	                        poziciaY += vecY*-1.5;
+	                    	poziciaX += vecX*-1;
+	                        poziciaY += vecY*-1;
 	                }
 	            }
 	        }
