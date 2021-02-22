@@ -41,9 +41,6 @@ public abstract class ObjektHry extends JComponent {
      */
     public void vykresli(Graphics gr) {
     	Graphics2D g = (Graphics2D) gr.create();
-		// vykresli stvorec okolo objektu
-		g.draw(getBounds());
-		// vykresli obrazok hraca
 		g.drawImage(image, poziciaX, poziciaY, null);
 		g.dispose();	
     }

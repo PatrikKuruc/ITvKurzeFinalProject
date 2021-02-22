@@ -21,8 +21,8 @@ public class Item extends ObjektHry{
 	 */
     public Item(int poziciaX, int poziciaY, Handler handler) {
         super(poziciaX, poziciaY, handler);
-        this.width = 32;
-        this.height = 32;
+        this.width = 15;
+        this.height = 15;
         
         try {
 			image = ImageIO.read(new File("obr/item/1.png"));

@@ -41,17 +41,19 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		
 		this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
+		
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
 	
 	@Override
 	public Rectangle getBounds() {
-        return new Rectangle(poziciaX-5,poziciaY-5,width+10,height+10);
+        return new Rectangle(centerX-12,centerY-12,24,24);
     }
 
 	@Override
 	public void vykresli(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr.create();
+		g.draw(getBounds());
 		g.rotate(rotacia, centerX, centerY);
 		super.vykresli(g);
 		g.dispose();

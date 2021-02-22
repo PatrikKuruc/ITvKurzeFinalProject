@@ -109,8 +109,8 @@ public class Player extends PohyblivyObjektHry{
 
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
-	                    	poziciaX += vecX*-2;
-	                        poziciaY += vecY*-2;
+	                    	poziciaX += vecX*-1.5;
+	                        poziciaY += vecY*-1.5;
 	                }
 	            }
 	        }
