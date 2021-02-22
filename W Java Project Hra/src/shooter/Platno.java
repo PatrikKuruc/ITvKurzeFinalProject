@@ -19,7 +19,7 @@ public class Platno extends JPanel implements ActionListener{
 	
 	// casovac, ktory bude zodpovedny za aktualizacie a vykreslovanie objektov
 	private Timer timer = new Timer(Settings.REFRESH_RATE, this);
-	private static Handler handler;
+	protected static Handler handler;
 	
 	/**
 	 * Vytvor panel
@@ -68,7 +68,4 @@ public class Platno extends JPanel implements ActionListener{
 		timer.start();
 	}
 
-	public static Handler getHandler() {
-		return handler;
-	}
 }

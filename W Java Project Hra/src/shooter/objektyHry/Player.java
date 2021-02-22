@@ -13,12 +13,7 @@ import shooter.Platno;
  * Trieda vytvara hraca
  */
 public class Player extends PohyblivyObjektHry{
-	// premenne ktore maju vsetky pohyblive objekty - strely, hrac, enemy 
-		private double uholX;
-		private double uholY;
-		private double rotacia;
-		private double vecX;
-		private double vecY;
+	
 
 	/**
 	 * Vytvori hraca
@@ -45,19 +40,16 @@ public class Player extends PohyblivyObjektHry{
 	
 	@Override
 	public void aktualizujObjektHry() {
-		pohni();
+		zistiSmer();
 		zistiKoliziu();
+		pohni();
+		
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
+		
 		aktualizujRotaciu();
 	}
 
-	/**
-	 * Pohne hracom
-	 */
-	public void pohni() {
-		poziciaX += vecX;
-        poziciaY += vecY;
-        
+	public void zistiSmer() {
         // pohyb hraca
         if(handler.isUp()) vecY = -5;
         else if(!handler.isDown()) vecY = 0;
@@ -70,8 +62,15 @@ public class Player extends PohyblivyObjektHry{
 
         if(handler.isLeft()) vecX = -5;
         else if(!handler.isRight()) vecX = 0;	
-		
-		
+	}
+	
+	/**
+	 * Pohne hracom
+	 */
+	public void pohni() {
+		poziciaX += vecX;
+        poziciaY += vecY;
+        
 		this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
 	}
@@ -100,8 +99,8 @@ public class Player extends PohyblivyObjektHry{
 
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
-	                    	poziciaX -= vecX;
-	                        poziciaY -= vecY;
+	                    	poziciaX += vecX*-2;
+	                        poziciaY += vecY*-2;
 	                }
 	            }
 	        }
@@ -109,16 +108,7 @@ public class Player extends PohyblivyObjektHry{
 
 	@Override
 	public void vykresli(Graphics gr) {
-		Graphics2D g = (Graphics2D) gr.create();
-		// otoci pod uhlom (v radianoch), okolo stredu
-		g.rotate(rotacia, centerX, centerY);
-		// vykresli stvorec okolo hraca
-		g.draw(this.rectangle);
-		// vykresli obrazok hraca
-		g.drawImage(image, poziciaX, poziciaY, null);
-		
-		g.dispose();
-		
+		super.vykresli(gr);
 	}
 
 }

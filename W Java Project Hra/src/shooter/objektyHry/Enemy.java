@@ -46,11 +46,18 @@ public class Enemy extends ObjektHry {
         return new Rectangle(poziciaX -16 , poziciaY - 16,64,64);
     }
 	
-	@Override
-	public void aktualizujObjektHry() {
+	/**
+	 * Pohne 
+	 */
+	private void pohni() {
 		poziciaX += vecX;
         poziciaY += vecY;
         pohyb = randomPohyb.nextInt(10);
+	}
+	
+	@Override
+	public void aktualizujObjektHry() {
+		
         for(int i = 0; i < handler.objekty.size(); i++){
             ObjektHry objektHry = handler.objekty.get(i);
             if(objektHry instanceof Stena){
@@ -68,10 +75,10 @@ public class Enemy extends ObjektHry {
         if(zivot <= 0){
             handler.removeObject(this);
         }
+        
+        pohni();
 		
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
-		poziciaX+= new Random().nextInt(3- -3)+-2.5;
-		poziciaY+= new Random().nextInt(3- -3)+-2.5;
 	}
 
 	

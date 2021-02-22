@@ -51,7 +51,17 @@ public abstract class ObjektHry extends JComponent {
 
  // abstraktne metody, ktore zdedia vsetky objekty hry, ktore dedia triedu ObjektHry
     public abstract void aktualizujObjektHry();
-    public abstract void vykresli(Graphics g);
+    
+    public void vykresli(Graphics gr) {
+    	Graphics2D g = (Graphics2D) gr.create();
+		
+		// vykresli stvorec okolo hraca
+		g.draw(this.rectangle);
+		// vykresli obrazok hraca
+		g.drawImage(image, poziciaX, poziciaY, null);
+		
+		g.dispose();	
+    };
 
 
 	public void takeDamage(int dmg) {
