@@ -2,6 +2,7 @@ package shooter.objektyHry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 
@@ -22,7 +23,6 @@ public class Player extends PohyblivyObjektHry{
 	 */
 	int poziciaHlavneX;
 	int poziciaHlavneY;
-
 	
 	public Player(int poziciaX, int poziciaY,  Handler handler) {
 		super(poziciaX, poziciaY, handler);

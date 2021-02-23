@@ -44,11 +44,6 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
-	
-	@Override
-	public Rectangle getBounds() {
-        return new Rectangle(centerX-12,centerY-12,24,24);
-    }
 
 	@Override
 	public void vykresli(Graphics gr) {
