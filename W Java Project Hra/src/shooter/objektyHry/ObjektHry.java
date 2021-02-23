@@ -14,7 +14,7 @@ public abstract class ObjektHry extends JComponent {
     protected int poziciaX,poziciaY;
     protected int centerX,centerY;
 
-    // premenne potrebne na vykreslovanie objektu   *P: momentalne nacitanie obr prebieha v kazdom objekte zvlast.. tiez to moze prist sem
+    // premenne potrebne na vykreslovanie objektu
  	protected Handler handler;
  	protected Image image;
  	protected int height;

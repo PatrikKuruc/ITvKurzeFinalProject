@@ -13,5 +13,5 @@ public class Settings {
 	public static final Dimension PANEL_SIZE = new Dimension(WINDOW_HEIGHT, WINDOW_WIDTH);
 
 	public static final int FPS = 120;
-	public static final int REFRESH_RATE = 1000/FPS; // ms, 1000 = kazdu sekundu, 1000/60 zabezpeci 60 FPS
+	public static final int REFRESH_RATE = 1000/FPS; // v ms, 1000/60 zabezpeci 60 FPS
 }
