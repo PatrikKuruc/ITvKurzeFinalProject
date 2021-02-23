@@ -43,7 +43,6 @@ public class Player extends PohyblivyObjektHry{
 		vykresliHealthbar(gr);
 	}
 	
-	
 	private void vykresliHealthbar(Graphics gr) {
 		// cele vykreslovanie score sem
 		gr.setColor(Color.white);
@@ -106,9 +105,7 @@ public class Player extends PohyblivyObjektHry{
 
 	public void zistiKoliziu() {
 		 for(int i = 0; i < handler.objekty.size(); i++){
-
 	            ObjektHry objektHry = handler.objekty.get(i);
-
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
 	                    	poziciaX += vecX*-1;

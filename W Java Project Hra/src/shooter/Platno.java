@@ -25,7 +25,9 @@ public class Platno extends JPanel implements ActionListener{
 	public Platno() throws FileNotFoundException{
 		// vytvori handler a nahra mapu a objekty hry
 		Platno.handler = new Handler();
-		handler.nahraj();
+		
+		nahravacMapy nahravacMapy = new nahravacMapy(handler);
+		nahravacMapy.nahrajMapu();
 		
 		setPreferredSize(Settings.PANEL_SIZE);
 				
