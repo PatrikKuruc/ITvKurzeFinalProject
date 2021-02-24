@@ -7,14 +7,12 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 import shooter.Handler;
+import shooter.Settings;
 
 /**
  * Trieda vytvara pohyblivy objekt typu enemy  
  */
 public class Enemy extends PohyblivyObjektHry {
-	
-	Random randomPohyb = new Random();
-	int pohyb=0;
 	
 	/**
 	 * Vytvori objek typu Enemy
@@ -27,6 +25,8 @@ public class Enemy extends PohyblivyObjektHry {
 		width = 35;
 		height = 43;
 		zivot=100;
+		velX = Settings.enemySpeed;
+		velY = Settings.enemySpeed;
 		
 		try {
 			image = ImageIO.read(new File("obr/enemy/1.png"));
@@ -37,11 +37,34 @@ public class Enemy extends PohyblivyObjektHry {
 		}
 	}
 	
+	
 	@Override
-	public void aktualizujObjektHry() {
-		pohyb = randomPohyb.nextInt(10);
-        zistiKoliziu();
-        pohni();
+	public void zistiSmer() {
+		destinationX = handler.getPoziciaHracaX();
+		destinationY = handler.getPoziciaHracaY();
+		
+		if (uholX < 0) {
+			vecX = -1;
+		}
+		else {
+			vecX = 1;
+		}
+		if (uholY<0) {
+			vecY=-1;
+		}
+		else {
+			vecY=1;
+		}
+
+		// ak by sme chceli pohyb enemy v uhloch (momentalne sa hybu ako hrac - v 8 smeroch)
+		/*
+		this.uholX = destinationX-poziciaX;
+		this.uholY = destinationY-poziciaY;
+		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
+        vecX = (float) (uholX * 2 / vzdialenost);
+        vecY = (float) (uholY * 2 / vzdialenost);
+        */
+		
 	}
 	
 	@Override
@@ -50,14 +73,9 @@ public class Enemy extends PohyblivyObjektHry {
             ObjektHry objektHry = handler.objekty.get(i);
             if(objektHry instanceof Stena){
                 if(getBounds().intersects(objektHry.getBounds())){
-                    poziciaX += (vecX*5) * -1;
-                    poziciaY += (vecY*5) * -1;
                     vecX *= -1;
                     vecY *= -1;
                 }
-            } else if(pohyb == 0){
-            	vecX = (randomPohyb.nextInt(3- -3) + -3);
-            	vecY = (randomPohyb.nextInt(3- -3) + -3);
             }
         }
         if(zivot <= 0){

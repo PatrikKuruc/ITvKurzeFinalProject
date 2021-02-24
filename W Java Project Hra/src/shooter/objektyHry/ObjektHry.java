@@ -19,7 +19,7 @@ public abstract class ObjektHry extends JComponent {
  	protected Image image;
  	protected int height;
  	protected int width;
- 	protected Rectangle rectangle = new Rectangle();
+ 	protected Rectangle rectangle;;
    
  	int zivot;
 
@@ -33,6 +33,7 @@ public abstract class ObjektHry extends JComponent {
         this.poziciaX = poziciaX;
         this.poziciaY = poziciaY;
         this.handler = handler;
+        this.rectangle = new Rectangle(poziciaX,poziciaY,width,height);
     }
     
     /**
@@ -57,7 +58,7 @@ public abstract class ObjektHry extends JComponent {
 	 * Vrati rectangle objektu pouzivany pri koliziach
 	 */
     public Rectangle getBounds() {
-        return new Rectangle(poziciaX-1,poziciaY-1,width+2,height+2);
+        return new Rectangle(poziciaX,poziciaY,width,height);
     }
     
 }

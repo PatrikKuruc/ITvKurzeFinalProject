@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import shooter.Handler;
+import shooter.Settings;
 
 /**
  * Trieda vytvara hraca
@@ -28,6 +29,8 @@ public class Player extends PohyblivyObjektHry{
 		super(poziciaX, poziciaY, handler);
 		this.height = 43;
 		this.width = 49;
+		this.velX=Settings.playerSpeed;
+		this.velY=Settings.playerSpeed;
 		
 		try {
 			image = ImageIO.read(new File("obr/hrac/modry/3.png"));
@@ -38,29 +41,32 @@ public class Player extends PohyblivyObjektHry{
 	}
 	
 	@Override
-	public void vykresli(Graphics gr) {
-		super.vykresli(gr);
-		vykresliHealthbar(gr);
-	}
-	
-	private void vykresliHealthbar(Graphics gr) {
-		// cele vykreslovanie score sem
-		gr.setColor(Color.white);
-		gr.drawString("Naboje: ", 250, 250);
-	}
-
-	@Override
 	public void aktualizujObjektHry() {
-		zistiSmer();
-		aktualizujRotaciu();
-		pohni();
-		zistiKoliziu();
-		
+		destinationX = handler.getMouseX();
+		destinationY = handler.getMouseY();
 		
 		poziciaHlavneX = centerX;
 		poziciaHlavneY = centerY;
+		
+		handler.setPoziciaHracaX(centerX);
+		handler.setPoziciaHracaY(centerY);
+		super.aktualizujObjektHry();
 	}
 	
+	public void zistiSmer() {
+        if(handler.isUp()) vecY = -1;
+        else if(!handler.isDown()) vecY = 0;
+
+        if(handler.isDown()) vecY = 1;
+        else if(!handler.isUp()) vecY = 0;
+
+        if(handler.isRight()) vecX = 1;
+        else if(!handler.isLeft()) vecX = 0;
+
+        if(handler.isLeft()) vecX = -1;
+        else if(!handler.isRight()) vecX = 0;	
+	}
+
 	public int getPoziciaHlavneX() {
 		return poziciaHlavneX;
 	}
@@ -68,48 +74,14 @@ public class Player extends PohyblivyObjektHry{
 	public int getPoziciaHlavneY() {
 		return poziciaHlavneY;
 	}
-	
-	/**
-	 * Metoda zisti smer pohybu hraca podla vstupov od uzivatela
-	 */
-	public void zistiSmer() {
-        if(handler.isUp()) vecY = -5;
-        else if(!handler.isDown()) vecY = 0;
-
-        if(handler.isDown()) vecY = 5;
-        else if(!handler.isUp()) vecY = 0;
-
-        if(handler.isRight()) vecX = 5;
-        else if(!handler.isLeft()) vecX = 0;
-
-        if(handler.isLeft()) vecX = -5;
-        else if(!handler.isRight()) vecX = 0;	
-	}
-
-	public void setVecX(double vecX) {
-		this.vecX = vecX;
-	}
-
-	public void setVecY(double vecY) {
-		this.vecY = vecY;
-	}
-	
-	/**
-	 * Aktualizuje uhol rotacie hraca
-	 */
-	private void aktualizujRotaciu() {
-		uholX = handler.getMouseX() - centerX;
-		uholY = handler.getMouseY() - centerY;
-		rotacia=Math.atan2(uholY, uholX);
-	}
 
 	public void zistiKoliziu() {
 		 for(int i = 0; i < handler.objekty.size(); i++){
 	            ObjektHry objektHry = handler.objekty.get(i);
 	                if(objektHry instanceof Stena){
 	                    if(getBounds().intersects(objektHry.getBounds())){
-	                    	poziciaX += vecX*-1;
-	                        poziciaY += vecY*-1;
+	                    	vecX=vecX*-1;
+	                    	vecY=vecY*-1;
 	                }
 	            }
 	        }

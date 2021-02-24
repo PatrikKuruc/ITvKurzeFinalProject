@@ -36,11 +36,4 @@ public class Trava extends ObjektHry{
 			e.printStackTrace();
 		}
     }
-
-    @Override
-    public void vykresli(Graphics g2) {
-    	Graphics2D g = (Graphics2D) g2.create();
-		g.drawImage(image, poziciaX, poziciaY, null);
-		g.dispose();
-    }
 }

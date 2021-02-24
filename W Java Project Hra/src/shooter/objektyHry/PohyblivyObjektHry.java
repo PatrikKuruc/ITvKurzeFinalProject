@@ -11,16 +11,24 @@ import shooter.Handler;
  */
 public abstract class PohyblivyObjektHry extends ObjektHry {
 	// premenne ktore maju len pohyblive objekty - strely, hrac, enemy 
-	protected double uholX;
-	protected double uholY;
-	protected double rotacia;
-	protected double vecX;
-	protected double vecY;
+		// premenne potrebne na vypocet uhlu rotacie obrazku
+		protected double uholX;
+		protected double uholY;
+		protected double rotacia;
+		protected double destinationX;
+		protected double destinationY;
+		// premenne potrebne pre pohyb objektu
+		protected double vecX;
+		protected double vecY;
+		protected double velX;
+		protected double velY;
+
 	
 	// abstraktne metody, ktore zdedia vsetky pohyblive objekty hry
     // metody, ktore sa pre rozne typy objektov lisia
 	public abstract void zistiKoliziu();
-	public abstract void aktualizujObjektHry();
+	// aktualizuje uholX a uholY
+	public abstract void zistiSmer();
 	
 	/**
 	 * Vytvara pohyblivy objekt hry
@@ -30,26 +38,43 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 */
 	public PohyblivyObjektHry(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
+		this.centerX = poziciaX + (width/2);
+		this.centerY = poziciaY + (height/2);
+		
 	}
 
+	public void aktualizujObjektHry() {
+		zistiSmer();
+		aktualizujRotaciu();
+		zistiKoliziu();
+		pohni();
+	}
+	
+	public void aktualizujRotaciu() {
+		uholX = destinationX - centerX;
+		uholY = destinationY - centerY;
+		rotacia=Math.atan2(uholY, uholX);
+	}
+	
 	/**
 	 * Aktualizuje poziciu objektu
 	 */
 	public void pohni() {
-		poziciaX += vecX;
-        poziciaY += vecY;
-		
-		this.centerX = poziciaX + (width/2);
-		this.centerY = poziciaY + (height/2);
-		
+		// pohyb
+		poziciaX += vecX*velX;
+        poziciaY += vecY*velY;
+
+        // aktualizacia parametrov
+        this.centerX = (int) rectangle.getCenterX();
+		this.centerY = (int) rectangle.getCenterY();
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
 
 	@Override
 	public void vykresli(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr.create();
-		g.draw(getBounds());
 		g.rotate(rotacia, centerX, centerY);
+		g.draw(getBounds());
 		super.vykresli(g);
 		g.dispose();
 	}

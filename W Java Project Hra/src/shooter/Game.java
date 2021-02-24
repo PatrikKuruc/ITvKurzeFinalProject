@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 /**
  * Trieda sluzi na vytvorenie okna aplikacie.
  */
-public class Game extends JFrame {
+public class Game extends JFrame{
 	/**
 	 * Vytvori okno (JFrame) hry
 	 * @throws FileNotFoundException 
