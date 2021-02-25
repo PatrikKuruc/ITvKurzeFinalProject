@@ -1,14 +1,14 @@
-package shooter;
+package shooter.Hra;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import shooter.objektyHry.Enemy;
-import shooter.objektyHry.Item;
-import shooter.objektyHry.Player;
-import shooter.objektyHry.Stena;
-import shooter.objektyHry.Trava;
+import shooter.ObjektyHry.Enemy;
+import shooter.ObjektyHry.Item;
+import shooter.ObjektyHry.Player;
+import shooter.ObjektyHry.Stena;
+import shooter.ObjektyHry.Trava;
 
 public class nahravacMapy {
 

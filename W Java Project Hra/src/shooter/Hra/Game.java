@@ -1,4 +1,4 @@
-package shooter;
+package shooter.Hra;
 
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ public class Game extends JFrame{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setTitle("Pow Pow Pow");
-			
+		
 		// vytvor JPanel (platno) a prida ho do okna
 		Platno hra = new Platno();
 		add(hra, BorderLayout.CENTER);

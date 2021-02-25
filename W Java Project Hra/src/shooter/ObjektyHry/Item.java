@@ -1,4 +1,4 @@
-package shooter.objektyHry;
+package shooter.ObjektyHry;
 
 import java.awt.Image;
 import java.io.File;
@@ -6,8 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import shooter.Handler;
-
+import shooter.Hra.Handler;
 /**
  * Trieda vytvara nepohyblivy objekt typu trava
  */

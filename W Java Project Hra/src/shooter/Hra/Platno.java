@@ -1,4 +1,4 @@
-package shooter;
+package shooter.Hra;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -29,7 +29,7 @@ public class Platno extends JPanel implements ActionListener{
 		nahravacMapy nahravacMapy = new nahravacMapy(handler);
 		nahravacMapy.nahrajMapu();
 		
-		setPreferredSize(Settings.PANEL_SIZE);
+		setPreferredSize(Settings.PANEL_PLATNO_SIZE);
 				
 		// vytvori posluchac mysky, prida ho na platno
 		UserInput UserInput = new UserInput(handler);

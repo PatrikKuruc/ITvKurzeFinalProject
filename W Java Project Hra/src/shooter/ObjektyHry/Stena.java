@@ -1,4 +1,4 @@
-package shooter.objektyHry;
+package shooter.ObjektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -7,8 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import shooter.Handler;
-
+import shooter.Hra.Handler;
 /**
  * Trieda vytvara nepohyblivy objekt typu Stena
  */

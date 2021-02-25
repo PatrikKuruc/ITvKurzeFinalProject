@@ -1,11 +1,10 @@
-package shooter.objektyHry;
+package shooter.ObjektyHry;
 
 import java.awt.*;
 
 import javax.swing.JComponent;
 
-import shooter.Handler;
-
+import shooter.Hra.Handler;
 /**
  * Trieda ObjektHry reprezentuje zaklad pre vsetky objekty hry - steny, hrac, strela, atd. 
  */
@@ -32,6 +31,8 @@ public abstract class ObjektHry extends JComponent {
     public ObjektHry(int poziciaX, int poziciaY, Handler handler){
         this.poziciaX = poziciaX;
         this.poziciaY = poziciaY;
+        this.centerX = poziciaX + (width/2);
+		this.centerY = poziciaY + (height/2);
         this.handler = handler;
         this.rectangle = new Rectangle(poziciaX,poziciaY,width,height);
     }

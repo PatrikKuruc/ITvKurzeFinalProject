@@ -1,11 +1,10 @@
-package shooter.objektyHry;
+package shooter.ObjektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import shooter.Handler;
-
+import shooter.Hra.Handler;
 /**
  * Abstraktna trieda pre pohyblive objekty hry ktora rozsiruje triedu objekt hry.
  */
@@ -24,11 +23,11 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		protected double velY;
 
 	
-	// abstraktne metody, ktore zdedia vsetky pohyblive objekty hry
-    // metody, ktore sa pre rozne typy objektov lisia
-	public abstract void zistiKoliziu();
-	// aktualizuje uholX a uholY
+	// rozne typy objektov sa budu pri kolizii s nymi objektami (okrem stien) spravat inak
+	public abstract void vykonajKoliznyEvent();
+	// aktualizuje uhly v zavislosti od typu objektu
 	public abstract void zistiSmer();
+	
 	
 	/**
 	 * Vytvara pohyblivy objekt hry
@@ -38,15 +37,12 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 */
 	public PohyblivyObjektHry(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
-		this.centerX = poziciaX + (width/2);
-		this.centerY = poziciaY + (height/2);
-		
 	}
 
 	public void aktualizujObjektHry() {
 		zistiSmer();
 		aktualizujRotaciu();
-		zistiKoliziu();
+		zistiKoliziuSoStenami();
 		pohni();
 	}
 	
@@ -56,6 +52,22 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		rotacia=Math.atan2(uholY, uholX);
 	}
 	
+	
+	public void zistiKoliziuSoStenami() {
+		for(int i = 0; i < handler.objekty.size(); i++){
+            ObjektHry objektHry = handler.objekty.get(i);
+            if(objektHry instanceof Stena){
+                if(getBounds().intersects(objektHry.getBounds())){
+                    koliziaSoStenou();
+                }
+            }
+        }
+	}
+	
+	public void koliziaSoStenou() {
+		vecX*=-1;
+		vecY*=-1;
+	}
 	/**
 	 * Aktualizuje poziciu objektu
 	 */
@@ -69,6 +81,8 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		this.centerY = (int) rectangle.getCenterY();
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
+	
+	
 
 	@Override
 	public void vykresli(Graphics gr) {
@@ -78,5 +92,4 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		super.vykresli(g);
 		g.dispose();
 	}
-
 }

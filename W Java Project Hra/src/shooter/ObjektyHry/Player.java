@@ -1,4 +1,4 @@
-package shooter.objektyHry;
+package shooter.ObjektyHry;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,8 +8,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import shooter.Handler;
-import shooter.Settings;
+import shooter.Hra.Handler;
+import shooter.Hra.Settings;
 
 /**
  * Trieda vytvara hraca
@@ -22,8 +22,8 @@ public class Player extends PohyblivyObjektHry{
 	 * @param poziciaY pozicia hraca, Y suradnica laveho horneho rohu
 	 * @param handler handler
 	 */
-	int poziciaHlavneX;
-	int poziciaHlavneY;
+	private int poziciaHlavneX;
+	private int poziciaHlavneY;
 	
 	public Player(int poziciaX, int poziciaY,  Handler handler) {
 		super(poziciaX, poziciaY, handler);
@@ -41,10 +41,34 @@ public class Player extends PohyblivyObjektHry{
 	}
 	
 	@Override
+	public void vykonajKoliznyEvent() {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
+	public void vykresli(Graphics gr) {
+		super.vykresli(gr);
+		vykresliHealthbar(gr);
+	}
+	
+	private void vykresliHealthbar(Graphics gr) {
+		// cele vykreslovanie score sem
+
+				gr.setColor(Color.lightGray);
+				gr.fillRect(0,5,200,22);
+				gr.setColor(Color.GREEN);
+				gr.fillRect(0,5, handler.zivot*2, 22);
+				gr.setColor(Color.BLACK);
+				gr.drawRect(0,5,200,22);
+
+				gr.setColor(Color.white);
+				gr.drawString("Naboje: " + handler.zasobnik , 220, 22);
+	}
+
+	@Override
 	public void aktualizujObjektHry() {
 		destinationX = handler.getMouseX();
 		destinationY = handler.getMouseY();
-		
 		poziciaHlavneX = centerX;
 		poziciaHlavneY = centerY;
 		
@@ -73,17 +97,5 @@ public class Player extends PohyblivyObjektHry{
 
 	public int getPoziciaHlavneY() {
 		return poziciaHlavneY;
-	}
-
-	public void zistiKoliziu() {
-		 for(int i = 0; i < handler.objekty.size(); i++){
-	            ObjektHry objektHry = handler.objekty.get(i);
-	                if(objektHry instanceof Stena){
-	                    if(getBounds().intersects(objektHry.getBounds())){
-	                    	vecX=vecX*-1;
-	                    	vecY=vecY*-1;
-	                }
-	            }
-	        }
 	}
 }
