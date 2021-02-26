@@ -69,7 +69,7 @@ public class Panel3_Settings extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("D:\\ITvKurzeFinalProject\\W Java Project Hra\\obr\\hrac\\modry\\3.png"));
+		lblNewLabel.setIcon(new ImageIcon("obr/hrac/modry/3.png"));
 		lblNewLabel.setBounds(43, 46, 69, 69);
 		add(lblNewLabel);
 		setVisible(false);

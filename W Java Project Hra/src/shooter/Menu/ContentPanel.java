@@ -50,7 +50,7 @@ public class ContentPanel extends JPanel {
 
 	private void nacitajpozadie() {
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\kuruc\\Desktop\\bg.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("obr/bg.jpg"));
 		lblNewLabel.setBounds(0, 0, 800, 600);
 		add(lblNewLabel);
 	}
