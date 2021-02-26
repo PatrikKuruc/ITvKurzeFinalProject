@@ -32,24 +32,27 @@ public class nahravacMapy {
 	    while (scanner.hasNextLine()){
 	    	double IDfile = scanner.nextDouble();
 	    	int ID = (int) IDfile;
+	    	
 	        if(ID == 1){
-	            handler.addObject(new Stena(IDfile,x,y, handler));
+	            handler.addObject(new Stena(ID,x,y, handler));
 	            x += 32;
 	        }
-	        else if (ID != 1) {
-        		handler.addObject(new Trava(ID, IDfile,x,y, handler));
+	        else if (ID != 1){
+        		handler.addObject(new Trava(0,x,y, handler));
         	    if (ID == 2) {
-	            	handler.addObject(new Player(IDfile,x,y, handler));
+	            	handler.addObject(new Player(ID,x,y, handler));
 	            }
 	            if (ID == 3) {
-	            	handler.addObject(new Enemy(IDfile,x,y, handler));
+	            	handler.addObject(new Enemy(ID,x,y, handler));
 	            }
 	            if (ID == 4) {
-	            	handler.addObject(new Item(IDfile,x,y, handler));
+	            	handler.addObject(new Item(ID,x,y, handler));
 	            }
 	            x += 32;
 	        }
-	        
+	        else {
+	        	x += 32;
+	        }
 	                
 	        if (x > 1000){
 	            y += 32;

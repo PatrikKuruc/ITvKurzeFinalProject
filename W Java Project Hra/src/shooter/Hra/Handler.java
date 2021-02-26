@@ -112,20 +112,7 @@ public class Handler {
         		pocetzombies++;
         	}
 		}
-        if (objektHry instanceof Enemy && pocetzombies <=1) {
-        	
-        	for (ObjektHry objektHryy : statickeObjekty) {
-        		ObjektHry statickyObjekt = objektHryy;
-        		if (statickyObjekt instanceof Trava) {
-        			if(((Trava) statickyObjekt).isSpawnPoint()) {
-        				int x = ((Trava) statickyObjekt).getX();
-        				int y = ((Trava) statickyObjekt).getY();
-        				System.out.println(x + " " + y);
-        				addObject(new Enemy(3, x, y, this));
-        			}
-        	}
-        	}
-        	/*
+        if (objektHry instanceof Enemy && pocetzombies <=10) {
         	Random rnd = new Random();
         	int j = (int) (rnd.nextInt(3)+1);
         	while (j >= 0) {
@@ -136,7 +123,6 @@ public class Handler {
                 	j--;
 				}
         	}
-        	*/
 		}
     }
     
