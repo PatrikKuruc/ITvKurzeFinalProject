@@ -7,6 +7,12 @@ import shooter.Hra.Handler;
  */
 public class Trava extends ObjektHry{
 
+	boolean isSpawnPoint = false;
+	
+	public boolean isSpawnPoint() {
+		return isSpawnPoint;
+	}
+
 	/**
 	 * Vytvori objekt typu Trava (prechodny, nepouzitelny, bez pohybu)
 	 * P: zem, pozadie, treba lepsi - genericky nazov pre objekty po ktorych sa da chodit a nebudu sa nijak pouzivat..
@@ -15,9 +21,22 @@ public class Trava extends ObjektHry{
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
 	 * @param handler handler
 	 */
-    public Trava(double ID, int poziciaX, int poziciaY, Handler handler) {
+    public Trava(int ID, double IDFile, int poziciaX, int poziciaY, Handler handler) {
         super(poziciaX, poziciaY, handler);
         this.ID=ID;
         super.nacitajObrazok();
+        
+        if(IDFile !=0) {
+        	isSpawnPoint = true;
+        }
     }
+    
+    public int getX() {
+    	return poziciaX;
+    }
+    
+    public int getY() {
+    	return poziciaX;
+    }
+    
 }

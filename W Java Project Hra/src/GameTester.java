@@ -14,7 +14,5 @@ public class GameTester {
 		hra.run();
 		//hra.pustiHruBezMenu();
 		//hra.pustiMapGen();
-
-		// test
 	}
 }

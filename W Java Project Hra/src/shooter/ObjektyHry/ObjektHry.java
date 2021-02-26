@@ -44,7 +44,8 @@ public abstract class ObjektHry extends JComponent {
     }
     
     public void nacitajObrazok() {
-    	if (ID==0) {
+    	int IDint = (int)ID;
+    	if (IDint==0) {
     		try {
     			image = ImageIO.read(new File("obr/trava/1.png"));
     			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
@@ -53,7 +54,7 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
     	}
-    	else if (ID==1) {
+    	else if (IDint ==1) {
     		try {
     			image = ImageIO.read(new File("obr/stena/drevo/11.png"));
     			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
@@ -62,7 +63,7 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
 		}
-    	else if (ID==2) {
+    	else if (IDint==2) {
     		try {
     		image = ImageIO.read(new File("obr/hrac/modry/3.png"));
     		
@@ -72,7 +73,7 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
     	}
-    	else if (ID==3) {
+    	else if (IDint==3) {
     		try {
     			image = ImageIO.read(new File("obr/enemy/1.png"));
     		} catch (IOException e) {
@@ -80,7 +81,7 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
     	}
-    	else if (ID==4) {
+    	else if (IDint==4) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
     			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
@@ -89,7 +90,7 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
     	}
-    	else if (ID==5) {
+    	else if (IDint==5) {
     		try {
     			this.image = ImageIO.read(new File("obr/strela/1.png"));
     			image = image.getScaledInstance(513/30, 173/30, Image.SCALE_FAST);

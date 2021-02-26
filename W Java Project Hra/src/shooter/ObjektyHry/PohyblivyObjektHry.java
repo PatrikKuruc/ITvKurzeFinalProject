@@ -41,17 +41,18 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	public void aktualizujObjektHry() {
 		zistiSmer();
 		aktualizujRotaciu();
-		zistiKoliziuSoStenami();
+		
 		zistiKoliziuPohyblivychObjektov();
 		pohni();
+		zistiKoliziuSoStenami();
 	}
 	
 	/**
 	 * Kolizia objektu so stenou
 	 */
 	public void koliziaSoStenou() {
-		vecX*=-1;
-		vecY*=-1;
+		poziciaX -= vecX*(velX+1);
+        poziciaY -= vecY*(velY+1);
 	}
 	
 	/**
@@ -108,8 +109,8 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	@Override
 	public void vykresli(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr.create();
-		g.rotate(rotacia, centerX, centerY);
 		g.draw(getBounds());
+		g.rotate(rotacia, centerX, centerY);
 		super.vykresli(g);
 		g.dispose();
 	}

@@ -13,6 +13,7 @@ import shooter.ObjektyHry.ObjektHry;
 import shooter.ObjektyHry.Player;
 import shooter.ObjektyHry.PohyblivyObjektHry;
 import shooter.ObjektyHry.Strela;
+import shooter.ObjektyHry.Trava;
 
 
 /**
@@ -57,6 +58,8 @@ public class Handler {
 				continue;
 			}
         }
+        
+        
     }
 
     /**
@@ -79,7 +82,7 @@ public class Handler {
      * Prida objekt do hry.
      * @param novyObjekt novy objekt
      */
-    public void addObject(ObjektHry novyObjekt){
+    public void addObject(ObjektHry novyObjekt){   	
         ObjektHry objektNaPridanie = novyObjekt;
         if (objektNaPridanie instanceof PohyblivyObjektHry) {
 			pohybliveObjekty.add(objektNaPridanie);
@@ -102,13 +105,27 @@ public class Handler {
         	statickeObjekty.remove(objektNaPridanie);
         }
         
+        
         int pocetzombies = 0;
         for (ObjektHry objektHryy : pohybliveObjekty) {
         	if (objektHryy instanceof Enemy) {
         		pocetzombies++;
         	}
 		}
-        if (objektHry instanceof Enemy && pocetzombies <=10) {
+        if (objektHry instanceof Enemy && pocetzombies <=1) {
+        	
+        	for (ObjektHry objektHryy : statickeObjekty) {
+        		ObjektHry statickyObjekt = objektHryy;
+        		if (statickyObjekt instanceof Trava) {
+        			if(((Trava) statickyObjekt).isSpawnPoint()) {
+        				int x = ((Trava) statickyObjekt).getX();
+        				int y = ((Trava) statickyObjekt).getY();
+        				System.out.println(x + " " + y);
+        				addObject(new Enemy(3, x, y, this));
+        			}
+        	}
+        	}
+        	/*
         	Random rnd = new Random();
         	int j = (int) (rnd.nextInt(3)+1);
         	while (j >= 0) {
@@ -119,6 +136,7 @@ public class Handler {
                 	j--;
 				}
         	}
+        	*/
 		}
     }
     
