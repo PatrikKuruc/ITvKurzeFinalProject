@@ -1,7 +1,10 @@
 package shooter.ObjektyHry;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
 import shooter.Hra.Handler;
@@ -16,9 +19,11 @@ public abstract class ObjektHry extends JComponent {
     // premenne potrebne na vykreslovanie objektu
  	protected Handler handler;
  	protected Image image;
- 	protected int height;
- 	protected int width;
+ 	protected int height=32;
+ 	protected int width=32;
  	protected Rectangle rectangle;;
+ 	
+ 	protected double ID;
    
  	int zivot;
 
@@ -34,10 +39,69 @@ public abstract class ObjektHry extends JComponent {
         this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
         this.handler = handler;
+        
         this.rectangle = new Rectangle(poziciaX,poziciaY,width,height);
     }
     
-    /**
+    public void nacitajObrazok() {
+    	if (ID==0) {
+    		try {
+    			image = ImageIO.read(new File("obr/trava/1.png"));
+    			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    	else if (ID==1) {
+    		try {
+    			image = ImageIO.read(new File("obr/stena/drevo/11.png"));
+    			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+		}
+    	else if (ID==2) {
+    		try {
+    		image = ImageIO.read(new File("obr/hrac/modry/3.png"));
+    		
+    		}
+    			catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    	else if (ID==3) {
+    		try {
+    			image = ImageIO.read(new File("obr/enemy/1.png"));
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    	else if (ID==4) {
+    		try {
+    			image = ImageIO.read(new File("obr/item/1.png"));
+    			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    	else if (ID==5) {
+    		try {
+    			this.image = ImageIO.read(new File("obr/strela/1.png"));
+    			image = image.getScaledInstance(513/30, 173/30, Image.SCALE_FAST);
+    			
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    }
+
+	/**
      * Vykresli objekt
      * @param gr graficky kontext
      */
@@ -61,5 +125,4 @@ public abstract class ObjektHry extends JComponent {
     public Rectangle getBounds() {
         return new Rectangle(poziciaX,poziciaY,width,height);
     }
-    
 }

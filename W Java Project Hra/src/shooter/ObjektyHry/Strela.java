@@ -1,15 +1,7 @@
 package shooter.ObjektyHry;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
 import shooter.Hra.Handler;
-
+import shooter.Hra.UserInput;
 
 /**
  * Trieda vytvara pohyblivy objekt typu strela
@@ -22,23 +14,16 @@ public class Strela extends PohyblivyObjektHry {
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
 	 * @param handler handler
 	 */
-	public Strela(int poziciaX, int poziciaY, Handler handler) {
+	public Strela(double ID, int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
-		this.destinationX = handler.getMouseX();
-		this.destinationY = handler.getMouseY();
+		this.ID=ID;
+		super.nacitajObrazok();
+		this.destinationX = UserInput.getMouseX();
+		this.destinationY = UserInput.getMouseY();
 		this.width=513/30;
 		this.height=173/30;
 		this.velY = 1;
 		this.velX = 1;
-		
-		try {
-			this.image = ImageIO.read(new File("obr/strela/1.png"));
-			image = image.getScaledInstance(width, height, Image.SCALE_FAST);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		// vypocitaj vektory uhla, pod ktorym bola strela vystrelena
 		this.uholX = destinationX-poziciaX;
@@ -67,6 +52,5 @@ public class Strela extends PohyblivyObjektHry {
 
 	@Override
 	public void vykonajKoliznyEvent() {
-		// TODO Auto-generated method stub
 	}
 }

@@ -1,11 +1,5 @@
 package shooter.ObjektyHry;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Random;
-
-import javax.imageio.ImageIO;
-
 import shooter.Hra.Handler;
 import shooter.Hra.Settings;
 
@@ -20,26 +14,22 @@ public class Enemy extends PohyblivyObjektHry {
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
 	 * @param handler handler
 	 */
-	public Enemy(int poziciaX, int poziciaY, Handler handler) {
+	public Enemy(double ID, int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
-		width = 35;
-		height = 43;
+		this.ID=ID;
+		super.nacitajObrazok();
+
 		zivot=100;
 		velX = Settings.enemySpeed;
 		velY = Settings.enemySpeed;
-		
-		try {
-			image = ImageIO.read(new File("obr/enemy/1.png"));
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	@Override
 	public void vykonajKoliznyEvent() {
-		// TODO Auto-generated method stub
+		zivot-=50;
+		if (zivot<=0) {
+			handler.removeObject(this);
+		}
 	}
 	
 	@Override
@@ -51,12 +41,21 @@ public class Enemy extends PohyblivyObjektHry {
 		this.uholY = destinationY-poziciaY;
 		
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
-		if (Math.abs(uholX)>1) {
-			vecX = (float) (uholX * 2 / vzdialenost);
+		
+		if (Math.abs(vzdialenost)<200) {
+			if (Math.abs(uholX)>1) {
+				vecX = (float) (uholX * 2 / vzdialenost);
+			}
+			if (Math.abs(uholY)>1) {
+				vecY = (float) (uholY * 2 / vzdialenost);
+			}			
 		}
-		if (Math.abs(uholY)>1) {
-			 vecY = (float) (uholY * 2 / vzdialenost);
+		
+		if (Math.abs(vzdialenost)>200) {
+			vecX=0;
+			vecY=0;
 		}
+		
         
         /* ak by sme chceli pohyb ako u hraca (v 8 smeroch)
         if (uholX < 0) {

@@ -12,10 +12,10 @@ import javax.swing.Timer;
  * Trieda sluzi na vykreslovanie objektov hry
  */
 
-public class Platno extends JPanel implements ActionListener{
+public class Platno extends JPanel{
 	
 	// casovac, ktory bude zodpovedny za aktualizacie a vykreslovanie objektov
-	private Timer timer = new Timer(Settings.REFRESH_RATE, this);
+	private Timer timer = new Timer(Settings.REFRESH_RATE, e -> repaint());
 	protected static Handler handler;
 	
 	/**
@@ -40,21 +40,15 @@ public class Platno extends JPanel implements ActionListener{
 		run();
 	}
 
-	// telo posluchaca, vykonava sa FPS-krat za sekundu
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// aktualizuje objekty hry a prekresli vsetky komponenty na platne
-		handler.aktualizujObjektyHry();
-		repaint();
-	}
+
 
 	/**
 	 * Vykreslovanie komponentov platna
 	 */
 	protected void paintComponent(Graphics g) {
 		// sem pride buffer ak ho budeme chciet pouzit
-		// pri kazdom dalsom prekresleni treba najprv nakreslit JPanel nanovo
 		super.paintComponent(g);
+		handler.aktualizujObjektyHry();
 		handler.vykresliObjektyHry(g);
 	}
 

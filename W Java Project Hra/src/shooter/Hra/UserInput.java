@@ -6,14 +6,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Trieda Mys sluzi na ziskanie vstupov mysi.
+ * Trieda Mys sluzi na ukladanie a ziskanie vstupov od pouzivatela.
  * Kombinuje KeyListener a MouseAdapter
  * Mouse Adapter implementuje MouseListener (click mysou), MouseWheelListener (scrollovanie koleckom mysi) a MouseMotionListener (pohyb mysi).
  */
 
 public class UserInput extends MouseAdapter implements KeyListener{
 	
-	Handler handler;
+	private static boolean up = false, down = false, left = false, right = false;
+	private static int mouseX;
+	private static int mouseY;
+	private Handler handler;
 	
 	public UserInput(Handler handler) {
 		this.handler = handler;
@@ -35,16 +38,16 @@ public class UserInput extends MouseAdapter implements KeyListener{
 		// aktualizuje vektory pohybu podla stlacenej klavesnice
 		char keyPressed = e.getKeyChar();
 		if (keyPressed == 'a') {
-			handler.setLeft(true);
+			setLeft(true);
 		}
 		if (keyPressed == 'd') {
-			handler.setRight(true);
+			setRight(true);
 		}
 		if (keyPressed == 'w') {
-			handler.setUp(true);
+			setUp(true);
 		}
 		if (keyPressed == 's') {
-			handler.setDown(true);
+			setDown(true);
 		}
 	}
 
@@ -56,16 +59,16 @@ public class UserInput extends MouseAdapter implements KeyListener{
 		// zresetuje vektory pohybu
 		char keyReleased = e.getKeyChar();
 		if (keyReleased == 'a') {
-			handler.setLeft(false);
+			setLeft(false);
 		}
 		if (keyReleased == 'd') {
-			handler.setRight(false);
+			setRight(false);
 		}
 		if (keyReleased == 'w') {
-			handler.setUp(false);
+			setUp(false);
 		}
 		if (keyReleased == 's') {
-			handler.setDown(false);
+			setDown(false);
 		}
 	}
 	
@@ -74,8 +77,8 @@ public class UserInput extends MouseAdapter implements KeyListener{
 	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		handler.setMouseX(e.getX());
-		handler.setMouseY(e.getY());
+		setMouseX(e.getX());
+		setMouseY(e.getY());
 	}
 	
 	/**
@@ -123,5 +126,53 @@ public class UserInput extends MouseAdapter implements KeyListener{
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
+	}
+	
+	public static boolean isUp() {
+		return up;
+	}
+
+	public void setUp(boolean up) {
+		this.up = up;
+	}
+
+	public static boolean isDown() {
+		return down;
+	}
+
+	public void setDown(boolean down) {
+		this.down = down;
+	}
+
+	public static boolean isLeft() {
+		return left;
+	}
+
+	public void setLeft(boolean left) {
+		this.left = left;
+	}
+
+	public static boolean isRight() {
+		return right;
+	}
+
+	public void setRight(boolean right) {
+		this.right = right;
+	}
+
+	public static int getMouseX() {
+		return mouseX;
+	}
+
+	public void setMouseX(int mouseX) {
+		this.mouseX = mouseX;
+	}
+
+	public static int getMouseY() {
+		return mouseY;
+	}
+
+	public void setMouseY(int mouseY) {
+		this.mouseY = mouseY;
 	}
 }

@@ -1,16 +1,10 @@
 package shooter.ObjektyHry;
 
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 import shooter.Hra.Handler;
 /**
  * Trieda vytvara nepohyblivy objekt typu trava
  */
-public class Item extends ObjektHry{
+public class Item extends PohyblivyObjektHry{
 
 	/**
 	 * Vytvori objekt typu Item (prechodny, pouzitelny, bez pohybu)
@@ -18,17 +12,23 @@ public class Item extends ObjektHry{
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
 	 * @param handler handler
 	 */
-    public Item(int poziciaX, int poziciaY, Handler handler) {
+    public Item(double ID, int poziciaX, int poziciaY, Handler handler) {
         super(poziciaX, poziciaY, handler);
+        this.ID=ID;
+        super.nacitajObrazok();
         this.width = 15;
         this.height = 15;
-        
-        try {
-			image = ImageIO.read(new File("obr/item/1.png"));
-			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
+
+	@Override
+	public void vykonajKoliznyEvent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void zistiSmer() {
+		destinationX=centerX;
+        destinationY=centerY;
+	}
 }

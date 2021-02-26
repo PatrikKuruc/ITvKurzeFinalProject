@@ -1,52 +1,50 @@
 package shooter.Menu;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
+import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-import javax.swing.BoxLayout;
+import shooter.Hra.Game;
+import shooter.mapGen.GeneratorMapy;
+
 public class Menu extends JFrame {
+	
+	private ContentPanel contentPane;
 
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu frame = new Menu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Menu() {
+		setResizable(false);
+		setTitle("Nemame nazov :/");
+		setSize(new Dimension(800, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
-		contentPane = new JPanel();
+		setLocationRelativeTo(null);
+		
+		contentPane = new ContentPanel(this);
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JPanel panel = new JPanel();
-		contentPane.add(panel);
-		panel.setBackground(Color.RED);
-		
-		JPanel2 panel_2 = new JPanel2();
-		contentPane.add(panel_2);
-		
-		JPanel3 panel_3 = new JPanel3();
-		contentPane.add(panel_3);
+	}
+	
+	/**
+	 * Spusti menu
+	 */
+	public void run() {
+		setVisible(true);
 	}
 
+	/**
+	 * Spusti hru
+	 */
+	public void pustiHruBezMenu() {
+		try {
+			Game game = new Game();
+			game.run();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	public void pustiMapGen() {
+		GeneratorMapy game = new GeneratorMapy();
+		game.run();
+	}
 }

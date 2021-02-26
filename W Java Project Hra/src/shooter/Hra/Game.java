@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
 /**
- * Trieda sluzi na vytvorenie okna aplikacie.
+ * Trieda sluzi na vytvorenie okna hry.
  */
 public class Game extends JFrame{
 	/**
@@ -30,8 +30,9 @@ public class Game extends JFrame{
 		// prisposobi velkost okna JFrame velkosti komponentov (ich preferredSize) v okne (v nasom pripade sa prisposobi velkosti JPanelu - Platno)
 		pack();
 	}
+	
 	/**
-	 * zobrazi okno hry
+	 * Spusti okno hry
 	 */
 	public void run() {
 		setVisible(true);

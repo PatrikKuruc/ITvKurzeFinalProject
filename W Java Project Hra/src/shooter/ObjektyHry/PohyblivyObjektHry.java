@@ -2,7 +2,6 @@ package shooter.ObjektyHry;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 import shooter.Hra.Handler;
 /**
@@ -28,7 +27,6 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	// aktualizuje uhly v zavislosti od typu objektu
 	public abstract void zistiSmer();
 	
-	
 	/**
 	 * Vytvara pohyblivy objekt hry
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
@@ -37,37 +35,25 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 */
 	public PohyblivyObjektHry(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
+		
 	}
 
 	public void aktualizujObjektHry() {
 		zistiSmer();
 		aktualizujRotaciu();
 		zistiKoliziuSoStenami();
+		zistiKoliziuPohyblivychObjektov();
 		pohni();
 	}
 	
-	public void aktualizujRotaciu() {
-		uholX = destinationX - centerX;
-		uholY = destinationY - centerY;
-		rotacia=Math.atan2(uholY, uholX);
-	}
-	
-	
-	public void zistiKoliziuSoStenami() {
-		for(int i = 0; i < handler.objekty.size(); i++){
-            ObjektHry objektHry = handler.objekty.get(i);
-            if(objektHry instanceof Stena){
-                if(getBounds().intersects(objektHry.getBounds())){
-                    koliziaSoStenou();
-                }
-            }
-        }
-	}
-	
+	/**
+	 * Kolizia objektu so stenou
+	 */
 	public void koliziaSoStenou() {
 		vecX*=-1;
 		vecY*=-1;
 	}
+	
 	/**
 	 * Aktualizuje poziciu objektu
 	 */
@@ -82,8 +68,43 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		rectangle.setBounds(poziciaX, poziciaY, width, height);
 	}
 	
+	/**
+	 * Aktualizuje uhol rotacie objektu
+	 */
+	public void aktualizujRotaciu() {
+		uholX = destinationX - centerX;
+		uholY = destinationY - centerY;
+		rotacia=Math.atan2(uholY, uholX);
+	}
 	
-
+	/**
+	 * Zisti koliziu medzi pohyblivymi objektmi
+	 */
+	private void zistiKoliziuPohyblivychObjektov() {
+		for(int i = 0; i < handler.pohybliveObjekty.size(); i++) {
+			ObjektHry objekt = handler.pohybliveObjekty.get(i);
+			if (objekt!=this) {
+				if(getBounds().intersects(objekt.getBounds())) {
+					vykonajKoliznyEvent();
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Zisti koliziu pohyblivych objektov so statickymi
+	 */
+	public void zistiKoliziuSoStenami() {
+		for(int i = 0; i < handler.statickeObjekty.size(); i++){
+            ObjektHry objektHry = handler.statickeObjekty.get(i);
+            if(objektHry instanceof Stena){
+                if(getBounds().intersects(objektHry.getBounds())){
+                    koliziaSoStenou();
+                }
+            }
+        }
+	}
+	
 	@Override
 	public void vykresli(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr.create();
