@@ -10,7 +10,7 @@ public class GameTester {
 	public static void main(String[] args) throws FileNotFoundException {
 		// vytvor a pusti hru
 		Menu hra = new Menu();
-		// tralalala
+
 		hra.run();
 		//hra.pustiHruBezMenu();
 		//hra.pustiMapGen();
