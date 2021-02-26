@@ -1,14 +1,38 @@
 package shooter.mapGen;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
-public class panelMapy extends JPanel {
+import shooter.ObjektyHry.ObjektHry;
 
+public class PanelVyber extends JPanel {
+
+	private HandlerMapGen handler;
+	private ArrayList<ObjektMapGen> zoznamObjektov = new ArrayList<>();
+	
 	/**
 	 * Create the panel.
+	 * @param handler 
 	 */
-	public panelMapy() {
-		setBounds(250, 10, 500, 70);
+	public PanelVyber(HandlerMapGen handler) {
+		this.handler=handler;
+		this.zoznamObjektov = this.handler.getZoznamObjektov();
+		setBounds(210, 10, 600, 80);
 	}
 
+	@Override
+	public void paint(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		// TODO Auto-generated method stub
+		super.paint(g2);
+		for (int i = 0; i < zoznamObjektov.size(); i++) {
+			ObjektMapGen obj = zoznamObjektov.get(i);
+			obj.vykresli(g2);
+		}
+	}
+	
+	
 }

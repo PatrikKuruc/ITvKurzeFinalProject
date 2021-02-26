@@ -1,8 +1,6 @@
 package shooter.Hra;
 
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
 import javax.swing.JPanel;

@@ -109,7 +109,7 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	@Override
 	public void vykresli(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr.create();
-		g.draw(getBounds());
+		//g.draw(getBounds());
 		g.rotate(rotacia, centerX, centerY);
 		super.vykresli(g);
 		g.dispose();

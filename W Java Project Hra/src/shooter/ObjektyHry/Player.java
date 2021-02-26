@@ -33,7 +33,7 @@ public class Player extends PohyblivyObjektHry{
 	public void vykonajKoliznyEvent() {
 		// TODO Auto-generated method stub
 	}
-	
+	/*
 	@Override
 	public void vykresli(Graphics gr) {
 		super.vykresli(gr);
@@ -53,6 +53,7 @@ public class Player extends PohyblivyObjektHry{
 		gr.setColor(Color.white);
 		gr.drawString("Naboje: " + handler.zasobnik , 220, 22);
 	}
+	*/
 
 	@Override
 	public void aktualizujObjektHry() {

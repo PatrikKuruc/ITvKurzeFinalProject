@@ -37,6 +37,10 @@ public class Handler {
     	
 	}
 
+	public Handler(Object object) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Hrac vystreli strelu
 	 */
