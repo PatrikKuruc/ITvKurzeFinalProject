@@ -1,10 +1,8 @@
-ackage shooter.Hra;
-
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+
+package shooter.Hra;
 
 /**
  * Trieda Casovac sluzi ako stopky, ktory meraju dobu hrania vo formate minuty:sekundy.
