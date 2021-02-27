@@ -30,8 +30,11 @@ public class Player extends PohyblivyObjektHry{
 	}
 	
 	@Override
-	public void vykonajKoliznyEvent() {
-		// TODO Auto-generated method stub
+	public void vykonajKoliznyEvent(ObjektHry objekt) {
+		if(objekt instanceof Enemy) {
+			
+		}
+		
 	}
 	/*
 	@Override
@@ -42,14 +45,12 @@ public class Player extends PohyblivyObjektHry{
 	
 	private void vykresliHealthbar(Graphics gr) {
 		// cele vykreslovanie score sem
-
 		gr.setColor(Color.lightGray);
 		gr.fillRect(0,5,200,22);
 		gr.setColor(Color.GREEN);
 		gr.fillRect(0,5, handler.zivot*2, 22);
 		gr.setColor(Color.BLACK);
 		gr.drawRect(0,5,200,22);
-
 		gr.setColor(Color.white);
 		gr.drawString("Naboje: " + handler.zasobnik , 220, 22);
 	}

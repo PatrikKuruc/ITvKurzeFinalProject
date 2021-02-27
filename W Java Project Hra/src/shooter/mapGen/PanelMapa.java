@@ -14,7 +14,7 @@ import shooter.Hra.Settings;
 public class PanelMapa extends JPanel{
 
 	private Timer timer = new Timer(60, e -> repaint());
-	private Myska mys;
+	private MyskaKresli mys;
 	private HandlerMapGen handler;
 	private ArrayList<Rectangle> mriezka = new ArrayList<>();
 	
@@ -31,18 +31,18 @@ public class PanelMapa extends JPanel{
 		objekty1 = handler.getDefaultMap();
 		objekty2 = handler.getNewMap();
 		
-		this.mys = new Myska(handler);
+		this.mys = new MyskaKresli(handler);
 		addMouseListener(mys);
 		addMouseMotionListener(mys);
 	}
 
 	private void vytvorMriezku() {
-		int velkostPolicka = 16;
-		int vRiadku = 800/velkostPolicka;
-		int vStlpci = 592/velkostPolicka;
+		int velkostPolicka = handler.velkostPolicka;
+		int vRiadku = 800/handler.velkostPolicka;
+		int vStlpci = 592/handler.velkostPolicka;
 		for (int i = 0; i < vRiadku; i++) {
 			for (int j = 0; j < vStlpci; j++) {
-				mriezka.add(new Rectangle(i*16, j*16, 16, 16));
+				mriezka.add(new Rectangle(i*handler.velkostPolicka, j*handler.velkostPolicka, handler.velkostPolicka, handler.velkostPolicka));
 			}
 		}
 	}

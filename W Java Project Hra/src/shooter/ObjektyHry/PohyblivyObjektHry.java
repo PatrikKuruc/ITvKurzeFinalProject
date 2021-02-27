@@ -23,7 +23,7 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 
 	
 	// rozne typy objektov sa budu pri kolizii s nymi objektami (okrem stien) spravat inak
-	public abstract void vykonajKoliznyEvent();
+	public abstract void vykonajKoliznyEvent(ObjektHry objekt);
 	// aktualizuje uhly v zavislosti od typu objektu
 	public abstract void zistiSmer();
 	
@@ -86,7 +86,7 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 			ObjektHry objekt = handler.pohybliveObjekty.get(i);
 			if (objekt!=this) {
 				if(getBounds().intersects(objekt.getBounds())) {
-					vykonajKoliznyEvent();
+					vykonajKoliznyEvent(objekt);
 				}
 			}
 		}

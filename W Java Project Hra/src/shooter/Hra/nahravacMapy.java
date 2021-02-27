@@ -46,7 +46,7 @@ public class nahravacMapy {
 	            	handler.addObject(new Enemy(ID,x,y, handler));
 	            }
 	            if (ID == 4) {
-	            	handler.addObject(new Item(ID,x,y, handler));
+	            	handler.addObject(new Item(IDfile,x,y, handler));
 	            }
 	            x += 32;
 	        }

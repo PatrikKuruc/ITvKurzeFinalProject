@@ -12,6 +12,7 @@ public class PanelVyber extends JPanel {
 
 	private HandlerMapGen handler;
 	private ArrayList<ObjektMapGen> zoznamObjektov = new ArrayList<>();
+	private MyskaVyber myska;
 	
 	/**
 	 * Create the panel.
@@ -21,6 +22,10 @@ public class PanelVyber extends JPanel {
 		this.handler=handler;
 		this.zoznamObjektov = this.handler.getZoznamObjektov();
 		setBounds(210, 10, 600, 80);
+		
+		this.myska = new MyskaVyber(handler);
+		addMouseListener(myska);
+		addMouseMotionListener(myska);
 	}
 
 	@Override

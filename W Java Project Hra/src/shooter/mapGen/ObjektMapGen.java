@@ -16,25 +16,32 @@ import shooter.ObjektyHry.ObjektHry;
 
 public class ObjektMapGen {
 	
+	private HandlerMapGen handler;
 	private int poziciaX;
 	private int poziciaY;
 	private Image image;
 	private double ID;
 	
-	public ObjektMapGen(Double ID, int poziciaX, int poziciaY) {
+	public ObjektMapGen(Double ID, int poziciaX, int poziciaY, HandlerMapGen handlerMapGen) {
 		this.ID = ID;
 		this.poziciaX = poziciaX;
 		this.poziciaY = poziciaY;
+		this.handler = handlerMapGen;
 		nacitajObrazok();
 	}
 	
+	public void doClick() {
+		System.out.println("doc.obj. pridany do handlera");
+		handler.setDocasnyObjekt(this);
+	}
+
 	
 	public void nacitajObrazok() {
     	int IDint = (int)ID;
     	if (IDint==0) {
     		try {
     			image = ImageIO.read(new File("obr/trava/1.png"));
-    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
+    			image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -43,7 +50,7 @@ public class ObjektMapGen {
     	else if (IDint ==1) {
     		try {
     			image = ImageIO.read(new File("obr/stena/drevo/11.png"));
-    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
+    			image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -70,17 +77,7 @@ public class ObjektMapGen {
     	else if (IDint==4) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
-    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
-    		} catch (IOException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
-    	}
-    	else if (IDint==5) {
-    		try {
-    			this.image = ImageIO.read(new File("obr/strela/1.png"));
-    			image = image.getScaledInstance(513/30, 173/30, Image.SCALE_FAST);
-    			
+    			image = image.getScaledInstance(handler.velkostPolicka/2, handler.velkostPolicka/2, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();

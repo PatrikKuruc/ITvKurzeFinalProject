@@ -25,10 +25,12 @@ public class Enemy extends PohyblivyObjektHry {
 	}
 	
 	@Override
-	public void vykonajKoliznyEvent() {
-		zivot-=50;
-		if (zivot<=0) {
-			handler.removeObject(this);
+	public void vykonajKoliznyEvent(ObjektHry objekt) {
+		if (objekt instanceof Strela) {
+			zivot-=50;
+			if (zivot<=0) {
+				handler.removeObject(this);
+			}
 		}
 	}
 	

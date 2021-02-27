@@ -44,7 +44,7 @@ public abstract class ObjektHry extends JComponent {
     }
     
     public void nacitajObrazok() {
-    	int IDint = (int)ID;
+    	double IDint = ID;
     	if (IDint==0) {
     		try {
     			image = ImageIO.read(new File("obr/trava/1.png"));
@@ -81,9 +81,18 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
     	}
-    	else if (IDint==4) {
+    	else if (IDint==4.1) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
+    			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+		else if (IDint==4.2) {
+    		try {
+    			image = ImageIO.read(new File("obr/item/Zbrane/weapon_gun.png"));
     			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block

@@ -18,11 +18,11 @@ public class Item extends PohyblivyObjektHry{
         super.nacitajObrazok();
         this.width = 15;
         this.height = 15;
+        System.out.println(ID);
     }
 
 	@Override
-	public void vykonajKoliznyEvent() {
-		// TODO Auto-generated method stub
+	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		
 	}
 

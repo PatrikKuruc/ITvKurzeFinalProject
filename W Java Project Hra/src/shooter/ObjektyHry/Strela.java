@@ -51,6 +51,9 @@ public class Strela extends PohyblivyObjektHry {
 	}
 
 	@Override
-	public void vykonajKoliznyEvent() {
+	public void vykonajKoliznyEvent(ObjektHry objekt) {
+		if (objekt instanceof Enemy) {
+			handler.removeObject(this);
+		}
 	}
 }
