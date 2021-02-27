@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class HandlerMapGen {
 	
 	private ArrayList<ObjektMapGen> defaultMap;
-	private ArrayList<ObjektMapGen> zoznamObjektov;
+	//private ArrayList<ObjektMapGen> zoznamObjektov;
 	private ArrayList<ObjektMapGen> newMap;
 	private double typObjektu = 1.0;
 	protected int velkostPolicka = 32;
@@ -15,8 +15,8 @@ public class HandlerMapGen {
 		defaultMap = new ArrayList<>();
 		vytvorDefaultneObjektyMapy();
 		
-		zoznamObjektov = new ArrayList<>();
-		vytvorZoznamObjektov();
+		//zoznamObjektov = new ArrayList<>();
+		//vytvorZoznamObjektov();
 		
 		newMap = new ArrayList<>();
 	}
@@ -35,7 +35,7 @@ public class HandlerMapGen {
 			}
 		}
 	}
-
+/*
 	private void vytvorZoznamObjektov() {
 		zoznamObjektov.add(new ObjektMapGen(0.0, 10, 10, this));
 		zoznamObjektov.add(new ObjektMapGen(1.0, 60, 10, this));
@@ -43,7 +43,7 @@ public class HandlerMapGen {
 		zoznamObjektov.add(new ObjektMapGen(3.0, 160, 10, this));
 		zoznamObjektov.add(new ObjektMapGen(4.0, 210, 10, this));
 	}
-
+*/
 	public void pridajObjekt(double ID, int x, int y) {
 		typObjektu = ID;
 		int pozX = x/velkostPolicka;
@@ -54,11 +54,11 @@ public class HandlerMapGen {
 	public ArrayList<ObjektMapGen> getNewMap() {
 		return newMap;
 	}
-	
+/*	
 	public ArrayList<ObjektMapGen> getZoznamObjektov() {
 		return zoznamObjektov;
 	}
-
+*/
 	public ArrayList<ObjektMapGen> getDefaultMap() {
 		return defaultMap;
 	}

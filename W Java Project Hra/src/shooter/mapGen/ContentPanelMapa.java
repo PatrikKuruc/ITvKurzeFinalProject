@@ -11,7 +11,6 @@ import javax.swing.JTextPane;
 import java.awt.Component;
 
 public class ContentPanelMapa extends JPanel {
-
 	
 	private HandlerMapGen handler;
 
@@ -23,8 +22,6 @@ public class ContentPanelMapa extends JPanel {
 		setBounds(0, 0, 820, 710);
 		setLayout(null);
 		handler = new HandlerMapGen();
-		
-		
 		
 		PanelMapa panelMapa = new PanelMapa(handler);
 		add(panelMapa);
