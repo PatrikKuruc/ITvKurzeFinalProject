@@ -27,4 +27,10 @@ public class MyskaKresli extends MouseAdapter {
 			handler.pridajObjekt(0.0, x, y);
 		}
 	}
+	
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		int x = e.getX();
+		int y = e.getY();
+	}
 }

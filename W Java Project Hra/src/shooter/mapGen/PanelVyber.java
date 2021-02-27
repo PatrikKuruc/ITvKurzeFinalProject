@@ -4,14 +4,18 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import shooter.ObjektyHry.ObjektHry;
 
 public class PanelVyber extends JPanel {
 
+	private Timer timer = new Timer(60, e -> repaint());
 	private HandlerMapGen handler;
-	private ArrayList<ObjektMapGen> zoznamObjektov = new ArrayList<>();
+	private ArrayList<ObjektJComp> zoznamObjektov = new ArrayList<>();
+	
 	
 	/**
 	 * Create the panel.
@@ -23,14 +27,15 @@ public class PanelVyber extends JPanel {
 		setBounds(210, 10, 600, 80);
 		
 		vytvorZoznamObjektov();
+		timer.start();
 	}
 
 	private void vytvorZoznamObjektov() {
-		add(new IconBtn(0.0, handler));
-		add(new IconBtn(1.0, handler));
-		add(new IconBtn(2.0, handler));
-		add(new IconBtn(3.0, handler));
-		add(new IconBtn(4.0, handler));
+		add(new ObjectBtn(0.0, handler));
+		add(new ObjectBtn(1.0, handler));
+		add(new ObjectBtn(2.0, handler));
+		add(new ObjectBtn(3.0, handler));
+		add(new ObjectBtn(4.0, handler));
 	}
 
 	@Override
@@ -39,10 +44,8 @@ public class PanelVyber extends JPanel {
 		// TODO Auto-generated method stub
 		super.paint(g2);
 		for (int i = 0; i < zoznamObjektov.size(); i++) {
-			ObjektMapGen obj = zoznamObjektov.get(i);
+			ObjektJComp obj = zoznamObjektov.get(i);
 			obj.vykresli(g2);
 		}
 	}
-	
-	
 }

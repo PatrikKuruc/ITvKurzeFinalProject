@@ -14,7 +14,7 @@ import javax.swing.JComponent;
 import shooter.Hra.nahravacMapy;
 import shooter.ObjektyHry.ObjektHry;
 
-public class ObjektMapGen {
+public class ObjektJComp extends JComponent{
 	
 	private HandlerMapGen handler;
 	private int poziciaX;
@@ -22,19 +22,13 @@ public class ObjektMapGen {
 	private Image image;
 	private double ID;
 	
-	public ObjektMapGen(Double ID, int poziciaX, int poziciaY, HandlerMapGen handlerMapGen) {
+	public ObjektJComp(Double ID, int poziciaX, int poziciaY, HandlerMapGen handlerMapGen) {
 		this.ID = ID;
 		this.poziciaX = poziciaX;
 		this.poziciaY = poziciaY;
 		this.handler = handlerMapGen;
 		nacitajObrazok();
 	}
-	
-	public void doClick() {
-		System.out.println("doc.obj. pridany do handlera");
-		handler.setDocasnyObjekt(this);
-	}
-
 	
 	public void nacitajObrazok() {
     	int IDint = (int)ID;
@@ -95,4 +89,11 @@ public class ObjektMapGen {
 		g.drawImage(image, poziciaX, poziciaY, null);
 		g.dispose();	
     }
+
+	public void setX(int x) {
+		poziciaX = x;
+	}
+	public void setY(int y) {
+		poziciaY = y;
+	}
 }

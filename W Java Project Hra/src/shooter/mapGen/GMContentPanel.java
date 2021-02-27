@@ -10,14 +10,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.Component;
 
-public class ContentPanelMapa extends JPanel {
+public class GMContentPanel extends JPanel {
 	
 	private HandlerMapGen handler;
 
 	/**
 	 * Create the panel.
 	 */
-	public ContentPanelMapa() {
+	public GMContentPanel() {
 		setBackground(Color.GRAY);
 		setBounds(0, 0, 820, 710);
 		setLayout(null);

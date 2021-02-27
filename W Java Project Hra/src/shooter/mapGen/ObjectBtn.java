@@ -4,13 +4,13 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class IconBtn extends JButton {
+public class ObjectBtn extends JButton {
 	
 	private HandlerMapGen handler;
 	private Icon image;
 	private double ID;
 	
-	public IconBtn(Double ID, HandlerMapGen handlerMapGen) {
+	public ObjectBtn(Double ID, HandlerMapGen handlerMapGen) {
 		super();
 		this.ID = ID;
 		this.handler = handlerMapGen;

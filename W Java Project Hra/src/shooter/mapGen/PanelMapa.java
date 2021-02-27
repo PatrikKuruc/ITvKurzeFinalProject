@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -18,8 +19,8 @@ public class PanelMapa extends JPanel{
 	private HandlerMapGen handler;
 	private ArrayList<Rectangle> mriezka = new ArrayList<>();
 	
-	private ArrayList<ObjektMapGen> objekty1 = new ArrayList<>();
-	private ArrayList<ObjektMapGen> objekty2 = new ArrayList<>();
+	private ArrayList<ObjektJComp> objekty1 = new ArrayList<>();
+	private ArrayList<ObjektJComp> objekty2 = new ArrayList<>();
 
 	public PanelMapa(HandlerMapGen handler) {
 		this.handler=handler;
