@@ -29,6 +29,7 @@ public class Handler {
 	public LinkedList<ObjektHry> pohybliveObjekty = new LinkedList<>();
 	public int zivot=100;
 	public int zasobnik=10;
+	public int score;
 
 	/**
 	 * Vytvori handler
