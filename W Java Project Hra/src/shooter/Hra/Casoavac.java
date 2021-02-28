@@ -10,7 +10,7 @@ package shooter.Hra;
 public class Casovac {
 
     JLabel timeLabel;
-    Timer timer2;
+    Timer timer;
     int second;
     int minute;
     String ddSecond, ddMinute;
@@ -35,14 +35,14 @@ public class Casovac {
         minute = 0;
 
         Timer();
-        timer2.start();
+        timer.start();
     }
 
     /**
      * Spusti sa casovac, ktory bude pocitat (minuty:sekundy) dobu hrania
      */
     public void Timer() {
-        timer2 = new Timer(1000, new ActionListener() {
+        timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 second++;
