@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,10 +18,10 @@ public class PanelMapa extends JPanel{
 	private Timer timer = new Timer(60, e -> repaint());
 	private MyskaKresli mys;
 	private HandlerMapGen handler;
-	private ArrayList<Rectangle> mriezka = new ArrayList<>();
+	private LinkedList<Rectangle> mriezka = new LinkedList<>();
 	
-	private ArrayList<ObjektJComp> objekty1 = new ArrayList<>();
-	private ArrayList<ObjektJComp> objekty2 = new ArrayList<>();
+	private LinkedList<ObjektJComp> objekty1 = new LinkedList<>();
+	private LinkedList<ObjektJComp> objekty2 = new LinkedList<>();
 
 	public PanelMapa(HandlerMapGen handler) {
 		this.handler=handler;

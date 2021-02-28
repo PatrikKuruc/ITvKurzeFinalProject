@@ -17,14 +17,12 @@ public class MyskaKresli extends MouseAdapter {
 		int x = e.getX();
 		int y = e.getY();
 		
-		if(e.getButton() == 1) {
-			handler.pridajObjekt(1.0, x, y);
-		}
-		else if (e.getButton() == 2) {
-			handler.pridajObjekt(3.0, x, y);
-		}
-		else if(e.getButton() == 3) {
-			handler.pridajObjekt(0.0, x, y);
+		if (e.getButton() == 1) {
+			double ID = handler.getKreslisObjektID();
+			handler.pridajObjekt(ID, x, y);
+			}
+		if (e.getButton() == 3) {
+			handler.zmazObjekty(x, y);
 		}
 	}
 	

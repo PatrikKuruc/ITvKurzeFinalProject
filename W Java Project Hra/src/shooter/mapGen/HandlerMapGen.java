@@ -3,6 +3,7 @@ package shooter.mapGen;
 import java.awt.Graphics2D;
 import java.awt.Label;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.swing.JLabel;
 
@@ -10,22 +11,22 @@ import shooter.ObjektyHry.ObjektHry;
 
 public class HandlerMapGen {
 	
-	private ArrayList<ObjektJComp> defaultMap;
-	//private ArrayList<ObjektMapGen> zoznamObjektov;
-	private ArrayList<ObjektJComp> newMap;
+	private LinkedList<ObjektJComp> defaultMap;
+	private LinkedList<ObjektJComp> newMap;
 	private double typObjektu = 1.0;
-	protected int velkostPolicka = 32;
+	protected int velkostPolicka = 16;
 	
 	private JLabel DOLabel;
+	private double kreslisObjektID;
 	
 	public HandlerMapGen() {
-		defaultMap = new ArrayList<>();
+		defaultMap = new LinkedList<>();
 		vytvorDefaultneObjektyMapy();
 		
 		//zoznamObjektov = new ArrayList<>();
 		//vytvorZoznamObjektov();
 		
-		newMap = new ArrayList<>();
+		newMap = new LinkedList<>();
 	}
 
 	private void vytvorDefaultneObjektyMapy() {
@@ -50,15 +51,31 @@ public class HandlerMapGen {
 		newMap.add(new ObjektJComp(typObjektu, pozX*velkostPolicka, pozY*velkostPolicka, this));
 	}
 	
-	public ArrayList<ObjektJComp> getNewMap() {
+	public void zmazObjekty(int x, int y) {
+		int pozX = x/velkostPolicka;
+		int pozY = y/velkostPolicka;
+		System.out.println(pozX + " " + pozY);
+		for (ObjektJComp objektJComp : newMap) {
+			ObjektJComp obj = objektJComp;
+			if (obj.getPoziciaX()/velkostPolicka == pozX && obj.getPoziciaY()/velkostPolicka==pozY) {
+				newMap.remove(obj);
+			}
+		}
+	}
+	
+	public LinkedList<ObjektJComp> getNewMap() {
 		return newMap;
 	}
-/*	
-	public ArrayList<ObjektMapGen> getZoznamObjektov() {
-		return zoznamObjektov;
+
+	public double getKreslisObjektID() {
+		return kreslisObjektID;
 	}
-*/
-	public ArrayList<ObjektJComp> getDefaultMap() {
+
+	public void setKreslisObjektID(double kreslisObjektID) {
+		this.kreslisObjektID = kreslisObjektID;
+	}
+
+	public LinkedList<ObjektJComp> getDefaultMap() {
 		return defaultMap;
 	}
 }

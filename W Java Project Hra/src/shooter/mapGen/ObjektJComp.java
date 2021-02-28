@@ -71,7 +71,7 @@ public class ObjektJComp extends JComponent{
     	else if (IDint==4) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
-    			image = image.getScaledInstance(handler.velkostPolicka/2, handler.velkostPolicka/2, Image.SCALE_FAST);
+    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -90,6 +90,14 @@ public class ObjektJComp extends JComponent{
 		g.dispose();	
     }
 
+	public int getPoziciaX() {
+		return poziciaX;
+	}
+
+	public int getPoziciaY() {
+		return poziciaY;
+	}
+    
 	public void setX(int x) {
 		poziciaX = x;
 	}

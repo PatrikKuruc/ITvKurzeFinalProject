@@ -1,10 +1,13 @@
 package shooter.mapGen;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class ObjectBtn extends JButton {
+public class ObjectBtn extends JButton implements ActionListener{
 	
 	private HandlerMapGen handler;
 	private Icon image;
@@ -16,8 +19,14 @@ public class ObjectBtn extends JButton {
 		this.handler = handlerMapGen;
 		nacitajObrazok();
 		setIcon(image);
+		
+		addActionListener(this);
 	}
 	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		handler.setKreslisObjektID(ID);
+	}
 	
 	public void nacitajObrazok() {
     	int IDint = (int)ID;
