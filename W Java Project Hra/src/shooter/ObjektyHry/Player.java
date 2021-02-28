@@ -32,29 +32,38 @@ public class Player extends PohyblivyObjektHry{
 	@Override
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if(objekt instanceof Enemy) {
-			
+			handler.zivot--;
+			if(handler.zivot <= 0){
+				handler.zivot = 0;
+			}
 		}
 		
 	}
-	/*
+	
 	@Override
 	public void vykresli(Graphics gr) {
 		super.vykresli(gr);
 		vykresliHealthbar(gr);
 	}
 	
-	private void vykresliHealthbar(Graphics gr) {
-		// cele vykreslovanie score sem
+	private void vykresliUdajeHraca(Graphics gr) {
+		// vykreslenie health-baru
 		gr.setColor(Color.lightGray);
-		gr.fillRect(0,5,200,22);
+		gr.fillRect(32,5,200,22);
 		gr.setColor(Color.GREEN);
-		gr.fillRect(0,5, handler.zivot*2, 22);
+		gr.fillRect(32,5, handler.zivot*2, 22);
 		gr.setColor(Color.BLACK);
-		gr.drawRect(0,5,200,22);
+		gr.drawRect(32,5,200,22);
+
+		// vykreslenie nabojov
 		gr.setColor(Color.white);
-		gr.drawString("Naboje: " + handler.zasobnik , 220, 22);
+		gr.drawString("Naboje: " + handler.zasobnik , 250, 22);
+
+		// vykreslenie score
+		gr.setColor(Color.white);
+		gr.drawString("Score: " + handler.score, 350, 22);
 	}
-	*/
+	
 
 	@Override
 	public void aktualizujObjektHry() {
