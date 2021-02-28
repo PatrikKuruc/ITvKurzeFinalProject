@@ -92,7 +92,7 @@ public abstract class ObjektHry extends JComponent {
     	}
 		else if (IDint==4.2) {
     		try {
-    			image = ImageIO.read(new File("obr/item/Zbrane/weapon_gun.png"));
+    			image = ImageIO.read(new File("obr/item/2.png"));
     			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
