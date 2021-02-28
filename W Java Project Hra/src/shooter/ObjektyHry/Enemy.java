@@ -30,9 +30,11 @@ public class Enemy extends PohyblivyObjektHry {
 			zivot-=50;
 			if (zivot<=0) {
 				handler.removeObject(this);
+				handler.score++;
 			}
 		}
 	}
+	
 	
 	@Override
 	public void zistiSmer() {
