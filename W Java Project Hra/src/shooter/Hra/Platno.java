@@ -21,6 +21,7 @@ public class Platno extends JPanel{
 	 * @throws FileNotFoundException 
 	 */
 	public Platno() throws FileNotFoundException{
+		setLayout(null);
 		// vytvori handler a nahra mapu a objekty hry
 		Platno.handler = new Handler();
 		

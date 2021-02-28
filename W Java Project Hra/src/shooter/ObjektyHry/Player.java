@@ -43,7 +43,7 @@ public class Player extends PohyblivyObjektHry{
 	@Override
 	public void vykresli(Graphics gr) {
 		super.vykresli(gr);
-		vykresliHealthbar(gr);
+		vykresliUdajeHraca(gr);
 	}
 	
 	private void vykresliUdajeHraca(Graphics gr) {
