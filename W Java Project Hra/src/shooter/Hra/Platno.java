@@ -34,6 +34,9 @@ public class Platno extends JPanel{
 		addMouseListener(UserInput);
 		addMouseMotionListener(UserInput);
 		
+		// prida sa casovac hry
+		new Casovac(this);
+		
 		// spusti hru
 		run();
 	}
