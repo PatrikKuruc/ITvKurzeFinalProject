@@ -46,8 +46,10 @@ public class Handler {
 	 * Hrac vystreli strelu
 	 */
 	public void playerShoot() {
+		if (zasobnik>0) {
 			addObject(new Strela(5, poziciaHracaX, poziciaHracaY, this));
 			zasobnik--;
+		}
 	}
 
 	/**
