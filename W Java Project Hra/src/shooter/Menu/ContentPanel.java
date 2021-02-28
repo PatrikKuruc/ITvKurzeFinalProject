@@ -113,7 +113,8 @@ public class ContentPanel extends JPanel {
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menu.setVisible(false);
-				GeneratorMapy mapGen = new GeneratorMapy();
+				GeneratorMapy mapGen;
+				mapGen = new GeneratorMapy();
 				mapGen.run();
 			}
 		});

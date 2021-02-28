@@ -11,8 +11,8 @@ public class GameTester {
 		// vytvor a pusti hru
 		Menu hra = new Menu();
 
-		hra.run();
+		//hra.run();
 		//hra.pustiHruBezMenu();
-		//hra.pustiMapGen();
+		hra.pustiMapGen();
 	}
 }

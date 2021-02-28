@@ -6,6 +6,7 @@ import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.Component;
@@ -16,8 +17,9 @@ public class GMContentPanel extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @throws FileNotFoundException 
 	 */
-	public GMContentPanel() {
+	public GMContentPanel(){
 		setBackground(Color.GRAY);
 		setBounds(0, 0, 820, 710);
 		setLayout(null);
@@ -31,16 +33,17 @@ public class GMContentPanel extends JPanel {
 		
 		
 		JButton btnNewButton = new JButton("Nacitaj Default Map");
-		btnNewButton.addActionListener(e -> panelMapa.stavNaDefaultMap());
+		btnNewButton.addActionListener(e -> handler.stavNaDefaultMap());
 		btnNewButton.setBounds(10, 10, 175, 20);
 		add(btnNewButton);
 		
 		JButton btnZresetujMapu = new JButton("Zmaz Mapu");
 		btnZresetujMapu.setBounds(10, 40, 175, 20);
-		btnZresetujMapu.addActionListener(e -> panelMapa.zmazMapu());
+		btnZresetujMapu.addActionListener(e -> handler.zmazMapu());
 		add(btnZresetujMapu);
 		
 		JButton btnUlozMapu = new JButton("Uloz Mapu");
+		btnUlozMapu.addActionListener(e -> handler.ulozMapu());
 		btnUlozMapu.setBounds(10, 70, 175, 20);
 		add(btnUlozMapu);
 		

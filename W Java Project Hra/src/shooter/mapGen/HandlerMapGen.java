@@ -1,8 +1,9 @@
 package shooter.mapGen;
 
 import java.awt.Graphics2D;
-import java.awt.Label;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 
 import javax.swing.JLabel;
@@ -14,22 +15,18 @@ public class HandlerMapGen {
 	private LinkedList<ObjektJComp> defaultMap;
 	private LinkedList<ObjektJComp> newMap;
 	private double typObjektu = 1.0;
-	protected int velkostPolicka = 16;
+	protected int velkostPolicka = 32;
 	
-	private JLabel DOLabel;
 	private double kreslisObjektID;
+	private PrintWriter zapisovac;
 	
 	public HandlerMapGen() {
 		defaultMap = new LinkedList<>();
-		vytvorDefaultneObjektyMapy();
-		
-		//zoznamObjektov = new ArrayList<>();
-		//vytvorZoznamObjektov();
-		
 		newMap = new LinkedList<>();
+		vytvorDefaultnuMapu();
 	}
 
-	private void vytvorDefaultneObjektyMapy() {
+	private void vytvorDefaultnuMapu() {
 		int vRiadku = 800/velkostPolicka;
 		int vStlpci = 592/velkostPolicka;
 		for (int i = 0; i < vRiadku; i++) {
@@ -54,7 +51,6 @@ public class HandlerMapGen {
 	public void zmazObjekty(int x, int y) {
 		int pozX = x/velkostPolicka;
 		int pozY = y/velkostPolicka;
-		System.out.println(pozX + " " + pozY);
 		for (ObjektJComp objektJComp : newMap) {
 			ObjektJComp obj = objektJComp;
 			if (obj.getPoziciaX()/velkostPolicka == pozX && obj.getPoziciaY()/velkostPolicka==pozY) {
@@ -63,9 +59,20 @@ public class HandlerMapGen {
 		}
 	}
 	
-	public LinkedList<ObjektJComp> getNewMap() {
-		return newMap;
+	public void stavNaDefaultMap() {
+		newMap.addAll(defaultMap);
 	}
+
+	public void zmazMapu() {
+		newMap.removeAll(newMap);
+	}
+	
+	public void vykresliObjekty(Graphics2D g2) {
+		for (ObjektJComp objektJComp : newMap) {
+			objektJComp.vykresli(g2);
+		}
+	}
+	
 
 	public double getKreslisObjektID() {
 		return kreslisObjektID;
@@ -75,7 +82,18 @@ public class HandlerMapGen {
 		this.kreslisObjektID = kreslisObjektID;
 	}
 
-	public LinkedList<ObjektJComp> getDefaultMap() {
-		return defaultMap;
+	public void ulozMapu() {
+		try {
+			zapisovac = new PrintWriter("mapy/newMap.txt");
+			System.out.println("Subor newMap.txt vytvoreny");
+		} catch (FileNotFoundException e) {
+		}
+		
+		zapisovac.write("velkost policka: " + velkostPolicka + "\n");
+		for (ObjektJComp objektMapy : newMap) {
+			zapisovac.write("ObjektID: " + objektMapy.getID() + " PoziciaX: " + objektMapy.getPoziciaX() + " PoziciaY: " + objektMapy.getPoziciaY() + "\n");
+		}
+		zapisovac.flush();
+		zapisovac.close();
 	}
 }

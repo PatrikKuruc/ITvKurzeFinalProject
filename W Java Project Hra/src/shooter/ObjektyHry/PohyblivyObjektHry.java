@@ -87,6 +87,7 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 			if (objekt!=this) {
 				if(getBounds().intersects(objekt.getBounds())) {
 					vykonajKoliznyEvent(objekt);
+					vykonajKoliznyEvent(this);
 				}
 			}
 		}

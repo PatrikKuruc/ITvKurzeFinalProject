@@ -31,7 +31,7 @@ public class ObjektJComp extends JComponent{
 	}
 	
 	public void nacitajObrazok() {
-    	int IDint = (int)ID;
+    	double IDint = ID;
     	if (IDint==0) {
     		try {
     			image = ImageIO.read(new File("obr/trava/1.png"));
@@ -53,7 +53,6 @@ public class ObjektJComp extends JComponent{
     	else if (IDint==2) {
     		try {
     		image = ImageIO.read(new File("obr/hrac/modry/3.png"));
-    		
     		}
     			catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -68,9 +67,18 @@ public class ObjektJComp extends JComponent{
     			e.printStackTrace();
     		}
     	}
-    	else if (IDint==4) {
+    	else if (IDint==4.1) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
+    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    	else if (IDint==4.2) {
+    		try {
+    			image = ImageIO.read(new File("obr/item/2.png"));
     			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -103,5 +111,9 @@ public class ObjektJComp extends JComponent{
 	}
 	public void setY(int y) {
 		poziciaY = y;
+	}
+
+	public Double getID() {
+		return ID;
 	}
 }

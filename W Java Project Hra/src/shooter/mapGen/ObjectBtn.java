@@ -1,5 +1,6 @@
 package shooter.mapGen;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,7 +20,7 @@ public class ObjectBtn extends JButton implements ActionListener{
 		this.handler = handlerMapGen;
 		nacitajObrazok();
 		setIcon(image);
-		
+		setPreferredSize(new Dimension(48, 48));
 		addActionListener(this);
 	}
 	
@@ -29,21 +30,24 @@ public class ObjectBtn extends JButton implements ActionListener{
 	}
 	
 	public void nacitajObrazok() {
-    	int IDint = (int)ID;
-    	if (IDint==0) {
+    	if (ID==0) {
     			image = new ImageIcon("obr/trava/1.png");
     	}
-    	else if (IDint ==1) {
+    	else if (ID ==1) {
     			image = new ImageIcon("obr/stena/drevo/11.png");
 		}
-    	else if (IDint==2) {
+    	else if (ID==2) {
     		image = new ImageIcon("obr/hrac/modry/3.png");
     	}
-    	else if (IDint==3) {
+    	else if (ID==3) {
     			image = new ImageIcon("obr/enemy/1.png");
     	}
-    	else if (IDint==4) {
+    	
+    	else if (ID==4.1) {
     			image = new ImageIcon("obr/item/1.png");
+    	}
+    	else if (ID==4.2) {
+				image = new ImageIcon("obr/item/2.png");
     	}
 	}
 }

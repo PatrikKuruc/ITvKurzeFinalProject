@@ -18,10 +18,8 @@ public class PanelMapa extends JPanel{
 	private Timer timer = new Timer(60, e -> repaint());
 	private MyskaKresli mys;
 	private HandlerMapGen handler;
-	private LinkedList<Rectangle> mriezka = new LinkedList<>();
 	
-	private LinkedList<ObjektJComp> objekty1 = new LinkedList<>();
-	private LinkedList<ObjektJComp> objekty2 = new LinkedList<>();
+	private LinkedList<Rectangle> mriezka;
 
 	public PanelMapa(HandlerMapGen handler) {
 		this.handler=handler;
@@ -30,15 +28,13 @@ public class PanelMapa extends JPanel{
 		vytvorMriezku();
 		timer.start();
 		
-		objekty1 = handler.getDefaultMap();
-		objekty2 = handler.getNewMap();
-		
 		this.mys = new MyskaKresli(handler);
 		addMouseListener(mys);
 		addMouseMotionListener(mys);
 	}
 
 	private void vytvorMriezku() {
+		mriezka = new LinkedList<>();
 		int velkostPolicka = handler.velkostPolicka;
 		int vRiadku = 800/handler.velkostPolicka;
 		int vStlpci = 592/handler.velkostPolicka;
@@ -58,17 +54,6 @@ public class PanelMapa extends JPanel{
 			g2.draw(mriezka.get(i).getBounds());
 		}
 		
-		for (int i = 0; i < objekty2.size(); i++) {
-			objekty2.get(i).vykresli(g2);
-		}
-	}
-
-	public void stavNaDefaultMap() {
-		objekty2.clear();
-		objekty2.addAll(0, objekty1);
-	}
-
-	public void zmazMapu() {
-		objekty2.clear();
+		handler.vykresliObjekty(g2);
 	}
 }

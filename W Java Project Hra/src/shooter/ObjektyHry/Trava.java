@@ -21,9 +21,14 @@ public class Trava extends ObjektHry{
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
 	 * @param handler handler
 	 */
-    public Trava(int ID, int poziciaX, int poziciaY, Handler handler) {
+    public Trava(double ID, int poziciaX, int poziciaY, Handler handler) {
         super(poziciaX, poziciaY, handler);
         this.ID=ID;
+        
+        if (ID >0) {
+        	isSpawnPoint = true;
+		}
+        	
         super.nacitajObrazok();
     }
     

@@ -32,6 +32,7 @@ public class Enemy extends PohyblivyObjektHry {
 				handler.removeObject(this);
 				handler.score++;
 			}
+			handler.removeObject(objekt);
 		}
 	}
 	

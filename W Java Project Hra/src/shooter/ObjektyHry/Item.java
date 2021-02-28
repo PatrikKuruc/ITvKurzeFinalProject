@@ -18,7 +18,6 @@ public class Item extends PohyblivyObjektHry{
 		super.nacitajObrazok();
 		this.width = 15;
 		this.height = 15;
-		System.out.println(ID);
 	}
 
 	@Override
