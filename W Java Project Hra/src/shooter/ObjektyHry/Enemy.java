@@ -12,11 +12,15 @@ public class Enemy extends PohyblivyObjektHry {
 	 * Vytvori objek typu Enemy
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
+	 * @param newObjectHeight 
+	 * @param newObjectWidth 
 	 * @param handler handler
 	 */
-	public Enemy(double ID, int poziciaX, int poziciaY, Handler handler) {
+	public Enemy(double ID, int poziciaX, int poziciaY, int newObjectWidth, int newObjectHeight, Handler handler) {
 		super(poziciaX, poziciaY, handler);
 		this.ID=ID;
+		this.width = newObjectWidth;
+        this.height = newObjectHeight;
 		super.nacitajObrazok();
 
 		zivot=100;

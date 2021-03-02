@@ -14,14 +14,17 @@ public class Stena extends ObjektHry{
 	 * @param ID 
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
+	 * @param newObjectHeight 
+	 * @param newObjectWidth 
 	 * @param handler handler
 	 */
-    public Stena(double ID, int poziciaX, int poziciaY,  Handler handler) {
+    public Stena(double ID, int poziciaX, int poziciaY,  int newObjectWidth, int newObjectHeight, Handler handler) {
         super(poziciaX, poziciaY, handler);
         this.ID=ID;
+        this.width = newObjectWidth;
+        this.height = newObjectHeight;
         super.nacitajObrazok();
-        this.width = 32;
-        this.height = 32;
+        
     }
 
     //prepisana metoda vykresli, len kvoli tomu aby pri tychto objektoch nekreslilo stvorec okolo - kedze aj tak kolizie neriesime

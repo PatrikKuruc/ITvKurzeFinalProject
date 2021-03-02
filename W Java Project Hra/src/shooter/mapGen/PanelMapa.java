@@ -23,7 +23,7 @@ public class PanelMapa extends JPanel{
 
 	public PanelMapa(MGHandler handler) {
 		this.handler=handler;
-		setBounds(10, 110, 800, 592);
+		setBounds(10, 110, 1024, 800);
 		setLayout(null);
 		vytvorMriezku();
 		timer.start();
@@ -36,8 +36,8 @@ public class PanelMapa extends JPanel{
 	private void vytvorMriezku() {
 		mriezka = new LinkedList<>();
 		int velkostPolicka = handler.velkostPolicka;
-		int vRiadku = 800/handler.velkostPolicka;
-		int vStlpci = 592/handler.velkostPolicka;
+		int vRiadku = 1024/handler.velkostPolicka;
+		int vStlpci = 800/handler.velkostPolicka;
 		for (int i = 0; i < vRiadku; i++) {
 			for (int j = 0; j < vStlpci; j++) {
 				mriezka.add(new Rectangle(i*handler.velkostPolicka, j*handler.velkostPolicka, handler.velkostPolicka, handler.velkostPolicka));

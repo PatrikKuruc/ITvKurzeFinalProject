@@ -27,7 +27,7 @@ public class GeneratorMapy extends JFrame {
 	 */
 	public GeneratorMapy(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0,0, 840, 750);
+		setBounds(0,0, 1064, 960);
 		contentPane = new MGContentPanel();
 		setContentPane(contentPane);
 		

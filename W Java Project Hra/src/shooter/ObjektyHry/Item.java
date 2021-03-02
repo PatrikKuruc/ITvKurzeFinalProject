@@ -10,14 +10,16 @@ public class Item extends PohyblivyObjektHry{
 	 * Vytvori objekt typu Item (prechodny, pouzitelny, bez pohybu)
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
+	 * @param newObjectHeight 
+	 * @param newObjectWidth 
 	 * @param handler handler
 	 */
-	public Item(double ID, int poziciaX, int poziciaY, Handler handler) {
+	public Item(double ID, int poziciaX, int poziciaY, int newObjectWidth, int newObjectHeight, Handler handler) {
 		super(poziciaX, poziciaY, handler);
 		this.ID=ID;
+		this.width = newObjectWidth;
+        this.height = newObjectHeight;
 		super.nacitajObrazok();
-		this.width = 15;
-		this.height = 15;
 	}
 
 	@Override

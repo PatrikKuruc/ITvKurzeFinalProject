@@ -21,7 +21,7 @@ public class MGContentPanel extends JPanel {
 	 */
 	public MGContentPanel(){
 		setBackground(Color.GRAY);
-		setBounds(0, 0, 820, 710);
+		setBounds(0, 0, 1024, 910);
 		setLayout(null);
 		handler = new MGHandler();
 		

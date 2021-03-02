@@ -19,9 +19,11 @@ public class Trava extends ObjektHry{
 	 * P: casom to moze byt aj napr. voda, ktora bude mat nejaku animaciu a tak.. 
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
+	 * @param newObjectHeight 
+	 * @param newObjectWidth 
 	 * @param handler handler
 	 */
-    public Trava(double ID, int poziciaX, int poziciaY, Handler handler) {
+    public Trava(double ID, int poziciaX, int poziciaY, int newObjectWidth, int newObjectHeight, Handler handler) {
         super(poziciaX, poziciaY, handler);
         this.ID=ID;
         
@@ -29,6 +31,8 @@ public class Trava extends ObjektHry{
         	isSpawnPoint = true;
 		}
         	
+        this.width = newObjectWidth;
+        this.height = newObjectHeight;
         super.nacitajObrazok();
     }
     

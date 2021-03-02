@@ -15,7 +15,7 @@ public class MGHandler {
 	private LinkedList<ObjektJComp> defaultMap;
 	private LinkedList<ObjektJComp> newMap;
 	private double typObjektu = 1.0;
-	protected int velkostPolicka = 8;
+	protected int velkostPolicka = 32;
 	
 	private double kreslisObjektID;
 	private PrintWriter zapisovac;
@@ -27,8 +27,8 @@ public class MGHandler {
 	}
 
 	private void vytvorDefaultnuMapu() {
-		int vRiadku = 800/velkostPolicka;
-		int vStlpci = (600- velkostPolicka)/velkostPolicka;
+		int vRiadku = 1024/velkostPolicka;
+		int vStlpci = (800)/velkostPolicka;
 		for (int i = 0; i < vRiadku; i++) {
 			for (int j = 0; j < vStlpci; j++) {
 				if (i == 0 || j == 0 || i == vRiadku-1 || j == vStlpci-1) {
@@ -89,9 +89,8 @@ public class MGHandler {
 		} catch (FileNotFoundException e) {
 		}
 		
-		zapisovac.write("velkost policka: " + velkostPolicka + "\n");
 		for (ObjektJComp objektMapy : newMap) {
-			zapisovac.write("ObjektID: " + objektMapy.getID() + " PoziciaX: " + objektMapy.getPoziciaX() + " PoziciaY: " + objektMapy.getPoziciaY() + " Width: " + velkostPolicka + " Height: " + velkostPolicka + "\n");
+			zapisovac.write("ObjektID:" + objektMapy.getID() + " PoziciaX:" + objektMapy.getPoziciaX() + " PoziciaY:" + objektMapy.getPoziciaY() + " Width:" + velkostPolicka + " Height:" + velkostPolicka + "\n");
 		}
 		zapisovac.flush();
 		zapisovac.close();

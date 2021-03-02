@@ -30,6 +30,7 @@ public class Handler {
 	public int zivot=100;
 	public int zasobnik=10;
 	public int score;
+	public int velkostPolicka = 32;
 
 	/**
 	 * Vytvori handler
@@ -143,7 +144,7 @@ public class Handler {
         		if (pocetzombies<=10) {
         			int y = rnd.nextInt(1024);
                 	int z = rnd.nextInt(800);
-                	addObject(new Enemy(3, y, z, this));
+                	addObject(new Enemy(3, y, z, velkostPolicka, velkostPolicka, this));
                 	j--;
 				}
         	}

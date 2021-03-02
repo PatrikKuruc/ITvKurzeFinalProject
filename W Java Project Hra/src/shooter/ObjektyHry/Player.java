@@ -21,9 +21,11 @@ public class Player extends PohyblivyObjektHry{
 	private int poziciaHlavneX;
 	private int poziciaHlavneY;
 	
-	public Player(double ID, int poziciaX, int poziciaY,  Handler handler) {
+	public Player(double ID, int poziciaX, int poziciaY,  int newObjectWidth, int newObjectHeight, Handler handler) {
 		super(poziciaX, poziciaY, handler);
 		this.ID=ID;
+		this.height = newObjectHeight;
+		this.width = newObjectWidth;
 		super.nacitajObrazok();
 		this.velX=Settings.playerSpeed;
 		this.velY=Settings.playerSpeed;
