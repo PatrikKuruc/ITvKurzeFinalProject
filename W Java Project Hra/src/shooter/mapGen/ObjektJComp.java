@@ -16,13 +16,13 @@ import shooter.ObjektyHry.ObjektHry;
 
 public class ObjektJComp extends JComponent{
 	
-	private HandlerMapGen handler;
+	private MGHandler handler;
 	private int poziciaX;
 	private int poziciaY;
 	private Image image;
 	private double ID;
 	
-	public ObjektJComp(Double ID, int poziciaX, int poziciaY, HandlerMapGen handlerMapGen) {
+	public ObjektJComp(Double ID, int poziciaX, int poziciaY, MGHandler handlerMapGen) {
 		this.ID = ID;
 		this.poziciaX = poziciaX;
 		this.poziciaY = poziciaY;
@@ -53,6 +53,7 @@ public class ObjektJComp extends JComponent{
     	else if (IDint==2) {
     		try {
     		image = ImageIO.read(new File("obr/hrac/modry/3.png"));
+    		image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
     		}
     			catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -62,6 +63,7 @@ public class ObjektJComp extends JComponent{
     	else if (IDint==3) {
     		try {
     			image = ImageIO.read(new File("obr/enemy/1.png"));
+    			image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -70,7 +72,7 @@ public class ObjektJComp extends JComponent{
     	else if (IDint==4.1) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
-    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
+    			image = image.getScaledInstance(handler.velkostPolicka/2, handler.velkostPolicka/2, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -79,7 +81,7 @@ public class ObjektJComp extends JComponent{
     	else if (IDint==4.2) {
     		try {
     			image = ImageIO.read(new File("obr/item/2.png"));
-    			image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
+    			image = image.getScaledInstance(handler.velkostPolicka/2, handler.velkostPolicka/2, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();

@@ -10,17 +10,17 @@ import javax.swing.JLabel;
 
 import shooter.ObjektyHry.ObjektHry;
 
-public class HandlerMapGen {
+public class MGHandler {
 	
 	private LinkedList<ObjektJComp> defaultMap;
 	private LinkedList<ObjektJComp> newMap;
 	private double typObjektu = 1.0;
-	protected int velkostPolicka = 32;
+	protected int velkostPolicka = 8;
 	
 	private double kreslisObjektID;
 	private PrintWriter zapisovac;
 	
-	public HandlerMapGen() {
+	public MGHandler() {
 		defaultMap = new LinkedList<>();
 		newMap = new LinkedList<>();
 		vytvorDefaultnuMapu();
@@ -28,7 +28,7 @@ public class HandlerMapGen {
 
 	private void vytvorDefaultnuMapu() {
 		int vRiadku = 800/velkostPolicka;
-		int vStlpci = 592/velkostPolicka;
+		int vStlpci = (600- velkostPolicka)/velkostPolicka;
 		for (int i = 0; i < vRiadku; i++) {
 			for (int j = 0; j < vStlpci; j++) {
 				if (i == 0 || j == 0 || i == vRiadku-1 || j == vStlpci-1) {
@@ -91,7 +91,7 @@ public class HandlerMapGen {
 		
 		zapisovac.write("velkost policka: " + velkostPolicka + "\n");
 		for (ObjektJComp objektMapy : newMap) {
-			zapisovac.write("ObjektID: " + objektMapy.getID() + " PoziciaX: " + objektMapy.getPoziciaX() + " PoziciaY: " + objektMapy.getPoziciaY() + "\n");
+			zapisovac.write("ObjektID: " + objektMapy.getID() + " PoziciaX: " + objektMapy.getPoziciaX() + " PoziciaY: " + objektMapy.getPoziciaY() + " Width: " + velkostPolicka + " Height: " + velkostPolicka + "\n");
 		}
 		zapisovac.flush();
 		zapisovac.close();

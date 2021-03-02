@@ -1,10 +1,13 @@
 package shooter.Hra;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.io.FileNotFoundException;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import shooter.ObjektyHry.Player;
 
 /**
  * Trieda sluzi na vykreslovanie objektov hry
@@ -47,11 +50,18 @@ public class Platno extends JPanel{
 	/**
 	 * Vykreslovanie komponentov platna
 	 */
-	protected void paintComponent(Graphics g) {
+	protected void paintComponent(Graphics g2) {
+		Graphics2D g = (Graphics2D) g2;
 		// sem pride buffer ak ho budeme chciet pouzit
 		super.paintComponent(g);
 		handler.aktualizujObjektyHry();
+		
+		
+		//g.translate(-(handler.getPoziciaHracaX()-Settings.WINDOW_WIDTH/2), -(handler.getPoziciaHracaY()-Settings.WINDOW_HEIGHT/2));
 		handler.vykresliObjektyHry(g);
+		//g.translate((handler.getPoziciaHracaX()-Settings.WINDOW_WIDTH/2), (handler.getPoziciaHracaY()-Settings.WINDOW_HEIGHT/2));
+		
+		handler.vykresliHraca(g);
 	}
 
 	/**

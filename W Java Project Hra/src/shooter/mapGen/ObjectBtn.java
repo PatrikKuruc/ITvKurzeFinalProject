@@ -10,11 +10,11 @@ import javax.swing.JButton;
 
 public class ObjectBtn extends JButton implements ActionListener{
 	
-	private HandlerMapGen handler;
+	private MGHandler handler;
 	private Icon image;
 	private double ID;
 	
-	public ObjectBtn(Double ID, HandlerMapGen handlerMapGen) {
+	public ObjectBtn(Double ID, MGHandler handlerMapGen) {
 		super();
 		this.ID = ID;
 		this.handler = handlerMapGen;

@@ -23,7 +23,6 @@ public class ContentPanel extends JPanel {
 	private Panel1_PlayerSettings panel1;
 	private Panel2_HighScore panel2;
 	private Panel3_Settings panel3;
-	private Panel0_Menu panel0;
 	private Menu menu;
 	
 	public ContentPanel(Menu menu) {
@@ -37,12 +36,10 @@ public class ContentPanel extends JPanel {
 	}
 
 	private void nacitajpanely() {
-		panel0 = new Panel0_Menu();
 		panel1 = new Panel1_PlayerSettings();
 		panel2 = new Panel2_HighScore();
 		panel3 = new Panel3_Settings();
 		
-		add(panel0);
 		add(panel1);
 		add(panel2);
 		add(panel3);
@@ -76,7 +73,6 @@ public class ContentPanel extends JPanel {
 		btnNewButton_1.setBounds(100, 200, 150, 30);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel0.setVisible(false);
 				panel1.setVisible(true);
 				panel2.setVisible(false);
 				panel3.setVisible(false);
@@ -88,7 +84,6 @@ public class ContentPanel extends JPanel {
 		btnNewButton_2.setBounds(100, 250, 150, 30);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel0.setVisible(false);
 				panel1.setVisible(false);
 				panel2.setVisible(true);
 				panel3.setVisible(false);
@@ -100,7 +95,6 @@ public class ContentPanel extends JPanel {
 		btnNewButton_3.setBounds(100, 300, 150, 30);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel0.setVisible(false);
 				panel1.setVisible(false);
 				panel2.setVisible(false);
 				panel3.setVisible(true);

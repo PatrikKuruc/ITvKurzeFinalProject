@@ -16,19 +16,19 @@ import shooter.Hra.Settings;
 public class PanelMapa extends JPanel{
 
 	private Timer timer = new Timer(60, e -> repaint());
-	private MyskaKresli mys;
-	private HandlerMapGen handler;
+	private MGMouseAdapter mys;
+	private MGHandler handler;
 	
 	private LinkedList<Rectangle> mriezka;
 
-	public PanelMapa(HandlerMapGen handler) {
+	public PanelMapa(MGHandler handler) {
 		this.handler=handler;
 		setBounds(10, 110, 800, 592);
 		setLayout(null);
 		vytvorMriezku();
 		timer.start();
 		
-		this.mys = new MyskaKresli(handler);
+		this.mys = new MGMouseAdapter(handler);
 		addMouseListener(mys);
 		addMouseMotionListener(mys);
 	}

@@ -11,19 +11,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.Component;
 
-public class GMContentPanel extends JPanel {
+public class MGContentPanel extends JPanel {
 	
-	private HandlerMapGen handler;
+	private MGHandler handler;
 
 	/**
 	 * Create the panel.
 	 * @throws FileNotFoundException 
 	 */
-	public GMContentPanel(){
+	public MGContentPanel(){
 		setBackground(Color.GRAY);
 		setBounds(0, 0, 820, 710);
 		setLayout(null);
-		handler = new HandlerMapGen();
+		handler = new MGHandler();
 		
 		PanelMapa panelMapa = new PanelMapa(handler);
 		add(panelMapa);

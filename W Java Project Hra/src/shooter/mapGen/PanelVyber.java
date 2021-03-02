@@ -13,14 +13,14 @@ import shooter.ObjektyHry.ObjektHry;
 public class PanelVyber extends JPanel {
 
 	private Timer timer = new Timer(60, e -> repaint());
-	private HandlerMapGen handler;
+	private MGHandler handler;
 	
 	
 	/**
 	 * Create the panel.
 	 * @param handler 
 	 */
-	public PanelVyber(HandlerMapGen handler) {
+	public PanelVyber(MGHandler handler) {
 		this.handler=handler;
 		setBounds(210, 10, 600, 80);
 		

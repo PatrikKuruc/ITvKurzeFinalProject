@@ -4,11 +4,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class MyskaKresli extends MouseAdapter {
+public class MGMouseAdapter extends MouseAdapter {
 
-	private HandlerMapGen handler;
+	private MGHandler handler;
 	
-	public MyskaKresli(HandlerMapGen handler) {
+	public MGMouseAdapter(MGHandler handler) {
 		this.handler = handler;
 	}
 

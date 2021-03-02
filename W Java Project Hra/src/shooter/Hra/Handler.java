@@ -81,10 +81,27 @@ public class Handler {
 
         for(int i = 0; i < pohybliveObjekty.size(); i++){
             ObjektHry novyObjekt = pohybliveObjekty.get(i);
-            novyObjekt.vykresli(g);
+            if (novyObjekt instanceof Player) {
+				
+			}
+            else {
+            	novyObjekt.vykresli(g);
+			}
 			}
     }
 
+	public void vykresliHraca(Graphics g) {
+		for(int i = 0; i < pohybliveObjekty.size(); i++){
+            ObjektHry novyObjekt = pohybliveObjekty.get(i);
+            if (novyObjekt instanceof Player) {
+            	novyObjekt.vykresli(g);
+			}
+            else {
+            	
+			}
+			}
+	}
+    
     /**
      * Prida objekt do hry.
      * @param novyObjekt novy objekt
