@@ -14,6 +14,7 @@ public class MGHandler {
 	
 	private LinkedList<ObjektJComp> defaultMap;
 	private LinkedList<ObjektJComp> newMap;
+	private LinkedList<ObjektJComp> objektyNaZmazanie;
 	private double typObjektu = 1.0;
 	protected int velkostPolicka = 32;
 	
@@ -23,6 +24,7 @@ public class MGHandler {
 	public MGHandler() {
 		defaultMap = new LinkedList<>();
 		newMap = new LinkedList<>();
+		objektyNaZmazanie = new LinkedList<>();
 		vytvorDefaultnuMapu();
 	}
 
@@ -54,9 +56,10 @@ public class MGHandler {
 		for (ObjektJComp objektJComp : newMap) {
 			ObjektJComp obj = objektJComp;
 			if (obj.getPoziciaX()/velkostPolicka == pozX && obj.getPoziciaY()/velkostPolicka==pozY) {
-				newMap.remove(obj);
+				objektyNaZmazanie.add(objektJComp);
 			}
 		}
+		newMap.removeAll(objektyNaZmazanie);
 	}
 	
 	public void stavNaDefaultMap() {

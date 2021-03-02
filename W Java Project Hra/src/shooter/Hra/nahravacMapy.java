@@ -29,7 +29,7 @@ public class nahravacMapy {
 	     */
 	    while (scanner.hasNextLine()) {
 	    	String riadok = scanner.nextLine();
-	    	
+	    	riadok.split(",");			// rozdeli string do pola stringov podla ","
 	    	int zaciatok1= riadok.indexOf(":")+1;
 	    	int koniec1 = riadok.indexOf(" ");
 	    	String NewOjektID = riadok.substring(zaciatok1, koniec1);

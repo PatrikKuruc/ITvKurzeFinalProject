@@ -44,6 +44,10 @@ public abstract class ObjektHry extends JComponent {
     }
     
     public void nacitajObrazok() {
+    	
+    	// property file
+    	// https://mkyong.com/java/java-properties-file-examples/
+    	
     	double IDint = ID;
     	if (IDint==0) {
     		try {
