@@ -24,7 +24,7 @@ public class Platno extends JPanel{
 	public Platno() throws FileNotFoundException{
 		setLayout(null);
 		// vytvori handler a nahra mapu a objekty hry
-		Platno.handler = new Handler();
+		Platno.handler = new Handler(timer);
 		
 		nahravacMapy nahravacMapy = new nahravacMapy(handler);
 		nahravacMapy.nahrajMapu();
@@ -37,7 +37,7 @@ public class Platno extends JPanel{
 		addMouseMotionListener(UserInput);
 		
 		// prida sa casovac hry
-		new Casovac(this);
+		new Casovac(this, handler);
 		
 		// spusti hru
 		run();

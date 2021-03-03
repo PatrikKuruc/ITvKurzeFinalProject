@@ -22,18 +22,21 @@ public class Casovac {
 
     // naformatovanie casu na 00:00
     DecimalFormat decimalFormat = new DecimalFormat("00");
+	private Handler handler;
 
     /**
      * Zostroji sa casovac
      *
      * @param platno platno vykreslovania
+     * @param handler 
      */
-    public Casovac(Platno platno) {
+    public Casovac(Platno platno, Handler handler) {
+    	this.handler = handler;
         timeLabel = new JLabel();
         timeLabel.setBounds(890, 5, 100, 20);
         timeLabel.setBackground(Color.cyan);
         timeLabel.setOpaque(true);
-
+        
         platno.add(timeLabel);
         timeLabel.setText("           00:00");
         second = 0;
@@ -50,22 +53,24 @@ public class Casovac {
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                second++;
-                ddSecond = decimalFormat.format(second);
-                ddMinute = decimalFormat.format(minute);
-
-                timeLabel.setText("           " + ddMinute + ":" + ddSecond);
-
-                if (second == 60) {
-
-                    second = 0;
-                    minute++;
-
+            	if (handler.isBezi()) {
+            		second++;
                     ddSecond = decimalFormat.format(second);
                     ddMinute = decimalFormat.format(minute);
 
                     timeLabel.setText("           " + ddMinute + ":" + ddSecond);
-                }
+
+                    if (second == 60) {
+
+                        second = 0;
+                        minute++;
+
+                        ddSecond = decimalFormat.format(second);
+                        ddMinute = decimalFormat.format(minute);
+
+                        timeLabel.setText("           " + ddMinute + ":" + ddSecond);
+                    }
+				}
             }
         });
     }

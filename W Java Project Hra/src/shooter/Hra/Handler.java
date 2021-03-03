@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.Timer;
+
 import shooter.ObjektyHry.Enemy;
 import shooter.ObjektyHry.ObjektHry;
 import shooter.ObjektyHry.Player;
@@ -26,6 +28,9 @@ public class Handler {
 	public int score;
 	public int velkostPolicka = 32;
 
+	private boolean bezi = true;
+	private Timer timer;
+
 	/**
 	 * Vytvori handler
 	 */
@@ -33,8 +38,8 @@ public class Handler {
     	
 	}
 
-	public Handler(Object object) {
-		// TODO Auto-generated constructor stub
+	public Handler(Timer timer) {
+		this.timer = timer;
 	}
 
 	/**
@@ -97,7 +102,11 @@ public class Handler {
 			}
 	}
     
-    /**
+    public boolean isBezi() {
+		return bezi;
+	}
+
+	/**
      * Prida objekt do hry.
      * @param novyObjekt novy objekt
      */
@@ -161,5 +170,17 @@ public class Handler {
 
 	public void setPoziciaHracaX(int poziciaHracaX) {
 		this.poziciaHracaX = poziciaHracaX;
+	}
+
+	public void pauseGame() {
+		if (bezi) {
+			bezi = false;
+			timer.stop();
+		}
+		else {
+			bezi=true;
+			timer.start();
+		}
+		
 	}
 }

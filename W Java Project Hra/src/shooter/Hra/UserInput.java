@@ -49,6 +49,9 @@ public class UserInput extends MouseAdapter implements KeyListener{
 		if (keyPressed == 's') {
 			setDown(true);
 		}
+		if (keyPressed == 'p') {
+			handler.pauseGame();
+		}
 	}
 
 	/**
