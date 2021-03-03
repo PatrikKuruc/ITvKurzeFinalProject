@@ -51,7 +51,7 @@ public class Enemy extends PohyblivyObjektHry {
 		
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
 		
-		if (Math.abs(vzdialenost)<200) {
+		if (Math.abs(vzdialenost) < 200) {
 			if (Math.abs(uholX)>1) {
 				vecX = (float) (uholX * 2 / vzdialenost);
 			}
@@ -60,7 +60,7 @@ public class Enemy extends PohyblivyObjektHry {
 			}			
 		}
 		
-		if (Math.abs(vzdialenost)>200) {
+		if (Math.abs(vzdialenost) > 200) {
 			vecX=0;
 			vecY=0;
 		}

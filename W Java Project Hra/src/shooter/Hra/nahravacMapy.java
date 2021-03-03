@@ -2,19 +2,22 @@ package shooter.Hra;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 
-import shooter.ObjektyHry.Enemy;
-import shooter.ObjektyHry.Item;
-import shooter.ObjektyHry.Player;
-import shooter.ObjektyHry.Stena;
-import shooter.ObjektyHry.Trava;
+import shooter.ObjektyHry.*;
 
 public class nahravacMapy {
 
 	private Handler handler;
     private Scanner scanner;
 	private File suborMapy;
+
+	// HashMapy na ukladanie suradnic x,y pre spawnovanie objektov
+	public static HashMap<Integer, Integer> spawnPointEnemy = new HashMap<>();
+	public static HashMap<Integer, Integer> spawnPointMama = new HashMap<>();
+	public static HashMap<Integer, Integer> spawnPointLekarnika = new HashMap<>();
+	public static HashMap<Integer, Integer> spawnPointZasobnik = new HashMap<>();
 	
 	public nahravacMapy(Handler handler) throws FileNotFoundException {
 		this.handler = handler;
@@ -49,10 +52,22 @@ public class nahravacMapy {
 	            }
 	            if (ID == 3) {
 	            	handler.addObject(new Enemy(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+					//new Enemy(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler);
+	            	spawnPointEnemy.put(newObjectPoziciaX, newObjectPoziciaY);
 	            }
-	            if (ID == 4) {
-	            	handler.addObject(new Item(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+	            if (newObjectID == 4.1) {
+					new Item(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler);
+					spawnPointZasobnik.put(newObjectPoziciaX, newObjectPoziciaY);
+	            	//handler.addObject(new Item(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
 	            }
+				if (newObjectID == 4.2) {
+					new Item(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler);
+					spawnPointLekarnika.put(newObjectPoziciaX, newObjectPoziciaY);
+				}
+				if (newObjectID == 6.0) {
+					new MamaZombie(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler);
+					spawnPointMama.put(newObjectPoziciaX, newObjectPoziciaY);
+				}
 	        }
 		}
 	}

@@ -19,6 +19,7 @@ public abstract class ObjektHry extends JComponent {
     // premenne potrebne na vykreslovanie objektu
  	protected Handler handler;
  	protected Image image;
+	protected Image image2;
  	protected int height=32;
  	protected int width=32;
  	protected Rectangle rectangle;;
@@ -87,7 +88,7 @@ public abstract class ObjektHry extends JComponent {
     	else if (IDint==4.1) {
     		try {
     			image = ImageIO.read(new File("obr/item/1.png"));
-    			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
+    			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -96,7 +97,7 @@ public abstract class ObjektHry extends JComponent {
 		else if (IDint==4.2) {
     		try {
     			image = ImageIO.read(new File("obr/item/2.png"));
-    			image = image.getScaledInstance(32/2, 32/2, Image.SCALE_FAST);
+    			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -112,6 +113,28 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
     	}
+
+		else if (IDint==6) {
+			try {
+				this.image = ImageIO.read(new File("obr/hrac/zena/2.png"));
+				image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		else if (ID == 7) {
+			try {
+				this.image = ImageIO.read(new File("obr/strela/4.png"));
+				image = image.getScaledInstance(513 / 10, 173 / 10, Image.SCALE_FAST);
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
     }
 
 	/**
@@ -119,9 +142,21 @@ public abstract class ObjektHry extends JComponent {
      * @param gr graficky kontext
      */
     public void vykresli(Graphics gr) {
-    	Graphics2D g = (Graphics2D) gr.create();
-		g.drawImage(image, poziciaX, poziciaY, null);
-		g.dispose();	
+
+		Graphics2D g = (Graphics2D) gr.create();
+		if (ID == 6 && MamaZombie.mamaStriela) {		// animacia MamaZombie
+			try {
+				this.image2 = ImageIO.read(new File("obr/hrac/zena/1.png"));
+				image2 = image2.getScaledInstance(32, 32, Image.SCALE_FAST);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			g.drawImage(image2, poziciaX, poziciaY, null);
+			g.dispose();
+		} else {
+			g.drawImage(image, poziciaX, poziciaY, null);
+			g.dispose();
+		}
     }
 
     /**

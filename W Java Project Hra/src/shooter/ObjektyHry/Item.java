@@ -6,12 +6,14 @@ import shooter.Hra.Handler;
  */
 public class Item extends PohyblivyObjektHry{
 
+	public static int pocetLekarniciek, pocetZasobnikov = 0;
+
 	/**
 	 * Vytvori objekt typu Item (prechodny, pouzitelny, bez pohybu)
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
 	 * @param poziciaY pozicia objektu, Y suradnica laveho horneho rohu
-	 * @param newObjectHeight 
-	 * @param newObjectWidth 
+	 * @param newObjectHeight
+	 * @param newObjectWidth
 	 * @param handler handler
 	 */
 	public Item(double ID, int poziciaX, int poziciaY, int newObjectWidth, int newObjectHeight, Handler handler) {
@@ -28,8 +30,9 @@ public class Item extends PohyblivyObjektHry{
 
 			// prida 10 nabojov do zasobnika
 			if(ID == 4.1){
-				handler.zasobnik += 10;
+				handler.zasobnik += 5;
 				handler.removeObject(this);
+				pocetZasobnikov--;
 			}
 
 			// ak je zivot rovny/mensi 50, prida 50 zivota, inak doplni len zvysok do maximalnej hodnoty 100
@@ -41,6 +44,7 @@ public class Item extends PohyblivyObjektHry{
 					handler.zivot += zivot2;
 				}
 				handler.removeObject(this);
+				pocetLekarniciek--;
 			}
 		}
 	}

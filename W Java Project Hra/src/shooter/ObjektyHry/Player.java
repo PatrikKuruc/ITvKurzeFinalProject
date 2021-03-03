@@ -2,6 +2,7 @@ package shooter.ObjektyHry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.Timer;
 
 import shooter.Hra.Handler;
 import shooter.Hra.Settings;
@@ -35,13 +36,29 @@ public class Player extends PohyblivyObjektHry{
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if(objekt instanceof Enemy) {
 			handler.zivot--;
+			handler.zranenia++;
+			if(handler.zivot <= 0){
+				handler.zivot = 0;
+			}
+		}
+
+		if(objekt instanceof MamaZombie){
+			handler.zivot--;
+			handler.zranenia++;
+			if(handler.zivot <= 0){
+				handler.zivot = 0;
+			}
+		}
+
+		if(objekt instanceof StrelaEnemy){
+			handler.zivot -= 20;
+			handler.zranenia += 20;
 			if(handler.zivot <= 0){
 				handler.zivot = 0;
 			}
 		}
 		
 	}
-	
 	@Override
 	public void vykresli(Graphics gr) {
 		super.vykresli(gr);
@@ -50,12 +67,25 @@ public class Player extends PohyblivyObjektHry{
 	
 	private void vykresliUdajeHraca(Graphics gr) {
 		// vykreslenie health-baru
-		gr.setColor(Color.lightGray);
-		gr.fillRect(32,5,200,22);
-		gr.setColor(Color.GREEN);
-		gr.fillRect(32,5, handler.zivot*2, 22);
-		gr.setColor(Color.BLACK);
-		gr.drawRect(32,5,200,22);
+		if(handler.zivot >= 50) {
+			gr.setColor(Color.lightGray);
+			gr.fillRect(32, 5, 200, 22);
+			gr.setColor(Color.GREEN);
+			gr.fillRect(32, 5, (int) (handler.zivot * 2), 22);
+			gr.setColor(Color.BLACK);
+			gr.drawRect(32, 5, 200, 22);
+			gr.setColor(Color.black);
+			gr.drawString((int) handler.zivot + "/100", 110, 22);
+		} else {
+			gr.setColor(Color.lightGray);
+			gr.fillRect(32, 5, 200, 22);
+			gr.setColor(Color.red);
+			gr.fillRect(32, 5, (int) (handler.zivot * 2), 22);
+			gr.setColor(Color.BLACK);
+			gr.drawRect(32, 5, 200, 22);
+			gr.setColor(Color.black);
+			gr.drawString((int) handler.zivot + "/100", 110, 22);
+		}
 
 		// vykreslenie nabojov
 		gr.setColor(Color.white);
@@ -64,6 +94,10 @@ public class Player extends PohyblivyObjektHry{
 		// vykreslenie score
 		gr.setColor(Color.white);
 		gr.drawString("Score: " + handler.score, 350, 22);
+
+		// vykreslenie zraneni
+		gr.setColor(Color.white);
+		gr.drawString("Zranenia: " + handler.zranenia, 800,22);
 	}
 	
 
