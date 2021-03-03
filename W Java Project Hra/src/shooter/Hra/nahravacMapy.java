@@ -13,8 +13,7 @@ import shooter.ObjektyHry.Trava;
 public class nahravacMapy {
 
 	private Handler handler;
-
-    Scanner scanner;
+    private Scanner scanner;
 	private File suborMapy;
 	
 	public nahravacMapy(Handler handler) throws FileNotFoundException {
@@ -29,39 +28,14 @@ public class nahravacMapy {
 	     */
 	    while (scanner.hasNextLine()) {
 	    	String riadok = scanner.nextLine();
-	    	riadok.split(",");			// rozdeli string do pola stringov podla ","
-	    	int zaciatok1= riadok.indexOf(":")+1;
-	    	int koniec1 = riadok.indexOf(" ");
-	    	String NewOjektID = riadok.substring(zaciatok1, koniec1);
-	    	riadok = riadok.substring(koniec1+1);
 	    	
-	    	int zaciatok2= riadok.indexOf(":")+1;
-	    	int koniec2 = riadok.indexOf(" ");
-	    	String NewOjektPoziciaX = riadok.substring(zaciatok2, koniec2);
-	    	riadok = riadok.substring(koniec2+1);
-	    	
-	    	int zaciatok3= riadok.indexOf(":")+1;
-	    	int koniec3 = riadok.indexOf(" ");
-	    	String NewOjektPoziciaY = riadok.substring(zaciatok3, koniec3);
-	    	riadok = riadok.substring(koniec3+1);
-	    	
-	    	int zaciatok4= riadok.indexOf(":")+1;
-	    	int koniec4 = riadok.indexOf(" ");
-	    	String NewOjektWidth = riadok.substring(zaciatok4, koniec4);
-	    	riadok = riadok.substring(koniec4+1);
-	    	
-	    	int zaciatok5= riadok.indexOf(":")+1;
-	    	String NewObjektHeight = riadok.substring(zaciatok5);
-	    	
-	    	//System.out.println(NewOjektID + " " + NewOjektPoziciaX + " " + NewOjektPoziciaY + " " + NewOjektWidth + " " + NewOjektWidth);
-	    	
-	    	double newObjectID = Double.parseDouble(NewOjektID);
-	    	int newObjectPoziciaX = Integer.parseInt(NewOjektPoziciaX);
-	    	int newObjectPoziciaY = Integer.parseInt(NewOjektPoziciaY);
-	    	int newObjectWidth = Integer.parseInt(NewOjektWidth);
-	    	int newObjectHeight = Integer.parseInt(NewObjektHeight);
-	    	
-	    	//System.out.println(newObjectID + " " + newObjectPoziciaX + " " + newObjectPoziciaY + " " + newObjectWidth + " " + newObjectHeight);
+	    	String[] riadokPole = riadok.split(",");			// rozdeli string do pola stringov podla ","
+
+	    	double newObjectID = Double.parseDouble(riadokPole[0]);
+	    	int newObjectPoziciaX = Integer.parseInt(riadokPole[1]);
+	    	int newObjectPoziciaY = Integer.parseInt(riadokPole[2]);
+	    	int newObjectWidth = Integer.parseInt(riadokPole[3]);
+	    	int newObjectHeight = Integer.parseInt(riadokPole[4]);
 	    	
 	    	int ID = (int) newObjectID;
 	    	
@@ -80,7 +54,6 @@ public class nahravacMapy {
 	            	handler.addObject(new Item(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
 	            }
 	        }
-	    	
 		}
 	}
 }

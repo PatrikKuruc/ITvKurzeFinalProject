@@ -35,7 +35,6 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 */
 	public PohyblivyObjektHry(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
-		
 	}
 
 	public void aktualizujObjektHry() {
@@ -43,30 +42,65 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		aktualizujRotaciu();
 		
 		zistiKoliziuPohyblivychObjektov();
-		pohni();
-		zistiKoliziuSoStenami();
-	}
-	
-	/**
-	 * Kolizia objektu so stenou
-	 */
-	public void koliziaSoStenou() {
-		poziciaX -= vecX*(velX+1);
-        poziciaY -= vecY*(velY+1);
+		
+		pohniX();
+		zistiKoliziuSoStenamiX();
+		pohniY();
+		zistiKoliziuSoStenamiY();
 	}
 	
 	/**
 	 * Aktualizuje poziciu objektu
 	 */
-	public void pohni() {
+	public void pohniX() {
 		// pohyb
 		poziciaX += vecX*velX;
-        poziciaY += vecY*velY;
-
+        rectangle.setBounds(poziciaX, poziciaY, width, height);
         // aktualizacia parametrov
         this.centerX = (int) rectangle.getCenterX();
+	}
+	/**
+	 * Aktualizuje poziciu objektu
+	 */
+	public void pohniY() {
+		// pohyb
+        poziciaY += vecY*velY;
+        rectangle.setBounds(poziciaX, poziciaY, width, height);
+        // aktualizacia parametrov
 		this.centerY = (int) rectangle.getCenterY();
-		rectangle.setBounds(poziciaX, poziciaY, width, height);
+	}
+	
+	/**
+	 * Zisti koliziu pohyblivych objektov so statickymi
+	 */
+	public void zistiKoliziuSoStenamiX() {
+		for(int i = 0; i < handler.statickeObjekty.size(); i++){
+            ObjektHry objektHry = handler.statickeObjekty.get(i);
+            if(objektHry instanceof Stena){
+                if(getBounds().intersects(objektHry.getBounds())){
+                	koliziaSoStenouX();
+                }
+            }
+        }
+	}
+	/**
+	 * Zisti koliziu pohyblivych objektov so statickymi
+	 */
+	public void zistiKoliziuSoStenamiY() {
+		for(int i = 0; i < handler.statickeObjekty.size(); i++){
+            ObjektHry objektHry = handler.statickeObjekty.get(i);
+            if(objektHry instanceof Stena){
+                if(getBounds().intersects(objektHry.getBounds())){
+                	koliziaSoStenouY();
+                }
+            }
+        }
+	}
+	public void koliziaSoStenouX() {
+		poziciaX -= vecX*(velX);
+	}
+	public void koliziaSoStenouY() {
+        poziciaY -= vecY*(velY);
 	}
 	
 	/**
@@ -93,24 +127,10 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 		}
 	}
 	
-	/**
-	 * Zisti koliziu pohyblivych objektov so statickymi
-	 */
-	public void zistiKoliziuSoStenami() {
-		for(int i = 0; i < handler.statickeObjekty.size(); i++){
-            ObjektHry objektHry = handler.statickeObjekty.get(i);
-            if(objektHry instanceof Stena){
-                if(getBounds().intersects(objektHry.getBounds())){
-                    koliziaSoStenou();
-                }
-            }
-        }
-	}
-	
 	@Override
 	public void vykresli(Graphics gr) {
 		Graphics2D g = (Graphics2D) gr.create();
-		//g.draw(getBounds());
+		g.draw(getBounds());
 		g.rotate(rotacia, centerX, centerY);
 		super.vykresli(g);
 		g.dispose();

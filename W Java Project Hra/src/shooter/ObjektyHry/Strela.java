@@ -1,5 +1,7 @@
 package shooter.ObjektyHry;
 
+import java.awt.Rectangle;
+
 import shooter.Hra.Handler;
 import shooter.Hra.UserInput;
 
@@ -20,8 +22,8 @@ public class Strela extends PohyblivyObjektHry {
 		super.nacitajObrazok();
 		this.destinationX = UserInput.getMouseX();
 		this.destinationY = UserInput.getMouseY();
-		this.width=513/30;
-		this.height=173/30;
+		this.width=15;
+		this.height=5;
 		this.velY = 1;
 		this.velX = 1;
 		
@@ -33,10 +35,15 @@ public class Strela extends PohyblivyObjektHry {
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
         vecX = (float) (uholX * 20 / vzdialenost);
         vecY = (float) (uholY * 20 / vzdialenost);
+        this.rectangle.setBounds(poziciaX, poziciaY, 10, 10);
 	}
-
+	
 	@Override
-	public void koliziaSoStenou() {
+	public void koliziaSoStenouX() {
+		handler.removeObject(this);
+	}
+	@Override
+	public void koliziaSoStenouY() {
 		handler.removeObject(this);
 	}
 	

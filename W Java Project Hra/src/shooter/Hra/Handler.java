@@ -1,20 +1,14 @@
 package shooter.Hra;
 
 import java.awt.Graphics;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 import shooter.ObjektyHry.Enemy;
-import shooter.ObjektyHry.Item;
 import shooter.ObjektyHry.ObjektHry;
 import shooter.ObjektyHry.Player;
 import shooter.ObjektyHry.PohyblivyObjektHry;
 import shooter.ObjektyHry.Strela;
-import shooter.ObjektyHry.Trava;
-
 
 /**
  * Trieda Handler sluzi na nacitanie a spracovanie objektov hry.
@@ -25,10 +19,10 @@ public class Handler {
 	
 	private int poziciaHracaX, poziciaHracaY;
 
-	public LinkedList<ObjektHry> statickeObjekty = new LinkedList<>();
-	public LinkedList<ObjektHry> pohybliveObjekty = new LinkedList<>();
+	public ArrayList<ObjektHry> statickeObjekty = new ArrayList<>();
+	public ArrayList<ObjektHry> pohybliveObjekty = new ArrayList<>();
 	public int zivot=100;
-	public int zasobnik=10;
+	public int zasobnik=100;
 	public int score;
 	public int velkostPolicka = 32;
 

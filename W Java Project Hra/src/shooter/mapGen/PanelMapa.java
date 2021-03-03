@@ -3,15 +3,10 @@ package shooter.mapGen;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-import shooter.Hra.Settings;
 
 public class PanelMapa extends JPanel{
 

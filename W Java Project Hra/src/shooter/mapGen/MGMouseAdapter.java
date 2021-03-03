@@ -2,7 +2,6 @@ package shooter.mapGen;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 public class MGMouseAdapter extends MouseAdapter {
 

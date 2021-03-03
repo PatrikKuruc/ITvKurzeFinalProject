@@ -39,7 +39,6 @@ public abstract class ObjektHry extends JComponent {
         this.centerX = poziciaX + (width/2);
 		this.centerY = poziciaY + (height/2);
         this.handler = handler;
-        
         this.rectangle = new Rectangle(poziciaX,poziciaY,width,height);
     }
     
@@ -106,7 +105,7 @@ public abstract class ObjektHry extends JComponent {
     	else if (IDint==5) {
     		try {
     			this.image = ImageIO.read(new File("obr/strela/1.png"));
-    			image = image.getScaledInstance(513/30, 173/30, Image.SCALE_FAST);
+    			image = image.getScaledInstance(15, 5, Image.SCALE_FAST);
     			
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -132,7 +131,7 @@ public abstract class ObjektHry extends JComponent {
 	public void takeDamage(int dmg) {
 		zivot -= dmg;
 	}
-    
+
 	/**
 	 * Vrati rectangle objektu pouzivany pri koliziach
 	 */

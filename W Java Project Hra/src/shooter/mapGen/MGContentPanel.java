@@ -3,13 +3,9 @@ package shooter.mapGen;
 import javax.swing.JPanel;
 
 import java.awt.Color;
-import javax.swing.JComboBox;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
-import java.awt.Component;
 
 public class MGContentPanel extends JPanel {
 	

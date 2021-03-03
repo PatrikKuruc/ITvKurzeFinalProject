@@ -1,14 +1,7 @@
 package shooter.mapGen;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.util.ArrayList;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-import shooter.ObjektyHry.ObjektHry;
 
 public class PanelVyber extends JPanel {
 

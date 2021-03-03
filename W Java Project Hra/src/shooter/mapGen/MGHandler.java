@@ -1,20 +1,15 @@
 package shooter.mapGen;
 
 import java.awt.Graphics2D;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-
-import javax.swing.JLabel;
-
-import shooter.ObjektyHry.ObjektHry;
+import java.util.ArrayList;
 
 public class MGHandler {
 	
-	private LinkedList<ObjektJComp> defaultMap;
-	private LinkedList<ObjektJComp> newMap;
-	private LinkedList<ObjektJComp> objektyNaZmazanie;
+	private ArrayList<ObjektJComp> defaultMap;
+	private ArrayList<ObjektJComp> newMap;
+	private ArrayList<ObjektJComp> objektyNaZmazanie;
 	private double typObjektu = 1.0;
 	protected int velkostPolicka = 32;
 	
@@ -22,9 +17,9 @@ public class MGHandler {
 	private PrintWriter zapisovac;
 	
 	public MGHandler() {
-		defaultMap = new LinkedList<>();
-		newMap = new LinkedList<>();
-		objektyNaZmazanie = new LinkedList<>();
+		defaultMap = new ArrayList<>();
+		newMap = new ArrayList<>();
+		objektyNaZmazanie = new ArrayList<>();
 		vytvorDefaultnuMapu();
 	}
 
@@ -93,7 +88,7 @@ public class MGHandler {
 		}
 		
 		for (ObjektJComp objektMapy : newMap) {
-			zapisovac.write("ObjektID:" + objektMapy.getID() + " PoziciaX:" + objektMapy.getPoziciaX() + " PoziciaY:" + objektMapy.getPoziciaY() + " Width:" + velkostPolicka + " Height:" + velkostPolicka + "\n");
+			zapisovac.write(objektMapy.getID() + "," + objektMapy.getPoziciaX() + "," + objektMapy.getPoziciaY() + "," + velkostPolicka + "," + velkostPolicka + "\n");
 		}
 		zapisovac.flush();
 		zapisovac.close();

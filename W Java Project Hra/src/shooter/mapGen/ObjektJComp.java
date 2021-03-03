@@ -5,14 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.EventListener;
 
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
 import javax.swing.JComponent;
-
-import shooter.Hra.nahravacMapy;
-import shooter.ObjektyHry.ObjektHry;
 
 public class ObjektJComp extends JComponent{
 	

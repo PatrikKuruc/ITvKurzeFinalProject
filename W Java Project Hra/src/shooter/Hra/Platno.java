@@ -7,8 +7,6 @@ import java.io.FileNotFoundException;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import shooter.ObjektyHry.Player;
-
 /**
  * Trieda sluzi na vykreslovanie objektov hry
  */
