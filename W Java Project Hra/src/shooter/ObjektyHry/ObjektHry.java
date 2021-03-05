@@ -2,7 +2,10 @@ package shooter.ObjektyHry;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
@@ -44,7 +47,10 @@ public abstract class ObjektHry extends JComponent {
     }
     
     public void nacitajObrazok() {
-    	
+    	try (InputStream input = new FileInputStream("src/playerConfig.properties")) {
+            Properties playerProp = new Properties();
+            playerProp.load(input);
+
     	// property file
     	// https://mkyong.com/java/java-properties-file-examples/
     	
@@ -68,8 +74,10 @@ public abstract class ObjektHry extends JComponent {
     		}
 		}
     	else if (IDint==2) {
+    		
     		try {
-    		image = ImageIO.read(new File("obr/hrac/modry/3.png"));
+    		//image = ImageIO.read(new File("obr/hrac/modry/3.png"));
+    		image = ImageIO.read(new File(playerProp.getProperty("imagePath")));
     		
     		}
     			catch (IOException e) {
@@ -135,6 +143,10 @@ public abstract class ObjektHry extends JComponent {
 				e.printStackTrace();
 			}
 		}
+    	
+    	} catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 	/**

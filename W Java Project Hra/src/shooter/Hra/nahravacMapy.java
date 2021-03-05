@@ -2,7 +2,11 @@ package shooter.Hra;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.Properties;
 import java.util.Scanner;
 
 import shooter.ObjektyHry.*;
@@ -69,6 +73,23 @@ public class nahravacMapy {
 					spawnPointMama.put(newObjectPoziciaX, newObjectPoziciaY);
 				}
 	        }
+		}
+	    nahrajHraca();
+	}
+	
+	public void nahrajHraca() {
+		try (OutputStream output = new FileOutputStream("src/playerConfig.properties")) {
+	
+		    Properties prop = new Properties();
+	
+		    prop.setProperty("imagePath", "obr/hrac/modry/3.png");
+		    prop.setProperty("name", "Player");
+		    
+		    // save properties to project root folder
+		    prop.store(output, null);
+	
+		} catch (IOException io) {
+		    io.printStackTrace();
 		}
 	}
 }

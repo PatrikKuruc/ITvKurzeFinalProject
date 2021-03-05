@@ -38,8 +38,8 @@ public class Platno extends JPanel{
 		
 		// prida sa casovac hry
 		new Casovac(this, handler);
-		
-		// spusti hru
+
+		//spusti hru
 		run();
 	}
 
@@ -54,11 +54,9 @@ public class Platno extends JPanel{
 		super.paintComponent(g);
 		handler.aktualizujObjektyHry();
 		
-		
 		//g.translate(-(handler.getPoziciaHracaX()-Settings.WINDOW_WIDTH/2), -(handler.getPoziciaHracaY()-Settings.WINDOW_HEIGHT/2));
 		handler.vykresliObjektyHry(g);
 		//g.translate((handler.getPoziciaHracaX()-Settings.WINDOW_WIDTH/2), (handler.getPoziciaHracaY()-Settings.WINDOW_HEIGHT/2));
-		
 		handler.vykresliHraca(g);
 	}
 

@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JPopupMenu;
 import javax.swing.Timer;
 
 import shooter.ObjektyHry.*;
@@ -31,10 +32,6 @@ public class Handler {
     /**
      * Vytvori handler
      */
-    public Handler() {
-
-    }
-
     public Handler(Timer timer) {
         this.timer = timer;
     }
@@ -48,7 +45,7 @@ public class Handler {
             zasobnik--;
         }
     }
-
+	
     /*
     MamaZombie vystreli strelu.
      */
@@ -68,8 +65,8 @@ public class Handler {
                 continue;
             }
         }
-
-
+        
+        
     }
 
     /**
@@ -107,6 +104,10 @@ public class Handler {
                 pocitadlo++;
             }
         }
+        if (zivot<=0) {
+        	pauseGame();
+        	gameOver();
+        }
 
         // spawne novy zasobnik, ak klesne pod 5
         if (zasobnik <= 5) {
@@ -125,7 +126,11 @@ public class Handler {
         }
     }
 
-    public void vykresliHraca(Graphics g) {
+    private void gameOver() {
+    	
+	}
+
+	public void vykresliHraca(Graphics g) {
         for (int i = 0; i < pohybliveObjekty.size(); i++) {
             ObjektHry novyObjekt = pohybliveObjekty.get(i);
             if (novyObjekt instanceof Player) {
@@ -240,4 +245,6 @@ public class Handler {
         }
 
     }
+
+
 }

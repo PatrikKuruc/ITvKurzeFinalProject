@@ -29,7 +29,7 @@ public class ContentPanel extends JPanel {
 		setBounds(0, 0, 800, 600);			//netreba, len kvoli windowdesigneru
 		
 		nacitajpanely();
-		vytvortlacidka();
+		createButtons();
 		nacitajpozadie();
 	}
 
@@ -50,7 +50,7 @@ public class ContentPanel extends JPanel {
 		add(lblNewLabel);
 	}
 
-	private void vytvortlacidka() {
+	private void createButtons() {
 		JButton btnNewButton = new JButton("New Game");
 		btnNewButton.setBounds(100, 150, 150, 30);
 		btnNewButton.addActionListener(new ActionListener() {
