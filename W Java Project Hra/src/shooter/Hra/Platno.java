@@ -1,8 +1,10 @@
 package shooter.Hra;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.FileNotFoundException;
+import java.util.Properties;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -14,22 +16,35 @@ import javax.swing.Timer;
 public class Platno extends JPanel{
 	
 	// casovac, ktory bude zodpovedny za aktualizacie a vykreslovanie objektov
-	private Timer timer = new Timer(Settings.REFRESH_RATE, e -> repaint());
+	private Timer timer;
 	protected static Handler handler;
+	
+	private Properties gameProperties;
+	private int FPS;
+	private int Height;
+	private int Width;
 	
 	/**
 	 * Vytvor panel
+	 * @param gameProperties 
 	 * @throws FileNotFoundException 
 	 */
-	public Platno() throws FileNotFoundException{
-		setLayout(null);
-		// vytvori handler a nahra mapu a objekty hry
-		Platno.handler = new Handler(timer);
+	public Platno(Properties gameProperties) throws FileNotFoundException{
+		this.gameProperties = gameProperties;
+		this.FPS = Integer.parseInt(gameProperties.getProperty("FPS"));
+		this.Height = Integer.parseInt(gameProperties.getProperty("WindowHeight"));
+		this.Width = Integer.parseInt(gameProperties.getProperty("WindowWidth"));
+		this.timer= new Timer(FPS/1000, e -> repaint());
 		
+		setLayout(null);
+		setPreferredSize(new Dimension(Height,Width));
+		
+		// vytvori handler
+		Platno.handler = new Handler(timer);
+
+		// nahra mapu a objekty hry
 		nahravacMapy nahravacMapy = new nahravacMapy(handler);
 		nahravacMapy.nahrajMapu();
-		
-		setPreferredSize(Settings.PANEL_PLATNO_SIZE);
 				
 		// vytvori posluchac mysky, prida ho na platno
 		UserInput UserInput = new UserInput(handler);
@@ -43,8 +58,6 @@ public class Platno extends JPanel{
 		run();
 	}
 
-
-
 	/**
 	 * Vykreslovanie komponentov platna
 	 */
@@ -54,10 +67,11 @@ public class Platno extends JPanel{
 		super.paintComponent(g);
 		handler.aktualizujObjektyHry();
 		
-		//g.translate(-(handler.getPoziciaHracaX()-Settings.WINDOW_WIDTH/2), -(handler.getPoziciaHracaY()-Settings.WINDOW_HEIGHT/2));
+		//g.translate(-(handler.getPoziciaHracaX()-Width/2), -(handler.getPoziciaHracaY()-Height/2));
 		handler.vykresliObjektyHry(g);
-		//g.translate((handler.getPoziciaHracaX()-Settings.WINDOW_WIDTH/2), (handler.getPoziciaHracaY()-Settings.WINDOW_HEIGHT/2));
 		handler.vykresliHraca(g);
+		//g.translate((handler.getPoziciaHracaX()-Width/2), (handler.getPoziciaHracaY()-Height/2));
+		
 	}
 
 	/**
@@ -66,5 +80,4 @@ public class Platno extends JPanel{
 	public void run() {
 		timer.start();
 	}
-
 }

@@ -2,6 +2,13 @@ package shooter.ObjektyHry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
 import shooter.Hra.Handler;
@@ -22,16 +29,30 @@ public class Player extends PohyblivyObjektHry{
 	private int poziciaHlavneX;
 	private int poziciaHlavneY;
 	
-	public Player(double ID, int poziciaX, int poziciaY,  int newObjectWidth, int newObjectHeight, Handler handler) {
+	public Player(int poziciaX, int poziciaY, Handler handler) {
 		super(poziciaX, poziciaY, handler);
-		this.ID=ID;
-		this.height = newObjectHeight;
-		this.width = newObjectWidth;
-		super.nacitajObrazok();
-		this.velX=Settings.playerSpeed;
-		this.velY=Settings.playerSpeed;
+		nacitajParametre();
 	}
 	
+	private void nacitajParametre() {
+		try (InputStream input = new FileInputStream("src/playerConfig.properties")) {
+            Properties playerProp = new Properties();
+            playerProp.load(input);
+            
+            System.out.println("Meno hraca: " + playerProp.getProperty("Name"));
+            image = ImageIO.read(new File(playerProp.getProperty("ImagePath")));
+            this.ID = Integer.parseInt(playerProp.getProperty("ID"));
+            this.height = Integer.parseInt(playerProp.getProperty("Height"));
+            this.width = Integer.parseInt(playerProp.getProperty("Width"));
+            this.velX=Integer.parseInt(playerProp.getProperty("Speed"));
+            this.velY=Integer.parseInt(playerProp.getProperty("Speed"));
+            
+		} catch (IOException ex) {
+            ex.printStackTrace();
+        }
+		
+	}
+
 	@Override
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if(objekt instanceof Enemy) {

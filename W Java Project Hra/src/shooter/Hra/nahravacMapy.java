@@ -52,7 +52,7 @@ public class nahravacMapy {
 	        else if (ID != 1){
         		handler.addObject(new Trava(0,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
         	    if (ID == 2) {
-	            	handler.addObject(new Player(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+	            	handler.addObject(new Player(newObjectPoziciaX,newObjectPoziciaY, handler));
 	            }
 	            if (ID == 3) {
 	            	handler.addObject(new Enemy(newObjectID,newObjectPoziciaX,newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
@@ -73,23 +73,6 @@ public class nahravacMapy {
 					spawnPointMama.put(newObjectPoziciaX, newObjectPoziciaY);
 				}
 	        }
-		}
-	    nahrajHraca();
-	}
-	
-	public void nahrajHraca() {
-		try (OutputStream output = new FileOutputStream("src/playerConfig.properties")) {
-	
-		    Properties prop = new Properties();
-	
-		    prop.setProperty("imagePath", "obr/hrac/modry/3.png");
-		    prop.setProperty("name", "Player");
-		    
-		    // save properties to project root folder
-		    prop.store(output, null);
-	
-		} catch (IOException io) {
-		    io.printStackTrace();
 		}
 	}
 }

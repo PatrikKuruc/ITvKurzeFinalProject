@@ -47,10 +47,6 @@ public abstract class ObjektHry extends JComponent {
     }
     
     public void nacitajObrazok() {
-    	try (InputStream input = new FileInputStream("src/playerConfig.properties")) {
-            Properties playerProp = new Properties();
-            playerProp.load(input);
-
     	// property file
     	// https://mkyong.com/java/java-properties-file-examples/
     	
@@ -73,18 +69,6 @@ public abstract class ObjektHry extends JComponent {
     			e.printStackTrace();
     		}
 		}
-    	else if (IDint==2) {
-    		
-    		try {
-    		//image = ImageIO.read(new File("obr/hrac/modry/3.png"));
-    		image = ImageIO.read(new File(playerProp.getProperty("imagePath")));
-    		
-    		}
-    			catch (IOException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
-    	}
     	else if (IDint==3) {
     		try {
     			image = ImageIO.read(new File("obr/enemy/1.png"));
@@ -143,10 +127,7 @@ public abstract class ObjektHry extends JComponent {
 				e.printStackTrace();
 			}
 		}
-    	
-    	} catch (IOException ex) {
-            ex.printStackTrace();
-        }
+
     }
 
 	/**

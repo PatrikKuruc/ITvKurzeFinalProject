@@ -102,7 +102,7 @@ public class MamaZombie extends PohyblivyObjektHry{
 
         Random random = new Random();
         int pocitadlo = 0;
-        int nahodne = random.nextInt(Settings.FPS/2);
+        int nahodne = random.nextInt(60);
 
         if(pocitadlo == nahodne) {
             handler.enemyShoot();
