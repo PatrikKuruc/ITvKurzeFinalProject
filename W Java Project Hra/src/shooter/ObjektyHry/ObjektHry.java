@@ -28,8 +28,7 @@ public abstract class ObjektHry extends JComponent {
  	protected Rectangle rectangle;;
  	
  	protected double ID;
-   
- 	int zivot;
+
 
 	/**
      * Zostroji objekt hry
@@ -152,13 +151,6 @@ public abstract class ObjektHry extends JComponent {
 		}
     }
 
-    /**
-     * Zmeni zivot objektu
-     * @param dmg damage
-     */
-	public void takeDamage(int dmg) {
-		zivot -= dmg;
-	}
 
 	/**
 	 * Vrati rectangle objektu pouzivany pri koliziach

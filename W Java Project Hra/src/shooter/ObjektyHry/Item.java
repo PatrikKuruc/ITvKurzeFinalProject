@@ -37,11 +37,11 @@ public class Item extends PohyblivyObjektHry{
 
 			// ak je zivot rovny/mensi 50, prida 50 zivota, inak doplni len zvysok do maximalnej hodnoty 100
 			if(ID == 4.2){
-				if(handler.zivot <= 50){
-					handler.zivot += 50;
-				} else if (handler.zivot < 100){
-					int zivot2 = 100 - handler.zivot;
-					handler.zivot += zivot2;
+				if(handler.zivotPlayer <= 50){
+					handler.zivotPlayer += 50;
+				} else if (handler.zivotPlayer < 100){
+					int zivot2 = 100 - handler.zivotPlayer;
+					handler.zivotPlayer += zivot2;
 				}
 				handler.removeObject(this);
 				pocetLekarniciek--;

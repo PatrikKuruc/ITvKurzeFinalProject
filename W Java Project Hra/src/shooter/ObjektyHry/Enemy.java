@@ -23,7 +23,6 @@ public class Enemy extends PohyblivyObjektHry {
         this.height = newObjectHeight;
 		super.nacitajObrazok();
 
-		zivot=100;
 		velX = Settings.enemySpeed;
 		velY = Settings.enemySpeed;
 	}
@@ -31,8 +30,8 @@ public class Enemy extends PohyblivyObjektHry {
 	@Override
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if (objekt instanceof Strela) {
-			zivot-=50;
-			if (zivot<=0) {
+			handler.zivotZombie-=50;
+			if (handler.zivotZombie<=0) {
 				handler.removeObject(this);
 				handler.score++;
 			}
@@ -83,7 +82,7 @@ public class Enemy extends PohyblivyObjektHry {
 	}
 	
 	public void aktualizujObjekHry() {
-		if(zivot <= 0){
+		if(handler.zivotZombie <= 0){
 	        handler.removeObject(this);
 		super.aktualizujObjektHry();
 		}

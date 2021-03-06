@@ -17,6 +17,7 @@ public class UserInput extends MouseAdapter implements KeyListener{
 	private static int mouseX;
 	private static int mouseY;
 	private Handler handler;
+	PopupWindow popupWindow;
 	
 	public UserInput(Handler handler) {
 		this.handler = handler;
@@ -50,7 +51,7 @@ public class UserInput extends MouseAdapter implements KeyListener{
 			setDown(true);
 		}
 		if (keyPressed == 'p') {
-			handler.pauseGame();
+			popupWindow = new PopupWindow(this, handler);
 		}
 	}
 

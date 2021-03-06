@@ -18,7 +18,7 @@ public class Casovac {
     Timer timer;
     int second;
     int minute;
-    String ddSecond, ddMinute;
+    static String ddSecond, ddMinute;
 
     // naformatovanie casu na 00:00
     DecimalFormat decimalFormat = new DecimalFormat("00");
@@ -73,5 +73,13 @@ public class Casovac {
 				}
             }
         });
+    }
+
+    public static String getDdSecond() {
+        return ddSecond;
+    }
+
+    public static String getDdMinute() {
+        return ddMinute;
     }
 }

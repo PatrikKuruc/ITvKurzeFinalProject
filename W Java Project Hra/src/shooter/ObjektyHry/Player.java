@@ -57,26 +57,26 @@ public class Player extends PohyblivyObjektHry{
 	@Override
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if(objekt instanceof Enemy) {
-			handler.zivot--;
+			handler.zivotPlayer--;
 			handler.zranenia++;
-			if(handler.zivot <= 0){
-				handler.zivot = 0;
+			if(handler.zivotPlayer <= 0){
+				handler.zivotPlayer = 0;
 			}
 		}
 
 		if(objekt instanceof MamaZombie){
-			handler.zivot--;
+			handler.zivotPlayer--;
 			handler.zranenia++;
-			if(handler.zivot <= 0){
-				handler.zivot = 0;
+			if(handler.zivotPlayer <= 0){
+				handler.zivotPlayer = 0;
 			}
 		}
 
 		if(objekt instanceof StrelaEnemy){
-			handler.zivot -= 20;
+			handler.zivotPlayer -= 20;
 			handler.zranenia += 20;
-			if(handler.zivot <= 0){
-				handler.zivot = 0;
+			if(handler.zivotPlayer <= 0){
+				handler.zivotPlayer = 0;
 			}
 		}
 		
@@ -89,24 +89,24 @@ public class Player extends PohyblivyObjektHry{
 	
 	private void vykresliUdajeHraca(Graphics gr) {
 		// vykreslenie health-baru
-		if(handler.zivot >= 50) {
+		if(handler.zivotPlayer >= 50) {
 			gr.setColor(Color.lightGray);
 			gr.fillRect(32, 5, 200, 22);
 			gr.setColor(Color.GREEN);
-			gr.fillRect(32, 5, (int) (handler.zivot * 2), 22);
+			gr.fillRect(32, 5, (int) (handler.zivotPlayer * 2), 22);
 			gr.setColor(Color.BLACK);
 			gr.drawRect(32, 5, 200, 22);
 			gr.setColor(Color.black);
-			gr.drawString((int) handler.zivot + "/100", 110, 22);
+			gr.drawString((int) handler.zivotPlayer + "/100", 110, 22);
 		} else {
 			gr.setColor(Color.lightGray);
 			gr.fillRect(32, 5, 200, 22);
 			gr.setColor(Color.red);
-			gr.fillRect(32, 5, (int) (handler.zivot * 2), 22);
+			gr.fillRect(32, 5, (int) (handler.zivotPlayer * 2), 22);
 			gr.setColor(Color.BLACK);
 			gr.drawRect(32, 5, 200, 22);
 			gr.setColor(Color.black);
-			gr.drawString((int) handler.zivot + "/100", 110, 22);
+			gr.drawString((int) handler.zivotPlayer + "/100", 110, 22);
 		}
 
 		// vykreslenie nabojov

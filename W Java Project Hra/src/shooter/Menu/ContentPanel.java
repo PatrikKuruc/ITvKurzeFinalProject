@@ -22,6 +22,7 @@ public class ContentPanel extends JPanel {
 	private Panel2_HighScore panel2;
 	private Panel3_Settings panel3;
 	private Menu menu;
+	public static Game game;
 	
 	public ContentPanel(Menu menu) {
 		this.menu = menu;
@@ -57,7 +58,7 @@ public class ContentPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				menu.setVisible(false);
 				try {
-					Game game = new Game();
+					game = new Game();
 					game.run();
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();

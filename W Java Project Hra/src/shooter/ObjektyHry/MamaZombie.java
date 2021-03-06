@@ -29,7 +29,6 @@ public class MamaZombie extends PohyblivyObjektHry{
         this.width = newObjectWidth;
         this.height = newObjectHeight;
 
-        zivot = 1000;
         super.nacitajObrazok();
 
         velX = Settings.enemySpeed*0.7;
@@ -49,8 +48,8 @@ public class MamaZombie extends PohyblivyObjektHry{
     public void vykonajKoliznyEvent(ObjektHry objekt) {
 
         if (objekt instanceof Strela) {
-            zivot-=50;
-            if (zivot<=0) {
+            handler.zivotMama-=50;
+            if (handler.zivotMama<=0) {
                 handler.removeObject(this);
                 handler.score += 20;
             }
@@ -93,12 +92,12 @@ public class MamaZombie extends PohyblivyObjektHry{
         gr.setColor(Color.lightGray);
         gr.fillRect(462,5,200,22);
         gr.setColor(Color.GREEN);
-        gr.fillRect(462,5, (zivot/5), 22);
+        gr.fillRect(462,5, (handler.zivotMama/5), 22);
         gr.setColor(Color.BLACK);
         gr.drawRect(462,5,200,22);
 
         gr.setColor(Color.black);
-        gr.drawString(zivot + " / 1000", 530,22);
+        gr.drawString(handler.zivotMama + " / 1000", 530,22);
 
         Random random = new Random();
         int pocitadlo = 0;

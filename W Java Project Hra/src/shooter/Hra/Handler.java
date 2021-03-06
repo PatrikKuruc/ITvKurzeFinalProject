@@ -20,7 +20,9 @@ public class Handler {
 
     public ArrayList<ObjektHry> statickeObjekty = new ArrayList<>();
     public ArrayList<ObjektHry> pohybliveObjekty = new ArrayList<>();
-    public int zivot = 100;
+    public int zivotPlayer = 100;
+    public int zivotMama = 1000;
+    public int zivotZombie = 100;
     public int zasobnik = 10;
     public int score;
     public int velkostPolicka = 32;
@@ -28,6 +30,7 @@ public class Handler {
 
     private boolean bezi = true;
     private Timer timer;
+    PopupWindow popupWindow;
 
     /**
      * Vytvori handler
@@ -65,8 +68,6 @@ public class Handler {
                 continue;
             }
         }
-        
-        
     }
 
     /**
@@ -90,7 +91,7 @@ public class Handler {
         }
 
         // spawne random lekarnicku, ak zivot klesne pod 50
-        if (zivot <= 50) {
+        if (zivotPlayer <= 50) {
             Random randomZivot = new Random();
 
             int pocitadlo = 0;
@@ -104,9 +105,10 @@ public class Handler {
                 pocitadlo++;
             }
         }
-        if (zivot<=0) {
-        	pauseGame();
-        	gameOver();
+
+        // na konci hry zavola gameover pop-up menu
+        if (zivotPlayer <= 0 || zivotMama <= 0){
+            popupWindow = new PopupWindow(this);
         }
 
         // spawne novy zasobnik, ak klesne pod 5
@@ -125,10 +127,6 @@ public class Handler {
             }
         }
     }
-
-    private void gameOver() {
-    	
-	}
 
 	public void vykresliHraca(Graphics g) {
         for (int i = 0; i < pohybliveObjekty.size(); i++) {
