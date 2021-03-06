@@ -108,7 +108,7 @@ public abstract class ObjektHry extends JComponent {
 
 		else if (IDint==6) {
 			try {
-				this.image = ImageIO.read(new File("obr/hrac/zena/2.png"));
+				this.image = ImageIO.read(new File("obr/hrac/daddyZombie.png"));
 				image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
 
 			} catch (IOException e) {

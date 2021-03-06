@@ -34,6 +34,7 @@ public class Player extends PohyblivyObjektHry{
 		nacitajParametre();
 	}
 	
+	
 	private void nacitajParametre() {
 		try (InputStream input = new FileInputStream("src/playerConfig.properties")) {
             Properties playerProp = new Properties();
