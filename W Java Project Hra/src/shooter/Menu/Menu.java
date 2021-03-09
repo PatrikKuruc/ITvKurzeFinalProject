@@ -1,33 +1,52 @@
 package shooter.Menu;
 
-import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
-import javax.swing.JFrame;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 import shooter.Hra.Game;
+import shooter.Hra.SoundEffect;
 import shooter.mapGen.GeneratorMapy;
 
 public class Menu extends JFrame {
 	
 	private ContentPanel contentPane;
+	public static SoundEffect soundEffect;
 
-	public Menu() {
+	public Menu() throws IOException {
 		setResizable(false);
 		setTitle("Nemame nazov :/");
 		setSize(new Dimension(800, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+		setLayout(null);
 		
 		contentPane = new ContentPanel(this);
 		setContentPane(contentPane);
 	}
 	
 	/**
-	 * Spusti menu
+	 * Spusti menu.
 	 */
 	public void run() {
 		setVisible(true);
+		soundEffect = new SoundEffect();
+		soundEffect.setFileMenuMusic();
+		soundEffect.play();
+	}
+
+	/**
+	 * Vypne menu.
+	 */
+	public void shutDown(){
+		setVisible(false);
+		soundEffect.stopMusic();
 	}
 
 	/**

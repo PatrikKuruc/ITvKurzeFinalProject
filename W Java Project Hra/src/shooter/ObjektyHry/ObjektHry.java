@@ -107,7 +107,11 @@ public abstract class ObjektHry extends JComponent {
 
 		else if (IDint==6) {
 			try {
+<<<<<<< HEAD
 				this.image = ImageIO.read(new File("obr/objektyHry/enemy/3.png"));
+=======
+				this.image = ImageIO.read(new File("obr/hrac/daddyZombie.png"));
+>>>>>>> branch 'main' of https://github.com/PatrikKuruc/ITvKurzeFinalProject.git
 				image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
 
 			} catch (IOException e) {

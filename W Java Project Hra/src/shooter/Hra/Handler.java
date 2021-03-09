@@ -22,11 +22,11 @@ public class Handler {
     public ArrayList<ObjektHry> pohybliveObjekty = new ArrayList<>();
     public int zivotPlayer = 100;
     public int zivotMama = 1000;
-    public int zivotZombie = 100;
     public int zasobnik = 10;
     public int score;
     public int velkostPolicka = 32;
     public int zranenia = 0;
+    public SoundEffect soundEffect;
 
     private boolean bezi = true;
     private Timer timer;
@@ -46,6 +46,10 @@ public class Handler {
         if (zasobnik > 0) {
             addObject(new Strela(5, poziciaHracaX, poziciaHracaY, this));
             zasobnik--;
+
+            soundEffect = new SoundEffect();
+            soundEffect.setFileShoot();
+            soundEffect.play();
         }
     }
 	
@@ -106,9 +110,14 @@ public class Handler {
             }
         }
 
-        // na konci hry zavola gameover pop-up menu
-        if (zivotPlayer <= 0 || zivotMama <= 0){
+        // ak hrac zomrie, zavola gameover pop-up menu
+        if (zivotPlayer <= 0){
             popupWindow = new PopupWindow(this);
+        }
+
+        // ak hrac porazi mamuZombie, zavola YOU WON! pop-up menu
+        if(zivotMama <= 0){
+            popupWindow = new PopupWindow(this, zivotMama);
         }
 
         // spawne novy zasobnik, ak klesne pod 5
@@ -183,6 +192,10 @@ public class Handler {
             if (score == 24) {
                 for (Integer i : nahravacMapy.spawnPointMama.keySet()) {
                     addObject(new MamaZombie(6, i, nahravacMapy.spawnPointMama.get(i), velkostPolicka, velkostPolicka, this));
+
+                    soundEffect = new SoundEffect();
+                    soundEffect.setFileFinalBossSpawn();
+                    soundEffect.play();
                 }
             }
 

@@ -2,12 +2,15 @@ package shooter.Menu;
 
 import shooter.Hra.Casovac;
 import shooter.Hra.Handler;
+import shooter.Hra.SoundEffect;
 
 import javax.swing.*;
+import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.sql.SQLException;
 
 /**
  * Trieda PlayerInfo sluzi na zbieranie a ukladanie udajov o hracovi do textoveho suboru.
@@ -17,8 +20,10 @@ public class PlayerInfo extends JFrame {
     private JPanel panel;
     private JLabel lblName, lblDamageTaken, lblTime, lblScore, lblBackRound, lblGameOver;
     private JButton btnSave;
-    private JTextField txtName;
+    public static JTextField txtName;
     Handler handler;
+    private Database database;
+    private SoundEffect soundEffect;
 
     /**
      * Vytovri sa okno PlayerInfo, kde sa zobrazia udaje o ukoncenej hre, vyziada si meno od hraca a nasledne ich ulozi.
@@ -42,8 +47,8 @@ public class PlayerInfo extends JFrame {
         lblBackRound.setIcon(new ImageIcon("obr/bg.jpg"));
         lblBackRound.setBounds(0, 0, 800, 600);
 
-        lblGameOver  = new JLabel("GAME OVER");
-        lblGameOver.setBounds(100,75,400,40);
+        lblGameOver = new JLabel("GAME OVER");
+        lblGameOver.setBounds(100, 75, 400, 40);
         lblGameOver.setForeground(Color.white);
         lblGameOver.setFont(new Font("Forte", Font.BOLD, 40));
 
@@ -65,24 +70,42 @@ public class PlayerInfo extends JFrame {
 
         txtName = new JTextField();
         txtName.setBounds(150, 150, 100, 20);
+        txtName.setDocument(new JTextFieldLimit(5));    // limituje dlzku mena na 5 znakov
 
         btnSave = new JButton("SAVE");
         btnSave.setBounds(100, 350, 100, 40);
 
-        // prida udaje o hracovi do textoveho suboru
+        // prida udaje o hracovi do textoveho suboru a nasledne sa zobrazi uvodne menu hry
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                soundEffect = new SoundEffect();
+                soundEffect.setFileButtonClick();
+                soundEffect.play();
 
-                try {
-                    FileWriter fileWriter = new FileWriter("Score.txt", true);
-                    PrintWriter printWriter = new PrintWriter(fileWriter);
-                    printWriter.println(txtName.getText() + ", " + handler.score + ", " + handler.zranenia
-                            + ", " + Casovac.getDdMinute() + ":" + Casovac.getDdSecond());
-                    printWriter.close();
-                    shutDown();
-                } catch (IOException fileNotFoundException) {
-                    fileNotFoundException.printStackTrace();
+                if (txtName.getText().isEmpty() || txtName.getText().contains(" ")) {
+                    JOptionPane.showMessageDialog(null, "Name can't be empty!\nName can't contain spaces!",
+                            "NAME ERROR", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+
+                    try {
+                        database = new Database(handler);
+                        database.insertData();
+                        database.resetHighScore();
+                        database.selectDataScore();
+
+                        shutDown();
+
+                        ContentPanel.menu.run();
+                        ContentPanel.panel1.setVisible(false);
+                        ContentPanel.panel2.setVisible(true);
+                        ContentPanel.panel3.setVisible(false);
+                        Panel2_HighScore.scoreMAX[0] = true;
+                        ContentPanel.btnVolume.setBackground(Color.green);
+
+                    } catch (SQLException fileNotFoundException) {
+                        fileNotFoundException.printStackTrace();
+                    }
                 }
 
             }
