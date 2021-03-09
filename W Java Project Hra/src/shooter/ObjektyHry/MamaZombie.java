@@ -51,7 +51,7 @@ public class MamaZombie extends PohyblivyObjektHry{
             handler.zivotMama-=50;
             if (handler.zivotMama<=0) {
                 handler.removeObject(this);
-                handler.score += 20;
+                handler.score += 25;
             }
             handler.removeObject(objekt);
         }

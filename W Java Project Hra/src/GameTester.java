@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import shooter.Menu.Menu;
 
@@ -7,7 +8,7 @@ import shooter.Menu.Menu;
  */
 public class GameTester {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		// vytvor a pusti hru
 		Menu hra = new Menu();
 

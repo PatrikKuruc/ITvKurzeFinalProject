@@ -2,12 +2,16 @@ package shooter.ObjektyHry;
 
 import shooter.Hra.Handler;
 import shooter.Hra.Settings;
+import shooter.Hra.SoundEffect;
 
 /**
  * Trieda vytvara pohyblivy objekt typu enemy  
  */
 public class Enemy extends PohyblivyObjektHry {
-	
+
+	private SoundEffect soundEffect;
+	private int zivotZombie = 100;
+
 	/**
 	 * Vytvori objek typu Enemy
 	 * @param poziciaX pozicia objektu, X suradnica laveho horneho rohu
@@ -22,7 +26,6 @@ public class Enemy extends PohyblivyObjektHry {
 		this.width = newObjectWidth;
         this.height = newObjectHeight;
 		super.nacitajObrazok();
-
 		velX = Settings.enemySpeed;
 		velY = Settings.enemySpeed;
 	}
@@ -30,10 +33,14 @@ public class Enemy extends PohyblivyObjektHry {
 	@Override
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if (objekt instanceof Strela) {
-			handler.zivotZombie-=50;
-			if (handler.zivotZombie<=0) {
+			zivotZombie-=50;
+			if (zivotZombie<=0) {
 				handler.removeObject(this);
 				handler.score++;
+
+				soundEffect = new SoundEffect();
+				soundEffect.setFileZomebieDeath();
+				soundEffect.play();
 			}
 			handler.removeObject(objekt);
 		}
@@ -51,6 +58,7 @@ public class Enemy extends PohyblivyObjektHry {
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
 		
 		if (Math.abs(vzdialenost) < 200) {
+
 			if (Math.abs(uholX)>1) {
 				vecX = (float) (uholX * 2 / vzdialenost);
 			}
@@ -82,9 +90,6 @@ public class Enemy extends PohyblivyObjektHry {
 	}
 	
 	public void aktualizujObjekHry() {
-		if(handler.zivotZombie <= 0){
-	        handler.removeObject(this);
-		super.aktualizujObjektHry();
-		}
+
     }
 }

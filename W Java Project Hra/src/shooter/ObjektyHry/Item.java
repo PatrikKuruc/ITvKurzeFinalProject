@@ -1,12 +1,15 @@
 package shooter.ObjektyHry;
 
 import shooter.Hra.Handler;
+import shooter.Hra.SoundEffect;
+
 /**
  * Trieda vytvara nepohyblivy objekt typu trava
  */
 public class Item extends PohyblivyObjektHry{
 
 	public static int pocetLekarniciek, pocetZasobnikov = 0;
+	private SoundEffect soundEffect;
 
 	/**
 	 * Vytvori objekt typu Item (prechodny, pouzitelny, bez pohybu)
@@ -33,6 +36,10 @@ public class Item extends PohyblivyObjektHry{
 				handler.zasobnik += 5;
 				handler.removeObject(this);
 				pocetZasobnikov--;
+
+				soundEffect = new SoundEffect();
+				soundEffect.setFileItemPickUp();
+				soundEffect.play();
 			}
 
 			// ak je zivot rovny/mensi 50, prida 50 zivota, inak doplni len zvysok do maximalnej hodnoty 100
@@ -45,6 +52,10 @@ public class Item extends PohyblivyObjektHry{
 				}
 				handler.removeObject(this);
 				pocetLekarniciek--;
+
+				soundEffect = new SoundEffect();
+				soundEffect.setFileItemPickUp();
+				soundEffect.play();
 			}
 		}
 	}
