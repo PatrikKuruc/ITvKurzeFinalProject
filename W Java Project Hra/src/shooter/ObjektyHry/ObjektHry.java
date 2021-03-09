@@ -138,7 +138,7 @@ public abstract class ObjektHry extends JComponent {
 		Graphics2D g = (Graphics2D) gr.create();
 		if (ID == 6 && MamaZombie.mamaStriela) {		// animacia MamaZombie
 			try {
-				this.image2 = ImageIO.read(new File("obr/objektyHry/hrac/zena/1.png"));
+				this.image2 = ImageIO.read(new File("obr/objektyHry/enemy/4.png"));
 				image2 = image2.getScaledInstance(32, 32, Image.SCALE_FAST);
 			} catch (IOException e) {
 				e.printStackTrace();
