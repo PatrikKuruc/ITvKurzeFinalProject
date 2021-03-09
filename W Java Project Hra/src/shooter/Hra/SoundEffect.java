@@ -126,6 +126,20 @@ public class SoundEffect {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Pridava zvuk "begin" ked sa spusti hra.
+     */
+    public void setFileBegin(){
+        File file = new File("sound\\begin.wav");
+        try {
+            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(sound);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Znizi(+) / zvysi(-) hlasitost daneho zvuku
