@@ -52,7 +52,7 @@ public abstract class ObjektHry extends JComponent {
     	double IDint = ID;
     	if (IDint==0) {
     		try {
-    			image = ImageIO.read(new File("obr/trava/1.png"));
+    			image = ImageIO.read(new File("obr/objektyHry/trava/5.png"));
     			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -61,7 +61,7 @@ public abstract class ObjektHry extends JComponent {
     	}
     	else if (IDint ==1) {
     		try {
-    			image = ImageIO.read(new File("obr/stena/drevo/11.png"));
+    			image = ImageIO.read(new File("obr/objektyHry/stena/11.png"));
     			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -70,7 +70,7 @@ public abstract class ObjektHry extends JComponent {
 		}
     	else if (IDint==3) {
     		try {
-    			image = ImageIO.read(new File("obr/enemy/1.png"));
+    			image = ImageIO.read(new File("obr/objektyHry/enemy/1.png"));
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -78,7 +78,7 @@ public abstract class ObjektHry extends JComponent {
     	}
     	else if (IDint==4.1) {
     		try {
-    			image = ImageIO.read(new File("obr/item/1.png"));
+    			image = ImageIO.read(new File("obr/objektyHry/item/1.png"));
     			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -87,7 +87,7 @@ public abstract class ObjektHry extends JComponent {
     	}
 		else if (IDint==4.2) {
     		try {
-    			image = ImageIO.read(new File("obr/item/2.png"));
+    			image = ImageIO.read(new File("obr/objektyHry/item/2.png"));
     			image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
@@ -107,7 +107,7 @@ public abstract class ObjektHry extends JComponent {
 
 		else if (IDint==6) {
 			try {
-				this.image = ImageIO.read(new File("obr/hrac/zena/3.png"));
+				this.image = ImageIO.read(new File("obr/objektyHry/enemy/3.png"));
 				image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
 
 			} catch (IOException e) {
@@ -138,7 +138,7 @@ public abstract class ObjektHry extends JComponent {
 		Graphics2D g = (Graphics2D) gr.create();
 		if (ID == 6 && MamaZombie.mamaStriela) {		// animacia MamaZombie
 			try {
-				this.image2 = ImageIO.read(new File("obr/hrac/zena/1.png"));
+				this.image2 = ImageIO.read(new File("obr/objektyHry/hrac/zena/1.png"));
 				image2 = image2.getScaledInstance(32, 32, Image.SCALE_FAST);
 			} catch (IOException e) {
 				e.printStackTrace();

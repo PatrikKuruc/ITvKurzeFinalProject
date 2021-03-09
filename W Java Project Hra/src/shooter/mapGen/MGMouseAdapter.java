@@ -15,7 +15,6 @@ public class MGMouseAdapter extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
-		
 		if (e.getButton() == 1) {
 			double ID = handler.getKreslisObjektID();
 			handler.pridajObjekt(ID, x, y);

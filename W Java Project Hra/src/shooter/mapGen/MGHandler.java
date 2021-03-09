@@ -29,10 +29,10 @@ public class MGHandler {
 		for (int i = 0; i < vRiadku; i++) {
 			for (int j = 0; j < vStlpci; j++) {
 				if (i == 0 || j == 0 || i == vRiadku-1 || j == vStlpci-1) {
-					defaultMap.add(new ObjektJComp(1.0, i*velkostPolicka, j*velkostPolicka, this));
+					defaultMap.add(new ObjektJComp(1.1, i*velkostPolicka, j*velkostPolicka, this));
 				}
 				else {
-					defaultMap.add(new ObjektJComp(0.0, i*velkostPolicka, j*velkostPolicka, this));
+					defaultMap.add(new ObjektJComp(0.1, i*velkostPolicka, j*velkostPolicka, this));
 				}
 			}
 		}
