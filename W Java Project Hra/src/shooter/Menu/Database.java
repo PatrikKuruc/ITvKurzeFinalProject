@@ -17,9 +17,23 @@ public class Database {
     private String commandSELECTBySCORE;
     private String commandSELECTByDAMAGE;
     private String commandSELECTByTIME;
+    private String useTABLE, createTABLE;
 
     public Database(Handler handler) throws SQLException {
         this.handler = handler;
+        
+        Connection connectionDB = DriverManager.getConnection(url, userName, password);
+        Statement statement = connectionDB.createStatement();
+
+        // vytvori table "highscore", ak este neexistuje
+        useTABLE = "use score;";
+        statement.executeUpdate(useTABLE);
+        createTABLE = "create table if not exists highscore(" +
+                "name varchar(50)," +
+                "score int," +
+                "damage_taken int," +
+                "time varchar(10));";
+        statement.executeUpdate(createTABLE);
     }
 
     /**
