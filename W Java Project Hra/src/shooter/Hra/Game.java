@@ -16,6 +16,7 @@ public class Game extends JFrame{
 	private Properties gameProperties;
 	private int WINDOW_HEIGHT;
 	private int WINDOW_WIDTH;
+	private SoundEffect soundEffect;
 	
 	/**
 	 * Vytvori okno (JFrame) hry
@@ -59,6 +60,9 @@ public class Game extends JFrame{
 	 */
 	public void run() {
 		setVisible(true);
+		soundEffect = new SoundEffect();
+		soundEffect.setFileBegin();
+		soundEffect.play();
 	}
 
 	/**
