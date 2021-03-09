@@ -169,7 +169,7 @@ public class ContentPanel extends JPanel {
 		final boolean[] soundIsOn = {true};
 
 		try {
-			imageON = ImageIO.read(new File("D:\\W Java Project Hra_Current\\obr\\sound_on.png"));
+			imageON = ImageIO.read(new File("obr/sound_on.png"));
 			imageON = imageON.getScaledInstance(30, 30, Image.SCALE_FAST);
 		} catch (IOException e) {
 			e.printStackTrace();

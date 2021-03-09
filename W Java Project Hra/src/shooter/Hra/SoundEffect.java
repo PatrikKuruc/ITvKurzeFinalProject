@@ -18,7 +18,7 @@ public class SoundEffect {
      * Pridava uvodnu zvucku pri otvorenom menu.
      */
     public void setFileMenuMusic(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\menu_music.wav");
+        File file = new File("sound\\menu_music.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -33,7 +33,7 @@ public class SoundEffect {
      * Pridava zvuk strelby hlavnej postavy.
      */
     public void setFileShoot(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\shoot_sound.wav");
+        File file = new File("sound\\shoot_sound.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -47,7 +47,7 @@ public class SoundEffect {
      * Pridava zvuk pri zodvihnuti itemu.
      */
     public void setFileItemPickUp(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\item_pick_up.wav");
+        File file = new File("sound\\item_pick_up.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -61,7 +61,7 @@ public class SoundEffect {
      * Pridava zvuk pri prehrani hry.
      */
     public void setFileGameOver(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\gameover.wav");
+        File file = new File("sound\\gameover.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -75,7 +75,7 @@ public class SoundEffect {
      * Pridava zvuk pri vyhrani hry.
      */
     public void setFileYouWon(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\you_won.wav");
+        File file = new File("sound\\you_won.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -89,7 +89,7 @@ public class SoundEffect {
      * Pridava zvuk ked zomrie enemy
      */
     public void setFileZomebieDeath(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\zombie_death.wav");
+        File file = new File("sound\\zombie_death.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -103,7 +103,7 @@ public class SoundEffect {
      * Pridava zvuk ked sa spawn final boss
      */
     public void setFileFinalBossSpawn(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\final_boss_spawn.wav");
+        File file = new File("sound\\final_boss_spawn.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
@@ -117,7 +117,7 @@ public class SoundEffect {
      * Pridava zvuk ked sa spawn final boss
      */
     public void setFileButtonClick(){
-        File file = new File("D:\\W Java Project Hra_Current\\sound\\button_click.wav");
+        File file = new File("sound\\button_click.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
