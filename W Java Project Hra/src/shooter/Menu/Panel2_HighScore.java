@@ -45,20 +45,25 @@ public class Panel2_HighScore extends JPanel {
 		pnlPanelInfo.setBackground(Color.lightGray);
 		pnlPanelInfo.setBorder(BorderFactory.createLineBorder(new Color(180,0,0), 5, false));
 
-		lblNumber = new JLabel("N.");
-		lblNumber.setBounds(30, 5, 100,20);
+		lblNumber = new JLabel("N.", SwingConstants.CENTER);
+		lblNumber.setBounds(5, 5, 50,20);
+		lblNumber.setBorder(BorderFactory.createEtchedBorder());
 
-		lblName = new JLabel("Name");
-		lblName.setBounds(90, 5, 100,20);
+		lblName = new JLabel("Name", SwingConstants.CENTER);
+		lblName.setBounds(55, 5, 100,20);
+		lblName.setBorder(BorderFactory.createEtchedBorder());
 
-		lblScore = new JLabel("Score");
-		lblScore.setBounds(190, 5, 100,20);
+		lblScore = new JLabel("Score", SwingConstants.CENTER);
+		lblScore.setBounds(155, 5, 100,20);
+		lblScore.setBorder(BorderFactory.createEtchedBorder());
 
-		lblDamageTaken = new JLabel("DMG Taken");
-		lblDamageTaken.setBounds(275, 5, 100,20);
+		lblDamageTaken = new JLabel("DMG Taken", SwingConstants.CENTER);
+		lblDamageTaken.setBounds(255, 5, 100,20);
+		lblDamageTaken.setBorder(BorderFactory.createEtchedBorder());
 
-		lblTime = new JLabel("Time");
-		lblTime.setBounds(385, 5, 100,20);
+		lblTime = new JLabel("Time", SwingConstants.CENTER);
+		lblTime.setBounds(355, 5, 90,20);
+		lblTime.setBorder(BorderFactory.createEtchedBorder());
 
 		lblFilter = new JLabel("CHOOSE FILTER: ");
 		lblFilter.setBounds(30, 370, 100,20);
