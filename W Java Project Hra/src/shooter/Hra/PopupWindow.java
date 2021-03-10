@@ -41,6 +41,11 @@ public class PopupWindow {
         soundEffect = new SoundEffect();
         soundEffect.setFileGameOver();
         soundEffect.play();
+        soundEffect.setVolume(-30);
+        
+        soundEffect = new SoundEffect();
+        soundEffect.setFileLoser();
+        soundEffect.play();
 
         JOptionPane.showMessageDialog(null, "You lost!\n" +
                 "Press 'OK' to continue.", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
@@ -65,6 +70,11 @@ public class PopupWindow {
 
         soundEffect = new SoundEffect();
         soundEffect.setFileYouWon();
+        soundEffect.play();
+        soundEffect.setVolume(-15);
+        
+        soundEffect = new SoundEffect();
+        soundEffect.setFileWinner();
         soundEffect.play();
 
         JOptionPane.showMessageDialog(null, "YOU WON!\n" +
