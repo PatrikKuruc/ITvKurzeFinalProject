@@ -75,7 +75,7 @@ public class PlayerInfo extends JFrame {
         btnSave = new JButton("SAVE");
         btnSave.setBounds(100, 350, 100, 40);
 
-        // prida udaje o hracovi do textoveho suboru a nasledne sa zobrazi uvodne menu hry
+        // prida udaje o hracovi do databazy a nasledne sa zobrazi uvodne menu hry s highscore tabulkou
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
