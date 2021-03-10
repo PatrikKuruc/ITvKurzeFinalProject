@@ -10,24 +10,26 @@ import java.sql.*;
  */
 public class Database {
 
-    private String url = "jdbc:mysql://localhost:3306/score";
-    private String userName = "tester";
-    private String password = "tester123";
-    Handler handler;
+    private String url = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11397996";
+    private String userName = "sql11397996";
+    private String password = "fSHPAdExP1";
     private String commandSELECTBySCORE;
     private String commandSELECTByDAMAGE;
     private String commandSELECTByTIME;
-    private String useTABLE, createTABLE;
+    private String createTABLE;
+    private Connection connectionDB = DriverManager.getConnection(url, userName, password);
+    private Statement statement = connectionDB.createStatement();
+    Handler handler;
 
+    /**
+     * Zavola sa databaza.
+     * @param handler handler
+     * @throws SQLException SQL vynimka
+     */
     public Database(Handler handler) throws SQLException {
         this.handler = handler;
-        
-        Connection connectionDB = DriverManager.getConnection(url, userName, password);
-        Statement statement = connectionDB.createStatement();
 
-        // vytvori table "highscore", ak este neexistuje
-        useTABLE = "use score;";
-        statement.executeUpdate(useTABLE);
+        // vytvori tabulku "highscore" v databze, ak este neexistuje
         createTABLE = "create table if not exists highscore(" +
                 "name varchar(50)," +
                 "score int," +
@@ -42,9 +44,6 @@ public class Database {
      * @throws SQLException SQL vynimka
      */
     public void insertData() throws SQLException {
-        Connection connectionDB = DriverManager.getConnection(url, userName, password);
-        Statement statement = connectionDB.createStatement();
-
         String commandINSERT = "insert into highscore value('" + PlayerInfo.txtName.getText() + "'," + handler.score + ", "
                 + handler.zranenia + ", '" + Casovac.getDdMinute() + ":" + Casovac.getDdSecond() + "');";
 
@@ -57,11 +56,8 @@ public class Database {
      * @throws SQLException SQL vynimka
      */
     public void selectDataScore() throws SQLException {
-        Connection connectionDB = DriverManager.getConnection(url, userName, password);
-        Statement statement = connectionDB.createStatement();
-
         // umoznuje preklik tlacitka SCORE pre vypisovanie MAX / MIN score
-        if(Panel2_HighScore.scoreMAX[0]) {
+        if (Panel2_HighScore.scoreMAX[0]) {
             commandSELECTBySCORE = "SELECT * FROM highscore ORDER BY score DESC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
             Panel2_HighScore.scoreMAX[0] = false;
         } else {
@@ -94,11 +90,8 @@ public class Database {
      * @throws SQLException SQL vynimka
      */
     public void selectDataDamage() throws SQLException {
-        Connection connectionDB = DriverManager.getConnection(url, userName, password);
-        Statement statement = connectionDB.createStatement();
-
         // umoznuje preklik tlacitka DMG Taken pre vypisovanie MAX / MIN zranenia
-        if(Panel2_HighScore.damageTakenMIN[0]) {
+        if (Panel2_HighScore.damageTakenMIN[0]) {
             commandSELECTByDAMAGE = "SELECT * FROM highscore ORDER BY damage_taken ASC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
             Panel2_HighScore.damageTakenMIN[0] = false;
         } else {
@@ -131,11 +124,8 @@ public class Database {
      * @throws SQLException SQL vynimka
      */
     public void selectDataTime() throws SQLException {
-        Connection connectionDB = DriverManager.getConnection(url, userName, password);
-        Statement statement = connectionDB.createStatement();
-
         // umoznuje preklik tlacitka TIME pre vypisovanie MAX / MIN casu
-        if(Panel2_HighScore.timeMIN[0]) {
+        if (Panel2_HighScore.timeMIN[0]) {
             commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time ASC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
             Panel2_HighScore.timeMIN[0] = false;
         } else {
@@ -158,7 +148,6 @@ public class Database {
             Panel2_HighScore.txtScore.append("              " + score + "\n\n");
             Panel2_HighScore.txtDamageTaken.append("            " + damageTaken + "\n\n");
             Panel2_HighScore.txtTime.append("          " + time + "\n\n");
-
         }
     }
 
