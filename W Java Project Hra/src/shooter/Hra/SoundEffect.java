@@ -140,6 +140,34 @@ public class SoundEffect {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Pridava zvuk "loser" ked hrac prehra hru.
+     */
+    public void setFileLoser(){
+        File file = new File("sound\\loser.wav");
+        try {
+            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(sound);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Pridava zvuk "winner" ked hrac prehra hru.
+     */
+    public void setFileWinner(){
+        File file = new File("sound\\winner.wav");
+        try {
+            AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(sound);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Znizi(+) / zvysi(-) hlasitost daneho zvuku
