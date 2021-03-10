@@ -22,12 +22,20 @@ public class Panel2_HighScore extends JPanel {
 	private JPanel pnlPanelInfo;
 	private JButton btnScore, btnDamageTaken, btnTime;
 	public static JTextArea txtPlayerNumber, txtPlayerName, txtScore, txtDamageTaken, txtTime;
-	private Database database;
 	private SoundEffect soundEffect;
 	Handler handler;
 	public static final boolean[] scoreMAX = {true};
 	public static final boolean[] damageTakenMIN = {true};
 	public static final boolean[] timeMIN = {true};
+	
+	private Database database;
+	{
+		try {
+			database = new Database(handler);
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
+	}
 
 	/**
 	 * Create the panel.
@@ -110,7 +118,6 @@ public class Panel2_HighScore extends JPanel {
 				soundEffect.play();
 
 				try {
-					database = new Database(handler);
 					database.resetHighScore();
 					database.selectDataScore();
 				} catch (SQLException throwables) {
@@ -130,7 +137,6 @@ public class Panel2_HighScore extends JPanel {
 				soundEffect.play();
 
 				try {
-					database = new Database(handler);
 					database.resetHighScore();
 					database.selectDataDamage();
 				} catch (SQLException throwables) {
@@ -150,7 +156,6 @@ public class Panel2_HighScore extends JPanel {
 				soundEffect.play();
 
 				try {
-					database = new Database(handler);
 					database.resetHighScore();
 					database.selectDataTime();
 				} catch (SQLException throwables) {
