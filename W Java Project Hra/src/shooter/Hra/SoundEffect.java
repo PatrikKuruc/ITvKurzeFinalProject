@@ -156,7 +156,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk "winner" ked hrac prehra hru.
+     * Pridava zvuk "winner" ked hrac vyhra hru.
      */
     public void setFileWinner(){
         File file = new File("sound\\winner.wav");
