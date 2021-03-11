@@ -2,15 +2,12 @@ package shooter.ObjektyHry;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
-import shooter.Hra.Handler;
+import shooter.Game.Handler;
 /**
  * Trieda ObjektHry reprezentuje zaklad pre vsetky objekty hry - steny, hrac, strela, atd. 
  */

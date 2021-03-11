@@ -1,7 +1,7 @@
 package shooter.Menu;
 
-import shooter.Hra.Handler;
-import shooter.Hra.SoundEffect;
+import shooter.Game.Handler;
+import shooter.Game.SoundEffect;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -10,11 +10,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.Properties;
 
 import javax.swing.*;
-import javax.xml.crypto.Data;
 
 public class Panel2_HighScore extends JPanel {
 

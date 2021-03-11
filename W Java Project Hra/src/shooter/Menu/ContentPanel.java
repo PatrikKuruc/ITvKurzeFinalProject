@@ -12,9 +12,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import shooter.Hra.Game;
-import shooter.Hra.Handler;
-import shooter.Hra.SoundEffect;
+import shooter.Game.Game;
+import shooter.Game.Handler;
+import shooter.Game.SoundEffect;
 import shooter.mapGen.GeneratorMapy;
 
 import javax.swing.JLabel;

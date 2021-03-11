@@ -1,7 +1,7 @@
 package shooter.Menu;
 
-import shooter.Hra.Casovac;
-import shooter.Hra.Handler;
+import shooter.Game.GameTimer;
+import shooter.Game.Handler;
 
 import java.sql.*;
 
@@ -45,7 +45,7 @@ public class Database {
      */
     public void insertData() throws SQLException {
         String commandINSERT = "insert into highscore value('" + PlayerInfo.txtName.getText() + "'," + handler.score + ", "
-                + handler.zranenia + ", '" + Casovac.getDdMinute() + ":" + Casovac.getDdSecond() + "');";
+                + handler.damageTaken + ", '" + GameTimer.getDdMinute() + ":" + GameTimer.getDdSecond() + "');";
 
         statement.executeUpdate(commandINSERT);
     }

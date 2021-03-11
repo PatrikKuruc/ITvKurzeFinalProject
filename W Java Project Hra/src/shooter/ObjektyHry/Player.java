@@ -9,11 +9,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import javax.imageio.ImageIO;
-import javax.swing.Timer;
 
-import shooter.Hra.Handler;
-import shooter.Hra.Settings;
-import shooter.Hra.UserInput;
+import shooter.Game.Handler;
+import shooter.Game.UserInput;
 
 /**
  * Trieda vytvara hraca
@@ -57,26 +55,26 @@ public class Player extends PohyblivyObjektHry{
 	@Override
 	public void vykonajKoliznyEvent(ObjektHry objekt) {
 		if(objekt instanceof Enemy) {
-			handler.zivotPlayer--;
-			handler.zranenia++;
-			if(handler.zivotPlayer <= 0){
-				handler.zivotPlayer = 0;
+			handler.healthPlayer--;
+			handler.damageTaken++;
+			if(handler.healthPlayer <= 0){
+				handler.healthPlayer = 0;
 			}
 		}
 
 		if(objekt instanceof MamaZombie){
-			handler.zivotPlayer--;
-			handler.zranenia++;
-			if(handler.zivotPlayer <= 0){
-				handler.zivotPlayer = 0;
+			handler.healthPlayer--;
+			handler.damageTaken++;
+			if(handler.healthPlayer <= 0){
+				handler.healthPlayer = 0;
 			}
 		}
 
 		if(objekt instanceof StrelaEnemy){
-			handler.zivotPlayer -= 20;
-			handler.zranenia += 20;
-			if(handler.zivotPlayer <= 0){
-				handler.zivotPlayer = 0;
+			handler.healthPlayer -= 20;
+			handler.damageTaken += 20;
+			if(handler.healthPlayer <= 0){
+				handler.healthPlayer = 0;
 			}
 		}
 		
@@ -89,29 +87,29 @@ public class Player extends PohyblivyObjektHry{
 	
 	private void vykresliUdajeHraca(Graphics gr) {
 		// vykreslenie health-baru
-		if(handler.zivotPlayer >= 50) {
+		if(handler.healthPlayer >= 50) {
 			gr.setColor(Color.lightGray);
 			gr.fillRect(32, 5, 200, 22);
 			gr.setColor(Color.GREEN);
-			gr.fillRect(32, 5, (int) (handler.zivotPlayer * 2), 22);
+			gr.fillRect(32, 5, (int) (handler.healthPlayer * 2), 22);
 			gr.setColor(Color.BLACK);
 			gr.drawRect(32, 5, 200, 22);
 			gr.setColor(Color.black);
-			gr.drawString((int) handler.zivotPlayer + "/100", 110, 22);
+			gr.drawString((int) handler.healthPlayer + "/100", 110, 22);
 		} else {
 			gr.setColor(Color.lightGray);
 			gr.fillRect(32, 5, 200, 22);
 			gr.setColor(Color.red);
-			gr.fillRect(32, 5, (int) (handler.zivotPlayer * 2), 22);
+			gr.fillRect(32, 5, (int) (handler.healthPlayer * 2), 22);
 			gr.setColor(Color.BLACK);
 			gr.drawRect(32, 5, 200, 22);
 			gr.setColor(Color.black);
-			gr.drawString((int) handler.zivotPlayer + "/100", 110, 22);
+			gr.drawString((int) handler.healthPlayer + "/100", 110, 22);
 		}
 
 		// vykreslenie nabojov
 		gr.setColor(Color.white);
-		gr.drawString("Naboje: " + handler.zasobnik , 250, 22);
+		gr.drawString("Naboje: " + handler.ammo, 250, 22);
 
 		// vykreslenie score
 		gr.setColor(Color.white);
@@ -119,7 +117,7 @@ public class Player extends PohyblivyObjektHry{
 
 		// vykreslenie zraneni
 		gr.setColor(Color.white);
-		gr.drawString("Zranenia: " + handler.zranenia, 800,22);
+		gr.drawString("Zranenia: " + handler.damageTaken, 800,22);
 	}
 	
 
@@ -130,8 +128,8 @@ public class Player extends PohyblivyObjektHry{
 		poziciaHlavneX = centerX;
 		poziciaHlavneY = centerY;
 		
-		handler.setPoziciaHracaX(centerX);
-		handler.setPoziciaHracaY(centerY);
+		handler.setPositionPlayerX(centerX);
+		handler.setPositionPlayerY(centerY);
 		
 		super.aktualizujObjektHry();
 	}

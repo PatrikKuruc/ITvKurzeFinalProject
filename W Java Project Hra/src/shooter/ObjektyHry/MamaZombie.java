@@ -1,7 +1,7 @@
 package shooter.ObjektyHry;
 
-import shooter.Hra.Handler;
-import shooter.Hra.Settings;
+import shooter.Game.Handler;
+import shooter.Game.Settings;
 
 import java.awt.*;
 import java.util.Random;
@@ -48,8 +48,8 @@ public class MamaZombie extends PohyblivyObjektHry{
     public void vykonajKoliznyEvent(ObjektHry objekt) {
 
         if (objekt instanceof Strela) {
-            handler.zivotMama-=50;
-            if (handler.zivotMama<=0) {
+            handler.healthMama -=50;
+            if (handler.healthMama <=0) {
                 handler.removeObject(this);
                 handler.score += 25;
             }
@@ -59,8 +59,8 @@ public class MamaZombie extends PohyblivyObjektHry{
 
     @Override
     public void zistiSmer() {
-        destinationX = handler.getPoziciaHracaX();
-        destinationY = handler.getPoziciaHracaY();
+        destinationX = handler.getPositionPlayerY();
+        destinationY = handler.getPositionPlayerX();
 
         this.uholX = destinationX - poziciaX;
         this.uholY = destinationY - poziciaY;
@@ -92,12 +92,12 @@ public class MamaZombie extends PohyblivyObjektHry{
         gr.setColor(Color.lightGray);
         gr.fillRect(462,5,200,22);
         gr.setColor(Color.GREEN);
-        gr.fillRect(462,5, (handler.zivotMama/5), 22);
+        gr.fillRect(462,5, (handler.healthMama /5), 22);
         gr.setColor(Color.BLACK);
         gr.drawRect(462,5,200,22);
 
         gr.setColor(Color.black);
-        gr.drawString(handler.zivotMama + " / 1000", 530,22);
+        gr.drawString(handler.healthMama + " / 1000", 530,22);
 
         Random random = new Random();
         int pocitadlo = 0;
@@ -111,8 +111,8 @@ public class MamaZombie extends PohyblivyObjektHry{
 
     @Override
     public void aktualizujObjektHry() {
-        destinationX = handler.getPoziciaHracaX();
-        destinationY = handler.getPoziciaHracaY();
+        destinationX = handler.getPositionPlayerY();
+        destinationY = handler.getPositionPlayerX();
         poziciaEnemyX = centerX;
         poziciaEnemyY = centerY;
 

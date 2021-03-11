@@ -3,12 +3,12 @@ import java.io.IOException;
 import shooter.Menu.Menu;
 
 /**
- * Trieda sluzi na testovanie hry. 
+ * Class GameTester tests the game.
  */
 public class GameTester {
 
 	public static void main(String[] args) throws IOException {
-		// vytvor a pusti hru
+		// creates and runs the game
 		Menu hra = new Menu();
 
 		hra.run();

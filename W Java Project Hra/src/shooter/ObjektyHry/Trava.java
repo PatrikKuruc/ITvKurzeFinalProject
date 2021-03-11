@@ -1,6 +1,6 @@
 package shooter.ObjektyHry;
 
-import shooter.Hra.Handler;
+import shooter.Game.Handler;
 
 /**
  * Trieda vytvara nepohyblivy objekt typu trava

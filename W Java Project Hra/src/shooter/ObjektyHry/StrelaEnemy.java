@@ -1,6 +1,6 @@
 package shooter.ObjektyHry;
 
-import shooter.Hra.Handler;
+import shooter.Game.Handler;
 
 public class StrelaEnemy extends PohyblivyObjektHry {
 
@@ -16,8 +16,8 @@ public class StrelaEnemy extends PohyblivyObjektHry {
         super(poziciaX, poziciaY, handler);
         this.ID = ID;
         super.nacitajObrazok();
-        this.destinationX = handler.getPoziciaHracaX();
-        this.destinationY = handler.getPoziciaHracaY();
+        this.destinationX = handler.getPositionPlayerY();
+        this.destinationY = handler.getPositionPlayerX();
         this.width = 513 / 10;
         this.height = 173 / 10;
         this.velX = 1;

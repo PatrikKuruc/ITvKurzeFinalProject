@@ -3,7 +3,7 @@ package shooter.ObjektyHry;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import shooter.Hra.Handler;
+import shooter.Game.Handler;
 /**
  * Abstraktna trieda pre pohyblive objekty hry ktora rozsiruje triedu objekt hry.
  */
@@ -74,8 +74,8 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 * Zisti koliziu pohyblivych objektov so statickymi
 	 */
 	public void zistiKoliziuSoStenamiX() {
-		for(int i = 0; i < handler.statickeObjekty.size(); i++){
-            ObjektHry objektHry = handler.statickeObjekty.get(i);
+		for(int i = 0; i < handler.staticObjects.size(); i++){
+            ObjektHry objektHry = handler.staticObjects.get(i);
             if(objektHry instanceof Stena){
                 if(getBounds().intersects(objektHry.getBounds())){
                 	koliziaSoStenouX();
@@ -87,8 +87,8 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 * Zisti koliziu pohyblivych objektov so statickymi
 	 */
 	public void zistiKoliziuSoStenamiY() {
-		for(int i = 0; i < handler.statickeObjekty.size(); i++){
-            ObjektHry objektHry = handler.statickeObjekty.get(i);
+		for(int i = 0; i < handler.staticObjects.size(); i++){
+            ObjektHry objektHry = handler.staticObjects.get(i);
             if(objektHry instanceof Stena){
                 if(getBounds().intersects(objektHry.getBounds())){
                 	koliziaSoStenouY();
@@ -116,8 +116,8 @@ public abstract class PohyblivyObjektHry extends ObjektHry {
 	 * Zisti koliziu medzi pohyblivymi objektmi
 	 */
 	private void zistiKoliziuPohyblivychObjektov() {
-		for(int i = 0; i < handler.pohybliveObjekty.size(); i++) {
-			ObjektHry objekt = handler.pohybliveObjekty.get(i);
+		for(int i = 0; i < handler.movingObjects.size(); i++) {
+			ObjektHry objekt = handler.movingObjects.get(i);
 			if (objekt!=this) {
 				if(getBounds().intersects(objekt.getBounds())) {
 					vykonajKoliznyEvent(objekt);

@@ -1,8 +1,8 @@
 package shooter.ObjektyHry;
 
-import shooter.Hra.Handler;
-import shooter.Hra.Settings;
-import shooter.Hra.SoundEffect;
+import shooter.Game.Handler;
+import shooter.Game.Settings;
+import shooter.Game.SoundEffect;
 
 /**
  * Trieda vytvara pohyblivy objekt typu enemy  
@@ -49,8 +49,8 @@ public class Enemy extends PohyblivyObjektHry {
 	
 	@Override
 	public void zistiSmer() {
-		destinationX = handler.getPoziciaHracaX();
-		destinationY = handler.getPoziciaHracaY();
+		destinationX = handler.getPositionPlayerY();
+		destinationY = handler.getPositionPlayerX();
 		
 		this.uholX = destinationX-poziciaX;
 		this.uholY = destinationY-poziciaY;

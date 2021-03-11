@@ -3,7 +3,7 @@ package shooter.ObjektyHry;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import shooter.Hra.Handler;
+import shooter.Game.Handler;
 /**
  * Trieda vytvara nepohyblivy objekt typu Stena
  */

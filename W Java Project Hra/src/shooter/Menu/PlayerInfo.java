@@ -1,15 +1,13 @@
 package shooter.Menu;
 
-import shooter.Hra.Casovac;
-import shooter.Hra.Handler;
-import shooter.Hra.SoundEffect;
+import shooter.Game.GameTimer;
+import shooter.Game.Handler;
+import shooter.Game.SoundEffect;
 
 import javax.swing.*;
-import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
 import java.sql.SQLException;
 
 /**
@@ -60,11 +58,11 @@ public class PlayerInfo extends JFrame {
         lblScore.setBounds(100, 200, 100, 20);
         lblScore.setForeground(Color.white);
 
-        lblDamageTaken = new JLabel("Damage Taken: " + handler.zranenia);
+        lblDamageTaken = new JLabel("Damage Taken: " + handler.damageTaken);
         lblDamageTaken.setBounds(100, 250, 200, 20);
         lblDamageTaken.setForeground(Color.white);
 
-        lblTime = new JLabel("Time: " + Casovac.getDdMinute() + ":" + Casovac.getDdSecond());
+        lblTime = new JLabel("Time: " + GameTimer.getDdMinute() + ":" + GameTimer.getDdSecond());
         lblTime.setBounds(100, 300, 250, 20);
         lblTime.setForeground(Color.white);
 

@@ -1,7 +1,7 @@
 package shooter.ObjektyHry;
 
-import shooter.Hra.Handler;
-import shooter.Hra.SoundEffect;
+import shooter.Game.Handler;
+import shooter.Game.SoundEffect;
 
 /**
  * Trieda vytvara nepohyblivy objekt typu trava
@@ -33,7 +33,7 @@ public class Item extends PohyblivyObjektHry{
 
 			// prida 10 nabojov do zasobnika
 			if(ID == 4.1){
-				handler.zasobnik += 5;
+				handler.ammo += 5;
 				handler.removeObject(this);
 				pocetZasobnikov--;
 
@@ -44,11 +44,11 @@ public class Item extends PohyblivyObjektHry{
 
 			// ak je zivot rovny/mensi 50, prida 50 zivota, inak doplni len zvysok do maximalnej hodnoty 100
 			if(ID == 4.2){
-				if(handler.zivotPlayer <= 50){
-					handler.zivotPlayer += 50;
-				} else if (handler.zivotPlayer < 100){
-					int zivot2 = 100 - handler.zivotPlayer;
-					handler.zivotPlayer += zivot2;
+				if(handler.healthPlayer <= 50){
+					handler.healthPlayer += 50;
+				} else if (handler.healthPlayer < 100){
+					int zivot2 = 100 - handler.healthPlayer;
+					handler.healthPlayer += zivot2;
 				}
 				handler.removeObject(this);
 				pocetLekarniciek--;

@@ -1,9 +1,7 @@
 package shooter.ObjektyHry;
 
-import java.awt.Rectangle;
-
-import shooter.Hra.Handler;
-import shooter.Hra.UserInput;
+import shooter.Game.Handler;
+import shooter.Game.UserInput;
 
 /**
  * Trieda vytvara pohyblivy objekt typu strela

@@ -1,17 +1,13 @@
 package shooter.Menu;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import shooter.Hra.Game;
-import shooter.Hra.SoundEffect;
+import shooter.Game.Game;
+import shooter.Game.SoundEffect;
 import shooter.mapGen.GeneratorMapy;
 
 public class Menu extends JFrame {
