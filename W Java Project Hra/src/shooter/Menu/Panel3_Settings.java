@@ -1,6 +1,13 @@
 package shooter.Menu;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -17,8 +24,22 @@ public class Panel3_Settings extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
 	 */
-	public Panel3_Settings() {
+	public Panel3_Settings()  {
+		
+		Properties p = new Properties();
+		
+		try {
+			FileInputStream fis;
+			p.load(fis = new FileInputStream("src/playerConfig.properties"));
+			fis.close(); 
+		} catch (IOException e2) {
+			
+			e2.printStackTrace();
+		}
+		
 		//setOpaque(false);	//transparentny JPanel
 		setBounds(300, 50, 350, 400);
 		setBackground(Color.YELLOW);
@@ -59,19 +80,46 @@ public class Panel3_Settings extends JPanel {
 		slider.setBounds(36, 225, 200, 26);
 		add(slider);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon(p.getProperty("ImagePath")));
+		lblNewLabel.setBounds(43, 46, 69, 69);
+		add(lblNewLabel);
+		
+		
 		JComboBox<String> comboBox = new JComboBox();
 		comboBox.addItem("modry");
 		comboBox.addItem("vojak");
 		comboBox.addItem("zena");
 		comboBox.addItem("dedo");
 		comboBox.setBounds(32, 12, 97, 23);
+		comboBox.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String hrac = comboBox.getItemAt(comboBox.getSelectedIndex());
+				lblNewLabel.setIcon(new ImageIcon("obr/hrac/" + hrac + "/3.png"));
+				try {
+					
+					p.setProperty("ImagePath", "obr/hrac/" + hrac + "/3.png");
+					
+					FileOutputStream fos;
+					p.store(fos = new FileOutputStream("src/playerConfig.properties"), null);
+					fos.close();
+				} 
+				
+				catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+				
+				
+			}
+		} );
+		
 		add(comboBox);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("obr/hrac/modry/3.png"));
-		lblNewLabel.setBounds(43, 46, 69, 69);
-		add(lblNewLabel);
 		setVisible(false);
 		
 	}
