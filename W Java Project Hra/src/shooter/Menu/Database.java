@@ -25,7 +25,7 @@ public class Database {
      * Calls the database.
      *
      * @param handler handler
-     * @throws SQLException SQL vynimka
+     * @throws SQLException SQLException
      */
     public Database(Handler handler) throws SQLException {
         this.handler = handler;
