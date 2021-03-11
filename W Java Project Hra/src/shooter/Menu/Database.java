@@ -6,7 +6,7 @@ import shooter.Game.Handler;
 import java.sql.*;
 
 /**
- * Trieda Database sluzi na prepojenie s databazou, ukladanie a nacitavania dat.
+ * Class Database serves for connection with database, saving and loadings its data.
  */
 public class Database {
 
@@ -22,14 +22,15 @@ public class Database {
     Handler handler;
 
     /**
-     * Zavola sa databaza.
+     * Calls the database.
+     *
      * @param handler handler
      * @throws SQLException SQL vynimka
      */
     public Database(Handler handler) throws SQLException {
         this.handler = handler;
 
-        // vytvori tabulku "highscore" v databze, ak este neexistuje
+        // creates the table "highscore" in the database, if it does not exist
         createTABLE = "create table if not exists highscore(" +
                 "name varchar(50)," +
                 "score int," +
@@ -39,9 +40,9 @@ public class Database {
     }
 
     /**
-     * Vlozi data do databazy.
+     * Inserts the data into database.
      *
-     * @throws SQLException SQL vynimka
+     * @throws SQLException SQLException
      */
     public void insertData() throws SQLException {
         String commandINSERT = "insert into highscore value('" + PlayerInfo.txtName.getText() + "'," + handler.score + ", "
@@ -51,17 +52,17 @@ public class Database {
     }
 
     /**
-     * Vypise vsetky data podla najvyssieho score z databazy do tabulky highscore.
+     * Lists all the data according to score value.
      *
-     * @throws SQLException SQL vynimka
+     * @throws SQLException SQLException
      */
     public void selectDataScore() throws SQLException {
-        // umoznuje preklik tlacitka SCORE pre vypisovanie MAX / MIN score
+        // allows to swiwtch data ASC / DESC
         if (Panel2_HighScore.scoreMAX[0]) {
-            commandSELECTBySCORE = "SELECT * FROM highscore ORDER BY score DESC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
+            commandSELECTBySCORE = "SELECT * FROM highscore ORDER BY score DESC LIMIT 10;";
             Panel2_HighScore.scoreMAX[0] = false;
         } else {
-            commandSELECTBySCORE = "SELECT * FROM highscore ORDER BY score ASC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
+            commandSELECTBySCORE = "SELECT * FROM highscore ORDER BY score ASC LIMIT 10;";
             Panel2_HighScore.scoreMAX[0] = true;
         }
 
@@ -85,17 +86,17 @@ public class Database {
     }
 
     /**
-     * Vypise vsetky data podla najmensieho zranenia z databazy do tabulky highscore.
+     * Lists all the data according to damage_taken value.
      *
-     * @throws SQLException SQL vynimka
+     * @throws SQLException SQLException
      */
     public void selectDataDamage() throws SQLException {
-        // umoznuje preklik tlacitka DMG Taken pre vypisovanie MAX / MIN zranenia
+        // allows to swiwtch data ASC / DESC
         if (Panel2_HighScore.damageTakenMIN[0]) {
-            commandSELECTByDAMAGE = "SELECT * FROM highscore ORDER BY damage_taken ASC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
+            commandSELECTByDAMAGE = "SELECT * FROM highscore ORDER BY damage_taken ASC LIMIT 10;";
             Panel2_HighScore.damageTakenMIN[0] = false;
         } else {
-            commandSELECTByDAMAGE = "SELECT * FROM highscore ORDER BY damage_taken DESC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
+            commandSELECTByDAMAGE = "SELECT * FROM highscore ORDER BY damage_taken DESC LIMIT 10;";
             Panel2_HighScore.damageTakenMIN[0] = true;
         }
 
@@ -119,17 +120,16 @@ public class Database {
     }
 
     /**
-     * Vypise vsetky data podla najkratsieho casu z databazy do tabulky highscore.
+     * Lists all the data according to time value.
      *
-     * @throws SQLException SQL vynimka
+     * @throws SQLException SQLException
      */
     public void selectDataTime() throws SQLException {
-        // umoznuje preklik tlacitka TIME pre vypisovanie MAX / MIN casu
+        // allows to swiwtch data ASC / DESC
         if (Panel2_HighScore.timeMIN[0]) {
-            commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time ASC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
-            Panel2_HighScore.timeMIN[0] = false;
+            commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time ASC LIMIT 10;";
         } else {
-            commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time DESC LIMIT 10;";        // LIMIT 10 - prvych 10 dat
+            commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time DESC LIMIT 10;";
             Panel2_HighScore.timeMIN[0] = true;
         }
 
@@ -152,7 +152,7 @@ public class Database {
     }
 
     /**
-     * Vycisti tabulku highscore.
+     * Resets the text in the highscore table.
      */
     public void resetHighScore() {
         Panel2_HighScore.txtPlayerNumber.setText("");

@@ -5,14 +5,15 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * Trieda JTextFieldLimit sluzi na udavanie poctu znakov, ktore mozu byt vlozene do daneho text-fieldu.
+ * Class JTextFieldLimit sets the max number of character, that can be inserted into textField.
  */
 public class JTextFieldLimit extends PlainDocument {
 
     private int limit;
 
     /**
-     * Nastavi limit znakov.
+     * Sets the limit of characters.
+     *
      * @param limit limit
      */
     JTextFieldLimit(int limit) {
@@ -21,11 +22,12 @@ public class JTextFieldLimit extends PlainDocument {
     }
 
     /**
-     * Spracuvava pocet znakov v text-fielde.
+     * Processes the number of characters in textField.
+     *
      * @param offset offset
-     * @param str retazec
-     * @param attr atribut
-     * @throws BadLocationException vynimka
+     * @param str    string
+     * @param attr   atribute
+     * @throws BadLocationException BadLocationException
      */
     public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
         if (str == null)

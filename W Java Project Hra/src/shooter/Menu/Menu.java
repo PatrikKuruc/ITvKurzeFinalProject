@@ -10,56 +10,66 @@ import shooter.Game.Game;
 import shooter.Game.SoundEffect;
 import shooter.mapGen.GeneratorMapy;
 
+/**
+ * Class Menu creates the main frame for menu window.
+ */
 public class Menu extends JFrame {
-	
-	private ContentPanel contentPane;
-	public static SoundEffect soundEffect;
 
-	public Menu() throws IOException {
-		setResizable(false);
-		setTitle("Nemame nazov :/");
-		setSize(new Dimension(800, 600));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setLayout(null);
-		
-		contentPane = new ContentPanel(this);
-		setContentPane(contentPane);
-	}
-	
+    private ContentPanel contentPane;
+    public static SoundEffect soundEffect;
+
+    /**
+     * Creates the window for menu.
+     *
+     * @throws IOException IOException
+     */
+    public Menu() throws IOException {
+        setResizable(false);
+        setTitle("Nemame nazov :/");
+        setSize(new Dimension(800, 600));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        contentPane = new ContentPanel(this);
+        setContentPane(contentPane);
+    }
+
 	/**
-	 * Spusti menu.
+	 * Runs the menu.
 	 */
 	public void run() {
-		setVisible(true);
-		soundEffect = new SoundEffect();
-		soundEffect.setFileMenuMusic();
-		soundEffect.play();
-	}
+        setVisible(true);
+        soundEffect = new SoundEffect();
+        soundEffect.setFileMenuMusic();
+        soundEffect.play();
+    }
 
-	/**
-	 * Vypne menu.
-	 */
-	public void shutDown(){
-		setVisible(false);
-		soundEffect.stopMusic();
-	}
+    /**
+     * Turns off the menu.
+     */
+    public void shutDown() {
+        setVisible(false);
+        soundEffect.stopMusic();
+    }
 
-	/**
-	 * Spusti hru
-	 */
-	public void pustiHruBezMenu() {
-		try {
-			Game game = new Game();
-			game.run();
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
-	
-	public void pustiMapGen() {
-		GeneratorMapy game = new GeneratorMapy();
-		game.run();
-	}
+    /**
+     * Runs the game without menu.
+     */
+    public void runWithoutMenu() {
+        try {
+            Game game = new Game();
+            game.run();
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * Runs the map generator.
+     */
+    public void runMapGen() {
+        GeneratorMapy game = new GeneratorMapy();
+        game.run();
+    }
 }

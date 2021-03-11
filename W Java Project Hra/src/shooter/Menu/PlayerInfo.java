@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 /**
- * Trieda PlayerInfo sluzi na zbieranie a ukladanie udajov o hracovi do textoveho suboru.
+ * Class PlayerInfo collects and saves player information into the database.
  */
 public class PlayerInfo extends JFrame {
 
@@ -24,7 +24,7 @@ public class PlayerInfo extends JFrame {
     private SoundEffect soundEffect;
 
     /**
-     * Vytovri sa okno PlayerInfo, kde sa zobrazia udaje o ukoncenej hre, vyziada si meno od hraca a nasledne ich ulozi.
+     * Creates PlayerInfo window, where player information is displayed and player name is required to be entered.
      *
      * @param handler handler
      */
@@ -73,7 +73,7 @@ public class PlayerInfo extends JFrame {
         btnSave = new JButton("SAVE");
         btnSave.setBounds(100, 350, 100, 40);
 
-        // prida udaje o hracovi do databazy a nasledne sa zobrazi uvodne menu hry s highscore tabulkou
+        // inserts player information into database and highscore in main menu is displayed
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,14 +122,14 @@ public class PlayerInfo extends JFrame {
     }
 
     /**
-     * Spusti okno PlayerInfo.
+     * Runs the window.
      */
     public void run() {
         setVisible(true);
     }
 
     /**
-     * Vypne okno PlayerInfo.
+     * Turns off the window.
      */
     public void shutDown() {
         setVisible(false);
