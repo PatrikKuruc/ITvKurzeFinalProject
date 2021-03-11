@@ -25,7 +25,7 @@ public class nahravacMapy {
 	
 	public nahravacMapy(Handler handler) throws FileNotFoundException {
 		this.handler = handler;
-		this.suborMapy = new File("mapy/newMap.txt");
+		this.suborMapy = new File("mapy/mapa.txt");
 		this.scanner = new Scanner(suborMapy);
 	}
 

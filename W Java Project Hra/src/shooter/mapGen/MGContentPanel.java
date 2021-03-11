@@ -6,6 +6,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.io.FileNotFoundException;
 import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class MGContentPanel extends JPanel {
 	
@@ -27,6 +28,9 @@ public class MGContentPanel extends JPanel {
 		PanelVyber panelVyber = new PanelVyber(handler);
 		add(panelVyber);
 		
+		JScrollPane scrollPane = new JScrollPane(panelVyber);
+		scrollPane.setBounds(200, 10, 650, 80);
+		add(scrollPane);
 		
 		JButton btnNewButton = new JButton("Nacitaj Default Map");
 		btnNewButton.addActionListener(e -> handler.stavNaDefaultMap());
@@ -44,8 +48,8 @@ public class MGContentPanel extends JPanel {
 		add(btnUlozMapu);
 		
 		JTextPane txtpnVyberObjektKtory = new JTextPane();
-		txtpnVyberObjektKtory.setText("Vyber objekt ktory chces vlozit na mapu (hore) a lavym kliknutim ho pridas, pravym zmazes");
-		txtpnVyberObjektKtory.setBounds(210, 90, 600, 20);
+		txtpnVyberObjektKtory.setText("Vyber objekt ktory chces vlozit na mapu.\nLavym kliknutim na mapu ho pridas.\nPravym zmazes objekty");
+		txtpnVyberObjektKtory.setBounds(870, 10, 160, 90);
 		txtpnVyberObjektKtory.setEditable(false);;
 		add(txtpnVyberObjektKtory);
 	}

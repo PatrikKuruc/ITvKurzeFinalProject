@@ -10,6 +10,7 @@ public class PopupWindow {
 
     UserInput userInput;
     Handler handler;
+    private SoundEffect soundEffect;
 
     /**
      * Zostroji pop-up okno pre pauznutie hry
@@ -23,7 +24,7 @@ public class PopupWindow {
         handler.pauseGame();
 
         JOptionPane.showMessageDialog(null, "Game is paused!\n" +
-                "Press 'OK' to continue.", "PAUSE", JOptionPane.PLAIN_MESSAGE);
+                "Press 'OK' to continue.", "PAUSE", JOptionPane.INFORMATION_MESSAGE);
 
         handler.pauseGame();
     }
@@ -37,24 +38,54 @@ public class PopupWindow {
         this.handler = handler;
         handler.pauseGame();
 
+        soundEffect = new SoundEffect();
+        soundEffect.setFileGameOver();
+        soundEffect.play();
+        soundEffect.setVolume(-30);
+        
+        soundEffect = new SoundEffect();
+        soundEffect.setFileLoser();
+        soundEffect.play();
 
-        int response = JOptionPane.showConfirmDialog(null, "GAME OVER\n" +
-                "Do you want to play again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
+        JOptionPane.showMessageDialog(null, "You lost!\n" +
+                "Press 'OK' to continue.", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
 
-        // ak stlacime YES, hra sa vypne a zapne odznova
-        if (response == JOptionPane.YES_OPTION) {
-            ContentPanel.game.shutDown();
-            try {
-                ContentPanel.game = new Game();
-                ContentPanel.game.run();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            // ak stalcime NO, hra sa vypne a zapne sa nove okno PlayerInfo
-        } else if (response == JOptionPane.NO_OPTION) {
-            ContentPanel.game.shutDown();
-            PlayerInfo playerInfo = new PlayerInfo(handler);
-            playerInfo.run();
-        }
+        soundEffect.setFileButtonClick();
+        soundEffect.play();
+
+        ContentPanel.game.shutDown();
+        PlayerInfo playerInfo = new PlayerInfo(handler);
+        playerInfo.run();
+
+    }
+
+    /**
+     * Zostorji pop-up okno pri vyhrani hry.
+     *
+     * @param handler handler.
+     */
+    public PopupWindow(Handler handler, int zivotMama) {
+        this.handler = handler;
+        handler.pauseGame();
+
+        soundEffect = new SoundEffect();
+        soundEffect.setFileYouWon();
+        soundEffect.play();
+        soundEffect.setVolume(-15);
+        
+        soundEffect = new SoundEffect();
+        soundEffect.setFileWinner();
+        soundEffect.play();
+
+        JOptionPane.showMessageDialog(null, "YOU WON!\n" +
+                "Press 'OK' to continue.", "YOU WON!", JOptionPane.INFORMATION_MESSAGE);
+
+        soundEffect.setFileButtonClick();
+        soundEffect.play();
+
+        ContentPanel.game.shutDown();
+        PlayerInfo playerInfo = new PlayerInfo(handler);
+        playerInfo.run();
+
     }
 }

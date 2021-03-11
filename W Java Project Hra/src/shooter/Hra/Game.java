@@ -16,6 +16,7 @@ public class Game extends JFrame{
 	private Properties gameProperties;
 	private int WINDOW_HEIGHT;
 	private int WINDOW_WIDTH;
+	private SoundEffect soundEffect;
 	
 	/**
 	 * Vytvori okno (JFrame) hry
@@ -36,7 +37,7 @@ public class Game extends JFrame{
 		// vytvori a prida posluchac klavesnice do okna
 		UserInput klavesnica = new UserInput(Platno.handler);
 		addKeyListener(klavesnica);
-		
+
 		// prisposobi velkost okna JFrame velkosti komponentov (ich preferredSize) v okne (v nasom pripade sa prisposobi velkosti JPanelu - Platno)
 		pack();
 	}
@@ -52,7 +53,6 @@ public class Game extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	/**
@@ -60,6 +60,9 @@ public class Game extends JFrame{
 	 */
 	public void run() {
 		setVisible(true);
+		soundEffect = new SoundEffect();
+		soundEffect.setFileBegin();
+		soundEffect.play();
 	}
 
 	/**

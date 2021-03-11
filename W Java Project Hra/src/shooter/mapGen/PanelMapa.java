@@ -35,7 +35,7 @@ public class PanelMapa extends JPanel{
 		int vStlpci = 800/handler.velkostPolicka;
 		for (int i = 0; i < vRiadku; i++) {
 			for (int j = 0; j < vStlpci; j++) {
-				mriezka.add(new Rectangle(i*handler.velkostPolicka, j*handler.velkostPolicka, handler.velkostPolicka, handler.velkostPolicka));
+				//mriezka.add(new Rectangle(i*handler.velkostPolicka, j*handler.velkostPolicka, handler.velkostPolicka, handler.velkostPolicka));
 			}
 		}
 	}
@@ -45,6 +45,7 @@ public class PanelMapa extends JPanel{
 		Graphics2D g2 = (Graphics2D) g;
 		// TODO Auto-generated method stub
 		super.paint(g2);
+		
 		for (int i = 0; i < mriezka.size(); i++) {
 			g2.draw(mriezka.get(i).getBounds());
 		}

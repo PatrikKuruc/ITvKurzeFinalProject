@@ -1,28 +1,186 @@
 package shooter.Menu;
 
+import shooter.Hra.Handler;
+import shooter.Hra.SoundEffect;
+
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Properties;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.xml.crypto.Data;
 
 public class Panel2_HighScore extends JPanel {
+
+	private JLabel lblNumber,lblName, lblScore, lblDamageTaken, lblTime, lblFilter;
+	private JPanel pnlPanelInfo;
+	private JButton btnScore, btnDamageTaken, btnTime;
+	public static JTextArea txtPlayerNumber, txtPlayerName, txtScore, txtDamageTaken, txtTime;
+	private SoundEffect soundEffect;
+	Handler handler;
+	public static final boolean[] scoreMAX = {true};
+	public static final boolean[] damageTakenMIN = {true};
+	public static final boolean[] timeMIN = {true};
+	
+	private Database database;
+	{
+		try {
+			database = new Database(handler);
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
+	}
 
 	/**
 	 * Create the panel.
 	 */
 	public Panel2_HighScore() {
-		setBackground(Color.LIGHT_GRAY);
-		setOpaque(false);
-		setBounds(300, 50, 350, 400);
+		setBackground(Color.lightGray);
+		setBounds(300, 50, 450, 400);
 		setLayout(null);
 		setVisible(false);
+
+		pnlPanelInfo = new JPanel();
+		pnlPanelInfo.setBounds(0,0,450,30);
+		pnlPanelInfo.setLayout(null);
+		pnlPanelInfo.setVisible(true);
+		pnlPanelInfo.setBackground(Color.lightGray);
+		pnlPanelInfo.setBorder(BorderFactory.createLineBorder(new Color(180,0,0), 5, false));
+
+		lblNumber = new JLabel("N.", SwingConstants.CENTER);
+		lblNumber.setBounds(5, 5, 50,20);
+		lblNumber.setBorder(BorderFactory.createEtchedBorder());
+
+		lblName = new JLabel("Name", SwingConstants.CENTER);
+		lblName.setBounds(55, 5, 100,20);
+		lblName.setBorder(BorderFactory.createEtchedBorder());
+
+		lblScore = new JLabel("Score", SwingConstants.CENTER);
+		lblScore.setBounds(155, 5, 100,20);
+		lblScore.setBorder(BorderFactory.createEtchedBorder());
+
+		lblDamageTaken = new JLabel("DMG Taken", SwingConstants.CENTER);
+		lblDamageTaken.setBounds(255, 5, 100,20);
+		lblDamageTaken.setBorder(BorderFactory.createEtchedBorder());
+
+		lblTime = new JLabel("Time", SwingConstants.CENTER);
+		lblTime.setBounds(355, 5, 90,20);
+		lblTime.setBorder(BorderFactory.createEtchedBorder());
+
+		lblFilter = new JLabel("CHOOSE FILTER: ");
+		lblFilter.setBounds(30, 370, 100,20);
+
+		txtPlayerNumber = new JTextArea();
+		txtPlayerNumber.setBounds(5,30, 50, 335);
+		txtPlayerNumber.setBackground(Color.lightGray);
+		txtPlayerNumber.setEditable(false);
+		txtPlayerNumber.setBorder(BorderFactory.createEtchedBorder());
+
+		txtPlayerName = new JTextArea();
+		txtPlayerName.setBounds(55,30, 100, 335);
+		txtPlayerName.setBackground(Color.lightGray);
+		txtPlayerName.setEditable(false);
+		txtPlayerName.setBorder(BorderFactory.createEtchedBorder());
+
+		txtScore = new JTextArea();
+		txtScore.setBounds(155,30, 100, 335);
+		txtScore.setBackground(Color.lightGray);
+		txtScore.setEditable(false);
+		txtScore.setBorder(BorderFactory.createEtchedBorder());
+
+		txtDamageTaken = new JTextArea();
+		txtDamageTaken.setBounds(255,30, 100, 335);
+		txtDamageTaken.setBackground(Color.lightGray);
+		txtDamageTaken.setEditable(false);
+		txtDamageTaken.setBorder(BorderFactory.createEtchedBorder());
+
+		txtTime = new JTextArea();
+		txtTime.setBounds(355,30, 90, 335);
+		txtTime.setBackground(Color.lightGray);
+		txtTime.setEditable(false);
+		txtTime.setBorder(BorderFactory.createEtchedBorder());
+
+		btnScore = new JButton("SCORE");
+		btnScore.setBounds(155,365,100,30);
+
+		btnScore.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				soundEffect = new SoundEffect();
+				soundEffect.setFileButtonClick();
+				soundEffect.play();
+
+				try {
+					database.resetHighScore();
+					database.selectDataScore();
+				} catch (SQLException throwables) {
+					throwables.printStackTrace();
+				}
+			}
+		});
+
+		btnDamageTaken = new JButton("DMG");
+		btnDamageTaken.setBounds(255,365,100,30);
+
+		btnDamageTaken.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				soundEffect = new SoundEffect();
+				soundEffect.setFileButtonClick();
+				soundEffect.play();
+
+				try {
+					database.resetHighScore();
+					database.selectDataDamage();
+				} catch (SQLException throwables) {
+					throwables.printStackTrace();
+				}
+			}
+		});
+
+		btnTime = new JButton("TIME");
+		btnTime.setBounds(355,365,90,30);
+
+		btnTime.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				soundEffect = new SoundEffect();
+				soundEffect.setFileButtonClick();
+				soundEffect.play();
+
+				try {
+					database.resetHighScore();
+					database.selectDataTime();
+				} catch (SQLException throwables) {
+					throwables.printStackTrace();
+				}
+			}
+		});
+
+		pnlPanelInfo.add(lblNumber);
+		pnlPanelInfo.add(lblName);
+		pnlPanelInfo.add(lblScore);
+		pnlPanelInfo.add(lblDamageTaken);
+		pnlPanelInfo.add(lblTime);
+		add(lblFilter);
+		add(txtPlayerNumber);
+		add(txtPlayerName);
+		add(txtScore);
+		add(txtDamageTaken);
+		add(txtTime);
+		add(pnlPanelInfo);
+		add(btnScore);
+		add(btnDamageTaken);
+		add(btnTime);
 		
-		setBorder(BorderFactory.createLineBorder(Color.YELLOW, 5, true));   // okraj - farba, hrubka, zaoblenie
+		setBorder(BorderFactory.createLineBorder(new Color(180,0,0), 5, false));   // okraj - farba, hrubka, zaoblenie
 	}
 	
 	
