@@ -1,6 +1,5 @@
 package shooter.mapGen;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileInputStream;
