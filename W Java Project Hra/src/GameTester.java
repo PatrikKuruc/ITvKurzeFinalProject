@@ -9,10 +9,10 @@ public class GameTester {
 
 	public static void main(String[] args) throws IOException {
 		// creates and runs the game
-		Menu hra = new Menu();
+		Menu game = new Menu();
 
-		hra.run();
-		//hra.pustiHruBezMenu();
-		//hra.pustiMapGen();
+		game.run();
+		//game.runWithoutMenu();
+		//game.runMapGen();
 	}
 }
