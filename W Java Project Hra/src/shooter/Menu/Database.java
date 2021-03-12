@@ -128,6 +128,7 @@ public class Database {
         // allows to swiwtch data ASC / DESC
         if (Panel2_HighScore.timeMIN[0]) {
             commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time ASC LIMIT 10;";
+            Panel2_HighScore.timeMIN[0] = false;
         } else {
             commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time DESC LIMIT 10;";
             Panel2_HighScore.timeMIN[0] = true;
