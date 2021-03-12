@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.Timer;
 
-import shooter.ObjektyHry.*;
+import shooter.GameObjects.*;
 
 /**
  * Class Handler loads and processes the game objects.
@@ -16,8 +16,8 @@ public class Handler {
 
     private int positionPlayerX, positionPlayerY;
 
-    public ArrayList<ObjektHry> staticObjects = new ArrayList<>();
-    public ArrayList<ObjektHry> movingObjects = new ArrayList<>();
+    public ArrayList<GameObject> staticObjects = new ArrayList<>();
+    public ArrayList<GameObject> movingObjects = new ArrayList<>();
     public int healthPlayer = 100;
     public int healthMama = 1000;
     public int ammo = 10;
@@ -41,7 +41,7 @@ public class Handler {
      */
     public void playerShoot() {
         if (ammo > 0) {
-            addObject(new Strela(5, positionPlayerX, positionPlayerY, this));
+            addObject(new Shot(5, positionPlayerX, positionPlayerY, this));
             ammo--;
 
             soundEffect = new SoundEffect();
@@ -54,7 +54,7 @@ public class Handler {
      * MamaZombie shoots the shot.
      */
     public void enemyShoot() {
-        addObject(new StrelaEnemy(7, MamaZombie.getPoziciaEnemyX(), MamaZombie.getPoziciaEnemyY(), this));
+        addObject(new EnemyShot(7, MamaZombie.getPositionEnemyX(), MamaZombie.getPositionEnemyY(), this));
     }
 
     /**
@@ -62,9 +62,9 @@ public class Handler {
      */
     public void updateGameObjects() {
         for (int i = 0; i < movingObjects.size(); i++) {
-            ObjektHry newObject = movingObjects.get(i);
-            if (newObject instanceof PohyblivyObjektHry) {
-                ((PohyblivyObjektHry) newObject).aktualizujObjektHry();
+            GameObject newObject = movingObjects.get(i);
+            if (newObject instanceof MovingGameObject) {
+                ((MovingGameObject) newObject).updateGameObject();
             }
         }
     }
@@ -76,16 +76,16 @@ public class Handler {
      */
     public void drawGameObjects(Graphics g) {
         for (int i = 0; i < staticObjects.size(); i++) {
-            ObjektHry newObject = staticObjects.get(i);
-            newObject.vykresli(g);
+            GameObject newObject = staticObjects.get(i);
+            newObject.drawObject(g);
         }
 
         for (int i = 0; i < movingObjects.size(); i++) {
-            ObjektHry newObject = movingObjects.get(i);
+            GameObject newObject = movingObjects.get(i);
             if (newObject instanceof Player) {
 
             } else {
-                newObject.vykresli(g);
+                newObject.drawObject(g);
             }
         }
 
@@ -97,15 +97,15 @@ public class Handler {
             int random = randomHealthKit.nextInt(MapLoader.spawnPointHealthKit.size());
 
             for (Integer i : MapLoader.spawnPointHealthKit.keySet()) {
-                if (counter == random && Item.pocetLekarniciek <= 0) {
+                if (counter == random && Item.numberOfHealthKits <= 0) {
                     addObject(new Item(4.2, i, MapLoader.spawnPointHealthKit.get(i), blockSize, blockSize, this));
-                    Item.pocetLekarniciek++;
+                    Item.numberOfHealthKits++;
                 }
                 counter++;
             }
         }
 
-        // calls gameover pop-up window, if player dies
+        // calls game-over pop-up window, if player dies
         if (healthPlayer <= 0) {
             popupWindow = new PopupWindow(this);
         }
@@ -123,9 +123,9 @@ public class Handler {
             int random = randomAmmoKit.nextInt(MapLoader.spawnPointAmmoKit.size());
 
             for (Integer i : MapLoader.spawnPointAmmoKit.keySet()) {
-                if (counter == random && Item.pocetZasobnikov <= 0) {
+                if (counter == random && Item.numberOfAmmoKits <= 0) {
                     addObject(new Item(4.1, i, MapLoader.spawnPointAmmoKit.get(i), blockSize, blockSize, this));
-                    Item.pocetZasobnikov++;
+                    Item.numberOfAmmoKits++;
                 }
                 counter++;
             }
@@ -139,9 +139,9 @@ public class Handler {
      */
     public void drawPlayer(Graphics g) {
         for (int i = 0; i < movingObjects.size(); i++) {
-            ObjektHry newObject = movingObjects.get(i);
+            GameObject newObject = movingObjects.get(i);
             if (newObject instanceof Player) {
-                newObject.vykresli(g);
+                newObject.drawObject(g);
             }
         }
     }
@@ -160,9 +160,9 @@ public class Handler {
      *
      * @param newObject new object
      */
-    public void addObject(ObjektHry newObject) {
-        ObjektHry addObject = newObject;
-        if (addObject instanceof PohyblivyObjektHry) {
+    public void addObject(GameObject newObject) {
+        GameObject addObject = newObject;
+        if (addObject instanceof MovingGameObject) {
             movingObjects.add(addObject);
         } else {
             staticObjects.add(addObject);
@@ -174,9 +174,9 @@ public class Handler {
      *
      * @param newObject new object
      */
-    public void removeObject(ObjektHry newObject) {
-        ObjektHry addObject = newObject;
-        if (addObject instanceof PohyblivyObjektHry) {
+    public void removeObject(GameObject newObject) {
+        GameObject addObject = newObject;
+        if (addObject instanceof MovingGameObject) {
             movingObjects.remove(addObject);
         } else {
             staticObjects.remove(addObject);
@@ -184,7 +184,7 @@ public class Handler {
 
 
         int enemyCounter = 0;
-        for (ObjektHry gameObjects : movingObjects) {
+        for (GameObject gameObjects : movingObjects) {
             if (gameObjects instanceof Enemy) {
                 enemyCounter++;
             }
@@ -192,7 +192,7 @@ public class Handler {
         if (newObject instanceof Enemy && enemyCounter <= 10) {
 
             // spawns MamaZombie
-            if (score == 25) {
+            if (score == 24) {
                 for (Integer i : MapLoader.spawnPointMama.keySet()) {
                     addObject(new MamaZombie(6, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
 
@@ -203,7 +203,7 @@ public class Handler {
             }
 
             // spawns enemies
-            if (score <= 15) {
+            if (score <= 14) {
                 Random randomEnemy = new Random();
                 int counter = 0;
                 int random = randomEnemy.nextInt(MapLoader.spawnPointEnemy.size());
@@ -215,12 +215,12 @@ public class Handler {
                     }
 
                     // speeds up the enemy movement
-                    if (score >= 10) {
+                    if (score >= 9) {
                         Settings.enemySpeed = 2;
                     }
 
                     // speeds up the enemy movement even more
-                    if (score >= 10 && score % 2 == 0) {
+                    if (score >= 9 && score % 2 == 0) {
                         Settings.enemySpeed = 2.5;
                     }
 
