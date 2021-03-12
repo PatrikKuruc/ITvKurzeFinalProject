@@ -34,12 +34,9 @@ public class Platno extends JPanel{
 		this.FPS = Integer.parseInt(gameProperties.getProperty("FPS"));
 		this.Height = Integer.parseInt(gameProperties.getProperty("WindowHeight"));
 		this.Width = Integer.parseInt(gameProperties.getProperty("WindowWidth"));
-<<<<<<< HEAD
+
 		this.timer= new Timer(FPS/10, e -> repaint());
-=======
-		this.timer= new Timer(FPS/100, e -> repaint());
->>>>>>> branch 'main' of https://github.com/PatrikKuruc/ITvKurzeFinalProject.git
-		
+
 		setLayout(null);
 		setPreferredSize(new Dimension(Height,Width));
 		

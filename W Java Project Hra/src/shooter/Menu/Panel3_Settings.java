@@ -1,6 +1,7 @@
 package shooter.Menu;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -14,113 +15,190 @@ import javax.swing.JRadioButton;
 import javax.swing.JToggleButton;
 import javax.swing.JTextField;
 import javax.swing.JSlider;
+import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 public class Panel3_Settings extends JPanel {
 	private JTextField textField;
+	Font font = new Font("Segoe Script", Font.BOLD, 13);
 
 	/**
 	 * Create the panel.
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
+	 * 
+	 * @throws IOException
+	 * @throws FileNotFoundException
 	 */
-	public Panel3_Settings()  {
-		
-		Properties p = new Properties();
-		
+	public Panel3_Settings() {
+
+		Properties gameConfig = new Properties();
+
 		try {
+
 			FileInputStream fis;
-			p.load(fis = new FileInputStream("src/playerConfig.properties"));
-			fis.close(); 
+			gameConfig.load(fis = new FileInputStream("src/gameConfig.properties"));
+			fis.close();
+
 		} catch (IOException e2) {
-			
+
 			e2.printStackTrace();
 		}
-		
-		//setOpaque(false);	//transparentny JPanel
+
+		// setOpaque(false); //transparentny JPanel
 		setBounds(300, 50, 350, 400);
-		setBackground(Color.YELLOW);
+		setBackground(Color.WHITE);
 		setLayout(null);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
-		rdbtnNewRadioButton.setBounds(157, 264, 109, 23);
-		add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("New radio button");
-		rdbtnNewRadioButton_1.setOpaque(false);
-		rdbtnNewRadioButton_1.setBounds(157, 293, 109, 23);
-		add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("New radio button");
-		rdbtnNewRadioButton_2.setBounds(157, 319, 109, 23);
-		add(rdbtnNewRadioButton_2);
-		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("New toggle button");
-		tglbtnNewToggleButton.setOpaque(false);
-		tglbtnNewToggleButton.setBounds(204, 81, 121, 23);
-		add(tglbtnNewToggleButton);
-		
-		textField = new JTextField();
-		textField.setBounds(43, 149, 86, 23);
-		add(textField);
-		textField.setColumns(10);
-		
-		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("New toggle button");
-		tglbtnNewToggleButton_1.setBounds(204, 115, 121, 23);
-		add(tglbtnNewToggleButton_1);
-		
-		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("New toggle button");
-		tglbtnNewToggleButton_2.setBounds(204, 149, 121, 23);
-		add(tglbtnNewToggleButton_2);
-		
-		JSlider slider = new JSlider();
-		slider.setBounds(36, 225, 200, 26);
-		add(slider);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(p.getProperty("ImagePath")));
-		lblNewLabel.setBounds(43, 46, 69, 69);
-		add(lblNewLabel);
-		
-		
-		JComboBox<String> comboBox = new JComboBox();
-		comboBox.addItem("modry");
-		comboBox.addItem("vojak");
-		comboBox.addItem("zena");
-		comboBox.addItem("dedo");
-		comboBox.setBounds(32, 12, 97, 23);
-		comboBox.addActionListener(new ActionListener() {
-			
+
+		JTextArea difficultySetting = new JTextArea();
+		difficultySetting.setBounds(20, 232, 165, 30);
+		difficultySetting.setFont(font);
+		difficultySetting.setForeground(Color.GREEN.darker().darker());
+		difficultySetting.setText(" Set the difficulty level :");
+		difficultySetting.setEditable(false);
+		add(difficultySetting);
+
+		ButtonGroup bg = new ButtonGroup();
+
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Beginner");
+		rdbtnNewRadioButton.setBounds(45, 264, 109, 23);
+		rdbtnNewRadioButton.setForeground(Color.GREEN.darker().darker());
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				String hrac = comboBox.getItemAt(comboBox.getSelectedIndex());
-				lblNewLabel.setIcon(new ImageIcon("obr/hrac/" + hrac + "/3.png"));
 				try {
-					
-					p.setProperty("ImagePath", "obr/hrac/" + hrac + "/3.png");
-					
+					gameConfig.setProperty("Difficulty", "1");
+
 					FileOutputStream fos;
-					p.store(fos = new FileOutputStream("src/playerConfig.properties"), null);
+					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
 					fos.close();
-				} 
-				
-				catch (IOException e1) {
-					
-					e1.printStackTrace();
 				}
-				
-				
+
+				catch (IOException vynimka1) {
+
+				}
+
 			}
-		} );
+		});
+		add(rdbtnNewRadioButton);
+
+		bg.add(rdbtnNewRadioButton);
+
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Middle");
+		rdbtnNewRadioButton_1.setOpaque(false);
+		rdbtnNewRadioButton_1.setBounds(45, 293, 109, 23);
+		rdbtnNewRadioButton_1.setForeground(Color.GREEN.darker().darker());
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					gameConfig.setProperty("Difficulty", "1.3");
+
+					FileOutputStream fos;
+					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					fos.close();
+				}
+
+				catch (IOException vynimka1) {
+
+				}
+
+			}
+		});
+
+		add(rdbtnNewRadioButton_1);
+		bg.add(rdbtnNewRadioButton_1);
+
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Advanced");
+		rdbtnNewRadioButton_2.setBounds(45, 319, 109, 23);
+		rdbtnNewRadioButton_2.setForeground(Color.GREEN.darker().darker());
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					gameConfig.setProperty("Difficulty", "1.5");
+
+					FileOutputStream fos;
+					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					fos.close();
+				}
+
+				catch (IOException vynimka1) {
+
+				}
+
+			}
+		});
+		add(rdbtnNewRadioButton_2);
+		bg.add(rdbtnNewRadioButton_2);
+
+		double difficulty = Double.parseDouble(gameConfig.getProperty("Difficulty"));
+
+		if (difficulty == 1) {
+			rdbtnNewRadioButton.setSelected(true);
+		} else if (difficulty == 1.3) {
+			rdbtnNewRadioButton_1.setSelected(true);
+		} else
+			rdbtnNewRadioButton_2.setSelected(true);
+
 		
-		add(comboBox);
+		JTextArea ovladanie = new JTextArea();
+		ovladanie.setBounds(25, 10, 165, 30);
+		ovladanie.setFont(font);
+		ovladanie.setForeground(Color.GREEN.darker().darker());
+		ovladanie.setText("Control settings:");
+		ovladanie.setEditable(false);
+		add(ovladanie); 
 		
+		JComboBox<String> vyberOvladania = new JComboBox<>();
+		vyberOvladania.setBounds(20, 50, 120, 20);
+		vyberOvladania.setForeground(Color.GREEN.darker().darker());
+		vyberOvladania.addItem("WASD");
+		vyberOvladania.addItem("Arrows");
+		add(vyberOvladania);
+
+		
+		JTextArea ovladaniePauzy = new JTextArea();
+		ovladaniePauzy.setBounds(200, 10, 165, 30);
+		ovladaniePauzy.setFont(font);
+		ovladaniePauzy.setForeground(Color.GREEN.darker().darker());
+		ovladaniePauzy.setText("Pause settings:");
+		ovladaniePauzy.setEditable(false);
+		add(ovladaniePauzy); 
+		
+		JComboBox<String> pauza = new JComboBox<>();
+		pauza.setBounds(200, 50, 120, 20);
+		pauza.setForeground(Color.GREEN.darker().darker());
+		pauza.addItem("P");
+		pauza.addItem("Space");
+		add(pauza);
+
+		JTextArea speedSettings = new JTextArea();
+		speedSettings.setBounds(25, 100, 200, 25);
+		speedSettings.setFont(font);
+		speedSettings.setForeground(Color.GREEN.darker().darker());
+		speedSettings.setText("Speed settings:");
+		speedSettings.setEditable(false);
+		add(speedSettings);
+
+		JSlider slider = new JSlider();
+		slider.setBounds(35, 140, 200, 50);
+		slider.setValue(20);
+		slider.setMinimum(0);
+		slider.setMaximum(200);
+		slider.setMajorTickSpacing(50);
+		slider.setMinorTickSpacing(25);
+		slider.setPaintTicks(true);
+		slider.setPaintLabels(true);
+		slider.setForeground(Color.GREEN.darker().darker());
+		add(slider);
+
 		setVisible(false);
-		
+
 	}
 }
