@@ -18,7 +18,7 @@ public class SoundEffect {
      * Pridava uvodnu zvucku pri otvorenom menu.
      */
     public void setFileMenuMusic(){
-        File file = new File("sound\\menu_music.wav");
+        File file = new File("sound\\music_menu.wav");
         try {
             AudioInputStream sound = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
