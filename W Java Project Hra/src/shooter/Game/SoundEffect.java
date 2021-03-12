@@ -11,6 +11,9 @@ public class SoundEffect {
 
     private Clip clip;
 
+    /**
+    * Creates sound effect.
+    */
     public SoundEffect(){
     }
 
