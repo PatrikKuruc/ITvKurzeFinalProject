@@ -27,7 +27,7 @@ import javax.swing.SwingConstants;
 public class Panel3_Settings extends JPanel {
 
 	private JTextField textField;
-	Font font = new Font("Segoe Script", Font.BOLD, 13);
+	Font font = new Font("Segoe Script", Font.BOLD, 20);
 
 	/**
 	 * Create the panel.
@@ -50,17 +50,18 @@ public class Panel3_Settings extends JPanel {
 			e2.printStackTrace();
 		}
 
-		// setOpaque(false); //transparentny JPanel
+		 setOpaque(false); //transparentny JPanel
 		setBounds(300, 50, 350, 400);
 		setBackground(Color.WHITE);
 		setLayout(null);
 
 		JTextArea difficultySetting = new JTextArea();
-		difficultySetting.setBounds(20, 232, 165, 30);
+		difficultySetting.setBounds(20, 232, 300, 30);
 		difficultySetting.setFont(font);
-		difficultySetting.setForeground(Color.GREEN.darker().darker());
+		difficultySetting.setForeground(Color.WHITE);
 		difficultySetting.setText(" Set the difficulty level :");
 		difficultySetting.setEditable(false);
+		difficultySetting.setOpaque(false);
 		add(difficultySetting);
 
 		ButtonGroup bg = new ButtonGroup();
