@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import shooter.ObjektyHry.*;
+import shooter.GameObjects.*;
 
 /**
  * Class MapLoader loads the images of the game.
@@ -54,9 +54,9 @@ public class MapLoader {
             int ID = (int) newObjectID;
 
             if (newObjectID == 1) {
-                handler.addObject(new Stena(newObjectID, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+                handler.addObject(new Wall(newObjectID, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
             } else if (ID != 1) {
-                handler.addObject(new Trava(0, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+                handler.addObject(new Grass(0, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
                 if (ID == 2) {
                     handler.addObject(new Player(newObjectPoziciaX, newObjectPoziciaY, handler));
                 }
