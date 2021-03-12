@@ -18,9 +18,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
+/**
+ * Class Panel1_PlayerSettings creates settings for player in the menu.
+ */
 public class Panel1_PlayerSettings extends JPanel {
 	
 	Font font = new Font("Segoe Script", Font.BOLD, 13);
+
 
 	/**
 	 * Create the panel.
@@ -116,4 +120,6 @@ public class Panel1_PlayerSettings extends JPanel {
 		
 		
 	}
+
+
 }

@@ -1,19 +1,18 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import shooter.Menu.Menu;
 
 /**
- * Trieda sluzi na testovanie hry. 
+ * Class GameTester tests the game.
  */
 public class GameTester {
 
 	public static void main(String[] args) throws IOException {
-		// vytvor a pusti hru
-		Menu hra = new Menu();
+		// creates and runs the game
+		Menu game = new Menu();
 
-		hra.run();
-		//hra.pustiHruBezMenu();
-		//hra.pustiMapGen();
+		game.run();
+		//game.runWithoutMenu();
+		//game.runMapGen();
 	}
 }

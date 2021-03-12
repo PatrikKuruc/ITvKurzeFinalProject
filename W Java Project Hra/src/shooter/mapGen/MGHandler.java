@@ -26,9 +26,9 @@ public class MGHandler {
 	private void vytvorDefaultnuMapu() {
 		int vRiadku = 1024/velkostPolicka;
 		int vStlpci = (800)/velkostPolicka;
-		for (int i = 0; i < vRiadku; i++) {
-			for (int j = 0; j < vStlpci; j++) {
-				if (i == 0 || j == 0 || i == vRiadku-1 || j == vStlpci-1) {
+		for (int i = -1; i <= vRiadku; i++) {
+			for (int j = -1; j <= vStlpci; j++) {
+				if (i == -1 || j == -1 || i == vRiadku || j == vStlpci) {
 					defaultMap.add(new ObjektJComp(1.1, i*velkostPolicka, j*velkostPolicka, this));
 				}
 				else {

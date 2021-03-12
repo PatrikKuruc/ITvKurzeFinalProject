@@ -1,19 +1,17 @@
 package shooter.Menu;
 
-import shooter.Hra.Casovac;
-import shooter.Hra.Handler;
-import shooter.Hra.SoundEffect;
+import shooter.Game.GameTimer;
+import shooter.Game.Handler;
+import shooter.Game.SoundEffect;
 
 import javax.swing.*;
-import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
 import java.sql.SQLException;
 
 /**
- * Trieda PlayerInfo sluzi na zbieranie a ukladanie udajov o hracovi do textoveho suboru.
+ * Class PlayerInfo collects and saves player information into the database.
  */
 public class PlayerInfo extends JFrame {
 
@@ -26,7 +24,7 @@ public class PlayerInfo extends JFrame {
     private SoundEffect soundEffect;
 
     /**
-     * Vytovri sa okno PlayerInfo, kde sa zobrazia udaje o ukoncenej hre, vyziada si meno od hraca a nasledne ich ulozi.
+     * Creates PlayerInfo window, where player information is displayed and player name is required to be entered.
      *
      * @param handler handler
      */
@@ -60,11 +58,11 @@ public class PlayerInfo extends JFrame {
         lblScore.setBounds(100, 200, 100, 20);
         lblScore.setForeground(Color.white);
 
-        lblDamageTaken = new JLabel("Damage Taken: " + handler.zranenia);
+        lblDamageTaken = new JLabel("Damage Taken: " + handler.damageTaken);
         lblDamageTaken.setBounds(100, 250, 200, 20);
         lblDamageTaken.setForeground(Color.white);
 
-        lblTime = new JLabel("Time: " + Casovac.getDdMinute() + ":" + Casovac.getDdSecond());
+        lblTime = new JLabel("Time: " + GameTimer.getDdMinute() + ":" + GameTimer.getDdSecond());
         lblTime.setBounds(100, 300, 250, 20);
         lblTime.setForeground(Color.white);
 
@@ -75,7 +73,7 @@ public class PlayerInfo extends JFrame {
         btnSave = new JButton("SAVE");
         btnSave.setBounds(100, 350, 100, 40);
 
-        // prida udaje o hracovi do databazy a nasledne sa zobrazi uvodne menu hry s highscore tabulkou
+        // inserts player information into database and highscore in main menu is displayed
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,14 +122,14 @@ public class PlayerInfo extends JFrame {
     }
 
     /**
-     * Spusti okno PlayerInfo.
+     * Runs the window.
      */
     public void run() {
         setVisible(true);
     }
 
     /**
-     * Vypne okno PlayerInfo.
+     * Turns off the window.
      */
     public void shutDown() {
         setVisible(false);

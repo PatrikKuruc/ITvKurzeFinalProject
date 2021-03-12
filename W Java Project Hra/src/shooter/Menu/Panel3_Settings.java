@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -22,7 +21,11 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
+/**
+ * Class Panel3_Settings creates settings for the game in the menu.
+ */
 public class Panel3_Settings extends JPanel {
+
 	private JTextField textField;
 	Font font = new Font("Segoe Script", Font.BOLD, 13);
 

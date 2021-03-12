@@ -55,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="shooter.Hra.Handler" project="Java Project Hra" 
+  <class id="7" language="java" name="shooter.Game.Handler" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/Hra/Handler.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1373" y="723"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -64,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="shooter.Hra.nahravacMapy" project="Java Project Hra" 
+  <class id="8" language="java" name="shooter.Game.MapLoader" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/Hra/nahravacMapy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="143" x="1233" y="97"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="shooter.Hra.Settings" project="Java Project Hra" 
+  <class id="9" language="java" name="shooter.Game.Settings" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/Hra/Settings.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="225" width="187" x="1006" y="97"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="shooter.Hra.Platno" project="Java Project Hra" 
+  <class id="10" language="java" name="shooter.Game.GameCanvas" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/Hra/Platno.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="178" x="1416" y="97"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="shooter.Hra.UserInput" project="Java Project Hra" 
+  <class id="11" language="java" name="shooter.Game.UserInput" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/Hra/UserInput.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1627" y="1256"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -100,7 +100,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="shooter.Hra.Game" project="Java Project Hra" 
+  <class id="12" language="java" name="shooter.Game.Game" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/Hra/Game.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="87" x="1867" y="97"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,7 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="shooter.ObjektyHry.Trava" project="Java Project Hra" 
+  <class id="13" language="java" name="shooter.GameObjects.Grass" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/Trava.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="614" y="975"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="shooter.ObjektyHry.Player" project="Java Project Hra" 
+  <class id="14" language="java" name="shooter.GameObjects.Player" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/Player.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1314" y="1356"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="shooter.ObjektyHry.PohyblivyObjektHry" project="Java Project Hra" 
+  <class id="15" language="java" name="shooter.GameObjects.MovingGameObject" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/PohyblivyObjektHry.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1040" y="1137"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -136,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="shooter.ObjektyHry.Strela" project="Java Project Hra" 
+  <class id="16" language="java" name="shooter.GameObjects.Shot" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/Strela.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="933" y="1463"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="shooter.ObjektyHry.Stena" project="Java Project Hra" 
+  <class id="17" language="java" name="shooter.GameObjects.Wall" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/Stena.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="816" y="984"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,7 +154,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="shooter.ObjektyHry.Enemy" project="Java Project Hra" 
+  <class id="18" language="java" name="shooter.GameObjects.Enemy" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/Enemy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1109" y="1458"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,7 +163,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="shooter.ObjektyHry.Item" project="Java Project Hra" 
+  <class id="19" language="java" name="shooter.GameObjects.Item" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/Item.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="755" y="1315"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -172,7 +172,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="shooter.ObjektyHry.ObjektHry" project="Java Project Hra" 
+  <class id="20" language="java" name="shooter.GameObjects.GameObject" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/ObjektyHry/ObjektHry.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="808" y="728"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
