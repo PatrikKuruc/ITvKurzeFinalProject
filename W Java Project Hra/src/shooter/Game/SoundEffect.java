@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Trieda SoundEffect pridava zvukove efekty do hry.
+ * Class SoundEffect adds various sound effects into the game.
  */
 public class SoundEffect {
 
@@ -15,7 +15,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava uvodnu zvucku pri otvorenom menu.
+     * Adds intro music into menu window.
      */
     public void setFileMenuMusic(){
         File file = new File("sound\\music_menu.wav");
@@ -30,7 +30,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk strelby hlavnej postavy.
+     * Adds shooting sound of main player.
      */
     public void setFileShoot(){
         File file = new File("sound\\shoot_sound.wav");
@@ -44,7 +44,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk pri zodvihnuti itemu.
+     * Adds sound when items is picked up.
      */
     public void setFileItemPickUp(){
         File file = new File("sound\\item_pick_up.wav");
@@ -58,7 +58,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk pri prehrani hry.
+     * Adds sound when game is over.
      */
     public void setFileGameOver(){
         File file = new File("sound\\gameover.wav");
@@ -72,7 +72,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk pri vyhrani hry.
+     * Adds sound when game is won.
      */
     public void setFileYouWon(){
         File file = new File("sound\\you_won.wav");
@@ -86,7 +86,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk ked zomrie enemy
+     * Adds sound when enemy dies.
      */
     public void setFileZomebieDeath(){
         File file = new File("sound\\zombie_death.wav");
@@ -100,7 +100,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk ked sa spawn final boss
+     * Adds sound when final boss is spawned.
      */
     public void setFileFinalBossSpawn(){
         File file = new File("sound\\final_boss_spawn.wav");
@@ -114,7 +114,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk ked sa spawn final boss
+     * Adds sound when button is clicked.
      */
     public void setFileButtonClick(){
         File file = new File("sound\\button_click.wav");
@@ -128,7 +128,7 @@ public class SoundEffect {
     }
     
     /**
-     * Pridava zvuk "begin" ked sa spusti hra.
+     * Adds sound when game is started.
      */
     public void setFileBegin(){
         File file = new File("sound\\begin.wav");
@@ -142,7 +142,7 @@ public class SoundEffect {
     }
     
     /**
-     * Pridava zvuk "loser" ked hrac prehra hru.
+     * Adds another sound when game is over.
      */
     public void setFileLoser(){
         File file = new File("sound\\loser.wav");
@@ -156,7 +156,7 @@ public class SoundEffect {
     }
 
     /**
-     * Pridava zvuk "winner" ked hrac vyhra hru.
+     * Adds another sound when game is won.
      */
     public void setFileWinner(){
         File file = new File("sound\\winner.wav");
@@ -170,9 +170,9 @@ public class SoundEffect {
     }
 
     /**
-     * Znizi(+) / zvysi(-) hlasitost daneho zvuku
+     * Increases(+) / decreases(-) volume of specific sound.
      *
-     * @param value hodnota hlasitosti
+     * @param value value of volume
      */
     public void setVolume(int value){
         FloatControl floatControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
@@ -180,7 +180,7 @@ public class SoundEffect {
     }
 
     /**
-     * Spusti zuvkovy efekt.
+     * Starts the sound.
      */
     public void play(){
         clip.setFramePosition(0);
@@ -188,7 +188,7 @@ public class SoundEffect {
     }
 
     /**
-     * Vypne zvukovy efekt.
+     * Stop the sound.
      */
     public void stopMusic(){
         clip.stop();
