@@ -14,20 +14,19 @@ import javax.swing.JButton;
 
 public class ObjectBtn extends JButton implements ActionListener{
 	
-	private MGHandler handler;
+	private HandlerMapGen handler;
 	private Icon imageIcon;
 	private Image image;
 	private double ID;
 	private String imagePath;
-	private MGHandler handlerMapGen;
 	
 	
-	public ObjectBtn(String ID, String imagePath, MGHandler handlerMapGen) {
+	public ObjectBtn(String ID, String imagePath, HandlerMapGen handlerMapGen) {
 		super();
 		this.ID = Double.parseDouble(ID);
 		this.handler = handlerMapGen;
 		this.imagePath = imagePath;
-		this.handlerMapGen = handlerMapGen;
+		this.handler = handlerMapGen;
 		nacitajObr();
 		
 		setIcon(imageIcon);
@@ -39,17 +38,15 @@ public class ObjectBtn extends JButton implements ActionListener{
 	private void nacitajObr() {
 		try {
 			image = ImageIO.read(new File(this.imagePath));
-			image = image.getScaledInstance(handlerMapGen.velkostPolicka, handlerMapGen.velkostPolicka, Image.SCALE_FAST);
+			image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
 			imageIcon = new ImageIcon(image);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		handler.setKreslisObjektID(this.ID);
+		handler.setSelectedItemID(this.ID);
 	}
 }
