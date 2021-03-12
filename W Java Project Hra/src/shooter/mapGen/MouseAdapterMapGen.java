@@ -3,11 +3,11 @@ package shooter.mapGen;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MGMouseAdapter extends MouseAdapter {
+public class MouseAdapterMapGen extends MouseAdapter {
 
-	private MGHandler handler;
+	private HandlerMapGen handler;
 	
-	public MGMouseAdapter(MGHandler handler) {
+	public MouseAdapterMapGen(HandlerMapGen handler) {
 		this.handler = handler;
 	}
 
@@ -16,11 +16,11 @@ public class MGMouseAdapter extends MouseAdapter {
 		int x = e.getX();
 		int y = e.getY();
 		if (e.getButton() == 1) {
-			double ID = handler.getKreslisObjektID();
-			handler.pridajObjekt(ID, x, y);
+			double ID = handler.getSelectedItemID();
+			handler.addObjetOnCanvas(ID, x, y);
 			}
 		if (e.getButton() == 3) {
-			handler.zmazObjekty(x, y);
+			handler.deleteObjectsAt(x, y);
 		}
 	}
 }

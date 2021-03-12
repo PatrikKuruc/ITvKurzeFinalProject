@@ -18,14 +18,14 @@ import javax.swing.Timer;
 public class PanelVyber extends JPanel {
 
 	private Timer timer = new Timer(60, e -> repaint());
-	private MGHandler handler;
+	private HandlerMapGen handler;
 	private List<File> ImageFileList;
 	
 	/**
 	 * Create PanelVyber
 	 * @param handler Map Generator Handler
 	 */
-	public PanelVyber(MGHandler handler) {
+	public PanelVyber(HandlerMapGen handler) {
 		this.handler=handler;
         setLayout(new GridLayout(0, 15, 10, 10));
         
@@ -51,8 +51,7 @@ public class PanelVyber extends JPanel {
         File[] fList = directory.listFiles();
         resultList.addAll(Arrays.asList(fList));
         for (File file : fList) {
-            if (file.isFile()) {
-            } else if (file.isDirectory()) {
+            if (file.isDirectory()) {
                 resultList.addAll(loadImages(file.getPath()));
             }
         }

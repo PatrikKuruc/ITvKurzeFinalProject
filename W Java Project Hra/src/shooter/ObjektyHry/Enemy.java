@@ -49,14 +49,13 @@ public class Enemy extends PohyblivyObjektHry {
 	
 	@Override
 	public void zistiSmer() {
-		destinationX = handler.getPositionPlayerY();
-		destinationY = handler.getPositionPlayerX();
+		destinationX = handler.getPositionPlayerX();
+		destinationY = handler.getPositionPlayerY();
 		
 		this.uholX = destinationX-poziciaX;
 		this.uholY = destinationY-poziciaY;
 		
 		double vzdialenost = Math.sqrt(Math.pow(uholX, 2) + Math.pow(uholY, 2));
-		
 		if (Math.abs(vzdialenost) < 200) {
 
 			if (Math.abs(uholX)>1) {

@@ -59,8 +59,8 @@ public class MamaZombie extends PohyblivyObjektHry{
 
     @Override
     public void zistiSmer() {
-        destinationX = handler.getPositionPlayerY();
-        destinationY = handler.getPositionPlayerX();
+        destinationX = handler.getPositionPlayerX();
+        destinationY = handler.getPositionPlayerY();
 
         this.uholX = destinationX - poziciaX;
         this.uholY = destinationY - poziciaY;
@@ -111,8 +111,8 @@ public class MamaZombie extends PohyblivyObjektHry{
 
     @Override
     public void aktualizujObjektHry() {
-        destinationX = handler.getPositionPlayerY();
-        destinationY = handler.getPositionPlayerX();
+        destinationX = handler.getPositionPlayerX();
+        destinationY = handler.getPositionPlayerY();
         poziciaEnemyX = centerX;
         poziciaEnemyY = centerY;
 

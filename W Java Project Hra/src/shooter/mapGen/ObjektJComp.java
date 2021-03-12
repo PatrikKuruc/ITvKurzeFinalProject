@@ -14,7 +14,7 @@ import javax.swing.JComponent;
 
 public class ObjektJComp extends JComponent{
 	
-	private MGHandler handler;
+	private HandlerMapGen handler;
 	private int poziciaX;
 	private int poziciaY;
 	private Image image;
@@ -22,7 +22,7 @@ public class ObjektJComp extends JComponent{
 	private String imagePath;
 	private String IDstring;
 	
-	public ObjektJComp(Double ID, int poziciaX, int poziciaY, MGHandler handlerMapGen) {
+	public ObjektJComp(Double ID, int poziciaX, int poziciaY, HandlerMapGen handlerMapGen) {
 		this.ID = ID;
 		this.IDstring = Double.toString(this.ID);
 		this.poziciaX = poziciaX;

@@ -8,24 +8,24 @@ import java.util.LinkedList;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class PanelMapa extends JPanel{
+public class CanvasMapGen extends JPanel{
 
 	private Timer timer = new Timer(60, e -> repaint());
-	private MGMouseAdapter mys;
-	private MGHandler handler;
+	private MouseAdapterMapGen mouseAdapter;
+	private HandlerMapGen handler;
 	
 	private LinkedList<Rectangle> mriezka;
 
-	public PanelMapa(MGHandler handler) {
+	public CanvasMapGen(HandlerMapGen handler) {
 		this.handler=handler;
 		setBounds(10, 110, 1024, 800);
 		setLayout(null);
 		vytvorMriezku();
 		timer.start();
 		
-		this.mys = new MGMouseAdapter(handler);
-		addMouseListener(mys);
-		addMouseMotionListener(mys);
+		this.mouseAdapter = new MouseAdapterMapGen(handler);
+		addMouseListener(mouseAdapter);
+		addMouseMotionListener(mouseAdapter);
 	}
 
 	private void vytvorMriezku() {
@@ -50,6 +50,6 @@ public class PanelMapa extends JPanel{
 			g2.draw(mriezka.get(i).getBounds());
 		}
 		
-		handler.vykresliObjekty(g2);
+		handler.drawObjects(g2);
 	}
 }

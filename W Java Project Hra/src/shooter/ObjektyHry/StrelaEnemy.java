@@ -16,8 +16,8 @@ public class StrelaEnemy extends PohyblivyObjektHry {
         super(poziciaX, poziciaY, handler);
         this.ID = ID;
         super.nacitajObrazok();
-        this.destinationX = handler.getPositionPlayerY();
-        this.destinationY = handler.getPositionPlayerX();
+        this.destinationX = handler.getPositionPlayerX();
+        this.destinationY = handler.getPositionPlayerY();
         this.width = 513 / 10;
         this.height = 173 / 10;
         this.velX = 1;
