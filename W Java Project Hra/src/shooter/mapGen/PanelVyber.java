@@ -144,6 +144,37 @@ public class PanelVyber extends JPanel {
 	}
 
 	public void setVybranyZoznam(String selectedValue) {
+		removeAll();
+		// selected value = walls/ground/enemy/items/player
+
+		if (selectedValue.equalsIgnoreCase("ground")) {
+			for (int i = 0; i < groundList.size(); i++) {
+				add(groundList.get(i));
+			}
+		}
 		
+		if (selectedValue.equalsIgnoreCase("walls")) {
+			for (int i = 0; i < wallList.size(); i++) {
+				add(wallList.get(i));
+			}
+		}
+		
+		if (selectedValue.equalsIgnoreCase("enemy")) {
+			for (int i = 0; i < enemyList.size(); i++) {
+				add(enemyList.get(i));
+			}
+		}
+		
+		if (selectedValue.equalsIgnoreCase("items")) {
+			for (int i = 0; i < itemsList.size(); i++) {
+				add(itemsList.get(i));
+			}
+		}
+		
+		if (selectedValue.equalsIgnoreCase("player")) {
+			for (int i = 0; i < playerList.size(); i++) {
+				add(playerList.get(i));
+			}
+		}
 	}
 }
