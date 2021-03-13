@@ -45,11 +45,6 @@ public class CanvasMapGen extends JPanel{
 		Graphics2D g2 = (Graphics2D) g;
 		// TODO Auto-generated method stub
 		super.paint(g2);
-		
-		for (int i = 0; i < mriezka.size(); i++) {
-			g2.draw(mriezka.get(i).getBounds());
-		}
-		
 		handler.drawObjects(g2);
 	}
 }

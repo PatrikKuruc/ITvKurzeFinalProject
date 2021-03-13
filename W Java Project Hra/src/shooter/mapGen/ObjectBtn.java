@@ -18,6 +18,15 @@ public class ObjectBtn extends JButton implements ActionListener{
 	private Icon imageIcon;
 	private Image image;
 	private double ID;
+	
+	public double getID() {
+		return ID;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
 	private String imagePath;
 	
 	

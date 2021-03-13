@@ -4,9 +4,12 @@ import java.awt.Graphics2D;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 public class HandlerMapGen {
 	
@@ -90,10 +93,24 @@ public class HandlerMapGen {
 	}
 
 	public void saveMap() {
+		String newMapName = JOptionPane.showInputDialog("zadaj nazov mapy");
+		File newMap = new File("mapy/"+newMapName+".txt");
+		
 		try {
-			zapisovac = new PrintWriter("mapy/newMap.txt");
-			System.out.println("Subor newMap.txt vytvoreny");
+			newMap.createNewFile();
+		
+			System.out.println(newMap + "vytvoreny");
+		
+			zapisovac = new PrintWriter(newMap);
+			
+			System.out.println("Objekty zapisane do " + newMap);
+		
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		for (ObjektJComp objektMapy : currentMap) {

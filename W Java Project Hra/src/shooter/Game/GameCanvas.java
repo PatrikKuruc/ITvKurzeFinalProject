@@ -36,7 +36,7 @@ public class GameCanvas extends JPanel {
         this.Height = Integer.parseInt(gameProperties.getProperty("WindowHeight"));
         this.Width = Integer.parseInt(gameProperties.getProperty("WindowWidth"));
 
-        this.timer = new Timer(100/FPS, e -> repaint());
+        this.timer = new Timer(1000/FPS, e -> repaint());
       
 
 
@@ -71,7 +71,6 @@ public class GameCanvas extends JPanel {
         handler.updateGameObjects();
         handler.drawGameObjects(g);
         handler.drawPlayer(g);
-
     }
 
     /**
