@@ -25,7 +25,7 @@ public class GameCanvas extends JPanel {
     private int Width;
 
     /**
-     * Creates panel
+     * Creates panel for the game.
      *
      * @param gameProperties propertios of the game
      * @throws FileNotFoundException FileNotFoundException
@@ -38,8 +38,6 @@ public class GameCanvas extends JPanel {
 
         this.timer = new Timer(100/FPS, e -> repaint());
       
-
-
         setLayout(null);
         setPreferredSize(new Dimension(Height, Width));
 
@@ -50,7 +48,7 @@ public class GameCanvas extends JPanel {
         MapLoader nahravacMapy = new MapLoader(handler);
         nahravacMapy.nahrajMapu();
 
-        // creates the MouseListener and adds it to the canvas
+        // creates the MouseListener and KeyListener and adds it to the canvas
         UserInput UserInput = new UserInput(handler);
         addMouseListener(UserInput);
         addMouseMotionListener(UserInput);
