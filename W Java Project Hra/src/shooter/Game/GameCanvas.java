@@ -37,7 +37,7 @@ public class GameCanvas extends JPanel {
         this.Width = Integer.parseInt(gameProperties.getProperty("WindowWidth"));
 
         this.timer = new Timer(1000/FPS, e -> repaint());
-      
+
         setLayout(null);
         setPreferredSize(new Dimension(Height, Width));
 

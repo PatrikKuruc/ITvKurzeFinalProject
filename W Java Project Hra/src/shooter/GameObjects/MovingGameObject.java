@@ -21,7 +21,7 @@ public abstract class MovingGameObject extends GameObject {
     protected double vecY;
     protected double velX;
     protected double velY;
-
+    
     // different types of objects behave differently when they collide with another objects
     public abstract void performCollisionEvent(GameObject gameObject);
 
@@ -37,6 +37,7 @@ public abstract class MovingGameObject extends GameObject {
      */
     public MovingGameObject(int positionX, int positionY, Handler handler) {
         super(positionX, positionY, handler);
+        
     }
 
     /**
@@ -45,13 +46,16 @@ public abstract class MovingGameObject extends GameObject {
     public void updateGameObject() {
         findDirection();
         updateRotation();
-
         detectCollisionOfMovingObjects();
 
         moveX();
         detectCollisionWithWallsX();
         moveY();
         detectCollisionWithWallsY();
+        
+        rectangle.setBounds(positionX, positionY, width, height);
+        this.centerX = (int) rectangle.getCenterX();
+        this.centerY = (int) rectangle.getCenterY();
     }
 
     /**
@@ -59,8 +63,6 @@ public abstract class MovingGameObject extends GameObject {
      */
     public void moveX() {
         positionX += vecX * velX;
-        rectangle.setBounds(positionX, positionY, width, height);
-        this.centerX = (int) rectangle.getCenterX();
     }
 
     /**
@@ -68,10 +70,22 @@ public abstract class MovingGameObject extends GameObject {
      */
     public void moveY() {
         positionY += vecY * velY;
-        rectangle.setBounds(positionX, positionY, width, height);
-        this.centerY = (int) rectangle.getCenterY();
+    }
+    
+    /**
+     * Detects the collision with Wall X.
+     */
+    public void collisionWithWallX() {
+        positionX -= vecX * velX;
     }
 
+    /**
+     * Detects the collision with Wall Y.
+     */
+    public void collisionWithWallY() {
+        positionY -= vecY * velY;
+    }
+    
     /**
      * Detects the collision of moving game objects with the static ones.
      */
@@ -98,20 +112,6 @@ public abstract class MovingGameObject extends GameObject {
                 }
             }
         }
-    }
-
-    /**
-     * Detects the collision with Wall X.
-     */
-    public void collisionWithWallX() {
-        positionX -= vecX * (velX);
-    }
-
-    /**
-     * Detects the collision with Wall Y.
-     */
-    public void collisionWithWallY() {
-        positionY -= vecY * (velY);
     }
 
     /**
@@ -146,7 +146,7 @@ public abstract class MovingGameObject extends GameObject {
     @Override
     public void drawObject(Graphics gr) {
         Graphics2D g = (Graphics2D) gr.create();
-        //g.draw(getBounds());
+        g.draw(getBounds());
         g.rotate(rotation, centerX, centerY);
         super.drawObject(g);
         g.dispose();

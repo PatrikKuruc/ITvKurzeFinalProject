@@ -17,10 +17,6 @@ import shooter.Game.UserInput;
  * Class Player creates main player in the game.
  */
 public class Player extends MovingGameObject {
-
-    private int positionMainX;
-    private int positionMainY;
-
     /**
      * Creates the main player.
      *
@@ -145,8 +141,6 @@ public class Player extends MovingGameObject {
     public void updateGameObject() {
         destinationX = UserInput.getMouseX();
         destinationY = UserInput.getMouseY();
-        positionMainX = centerX;
-        positionMainY = centerY;
 
         handler.setPositionPlayerX(centerX);
         handler.setPositionPlayerY(centerY);
