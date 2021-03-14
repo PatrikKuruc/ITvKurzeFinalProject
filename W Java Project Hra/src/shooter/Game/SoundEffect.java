@@ -1,5 +1,7 @@
 package shooter.Game;
 
+import shooter.Menu.Panel3_Settings;
+
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +32,7 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
+
     }
 
     /**
@@ -43,6 +46,10 @@ public class SoundEffect {
             clip.open(sound);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
+        }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
         }
     }
 
@@ -58,6 +65,10 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
+        }
     }
 
     /**
@@ -71,6 +82,11 @@ public class SoundEffect {
             clip.open(sound);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
+        }
+        setVolume(-15);
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
         }
     }
 
@@ -86,6 +102,11 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
+        setVolume(-15);
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
+        }
     }
 
     /**
@@ -99,6 +120,10 @@ public class SoundEffect {
             clip.open(sound);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
+        }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
         }
     }
 
@@ -114,6 +139,10 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
+        }
     }
 
     /**
@@ -127,6 +156,10 @@ public class SoundEffect {
             clip.open(sound);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
+        }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
         }
     }
     
@@ -142,6 +175,11 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
+        setVolume(-15);
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
+        }
     }
     
     /**
@@ -156,6 +194,10 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
+        }
     }
 
     /**
@@ -169,6 +211,10 @@ public class SoundEffect {
             clip.open(sound);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
+        }
+
+        if(!Panel3_Settings.soundIsOn[0]) {
+            setVolume(-80);
         }
     }
 

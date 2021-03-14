@@ -23,7 +23,7 @@ public class Panel2_HighScore extends JPanel {
     private JPanel pnlPanelInfo;
     private JButton btnScore, btnDamageTaken, btnTime;
     public static JTextArea txtPlayerNumber, txtPlayerName, txtScore, txtDamageTaken, txtTime;
-    private SoundEffect soundEffect;
+    public static SoundEffect soundEffectHighScore;
     public static final boolean[] scoreMAX = {true};
     public static final boolean[] damageTakenMIN = {true};
     public static final boolean[] timeMIN = {true};
@@ -46,6 +46,9 @@ public class Panel2_HighScore extends JPanel {
         setBounds(300, 50, 450, 400);
         setLayout(null);
         setVisible(false);
+
+        soundEffectHighScore = new SoundEffect();
+        soundEffectHighScore.setFileButtonClick();
 
         pnlPanelInfo = new JPanel();
         pnlPanelInfo.setBounds(0, 0, 450, 30);
@@ -113,10 +116,7 @@ public class Panel2_HighScore extends JPanel {
         btnScore.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                soundEffectHighScore.play();
 
                 try {
                     database.resetHighScore();
@@ -133,9 +133,7 @@ public class Panel2_HighScore extends JPanel {
         btnDamageTaken.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                soundEffectHighScore.play();
 
                 try {
                     database.resetHighScore();
@@ -152,9 +150,7 @@ public class Panel2_HighScore extends JPanel {
         btnTime.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                soundEffectHighScore.play();
 
                 try {
                     database.resetHighScore();

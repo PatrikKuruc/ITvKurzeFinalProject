@@ -22,12 +22,15 @@ public class Handler {
     public int healthMama = 1000;
     public int ammo = 10;
     public int score = 0;
+    public int finalScore = 100;
     public int blockSize = 32;
     public int damageTaken = 0;
-    public SoundEffect soundEffect;
     private boolean isRunning = true;
     private Timer timer;
     PopupWindow popupWindow;
+    public static SoundEffect soundEffectShoot = new SoundEffect();
+    public static SoundEffect soundEffectFinalBosssPawn = new SoundEffect();
+
 
     /**
      * Creates handler.
@@ -39,14 +42,13 @@ public class Handler {
     /**
      * Player shoots the shot.
      */
-    public void playerShoot() {
+    public  void playerShoot() {
         if (ammo > 0) {
             addObject(new Shot(5, positionPlayerX, positionPlayerY, this));
             ammo--;
 
-            soundEffect = new SoundEffect();
-            soundEffect.setFileShoot();
-            soundEffect.play();
+            soundEffectShoot.setFileShoot();
+            soundEffectShoot.play();
         }
     }
 
@@ -192,13 +194,12 @@ public class Handler {
         if (newObject instanceof Enemy && enemyCounter <= 10) {
 
             // spawns MamaZombie
-            if (score == 1) {
+            if (score == 24) {
                 for (Integer i : MapLoader.spawnPointMama.keySet()) {
                     addObject(new MamaZombie(6, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
 
-                    soundEffect = new SoundEffect();
-                    soundEffect.setFileFinalBossSpawn();
-                    soundEffect.play();
+                    soundEffectFinalBosssPawn.setFileFinalBossSpawn();
+                    soundEffectFinalBosssPawn.play();
                 }
             }
 

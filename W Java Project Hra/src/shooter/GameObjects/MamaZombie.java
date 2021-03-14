@@ -27,9 +27,22 @@ public class MamaZombie extends Enemy {
     public MamaZombie(double ID, int positionX, int positionY, int newObjectWidth, int newObjectHeight, Handler handler) {
         super(ID, positionX, positionY, newObjectWidth, newObjectHeight, handler);
         this.radius = 50000000;
-        this.score += 25;
         this.healthZombie = handler.healthMama;
     }
+
+    @Override
+    public void performCollisionEvent(GameObject gameObject) {
+        if (gameObject instanceof Shot) {
+            handler.healthMama -= 50;
+            if (handler.healthMama <= 0) {
+                handler.removeObject(this);
+                handler.score += 25;
+                handler.finalScore += 100;
+            }
+            handler.removeObject(gameObject);
+        }
+    }
+
 
     /**
      * Returns the X coordinate of Enemy.
@@ -94,7 +107,6 @@ public class MamaZombie extends Enemy {
     public void updateGameObject() {
         positionEnemyX = centerX;
         positionEnemyY = centerY;
-        handler.healthMama = this.healthZombie;
         super.updateGameObject();
     }
 }

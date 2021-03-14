@@ -17,7 +17,8 @@ public class Game extends JFrame {
     private Properties gameProperties;
     private int WINDOW_HEIGHT;
     private int WINDOW_WIDTH;
-    private SoundEffect soundEffect;
+    public static SoundEffect soundEffectBegin = new SoundEffect();
+
 
     /**
      * Creates JFrame window of the game.
@@ -64,9 +65,8 @@ public class Game extends JFrame {
      */
     public void run() {
         setVisible(true);
-        soundEffect = new SoundEffect();
-        soundEffect.setFileBegin();
-        soundEffect.play();
+        soundEffectBegin.setFileBegin();
+        soundEffectBegin.play();
     }
 
     /**

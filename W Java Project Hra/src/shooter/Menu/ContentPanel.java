@@ -3,12 +3,9 @@ package shooter.Menu;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -31,10 +28,8 @@ public class ContentPanel extends JPanel {
     public static Menu menu;
     public static Game game;
     private Database database;
-    private SoundEffect soundEffect;
+    public static SoundEffect souneEffectContentPanel;
     Handler handler;
-    private Image imageON;
-    public static JButton btnVolume;
 
     /**
      * Creates the main panel.
@@ -78,13 +73,14 @@ public class ContentPanel extends JPanel {
      * Creates the buttons of the menu window.
      */
     private void createButtons() {
+        souneEffectContentPanel = new SoundEffect();
+        souneEffectContentPanel.setFileButtonClick();
+
         JButton btnNewButton = new JButton("New Game");
         btnNewButton.setBounds(100, 150, 150, 30);
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                souneEffectContentPanel.play();
 
                 menu.shutDown();
                 try {
@@ -102,9 +98,7 @@ public class ContentPanel extends JPanel {
         btnNewButton_1.setBounds(100, 200, 150, 30);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                souneEffectContentPanel.play();
 
                 panel1.setVisible(true);
                 panel2.setVisible(false);
@@ -117,9 +111,7 @@ public class ContentPanel extends JPanel {
         btnNewButton_2.setBounds(100, 250, 150, 30);
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                souneEffectContentPanel.play();
 
                 panel1.setVisible(false);
                 panel2.setVisible(true);
@@ -140,9 +132,7 @@ public class ContentPanel extends JPanel {
         btnNewButton_3.setBounds(100, 300, 150, 30);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                souneEffectContentPanel.play();
 
                 panel1.setVisible(false);
                 panel2.setVisible(false);
@@ -155,9 +145,7 @@ public class ContentPanel extends JPanel {
         btnNewButton_4.setBounds(100, 350, 150, 30);
         btnNewButton_4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                souneEffectContentPanel.play();
 
                 menu.setVisible(false);
                 GeneratorMapy mapGen;

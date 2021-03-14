@@ -9,7 +9,7 @@ import shooter.Game.SoundEffect;
 public class Item extends MovingGameObject {
 
     public static int numberOfHealthKits, numberOfAmmoKits = 0;
-    private SoundEffect soundEffect;
+    public static SoundEffect soundEffectItemPickUp = new SoundEffect();
 
     /**
      * Creates item in the game.
@@ -44,9 +44,8 @@ public class Item extends MovingGameObject {
                 handler.removeObject(this);
                 numberOfAmmoKits--;
 
-                soundEffect = new SoundEffect();
-                soundEffect.setFileItemPickUp();
-                soundEffect.play();
+                soundEffectItemPickUp.setFileItemPickUp();
+                soundEffectItemPickUp.play();
             }
 
             // heals player for maximum of 50 health
@@ -60,9 +59,8 @@ public class Item extends MovingGameObject {
                 handler.removeObject(this);
                 numberOfHealthKits--;
 
-                soundEffect = new SoundEffect();
-                soundEffect.setFileItemPickUp();
-                soundEffect.play();
+                soundEffectItemPickUp.setFileItemPickUp();
+                soundEffectItemPickUp.play();
             }
         }
     }

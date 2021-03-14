@@ -45,7 +45,8 @@ public class Database {
      * @throws SQLException SQLException
      */
     public void insertData() throws SQLException {
-        String commandINSERT = "insert into highscore value('" + PlayerInfo.txtName.getText() + "'," + handler.score + ", "
+        int score = handler.finalScore - (GameTimer.getSecond() + handler.damageTaken);
+        String commandINSERT = "insert into highscore value('" + PlayerInfo.txtName.getText() + "'," + score + ", "
                 + handler.damageTaken + ", '" + GameTimer.getDdMinute() + ":" + GameTimer.getDdSecond() + "');";
 
         statement.executeUpdate(commandINSERT);
