@@ -43,15 +43,10 @@ public class Panel3_Settings extends JPanel {
 	 */
 	public Panel3_Settings() {
 
-		
-
 		setOpaque(false); //transparentny JPanel
 		setBounds(300, 50, 350, 400);
 		setBackground(Color.WHITE);
 		setLayout(null);
-
-
-		
 		
 		JTextArea ovladanie = new JTextArea();
 		ovladanie.setBounds(20, 250, 200, 30);
@@ -69,7 +64,6 @@ public class Panel3_Settings extends JPanel {
 		vyberOvladania.addItem("WASD");
 		vyberOvladania.addItem("Arrows");
 		add(vyberOvladania);
-
 		
 		JTextArea ovladaniePauzy = new JTextArea();
 		ovladaniePauzy.setBounds(20, 320, 200, 30);
@@ -108,8 +102,6 @@ public class Panel3_Settings extends JPanel {
 		slider.setForeground(Color.WHITE);
 		slider.setOpaque(false);
 		add(slider);
-
-<<<<<<< HEAD
 
 		JTextArea music = new JTextArea();
 		music.setBounds(20, 10, 145, 30);
@@ -163,9 +155,6 @@ public class Panel3_Settings extends JPanel {
     	effects.setText("Sound effects:");
     	effects.setEditable(false);
 		add(effects); 
-		
-=======
->>>>>>> branch 'main' of https://github.com/PatrikKuruc/ITvKurzeFinalProject.git
 		
 		setVisible(false);
 
