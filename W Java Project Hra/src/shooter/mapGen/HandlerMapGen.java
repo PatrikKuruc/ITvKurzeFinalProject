@@ -98,13 +98,8 @@ public class HandlerMapGen {
 		
 		try {
 			newMap.createNewFile();
-		
-			System.out.println(newMap + "vytvoreny");
-		
 			zapisovac = new PrintWriter(newMap);
 			
-			System.out.println("Objekty zapisane do " + newMap);
-		
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 /**
@@ -202,6 +203,7 @@ public class Panel3_Settings extends JPanel {
 		slider.setForeground(Color.GREEN.darker().darker());
 		add(slider);
 
+		
 		setVisible(false);
 
 	}

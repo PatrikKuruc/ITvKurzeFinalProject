@@ -23,7 +23,6 @@ public class PanelVyber extends JPanel {
 	private List<File> ImageFileList;
 	
 	private ArrayList<ObjectBtn> groundList = new ArrayList<>();
-
 	private ArrayList<ObjectBtn> wallList = new ArrayList<>();
 	private ArrayList<ObjectBtn> playerList = new ArrayList<>();
 	private ArrayList<ObjectBtn> enemyList = new ArrayList<>();
@@ -141,40 +140,28 @@ public class PanelVyber extends JPanel {
 		else if (ID.startsWith("4")) {
 			itemsList.add(new ObjectBtn(ID, imagePath, handler));
 		}
+		
+		
+		for (int i = 0; i < groundList.size(); i++) {
+			add(groundList.get(i));
+		}
+		for (int i = 0; i < wallList.size(); i++) {
+			add(wallList.get(i));
+		}
+		for (int i = 0; i < enemyList.size(); i++) {
+			add(enemyList.get(i));
+		}
+		for (int i = 0; i < itemsList.size(); i++) {
+			add(itemsList.get(i));
+		}
+		for (int i = 0; i < playerList.size(); i++) {
+			add(playerList.get(i));
+		}
 	}
 
 	public void setVybranyZoznam(String selectedValue) {
-		removeAll();
+		// removeAll();
 		// selected value = walls/ground/enemy/items/player
-
-		if (selectedValue.equalsIgnoreCase("ground")) {
-			for (int i = 0; i < groundList.size(); i++) {
-				add(groundList.get(i));
-			}
-		}
-		
-		if (selectedValue.equalsIgnoreCase("walls")) {
-			for (int i = 0; i < wallList.size(); i++) {
-				add(wallList.get(i));
-			}
-		}
-		
-		if (selectedValue.equalsIgnoreCase("enemy")) {
-			for (int i = 0; i < enemyList.size(); i++) {
-				add(enemyList.get(i));
-			}
-		}
-		
-		if (selectedValue.equalsIgnoreCase("items")) {
-			for (int i = 0; i < itemsList.size(); i++) {
-				add(itemsList.get(i));
-			}
-		}
-		
-		if (selectedValue.equalsIgnoreCase("player")) {
-			for (int i = 0; i < playerList.size(); i++) {
-				add(playerList.get(i));
-			}
-		}
+		System.out.println(selectedValue);
 	}
 }
