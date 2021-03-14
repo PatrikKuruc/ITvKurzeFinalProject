@@ -30,7 +30,7 @@ public class Game extends JFrame {
         setSize(WINDOW_HEIGHT, WINDOW_WIDTH);
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Pow Pow Pow");
+        setTitle("Kill Your MamaZombie");
 
         // creates JPanel (GameCanvas) and add it to window
         GameCanvas hra = new GameCanvas(gameProperties);
