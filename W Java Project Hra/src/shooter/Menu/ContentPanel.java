@@ -98,7 +98,7 @@ public class ContentPanel extends JPanel {
 
         add(btnNewButton);
 
-        JButton btnNewButton_1 = new JButton("Player Settings");
+        JButton btnNewButton_1 = new JButton("Game Settings");
         btnNewButton_1.setBounds(100, 200, 150, 30);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -176,39 +176,6 @@ public class ContentPanel extends JPanel {
         });
         add(btnNewButton_5);
 
-        // button for muting the menu music
-        btnVolume = new JButton("");
-        btnVolume.setBounds(10, 10, 30, 30);
-        final boolean[] soundIsOn = {true};
-
-        try {
-            imageON = ImageIO.read(new File("obr/sound_on.png"));
-            imageON = imageON.getScaledInstance(30, 30, Image.SCALE_FAST);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        btnVolume.setIcon(new ImageIcon(imageON));
-        btnVolume.setBackground(Color.green);
-        btnVolume.setVisible(true);
-
-        btnVolume.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if (soundIsOn[0]) {
-                    Menu.soundEffect.setVolume(-80);
-                    soundIsOn[0] = false;
-                    btnVolume.setBackground(Color.red);
-
-                } else {
-                    Menu.soundEffect.setVolume(-20);
-                    soundIsOn[0] = true;
-                    btnVolume.setIcon(new ImageIcon(imageON));
-                    btnVolume.setBackground(Color.green);
-                }
-            }
-        });
-        add(btnVolume);
+   
     }
 }

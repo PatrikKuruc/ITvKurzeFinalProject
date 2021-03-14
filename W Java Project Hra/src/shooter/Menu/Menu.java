@@ -25,7 +25,7 @@ public class Menu extends JFrame {
      */
     public Menu() throws IOException {
         setResizable(false);
-        setTitle("Nemame nazov :/");
+        setTitle("Kill Your MamaZombie");
         setSize(new Dimension(800, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);

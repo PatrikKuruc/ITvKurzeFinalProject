@@ -51,8 +51,8 @@ public class Panel2_HighScore extends JPanel {
         pnlPanelInfo.setBounds(0, 0, 450, 30);
         pnlPanelInfo.setLayout(null);
         pnlPanelInfo.setVisible(true);
-        pnlPanelInfo.setBackground(Color.lightGray);
-        pnlPanelInfo.setBorder(BorderFactory.createLineBorder(new Color(180, 0, 0), 5, false));
+        pnlPanelInfo.setBackground(Color.YELLOW.brighter().brighter().brighter());
+        pnlPanelInfo.setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
 
         lblNumber = new JLabel("N.", SwingConstants.CENTER);
         lblNumber.setBounds(5, 5, 50, 20);
@@ -181,7 +181,7 @@ public class Panel2_HighScore extends JPanel {
         add(btnDamageTaken);
         add(btnTime);
 
-        setBorder(BorderFactory.createLineBorder(new Color(180, 0, 0), 5, false));
+        setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
     }
 
     /**
