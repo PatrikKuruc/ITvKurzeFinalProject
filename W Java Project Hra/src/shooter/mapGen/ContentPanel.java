@@ -3,6 +3,9 @@ package shooter.mapGen;
 import javax.swing.JPanel;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import java.io.FileNotFoundException;
 import javax.swing.JTextPane;
@@ -28,7 +31,6 @@ public class ContentPanel extends JPanel {
 		createMapGenItems();
 		createMapGenCanvas();
 	}
-
 	
 	private void createMapGenItems() {
 		PanelVyber panelVyber = new PanelVyber(handler);
@@ -47,8 +49,8 @@ public class ContentPanel extends JPanel {
 		
 		JButton loadItemsButton = new JButton("<<");
 		loadItemsButton.setBounds(850, 30, 50, 30);
+		loadItemsButton.addActionListener(e -> panelVyber.setVybranyZoznam(comboBox.getSelectedValue()));
 		add(loadItemsButton);
-		
 	}
 	
 	private void createMapGenButtons() {

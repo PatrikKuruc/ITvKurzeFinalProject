@@ -1,5 +1,5 @@
 # ITvKurzeFinalProject
-Zaverecny project skolenia IT v Kurze - 2D Hra (top-down shooter)
+Final project of online course IT v Kurze - 2D Game (top-down shooter)
 
 Image sources: https://www.kenney.nl/
 

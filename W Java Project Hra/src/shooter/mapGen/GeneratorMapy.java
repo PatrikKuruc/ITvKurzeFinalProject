@@ -17,7 +17,7 @@ public class GeneratorMapy extends JFrame {
 		GeneratorMapy frame = new GeneratorMapy();
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
-		frame.setResizable(true);
+		frame.setResizable(false);
 		frame.setTitle("Map Generator");
 	}
 

@@ -109,6 +109,7 @@ public class Panel3_Settings extends JPanel {
 		slider.setOpaque(false);
 		add(slider);
 
+<<<<<<< HEAD
 
 		JTextArea music = new JTextArea();
 		music.setBounds(20, 10, 145, 30);
@@ -163,6 +164,8 @@ public class Panel3_Settings extends JPanel {
     	effects.setEditable(false);
 		add(effects); 
 		
+=======
+>>>>>>> branch 'main' of https://github.com/PatrikKuruc/ITvKurzeFinalProject.git
 		
 		setVisible(false);
 

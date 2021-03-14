@@ -52,7 +52,6 @@ public class Player extends MovingGameObject {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 
     /**

@@ -18,7 +18,7 @@ public abstract class GameObject extends JComponent {
     protected int positionX, positionY;
     protected int centerX, centerY;
 
-    // variables needed for object drawing
+	// variables needed for object drawing
     protected Handler handler;
     protected Image image;
     protected Image image2;
@@ -96,7 +96,7 @@ public abstract class GameObject extends JComponent {
         } else if (IDint == 6) {
             try {
                 this.image = ImageIO.read(new File("obr/objektyHry/enemy/3.png"));
-                image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
+                image = image.getScaledInstance(48, 48, Image.SCALE_FAST);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -123,7 +123,7 @@ public abstract class GameObject extends JComponent {
         if (ID == 6 && MamaZombie.isMamaShooting) {        // animation of MamaZombie
             try {
                 this.image2 = ImageIO.read(new File("obr/objektyHry/enemy/4.png"));
-                image2 = image2.getScaledInstance(32, 32, Image.SCALE_FAST);
+                image2 = image2.getScaledInstance(48, 48, Image.SCALE_FAST);
             } catch (IOException e) {
                 e.printStackTrace();
             }
