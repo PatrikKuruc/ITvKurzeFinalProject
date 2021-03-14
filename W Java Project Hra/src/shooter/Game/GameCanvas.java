@@ -27,7 +27,7 @@ public class GameCanvas extends JPanel {
     /**
      * Creates panel
      *
-     * @param gameProperties propertios of the game
+     * @param gameProperties properties of the game
      * @throws FileNotFoundException FileNotFoundException
      */
     public GameCanvas(Properties gameProperties) throws FileNotFoundException {
