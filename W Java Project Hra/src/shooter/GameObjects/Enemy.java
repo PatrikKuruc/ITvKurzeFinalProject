@@ -10,7 +10,9 @@ import shooter.Game.SoundEffect;
 public class Enemy extends MovingGameObject {
 
     private SoundEffect soundEffect;
-    private int healthZombie = 100;
+    protected int healthZombie = 100;
+    protected int radius;
+    protected int score;
 
     /**
      * Creates object of enemy type.
@@ -30,6 +32,8 @@ public class Enemy extends MovingGameObject {
         super.loadImage();
         velX = Settings.enemySpeed;
         velY = Settings.enemySpeed;
+        this.radius = 200;
+        this.score = 1;
     }
 
     /**
@@ -43,7 +47,7 @@ public class Enemy extends MovingGameObject {
             healthZombie -= 50;
             if (healthZombie <= 0) {
                 handler.removeObject(this);
-                handler.score++;
+                handler.score+=this.score;
 
                 soundEffect = new SoundEffect();
                 soundEffect.setFileZomebieDeath();
@@ -66,7 +70,7 @@ public class Enemy extends MovingGameObject {
 
         double distance = Math.sqrt(Math.pow(angleX, 2) + Math.pow(angleY, 2));
 
-        if (Math.abs(distance) < 200) {
+        if (Math.abs(distance) < radius) {
 
             if (Math.abs(angleX) > 1) {
                 vecX = (float) (angleX * 2 / distance);
@@ -76,7 +80,7 @@ public class Enemy extends MovingGameObject {
             }
         }
 
-        if (Math.abs(distance) > 200) {
+        if (Math.abs(distance) > radius) {
             vecX = 0;
             vecY = 0;
         }
