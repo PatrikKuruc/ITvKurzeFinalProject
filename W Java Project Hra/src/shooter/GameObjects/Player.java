@@ -2,6 +2,7 @@ package shooter.GameObjects;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -33,11 +34,12 @@ public class Player extends MovingGameObject {
      * Loads the parameters of the player.
      */
     private void loadParameters() {
-        try (InputStream input = new FileInputStream("src/playerConfig.properties")) {
+        try (InputStream input = new FileInputStream("src/Resources/playerConfig.properties")) {
             Properties playerProp = new Properties();
             playerProp.load(input);
 
             image = ImageIO.read(new File(playerProp.getProperty("ImagePath")));
+            image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
             this.ID = Integer.parseInt(playerProp.getProperty("ID"));
             this.height = Integer.parseInt(playerProp.getProperty("Height"));
             this.width = Integer.parseInt(playerProp.getProperty("Width"));

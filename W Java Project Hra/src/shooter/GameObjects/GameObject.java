@@ -51,7 +51,7 @@ public abstract class GameObject extends JComponent {
      * Loads the image of the game object.
      */
     public void loadImage() {
-    	try (InputStream input = new FileInputStream("src/imageID.properties")) {
+    	try (InputStream input = new FileInputStream("src/Resources/imageID.properties")) {
             Properties imageIDprop = new Properties();
             imageIDprop.load(input);
             String objectID = String.valueOf(ID);

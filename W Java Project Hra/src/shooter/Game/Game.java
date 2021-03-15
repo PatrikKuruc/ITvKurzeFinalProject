@@ -50,7 +50,7 @@ public class Game extends JFrame {
      */
     private void loadGameSettings() {
         try {
-            InputStream input = new FileInputStream("src/gameConfig.properties");
+            InputStream input = new FileInputStream("src/Resources/gameConfig.properties");
             gameProperties = new Properties();
             gameProperties.load(input);
             this.WINDOW_HEIGHT = Integer.parseInt(gameProperties.getProperty("WindowHeight"));
