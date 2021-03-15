@@ -40,7 +40,7 @@ public class PanelVyber extends JPanel {
         ImageFileList = new ArrayList<File>();
         ImageFileList = loadImages("obr/objektyHry");
 
-        writeImagesToProperties();
+        //writeImagesToProperties();
 		createMapGenObjectBtns();
 		timer.start();
 	}

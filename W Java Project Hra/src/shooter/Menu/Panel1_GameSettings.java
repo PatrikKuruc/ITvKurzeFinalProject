@@ -29,7 +29,7 @@ import javax.swing.JLabel;
 /**
  * Class Panel1_PlayerSettings creates settings for player in the menu.
  */
-public class Panel1_PlayerSettings extends JPanel {
+public class Panel1_GameSettings extends JPanel {
 	
 	Font font = new Font("Segoe Script", Font.BOLD, 20);
 
@@ -38,7 +38,7 @@ public class Panel1_PlayerSettings extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Panel1_PlayerSettings() {
+	public Panel1_GameSettings() {
 		try {
 			FileInputStream FISplayerConfig = new FileInputStream("src/playerConfig.properties");
 			playerConfig.load(FISplayerConfig);
@@ -62,14 +62,6 @@ public class Panel1_PlayerSettings extends JPanel {
 		createChooseMapComponents();
 
 		setVisible(false);
-		
-		/*Border vonkajsi = BorderFactory.createEmptyBorder(20,20,20,20);
-		//Border vnutorny = BorderFactory.createLineBorder(Color.DARK_GRAY);
-		Border vnutorny = BorderFactory.createTitledBorder("Nastavenia hraca");
-		Border zlozeny = BorderFactory.createCompoundBorder(vonkajsi, vnutorny); 
-		setBorder(zlozeny);*/
-		
-		//setBorder(BorderFactory.createEtchedBorder());	// vystupeny panel, akoby schodik, pri obr. na pozadi nevidno
 		
 	}
 
@@ -110,7 +102,6 @@ public class Panel1_PlayerSettings extends JPanel {
 				}
 			}
 		};
-			
 		
 		comboBox2.addItemListener(chooseMapListener);
 		add(comboBox2);
@@ -142,27 +133,17 @@ public class Panel1_PlayerSettings extends JPanel {
 
 		ButtonGroup bg = new ButtonGroup();
 
-		ActionListener choseDifficultyListener = new ActionListener() {
-			
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Beginner");
+		rdbtnNewRadioButton.setBounds(45, 50, 109, 23);
+		rdbtnNewRadioButton.setForeground(Color.WHITE);
+		rdbtnNewRadioButton.setOpaque(false);
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String difficulty = e.getActionCommand();
-				Double difficultyLvl;
-				
-				if (difficulty.equalsIgnoreCase("beginner")) {
-					difficultyLvl = 1.0;
-				}
-				else if (difficulty.equalsIgnoreCase("middle")) {
-					difficultyLvl = 1.3;
-				}
-				else {
-					difficultyLvl = 1.5;
-				}
-				
-				difficulty = String.valueOf(difficultyLvl);
-				
 				try {
-					gameConfig.setProperty("Difficulty", difficulty);
+					gameConfig.setProperty("Difficulty", "1");
+
 					FileOutputStream fos;
 					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
 					fos.close();
@@ -171,33 +152,62 @@ public class Panel1_PlayerSettings extends JPanel {
 				catch (IOException vynimka1) {
 
 				}
+
 			}
-		};
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Beginner");
-		rdbtnNewRadioButton.setBounds(45, 50, 110, 25);
-		rdbtnNewRadioButton.setForeground(Color.WHITE);
-		rdbtnNewRadioButton.setOpaque(false);
-		rdbtnNewRadioButton.addActionListener(choseDifficultyListener);
+		});
 		add(rdbtnNewRadioButton);
 
 		bg.add(rdbtnNewRadioButton);
 
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Middle");
 		rdbtnNewRadioButton_1.setOpaque(false);
-		rdbtnNewRadioButton_1.setBounds(45, 70, 110, 25);
+		rdbtnNewRadioButton_1.setBounds(45, 73, 109, 23);
 		rdbtnNewRadioButton_1.setForeground(Color.WHITE);
 		rdbtnNewRadioButton_1.setOpaque(false);
-		rdbtnNewRadioButton_1.addActionListener(choseDifficultyListener);
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					gameConfig.setProperty("Difficulty", "1.3");
+
+					FileOutputStream fos;
+					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					fos.close();
+				}
+
+				catch (IOException vynimka1) {
+
+				}
+
+			}
+		});
 
 		add(rdbtnNewRadioButton_1);
 		bg.add(rdbtnNewRadioButton_1);
 
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Advanced");
-		rdbtnNewRadioButton_2.setBounds(45, 90, 110, 25);
+		rdbtnNewRadioButton_2.setBounds(45, 96, 109, 23);
 		rdbtnNewRadioButton_2.setForeground(Color.WHITE);
 		rdbtnNewRadioButton_2.setOpaque(false);
-		rdbtnNewRadioButton_2.addActionListener(choseDifficultyListener);
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					gameConfig.setProperty("Difficulty", "1.5");
+
+					FileOutputStream fos;
+					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					fos.close();
+				}
+
+				catch (IOException vynimka1) {
+
+				}
+
+			}
+		});
 		add(rdbtnNewRadioButton_2);
 		bg.add(rdbtnNewRadioButton_2);
 

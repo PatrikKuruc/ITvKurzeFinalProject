@@ -39,7 +39,7 @@ public class ContentPanel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(panelVyber);
 		scrollPane.setBounds(200, 10, 650, 80);
 		add(scrollPane);
-		
+		/*
 		String ItemsList[]= {"Walls","Ground","Enemy","Items","Player"};
 		JList<String> comboBox = new JList<>(ItemsList);
 		
@@ -51,6 +51,7 @@ public class ContentPanel extends JPanel {
 		loadItemsButton.setBounds(850, 30, 50, 30);
 		loadItemsButton.addActionListener(e -> panelVyber.setVybranyZoznam(comboBox.getSelectedValue()));
 		add(loadItemsButton);
+		*/
 	}
 	
 	private void createMapGenButtons() {

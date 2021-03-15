@@ -28,7 +28,7 @@ public class HandlerMapGen {
 	}
 
 	private void loadDefaultMap() {
-		File suborMapy = new File("mapy/defaultMap.txt");
+		File suborMapy = new File("mapy/defaultMapGenMap.txt");
 		try {
 			Scanner scanner = new Scanner(suborMapy);
 		

@@ -3,332 +3,786 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="shooter.Menu.ContentPanel" project="Java Project Hra" 
     file="/Java Project Hra/src/shooter/Menu/ContentPanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="440" y="313"/>    
+    <position height="-1" width="-1" x="601" y="454"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="shooter.Menu.Panel0_Menu" project="Java Project Hra" 
-    file="/Java Project Hra/src/shooter/Menu/Panel0_Menu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="199" y="434"/>    
+  <class id="2" language="java" name="shooter.Menu.JTextFieldLimit" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Menu/JTextFieldLimit.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="214" x="260" y="162"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="shooter.Menu.Menu" project="Java Project Hra" 
+  <class id="3" language="java" name="shooter.Menu.PlayerInfo" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Menu/PlayerInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="204" x="33" y="602"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="shooter.Menu.Panel1_GameSettings" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Menu/Panel1_GameSettings.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="227" x="277" y="602"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="shooter.Menu.Database" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Menu/Database.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="202" x="544" y="1101"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="shooter.Menu.Menu" project="Java Project Hra" 
     file="/Java Project Hra/src/shooter/Menu/Menu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="450" y="174"/>    
+    <position height="171" width="151" x="741" y="162"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="shooter.Menu.Panel2_HighScore" project="Java Project Hra" 
+  <class id="7" language="java" name="shooter.Menu.Panel2_HighScore" project="Java Project Hra" 
     file="/Java Project Hra/src/shooter/Menu/Panel2_HighScore.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="354" y="434"/>    
+    <position height="459" width="201" x="544" y="602"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="shooter.Menu.Panel3_Settings" project="Java Project Hra" 
+  <class id="8" language="java" name="shooter.Menu.Panel3_Settings" project="Java Project Hra" 
     file="/Java Project Hra/src/shooter/Menu/Panel3_Settings.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="517" y="434"/>    
+    <position height="189" width="149" x="806" y="602"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="shooter.Menu.Panel1_PlayerSettings" project="Java Project Hra" 
-    file="/Java Project Hra/src/shooter/Menu/Panel1_PlayerSettings.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="692" y="434"/>    
+  <class id="9" language="java" name="shooter.mapGen.ContentPanel" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/ContentPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="165" x="1283" y="457"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="shooter.Game.Handler" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/Hra/Handler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1373" y="723"/>    
+  <class id="10" language="java" name="shooter.mapGen.PanelVyber" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/PanelVyber.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="181" x="1488" y="210"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="shooter.Game.MapLoader" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/Hra/nahravacMapy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="143" x="1233" y="97"/>    
+  <class id="11" language="java" name="shooter.mapGen.MouseAdapterMapGen" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/MouseAdapterMapGen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="222" x="1769" y="457"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="shooter.Game.Settings" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/Hra/Settings.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="187" x="1006" y="97"/>    
+  <class id="12" language="java" name="shooter.mapGen.GeneratorMapy" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/GeneratorMapy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="123" x="1304" y="210"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="shooter.Game.GameCanvas" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/Hra/Platno.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="178" x="1416" y="97"/>    
+  <class id="13" language="java" name="shooter.mapGen.ObjectBtn" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/ObjectBtn.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="220" x="1488" y="457"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="shooter.Game.UserInput" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/Hra/UserInput.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1627" y="1256"/>    
+  <class id="14" language="java" name="shooter.mapGen.HandlerMapGen" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/HandlerMapGen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="211" x="1729" y="722"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="shooter.Game.Game" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/Hra/Game.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="87" x="1867" y="97"/>    
+  <class id="15" language="java" name="shooter.mapGen.ObjektJComp" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/ObjektJComp.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="237" x="1729" y="1059"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="shooter.GameObjects.Grass" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/Trava.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="614" y="975"/>    
+  <class id="16" language="java" name="shooter.mapGen.CanvasMapGen" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/mapGen/CanvasMapGen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="188" x="1824" y="210"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="shooter.GameObjects.Player" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/Player.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1314" y="1356"/>    
+  <class id="17" language="java" name="shooter.GameObjects.GameObject" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/GameObject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="158" x="441" y="-17"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="shooter.GameObjects.MovingGameObject" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/PohyblivyObjektHry.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1040" y="1137"/>    
+  <class id="18" language="java" name="shooter.GameObjects.EnemyShot" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/EnemyShot.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="220" x="153" y="855"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="shooter.GameObjects.Shot" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/Strela.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="933" y="1463"/>    
+  <class id="19" language="java" name="shooter.GameObjects.Player" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="220" x="673" y="855"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="shooter.GameObjects.Wall" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/Stena.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="816" y="984"/>    
+  <class id="20" language="java" name="shooter.GameObjects.Wall" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/Wall.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="182" x="219" y="356"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="shooter.GameObjects.Enemy" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/Enemy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1109" y="1458"/>    
+  <class id="21" language="java" name="shooter.GameObjects.Shot" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/Shot.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="220" x="933" y="855"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="shooter.GameObjects.Item" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/Item.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="755" y="1315"/>    
+  <class id="22" language="java" name="shooter.GameObjects.Grass" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/Grass.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="192" x="441" y="356"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="shooter.GameObjects.GameObject" project="Java Project Hra"
-    file="/Java Project Hra/src/shooter/ObjektyHry/ObjektHry.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="808" y="728"/>    
+  <class id="23" language="java" name="shooter.GameObjects.MamaZombie" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/MamaZombie.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="225" x="413" y="1084"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="21">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="22" name="contentPane">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="25" name="pohybliveObjekty">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="26" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <association id="28">    
+  <class id="24" language="java" name="shooter.GameObjects.Enemy" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/Enemy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="220" x="413" y="855"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="shooter.GameObjects.MovingGameObject" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/MovingGameObject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="230" x="673" y="356"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="shooter.GameObjects.Item" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/GameObjects/Item.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="220" x="1193" y="855"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="shooter.Game.MapLoader" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/MapLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="256" x="1211" y="-212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="shooter.Game.GameCanvas" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/GameCanvas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="178" x="1507" y="-212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="shooter.Game.PopupWindow" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/PopupWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="190" x="1785" y="966"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="shooter.Game.SoundEffect" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/SoundEffect.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="170" x="1745" y="1195"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="shooter.Game.Game" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/Game.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="156" x="1547" y="966"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="shooter.Game.Handler" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/Handler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="513" width="192" x="1724" y="413"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="shooter.Game.UserInput" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/UserInput.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="585" width="193" x="1958" y="-212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="shooter.Game.Settings" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/Settings.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="127" x="1044" y="-212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="shooter.Game.GameTimer" project="Java Project Hra" 
+    file="/Java Project Hra/src/shooter/Game/GameTimer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="193" x="1725" y="-212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="36">    
+    <bendpoint x="1738" y="457"/>    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="29" name="handler">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="37" name="handler"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="31">    
+  <association id="39">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="40" name="defaultMap"/>      
+      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <bendpoint x="1754" y="966"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="43" name="soundEffectFinalBosssPawn"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="46" name="soundEffectButtonClick"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="32" name="panel1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="49" name="menu"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <association id="35">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="36" name="handler">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="39" name="handler">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="40" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="42" name="handler">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="43" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <association id="46">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="47" name="statickeObjekty">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="48" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
+  <association id="51">    
+    <bendpoint x="775" y="602"/>    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="50" name="panel2">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="51" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="53" name="panel3">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="54" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="52" name="database"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="55">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="20"/>  
+  <association id="54">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="55" name="handler"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="58" name="playerList"/>      
+      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="61" name="itemsList"/>      
+      <multiplicity id="62" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <bendpoint x="1967" y="413"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="64" name="userInput"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="67" name="mouseAdapter"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="70" name="soundEffectGameOver"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <bendpoint x="1946" y="413"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="73" name="popupWindow"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="76" name="handler"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="17"/>  
   </generalization>  
-  <generalization id="56">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <generalization id="57">    
+  <association id="79">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="80" name="handler"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="83" name="soundEffectLoser"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <bendpoint x="2021" y="457"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="86" name="handler"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="89" name="soundEffectButtonClick"/>      
+      <multiplicity id="90" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="91">    
     <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="15"/>  
+    <end type="TARGET" refId="25"/>  
   </generalization>  
+  <generalization id="92">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <association id="93">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="94" name="handler"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="97" name="handler"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="100" name="handler"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="103" name="soundEffectZombieDeath"/>      
+      <multiplicity id="104" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="106" name="database"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="108">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="109" name="wallList"/>      
+      <multiplicity id="110" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="111">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="112" name="enemyList"/>      
+      <multiplicity id="113" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="114">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="116">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="117" name="soundEffect"/>      
+      <multiplicity id="118" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="119">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="120" name="groundList"/>      
+      <multiplicity id="121" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="122">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="123" name="currentMap"/>      
+      <multiplicity id="124" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="126" name="handler"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="129" name="movingObjects"/>      
+      <multiplicity id="130" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="131">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="132" name="popupWindow"/>      
+      <multiplicity id="133" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="135" name="soundEffectBegin"/>      
+      <multiplicity id="136" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="137">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="138" name="panel2"/>      
+      <multiplicity id="139" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="140">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="141">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="142" name="game"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="145" name="soundEffectYouWon"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="148" name="objektyNaZmazanie"/>      
+      <multiplicity id="149" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="151" name="soundEffectWinner"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="154" name="handler"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="156">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <association id="157">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="158" name="database"/>      
+      <multiplicity id="159" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <bendpoint x="1733" y="966"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="161" name="soundEffectShoot"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="163">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="164" name="soundEffectHighScore"/>      
+      <multiplicity id="165" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="166">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="167" name="handler"/>      
+      <multiplicity id="168" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="169">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="170" name="handler"/>      
+      <multiplicity id="171" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="172">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="173" name="handler"/>      
+      <multiplicity id="174" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="175">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="176" name="handler"/>      
+      <multiplicity id="177" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="178">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="179" name="contentPane"/>      
+      <multiplicity id="180" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="182" name="handler"/>      
+      <multiplicity id="183" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="184">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <association id="185">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="186" name="soundEffectItemPickUp"/>      
+      <multiplicity id="187" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="188">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="189" name="handler"/>      
+      <multiplicity id="190" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="191">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="192" name="panel3"/>      
+      <multiplicity id="193" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="194">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="195" name="panel1"/>      
+      <multiplicity id="196" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="197">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="198" name="souneEffectContentPanel"/>      
+      <multiplicity id="199" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="200">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="201">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="202" name="staticObjects"/>      
+      <multiplicity id="203" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

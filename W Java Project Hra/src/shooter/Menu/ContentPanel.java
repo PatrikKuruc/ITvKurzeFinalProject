@@ -22,7 +22,7 @@ import javax.swing.ImageIcon;
  */
 public class ContentPanel extends JPanel {
 
-    public static Panel1_PlayerSettings panel1;
+    public static Panel1_GameSettings panel1;
     public static Panel2_HighScore panel2;
     public static Panel3_Settings panel3;
     public static Menu menu;
@@ -50,7 +50,7 @@ public class ContentPanel extends JPanel {
      * Loads all the panels.
      */
     private void loadPanels() {
-        panel1 = new Panel1_PlayerSettings();
+        panel1 = new Panel1_GameSettings();
         panel2 = new Panel2_HighScore();
         panel3 = new Panel3_Settings();
 
