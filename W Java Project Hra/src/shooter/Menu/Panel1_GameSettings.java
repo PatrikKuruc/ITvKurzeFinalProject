@@ -40,11 +40,11 @@ public class Panel1_GameSettings extends JPanel {
 	 */
 	public Panel1_GameSettings() {
 		try {
-			FileInputStream FISplayerConfig = new FileInputStream("src/playerConfig.properties");
+			FileInputStream FISplayerConfig = new FileInputStream("src/Resources/playerConfig.properties");
 			playerConfig.load(FISplayerConfig);
 			FISplayerConfig.close();
 			
-			FileInputStream FISgameConfig = new FileInputStream("src/gameConfig.properties");
+			FileInputStream FISgameConfig = new FileInputStream("src/Resources/gameConfig.properties");
 			gameConfig.load(FISgameConfig);
 			FISgameConfig.close();
 			
@@ -93,7 +93,7 @@ public class Panel1_GameSettings extends JPanel {
 				try {
 					gameConfig.setProperty("Map", chosenMap);
 					FileOutputStream fos;
-					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					gameConfig.store(fos = new FileOutputStream("src/Resources/gameConfig.properties"), null);
 					fos.close();
 				}
 
@@ -145,7 +145,7 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.setProperty("Difficulty", "1");
 
 					FileOutputStream fos;
-					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					gameConfig.store(fos = new FileOutputStream("src/Resources/gameConfig.properties"), null);
 					fos.close();
 				}
 
@@ -172,7 +172,7 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.setProperty("Difficulty", "1.3");
 
 					FileOutputStream fos;
-					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					gameConfig.store(fos = new FileOutputStream("src/Resources/gameConfig.properties"), null);
 					fos.close();
 				}
 
@@ -198,7 +198,7 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.setProperty("Difficulty", "1.5");
 
 					FileOutputStream fos;
-					gameConfig.store(fos = new FileOutputStream("src/gameConfig.properties"), null);
+					gameConfig.store(fos = new FileOutputStream("src/Resources/gameConfig.properties"), null);
 					fos.close();
 				}
 
@@ -266,7 +266,7 @@ public class Panel1_GameSettings extends JPanel {
 					playerConfig.setProperty("ImagePath", "obr/hrac/" + hrac + "/3.png");
 
 					FileOutputStream fos;
-					playerConfig.store(fos = new FileOutputStream("src/playerConfig.properties"), null);
+					playerConfig.store(fos = new FileOutputStream("src/Resources/playerConfig.properties"), null);
 					fos.close();
 				}
 
