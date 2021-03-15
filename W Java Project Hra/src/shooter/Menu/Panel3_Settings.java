@@ -78,7 +78,7 @@ public class Panel3_Settings extends JPanel {
 		speedSettings.setFont(font);
 		speedSettings.setForeground(Color.WHITE);
 		speedSettings.setOpaque(false);
-		speedSettings.setText("Speed settings:");
+		speedSettings.setText("FPS settings:");
 		speedSettings.setEditable(false);
 		add(speedSettings);
 

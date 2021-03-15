@@ -15,18 +15,18 @@ import javax.swing.JComponent;
 public class ObjektJComp extends JComponent{
 	
 	private HandlerMapGen handler;
-	private int poziciaX;
-	private int poziciaY;
+	private int posX;
+	private int posY;
 	private Image image;
 	private double ID;
 	private String imagePath;
 	private String IDstring;
 	
-	public ObjektJComp(Double ID, int poziciaX, int poziciaY, HandlerMapGen handlerMapGen) {
+	public ObjektJComp(Double ID, int posX, int posY, HandlerMapGen handlerMapGen) {
 		this.ID = ID;
 		this.IDstring = Double.toString(this.ID);
-		this.poziciaX = poziciaX;
-		this.poziciaY = poziciaY;
+		this.posX = posX;
+		this.posY = posY;
 		this.handler = handlerMapGen;
 		nacitajObrazok();
 	}
@@ -38,9 +38,8 @@ public class ObjektJComp extends JComponent{
             prop.load(input);
             
             this.imagePath = prop.getProperty(IDstring);
-            //System.out.println("Vytvoreny objekt s ID: " + IDstring + " a imagePath: " + imagePath);
             image = ImageIO.read(new File(imagePath));
-			image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
+			image = image.getScaledInstance(handler.tileSize, handler.tileSize, Image.SCALE_FAST);
             
 		} catch (IOException ex) {
 			 ex.printStackTrace();
@@ -54,23 +53,23 @@ public class ObjektJComp extends JComponent{
      */
     public void vykresli(Graphics gr) {
     	Graphics2D g = (Graphics2D) gr.create();
-		g.drawImage(image, poziciaX, poziciaY, null);
+		g.drawImage(image, posX, posY, null);
 		g.dispose();	
     }
 
 	public int getPoziciaX() {
-		return poziciaX;
+		return posX;
 	}
 
 	public int getPoziciaY() {
-		return poziciaY;
+		return posY;
 	}
     
 	public void setX(int x) {
-		poziciaX = x;
+		posX = x;
 	}
 	public void setY(int y) {
-		poziciaY = y;
+		posY = y;
 	}
 
 	public Double getID() {

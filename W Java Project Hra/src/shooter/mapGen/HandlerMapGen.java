@@ -15,18 +15,21 @@ public class HandlerMapGen {
 	
 	private ArrayList<ObjektJComp> defaultMap;
 	private ArrayList<ObjektJComp> currentMap;
-	private ArrayList<ObjektJComp> objektyNaZmazanie;
-	protected int velkostPolicka = 32;
-	private double SelectedItemID=1.1D;
-	private PrintWriter zapisovac;
+	private ArrayList<ObjektJComp> objectToRemove;
+	protected int tileSize = 32;
+	private double SelectedItemID = 1.1;
+	private PrintWriter writer;
 	
 	public HandlerMapGen() {
 		defaultMap = new ArrayList<>();
 		currentMap = new ArrayList<>();
-		objektyNaZmazanie = new ArrayList<>();
+		objectToRemove = new ArrayList<>();
 		loadDefaultMap();
 	}
 
+	/**
+	 * Loads items for default map.
+	 */
 	private void loadDefaultMap() {
 		File suborMapy = new File("mapy/defaultMapGenMap.txt");
 		try {
@@ -34,15 +37,13 @@ public class HandlerMapGen {
 		
         // adds game objects to the object list according to the map location
         while (scanner.hasNextLine()) {
-            String riadok = scanner.nextLine();
+            String[] splitLine = scanner.nextLine().split(",");            // splits the string into the array of strings ","
 
-            String[] riadokPole = riadok.split(",");            // splits the string into the array of strings ","
+            double newObjectID = Double.parseDouble(splitLine[0]);
+            int newObjectPozX = Integer.parseInt(splitLine[1]);
+            int newObjectPozY = Integer.parseInt(splitLine[2]);
 
-            double newObjectID = Double.parseDouble(riadokPole[0]);
-            int newObjectPoziciaX = Integer.parseInt(riadokPole[1]);
-            int newObjectPoziciaY = Integer.parseInt(riadokPole[2]);
-
-            defaultMap.add(new ObjektJComp(newObjectID, newObjectPoziciaX, newObjectPoziciaY, this));
+            defaultMap.add(new ObjektJComp(newObjectID, newObjectPozX, newObjectPozY, this));
         }
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -52,21 +53,21 @@ public class HandlerMapGen {
 	
 	public void addObjetOnCanvas(double ID, int x, int y) {
 		SelectedItemID = ID;
-		int pozX = x/velkostPolicka;
-		int pozY = y/velkostPolicka;
-		currentMap.add(new ObjektJComp(SelectedItemID, pozX*velkostPolicka, pozY*velkostPolicka, this));
+		int pozX = x/tileSize;
+		int pozY = y/tileSize;
+		currentMap.add(new ObjektJComp(SelectedItemID, pozX*tileSize, pozY*tileSize, this));
 	}
 	
 	public void deleteObjectsAt(int x, int y) {
-		int pozX = x/velkostPolicka;
-		int pozY = y/velkostPolicka;
-		for (ObjektJComp objektJComp : currentMap) {
-			ObjektJComp obj = objektJComp;
-			if (obj.getPoziciaX()/velkostPolicka == pozX && obj.getPoziciaY()/velkostPolicka==pozY) {
-				objektyNaZmazanie.add(objektJComp);
+		int pozX = x/tileSize;
+		int pozY = y/tileSize;
+		for (ObjektJComp object : currentMap) {
+			ObjektJComp obj = object;
+			if (obj.getPoziciaX()/tileSize == pozX && obj.getPoziciaY()/tileSize==pozY) {
+				objectToRemove.add(object);
 			}
 		}
-		currentMap.removeAll(objektyNaZmazanie);
+		currentMap.removeAll(objectToRemove);
 	}
 	
 	public void setDefaultMap() {
@@ -79,8 +80,8 @@ public class HandlerMapGen {
 	}
 	
 	public void drawObjects(Graphics2D g2) {
-		for (ObjektJComp objektJComp : currentMap) {
-			objektJComp.vykresli(g2);
+		for (ObjektJComp object : currentMap) {
+			object.vykresli(g2);
 		}
 	}
 	
@@ -93,25 +94,21 @@ public class HandlerMapGen {
 	}
 
 	public void saveMap() {
-		String newMapName = JOptionPane.showInputDialog("zadaj nazov mapy");
+		String newMapName = JOptionPane.showInputDialog("Choose map name:");
 		File newMap = new File("mapy/custom/"+newMapName+".txt");
 		
 		try {
 			newMap.createNewFile();
-			zapisovac = new PrintWriter(newMap);
+			writer = new PrintWriter(newMap);
 			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		for (ObjektJComp objektMapy : currentMap) {
-			zapisovac.write(objektMapy.getID() + "," + objektMapy.getPoziciaX() + "," + objektMapy.getPoziciaY() + "," + velkostPolicka + "," + velkostPolicka + "\n");
+		for (ObjektJComp object : currentMap) {
+			writer.write(object.getID() + "," + object.getPoziciaX() + "," + object.getPoziciaY() + "," + tileSize + "," + tileSize + "\n");
 		}
-		zapisovac.flush();
-		zapisovac.close();
+		writer.flush();
+		writer.close();
 	}
 }

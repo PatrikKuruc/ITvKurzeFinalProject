@@ -15,16 +15,12 @@ import java.util.Properties;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class PanelVyber extends JPanel {
+public class ItemsPanel extends JPanel {
 
 	private Timer timer = new Timer(60, e -> repaint());
 	private HandlerMapGen handler;
 	private List<File> ImageFileList;
 	
-	private ArrayList<ObjectBtn> groundList = new ArrayList<>();
-	private ArrayList<ObjectBtn> wallList = new ArrayList<>();
-	private ArrayList<ObjectBtn> playerList = new ArrayList<>();
-	private ArrayList<ObjectBtn> enemyList = new ArrayList<>();
 	private ArrayList<ObjectBtn> itemsList = new ArrayList<>();
 	
 	
@@ -32,7 +28,7 @@ public class PanelVyber extends JPanel {
 	 * Create PanelVyber
 	 * @param handler Map Generator Handler
 	 */
-	public PanelVyber(HandlerMapGen handler) {
+	public ItemsPanel(HandlerMapGen handler) {
 		this.handler=handler;
         setLayout(new GridLayout(0, 15, 10, 10));
         
@@ -100,23 +96,22 @@ public class PanelVyber extends JPanel {
 				}
 				imageID = imageTyp+imageID;
 				
-				// System.out.println(imageID + " " + imagePath);
-				// zapis do properties
 				imageSrc.setProperty(imageID, imagePath);
 			}
 			imageSrc.store(output, null);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Creates objects from imageID.Properties 
+	 */
 	private void createMapGenObjectBtns() {
 		try (InputStream input = new FileInputStream("src/imageID.properties")) {
             Properties imageSrc = new Properties();
             imageSrc.load(input);
 
-            // vytvori vsetky objekty v imageID.Properties
             imageSrc.forEach((key, value) -> addObject(key.toString(), value.toString()));
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -124,43 +119,10 @@ public class PanelVyber extends JPanel {
     }
 
 	private void addObject(String ID, String imagePath) {
-		if (ID.startsWith("0")) {
-			groundList.add(new ObjectBtn(ID, imagePath, handler));
-		}
-		else if (ID.startsWith("1")) {
-			wallList.add(new ObjectBtn(ID, imagePath, handler));
-		}
-		else if (ID.startsWith("2")) {
-			playerList.add(new ObjectBtn(ID, imagePath, handler));
-		}
-		else if (ID.startsWith("3")) {
-			enemyList.add(new ObjectBtn(ID, imagePath, handler));
-		}
-		else if (ID.startsWith("4")) {
-			itemsList.add(new ObjectBtn(ID, imagePath, handler));
-		}
+		itemsList.add(new ObjectBtn(ID, imagePath, handler));
 		
-		
-		for (int i = 0; i < groundList.size(); i++) {
-			add(groundList.get(i));
-		}
-		for (int i = 0; i < wallList.size(); i++) {
-			add(wallList.get(i));
-		}
-		for (int i = 0; i < enemyList.size(); i++) {
-			add(enemyList.get(i));
-		}
 		for (int i = 0; i < itemsList.size(); i++) {
 			add(itemsList.get(i));
 		}
-		for (int i = 0; i < playerList.size(); i++) {
-			add(playerList.get(i));
-		}
-	}
-
-	public void setVybranyZoznam(String selectedValue) {
-		// removeAll();
-		// selected value = walls/ground/enemy/items/player
-		System.out.println(selectedValue);
 	}
 }

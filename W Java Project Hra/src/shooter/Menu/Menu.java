@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import shooter.Game.Game;
 import shooter.Game.SoundEffect;
-import shooter.mapGen.GeneratorMapy;
+import shooter.mapGen.MapGenerator;
 
 /**
  * Class Menu creates the main frame for menu window.
@@ -69,7 +69,7 @@ public class Menu extends JFrame {
      * Runs the map generator.
      */
     public void runMapGen() {
-        GeneratorMapy game = new GeneratorMapy();
+    	MapGenerator game = new MapGenerator();
         game.run();
     }
 }

@@ -36,18 +36,18 @@ public class ObjectBtn extends JButton implements ActionListener{
 		this.handler = handlerMapGen;
 		this.imagePath = imagePath;
 		this.handler = handlerMapGen;
-		nacitajObr();
+		loadImage();
 		
 		setIcon(imageIcon);
-		setPreferredSize(new Dimension(handlerMapGen.velkostPolicka, handlerMapGen.velkostPolicka));
+		setPreferredSize(new Dimension(handlerMapGen.tileSize, handlerMapGen.tileSize));
 		setSize(getPreferredSize());
 		addActionListener(this);
 	}
 
-	private void nacitajObr() {
+	private void loadImage() {
 		try {
 			image = ImageIO.read(new File(this.imagePath));
-			image = image.getScaledInstance(handler.velkostPolicka, handler.velkostPolicka, Image.SCALE_FAST);
+			image = image.getScaledInstance(handler.tileSize, handler.tileSize, Image.SCALE_FAST);
 			imageIcon = new ImageIcon(image);
 		} catch (IOException e) {
 			e.printStackTrace();

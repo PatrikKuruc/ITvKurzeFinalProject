@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import shooter.Game.Game;
 import shooter.Game.Handler;
 import shooter.Game.SoundEffect;
-import shooter.mapGen.GeneratorMapy;
+import shooter.mapGen.MapGenerator;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -128,7 +128,7 @@ public class ContentPanel extends JPanel {
         });
         add(btnNewButton_2);
 
-        JButton btnNewButton_3 = new JButton("System Settings");
+        JButton btnNewButton_3 = new JButton("Settings");
         btnNewButton_3.setBounds(100, 300, 150, 30);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -148,8 +148,8 @@ public class ContentPanel extends JPanel {
                 souneEffectContentPanel.play();
 
                 menu.setVisible(false);
-                GeneratorMapy mapGen;
-                mapGen = new GeneratorMapy();
+                MapGenerator mapGen;
+                mapGen = new MapGenerator();
                 mapGen.run();
             }
         });

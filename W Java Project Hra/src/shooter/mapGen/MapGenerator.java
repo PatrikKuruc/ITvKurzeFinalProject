@@ -5,16 +5,18 @@ import java.io.FileNotFoundException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class GeneratorMapy extends JFrame {
+/**
+ * Class MapGenerator creates map generator window.
+ */
+public class MapGenerator extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 * @throws FileNotFoundException 
+	 * Runs the app frame.
 	 */
 	public void run(){
-		GeneratorMapy frame = new GeneratorMapy();
+		MapGenerator frame = new MapGenerator();
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
@@ -22,10 +24,9 @@ public class GeneratorMapy extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
-	 * @throws FileNotFoundException 
+	 * Create JFrame window of MapGenerator.
 	 */
-	public GeneratorMapy(){
+	public MapGenerator(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0, 1064, 960);
 		contentPane = new ContentPanel();
