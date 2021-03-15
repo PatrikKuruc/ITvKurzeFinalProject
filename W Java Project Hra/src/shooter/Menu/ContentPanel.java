@@ -128,7 +128,7 @@ public class ContentPanel extends JPanel {
         });
         add(btnNewButton_2);
 
-        JButton btnNewButton_3 = new JButton("Settings");
+        JButton btnNewButton_3 = new JButton("System Settings");
         btnNewButton_3.setBounds(100, 300, 150, 30);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
