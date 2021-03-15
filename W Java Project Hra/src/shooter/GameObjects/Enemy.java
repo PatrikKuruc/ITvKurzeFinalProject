@@ -31,7 +31,7 @@ public class Enemy extends MovingGameObject {
         super.loadImage();
         velX = Settings.enemySpeed;
         velY = Settings.enemySpeed;
-        this.radius = 200;
+        this.radius = 300;
     }
 
     /**

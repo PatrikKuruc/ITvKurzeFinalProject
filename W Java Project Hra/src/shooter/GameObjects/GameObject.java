@@ -51,83 +51,18 @@ public abstract class GameObject extends JComponent {
      * Loads the image of the game object.
      */
     public void loadImage() {
-    	
     	try (InputStream input = new FileInputStream("src/imageID.properties")) {
             Properties imageIDprop = new Properties();
             imageIDprop.load(input);
-
             String objectID = String.valueOf(ID);
-            
             String objectImagePath = imageIDprop.getProperty(objectID);
             image = ImageIO.read(new File(objectImagePath));
             image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
-            
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+    }
     	/*
-        double IDint = ID;
-
-        if (IDint == 0) {
-            try {
-                image = ImageIO.read(new File("obr/objektyHry/trava/5.png"));
-                image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (IDint == 1) {
-            try {
-                image = ImageIO.read(new File("obr/objektyHry/stena/11.png"));
-                image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (IDint == 3) {
-            try {
-                image = ImageIO.read(new File("obr/objektyHry/enemy/1.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (IDint == 4.1) {
-            try {
-                image = ImageIO.read(new File("obr/objektyHry/item/1.png"));
-                image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (IDint == 4.2) {
-            try {
-                image = ImageIO.read(new File("obr/objektyHry/item/2.png"));
-                image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (IDint == 5) {
-            try {
-                this.image = ImageIO.read(new File("obr/strela/1.png"));
-                image = image.getScaledInstance(15, 5, Image.SCALE_FAST);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (IDint == 6) {
-            try {
-                this.image = ImageIO.read(new File("obr/objektyHry/enemy/3.png"));
-                image = image.getScaledInstance(48, 48, Image.SCALE_FAST);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (ID == 7) {
-            try {
-                this.image = ImageIO.read(new File("obr/strela/4.png"));
-                image = image.getScaledInstance(513 / 10, 173 / 10, Image.SCALE_FAST);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
     }
 
     /**
