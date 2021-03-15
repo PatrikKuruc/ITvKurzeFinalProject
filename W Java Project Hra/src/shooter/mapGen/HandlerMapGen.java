@@ -94,7 +94,7 @@ public class HandlerMapGen {
 
 	public void saveMap() {
 		String newMapName = JOptionPane.showInputDialog("zadaj nazov mapy");
-		File newMap = new File("mapy/"+newMapName+".txt");
+		File newMap = new File("mapy/custom/"+newMapName+".txt");
 		
 		try {
 			newMap.createNewFile();

@@ -56,7 +56,9 @@ public abstract class GameObject extends JComponent {
             imageIDprop.load(input);
             String objectID = String.valueOf(ID);
             String objectImagePath = imageIDprop.getProperty(objectID);
+            
             image = ImageIO.read(new File(objectImagePath));
+            
             image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
         } catch (IOException ex) {
             ex.printStackTrace();

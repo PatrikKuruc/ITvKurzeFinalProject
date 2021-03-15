@@ -1,8 +1,12 @@
 package shooter.Game;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Properties;
 import java.util.Scanner;
 
 import shooter.GameObjects.*;
@@ -28,13 +32,29 @@ public class MapLoader {
      * @param handler handler
      * @throws FileNotFoundException FileNotFoundException
      */
-    public MapLoader(Handler handler) throws FileNotFoundException {
+    public MapLoader(Handler handler){
         this.handler = handler;
-        this.suborMapy = new File("mapy/testMovementofEnemy.txt");
-        this.scanner = new Scanner(suborMapy);
+        loadMapFile();
     }
 
-    /**
+    private void loadMapFile() {
+    	try {
+    		InputStream input = new FileInputStream("src/gameConfig.properties");
+    		Properties gameProp = new Properties();
+    		gameProp.load(input);
+    		
+    		String mapPath = "mapy\\" + gameProp.getProperty("Map"); 
+    		
+	    	this.suborMapy = new File(mapPath);
+			this.scanner = new Scanner(suborMapy);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
      * Loads the maps.
      */
     public void nahrajMapu() {
