@@ -29,7 +29,9 @@ public class Grass extends GameObject {
 
         this.width = newObjectWidth;
         this.height = newObjectHeight;
+        
         super.loadImage();
+        
     }
 
     /**

@@ -194,7 +194,7 @@ public class Handler {
             // spawns MamaZombie
             if (score == 1) {
                 for (Integer i : MapLoader.spawnPointMama.keySet()) {
-                    addObject(new MamaZombie(6, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
+                    addObject(new MamaZombie(6.0, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
 
                     soundEffect = new SoundEffect();
                     soundEffect.setFileFinalBossSpawn();
@@ -211,7 +211,7 @@ public class Handler {
                 for (Integer i : MapLoader.spawnPointEnemy.keySet()) {
 
                     if (counter == random) {
-                        addObject(new Enemy(3, i, MapLoader.spawnPointEnemy.get(i), blockSize, blockSize, this));
+                        addObject(new Enemy(3.1, i, MapLoader.spawnPointEnemy.get(i), blockSize, blockSize, this));
                     }
 
                     // speeds up the enemy movement

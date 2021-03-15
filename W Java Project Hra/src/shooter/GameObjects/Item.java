@@ -1,5 +1,7 @@
 package shooter.GameObjects;
 
+import java.awt.Image;
+
 import shooter.Game.Handler;
 import shooter.Game.SoundEffect;
 
@@ -27,6 +29,7 @@ public class Item extends MovingGameObject {
         this.width = newObjectWidth;
         this.height = newObjectHeight;
         super.loadImage();
+        image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
     }
 
     /**

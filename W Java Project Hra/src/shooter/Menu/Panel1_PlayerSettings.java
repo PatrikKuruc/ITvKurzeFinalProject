@@ -65,7 +65,6 @@ public class Panel1_PlayerSettings extends JPanel {
 		setOpaque(false);
 		setBackground(Color.white);
 		setLayout(null);
-		
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

@@ -73,10 +73,10 @@ public class Enemy extends MovingGameObject {
         if (Math.abs(distance) < radius) {
 
             if (Math.abs(angleX) > 1) {
-                vecX = (float) (angleX * 2 / distance);
+                vecX = (angleX * 2 / distance);
             }
             if (Math.abs(angleY) > 1) {
-                vecY = (float) (angleY * 2 / distance);
+                vecY = (angleY * 2 / distance);
             }
         }
 

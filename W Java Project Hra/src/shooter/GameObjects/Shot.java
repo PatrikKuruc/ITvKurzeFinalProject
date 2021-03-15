@@ -1,5 +1,7 @@
 package shooter.GameObjects;
 
+import java.awt.Image;
+
 import shooter.Game.Handler;
 import shooter.Game.UserInput;
 
@@ -20,6 +22,8 @@ public class Shot extends MovingGameObject {
         super(positionX, positionY, handler);
         this.ID = ID;
         super.loadImage();
+        image = image.getScaledInstance(15, 5, Image.SCALE_FAST);
+        
         this.destinationX = UserInput.getMouseX();
         this.destinationY = UserInput.getMouseY();
         this.width = 15;
@@ -33,8 +37,8 @@ public class Shot extends MovingGameObject {
 
         // calculates the movement vectors of the shot
         double distance = Math.sqrt(Math.pow(angleX, 2) + Math.pow(angleY, 2));
-        vecX = (float) (angleX * 20 / distance);
-        vecY = (float) (angleY * 20 / distance);
+        vecX =  (angleX * 20 / distance);
+        vecY =  (angleY * 20 / distance);
         this.rectangle.setBounds(positionX, positionY, 10, 10);
     }
 

@@ -33,8 +33,8 @@ public class EnemyShot extends MovingGameObject {
 
         // calculates the movement vectors of the shot
         double distance = Math.sqrt(Math.pow(angleX, 2) + Math.pow(angleY, 2));
-        vecX = (float) (angleX * 20 / distance);
-        vecY = (float) (angleY * 20 / distance);
+        vecX = (angleX * 20 / distance);
+        vecY = (angleY * 20 / distance);
     }
 
     /**

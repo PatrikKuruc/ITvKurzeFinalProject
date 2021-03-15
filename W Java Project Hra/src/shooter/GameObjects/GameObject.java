@@ -2,7 +2,10 @@ package shooter.GameObjects;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
@@ -48,7 +51,22 @@ public abstract class GameObject extends JComponent {
      * Loads the image of the game object.
      */
     public void loadImage() {
+    	
+    	try (InputStream input = new FileInputStream("src/imageID.properties")) {
+            Properties imageIDprop = new Properties();
+            imageIDprop.load(input);
 
+            String objectID = String.valueOf(ID);
+            
+            String objectImagePath = imageIDprop.getProperty(objectID);
+            image = ImageIO.read(new File(objectImagePath));
+            image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    	/*
         double IDint = ID;
 
         if (IDint == 0) {
@@ -109,7 +127,7 @@ public abstract class GameObject extends JComponent {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
     /**

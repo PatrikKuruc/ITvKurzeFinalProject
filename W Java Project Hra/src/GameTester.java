@@ -11,8 +11,8 @@ public class GameTester {
 		// creates and runs the game
 		Menu game = new Menu();
 
-		game.run();
-		//game.runWithoutMenu();
+		//game.run();
+		game.runWithoutMenu();
 		//game.runMapGen();
 	}
 }

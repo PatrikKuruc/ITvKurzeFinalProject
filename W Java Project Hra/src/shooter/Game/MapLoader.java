@@ -30,7 +30,7 @@ public class MapLoader {
      */
     public MapLoader(Handler handler) throws FileNotFoundException {
         this.handler = handler;
-        this.suborMapy = new File("mapy/mapa.txt");
+        this.suborMapy = new File("mapy/testMovementofEnemy.txt");
         this.scanner = new Scanner(suborMapy);
     }
 
@@ -52,11 +52,13 @@ public class MapLoader {
             int newObjectHeight = Integer.parseInt(riadokPole[4]);
 
             int ID = (int) newObjectID;
-
-            if (newObjectID == 1) {
+            
+            if (ID == 1) {
                 handler.addObject(new Wall(newObjectID, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
             } else if (ID != 1) {
-                handler.addObject(new Grass(0, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+            	if (ID == 0) {
+                handler.addObject(new Grass(newObjectID, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler));
+            	}
                 if (ID == 2) {
                     handler.addObject(new Player(newObjectPoziciaX, newObjectPoziciaY, handler));
                 }

@@ -37,7 +37,6 @@ public class Player extends MovingGameObject {
             Properties playerProp = new Properties();
             playerProp.load(input);
 
-            System.out.println("Player name: " + playerProp.getProperty("Name"));
             image = ImageIO.read(new File(playerProp.getProperty("ImagePath")));
             this.ID = Integer.parseInt(playerProp.getProperty("ID"));
             this.height = Integer.parseInt(playerProp.getProperty("Height"));

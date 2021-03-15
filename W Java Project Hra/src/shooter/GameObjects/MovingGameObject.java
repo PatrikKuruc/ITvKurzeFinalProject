@@ -62,28 +62,28 @@ public abstract class MovingGameObject extends GameObject {
      * Updates the X coordinate of the game object.
      */
     public void moveX() {
-        positionX += vecX * velX;
+        positionX += (int) vecX * velX;
     }
 
     /**
      * Updates the Y coordinate of the game object.
      */
     public void moveY() {
-        positionY += vecY * velY;
+        positionY += (int) vecY * velY;
     }
     
     /**
      * Detects the collision with Wall X.
      */
     public void collisionWithWallX() {
-        positionX -= vecX * velX;
+        positionX -= (int) vecX * velX;
     }
 
     /**
      * Detects the collision with Wall Y.
      */
     public void collisionWithWallY() {
-        positionY -= vecY * velY;
+        positionY -= (int) vecY * velY;
     }
     
     /**
