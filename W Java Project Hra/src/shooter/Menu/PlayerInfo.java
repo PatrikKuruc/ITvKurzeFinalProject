@@ -1,8 +1,8 @@
 package shooter.Menu;
 
-import shooter.Game.GameTimer;
-import shooter.Game.Handler;
-import shooter.Game.SoundEffect;
+import shooter.Game.*;
+import shooter.GameObjects.Enemy;
+import shooter.GameObjects.Item;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,7 @@ public class PlayerInfo extends JFrame {
     public static JTextField txtName;
     Handler handler;
     private Database database;
-    private SoundEffect soundEffect;
+    public static SoundEffect soundEffectButtonClick = new SoundEffect();
 
     /**
      * Creates PlayerInfo window, where player information is displayed and player name is required to be entered.
@@ -77,9 +77,8 @@ public class PlayerInfo extends JFrame {
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                soundEffect = new SoundEffect();
-                soundEffect.setFileButtonClick();
-                soundEffect.play();
+                soundEffectButtonClick.setFileButtonClick();
+                soundEffectButtonClick.play();
 
                 if (txtName.getText().isEmpty() || txtName.getText().contains(" ")) {
                     JOptionPane.showMessageDialog(null, "Name can't be empty!\nName can't contain spaces!",
@@ -99,7 +98,12 @@ public class PlayerInfo extends JFrame {
                         ContentPanel.panel2.setVisible(true);
                         ContentPanel.panel3.setVisible(false);
                         Panel2_HighScore.scoreMAX[0] = true;
-                        ContentPanel.btnVolume.setBackground(Color.green);
+                        Panel3_Settings.btnSoundEffects.setBackground(Color.green);
+                        Panel3_Settings.btnMusic.setBackground(Color.green);
+                        Panel3_Settings.soundIsOn[0] = true;
+                        Panel3_Settings.musicIsOn[0] = true;
+                        ContentPanel.souneEffectContentPanel.setVolume(0);
+                        Panel2_HighScore.soundEffectHighScore.setVolume(0);
 
                     } catch (SQLException fileNotFoundException) {
                         fileNotFoundException.printStackTrace();

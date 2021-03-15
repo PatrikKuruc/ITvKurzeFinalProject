@@ -1,45 +1,40 @@
 package shooter.Menu;
 
+import shooter.Game.Game;
+import shooter.Game.Handler;
+import shooter.Game.PopupWindow;
+import shooter.GameObjects.Enemy;
+import shooter.GameObjects.Item;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties;
 
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JToggleButton;
-import javax.swing.JTextField;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.imageio.ImageIO;
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
 /**
  * Class Panel3_Settings creates settings for the game in the menu.
  */
 public class Panel3_Settings extends JPanel {
 
-	private JTextField textField;
-	public static JButton btnVolume;
-	 private Image imageON;
+	public static JButton btnMusic, btnSoundEffects;
+	private Image imageON;
+	public static boolean[] musicIsOn = {true};
+	public static boolean[] soundIsOn = {true};
 	Font font = new Font("Segoe Script", Font.BOLD, 20);
 
 	/**
 	 * Create the panel.
-	 * 
-	 * @throws IOException
-	 * @throws FileNotFoundException
 	 */
 	public Panel3_Settings() {
 
@@ -59,8 +54,6 @@ public class Panel3_Settings extends JPanel {
 		
 		JComboBox<String> vyberOvladania = new JComboBox<>();
 		vyberOvladania.setBounds(35, 290, 120, 20);
-		//vyberOvladania.setForeground(Color.WHITE);
-		//vyberOvladania.setOpaque(false);
 		vyberOvladania.addItem("WASD");
 		vyberOvladania.addItem("Arrows");
 		add(vyberOvladania);
@@ -76,7 +69,6 @@ public class Panel3_Settings extends JPanel {
 		
 		JComboBox<String> pauza = new JComboBox<>();
 		pauza.setBounds(35, 360, 120, 20);
-		//pauza.setForeground(Color.GREEN.darker().darker());
 		pauza.addItem("P");
 		pauza.addItem("Space");
 		add(pauza);
@@ -113,9 +105,8 @@ public class Panel3_Settings extends JPanel {
 		add(music); 
 		
 		 // button for muting the menu music
-        btnVolume = new JButton("");
-        btnVolume.setBounds(175, 10, 30, 30);
-        final boolean[] soundIsOn = {true};
+        btnMusic = new JButton("");
+        btnMusic.setBounds(175, 10, 30, 30);
 
         try {
             imageON = ImageIO.read(new File("obr/sound_on.png"));
@@ -124,28 +115,68 @@ public class Panel3_Settings extends JPanel {
             e.printStackTrace();
         }
 
-        btnVolume.setIcon(new ImageIcon(imageON));
-        btnVolume.setBackground(Color.green);
-        btnVolume.setVisible(true);
+        btnMusic.setIcon(new ImageIcon(imageON));
+        btnMusic.setBackground(Color.green);
+        btnMusic.setVisible(true);
 
-        btnVolume.addActionListener(new ActionListener() {
+        btnMusic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (soundIsOn[0]) {
+                if (musicIsOn[0]) {
                     Menu.soundEffect.setVolume(-80);
-                    soundIsOn[0] = false;
-                    btnVolume.setBackground(Color.red);
+                    musicIsOn[0] = false;
+                    btnMusic.setBackground(Color.red);
 
                 } else {
                     Menu.soundEffect.setVolume(-20);
-                    soundIsOn[0] = true;
-                    btnVolume.setIcon(new ImageIcon(imageON));
-                    btnVolume.setBackground(Color.green);
+                    musicIsOn[0] = true;
+                    btnMusic.setIcon(new ImageIcon(imageON));
+                    btnMusic.setBackground(Color.green);
                 }
             }
         });
-        add(btnVolume);
+        add(btnMusic);
+
+		// button for muting the sound effects
+		btnSoundEffects = new JButton("");
+		btnSoundEffects.setBounds(175, 70, 30, 30);
+
+		try {
+			imageON = ImageIO.read(new File("obr/sound_on.png"));
+			imageON = imageON.getScaledInstance(30, 30, Image.SCALE_FAST);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		btnSoundEffects.setIcon(new ImageIcon(imageON));
+		btnSoundEffects.setBackground(Color.green);
+		btnSoundEffects.setVisible(true);
+
+		btnSoundEffects.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if (soundIsOn[0]) {
+					ContentPanel.souneEffectContentPanel.setVolume(-80);
+					Panel2_HighScore.soundEffectHighScore.setVolume(-80);
+
+					soundIsOn[0] = false;
+					btnSoundEffects.setBackground(Color.red);
+
+				} else {
+
+					ContentPanel.souneEffectContentPanel.setVolume(0);
+					Panel2_HighScore.soundEffectHighScore.setVolume(0);
+
+
+					soundIsOn[0] = true;
+					btnMusic.setIcon(new ImageIcon(imageON));
+					btnSoundEffects.setBackground(Color.green);
+				}
+			}
+		});
+		add(btnSoundEffects);
         
     	JTextArea effects = new JTextArea();
     	effects.setBounds(20, 70, 200, 30);

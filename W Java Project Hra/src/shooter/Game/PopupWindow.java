@@ -12,7 +12,11 @@ public class PopupWindow {
 
     UserInput userInput;
     Handler handler;
-    private SoundEffect soundEffect;
+    public static SoundEffect soundEffectGameOver = new SoundEffect();
+    public static SoundEffect soundEffectLoser = new SoundEffect();
+    public static SoundEffect soundEffectButtonClick = new SoundEffect();
+    public static SoundEffect soundEffectYouWon = new SoundEffect();
+    public static SoundEffect soundEffectWinner = new SoundEffect();
 
     /**
      * Creates pop-ip window for paused game.
@@ -40,20 +44,16 @@ public class PopupWindow {
         this.handler = handler;
         handler.pauseGame();
 
-        soundEffect = new SoundEffect();
-        soundEffect.setFileGameOver();
-        soundEffect.play();
-        soundEffect.setVolume(-15);
-
-        soundEffect = new SoundEffect();
-        soundEffect.setFileLoser();
-        soundEffect.play();
+        soundEffectGameOver.setFileGameOver();
+        soundEffectGameOver.play();
+        soundEffectLoser.setFileLoser();
+        soundEffectLoser.play();
 
         JOptionPane.showMessageDialog(null, "You lost!\n" +
                 "Press 'OK' to continue.", "GAME OVER", JOptionPane.INFORMATION_MESSAGE);
 
-        soundEffect.setFileButtonClick();
-        soundEffect.play();
+        soundEffectButtonClick.setFileButtonClick();
+        soundEffectButtonClick.play();
 
         ContentPanel.game.shutDown();
         PlayerInfo playerInfo = new PlayerInfo(handler);
@@ -70,20 +70,16 @@ public class PopupWindow {
         this.handler = handler;
         handler.pauseGame();
 
-        soundEffect = new SoundEffect();
-        soundEffect.setFileYouWon();
-        soundEffect.play();
-        soundEffect.setVolume(-15);
-
-        soundEffect = new SoundEffect();
-        soundEffect.setFileWinner();
-        soundEffect.play();
+        soundEffectYouWon.setFileYouWon();
+        soundEffectYouWon.play();
+        soundEffectWinner.setFileWinner();
+        soundEffectWinner.play();
 
         JOptionPane.showMessageDialog(null, "YOU WON!\n" +
                 "Press 'OK' to continue.", "YOU WON!", JOptionPane.INFORMATION_MESSAGE);
 
-        soundEffect.setFileButtonClick();
-        soundEffect.play();
+        soundEffectButtonClick.setFileButtonClick();
+        soundEffectButtonClick.play();
 
         ContentPanel.game.shutDown();
         PlayerInfo playerInfo = new PlayerInfo(handler);

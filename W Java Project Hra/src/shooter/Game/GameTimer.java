@@ -16,7 +16,7 @@ public class GameTimer {
 
     JLabel timeLabel;
     Timer timer;
-    int second;
+    static int second;
     int minute;
     static String ddSecond, ddMinute;
 
@@ -91,5 +91,14 @@ public class GameTimer {
      */
     public static String getDdMinute() {
         return ddMinute;
+    }
+
+    /**
+     * Returns the nubmer of seconds - int.
+     *
+     * @return the nubmer of seconds - int
+     */
+    public static int getSecond(){
+        return second;
     }
 }
