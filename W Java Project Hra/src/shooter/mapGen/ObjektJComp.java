@@ -32,7 +32,7 @@ public class ObjektJComp extends JComponent{
 	}
 	
 	public void nacitajObrazok() {
-		try (InputStream input = new FileInputStream("src/imageID.properties")) {
+		try (InputStream input = new FileInputStream("resources/imageID.properties")) {
 
             Properties prop = new Properties();
             prop.load(input);

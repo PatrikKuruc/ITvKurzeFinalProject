@@ -39,7 +39,7 @@ public class MapLoader {
 
     private void loadMapFile() {
     	try {
-    		InputStream input = new FileInputStream("src/gameConfig.properties");
+    		InputStream input = new FileInputStream("resources/gameConfig.properties");
     		Properties gameProp = new Properties();
     		gameProp.load(input);
     		
@@ -94,7 +94,7 @@ public class MapLoader {
                     new Item(newObjectID, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler);
                     spawnPointHealthKit.put(newObjectPoziciaX, newObjectPoziciaY);
                 }
-                if (newObjectID == 6.0) {
+                if (newObjectID == 6.1) {
                     new MamaZombie(newObjectID, newObjectPoziciaX, newObjectPoziciaY, newObjectWidth, newObjectHeight, handler);
                     spawnPointMama.put(newObjectPoziciaX, newObjectPoziciaY);
                 }

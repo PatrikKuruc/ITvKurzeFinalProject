@@ -34,7 +34,7 @@ public class Player extends MovingGameObject {
      * Loads the parameters of the player.
      */
     private void loadParameters() {
-        try (InputStream input = new FileInputStream("src/Resources/playerConfig.properties")) {
+        try (InputStream input = new FileInputStream("resources/playerConfig.properties")) {
             Properties playerProp = new Properties();
             playerProp.load(input);
 

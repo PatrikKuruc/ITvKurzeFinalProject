@@ -184,7 +184,6 @@ public class Handler {
             staticObjects.remove(addObject);
         }
 
-
         int enemyCounter = 0;
         for (GameObject gameObjects : movingObjects) {
             if (gameObjects instanceof Enemy) {
@@ -194,9 +193,9 @@ public class Handler {
         if (newObject instanceof Enemy && enemyCounter <= 10) {
 
             // spawns MamaZombie
-            if (score == 24) {
+            if (score == 1) {
                 for (Integer i : MapLoader.spawnPointMama.keySet()) {
-                    addObject(new MamaZombie(6.0, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
+                    addObject(new MamaZombie(6.1, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
 
                     soundEffectFinalBosssPawn.setFileFinalBossSpawn();
                     soundEffectFinalBosssPawn.play();

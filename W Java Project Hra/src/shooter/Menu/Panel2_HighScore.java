@@ -185,7 +185,7 @@ public class Panel2_HighScore extends JPanel {
      */
     public void loadProperties() {
         try {
-            InputStream input = new FileInputStream("src/playerConfig.properties");
+            InputStream input = new FileInputStream("resources/playerConfig.properties");
             Properties playerProp = new Properties();
             playerProp.load(input);
             playerProp.setProperty("test", "5");

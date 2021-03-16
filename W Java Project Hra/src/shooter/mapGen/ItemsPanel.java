@@ -63,7 +63,7 @@ public class ItemsPanel extends JPanel {
 	
 	private void writeImagesToProperties() {
 		try {
-			OutputStream output = new FileOutputStream("src/imageID.properties");
+			OutputStream output = new FileOutputStream("resources/imageID.properties");
 			
 			Properties imageSrc = new Properties();
 			
@@ -108,7 +108,7 @@ public class ItemsPanel extends JPanel {
 	 * Creates objects from imageID.Properties 
 	 */
 	private void createMapGenObjectBtns() {
-		try (InputStream input = new FileInputStream("src/imageID.properties")) {
+		try (InputStream input = new FileInputStream("resources/imageID.properties")) {
             Properties imageSrc = new Properties();
             imageSrc.load(input);
 
