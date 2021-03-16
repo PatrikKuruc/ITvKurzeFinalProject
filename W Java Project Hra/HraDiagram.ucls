@@ -127,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="shooter.mapGen.ObjektJComp" project="Java Project Hra" 
+  <class id="15" language="java" name="shooter.mapGen.ObjectJComp" project="Java Project Hra"
     file="/Java Project Hra/src/shooter/mapGen/ObjektJComp.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="315" width="237" x="1729" y="1059"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
