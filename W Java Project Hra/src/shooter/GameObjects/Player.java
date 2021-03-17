@@ -81,7 +81,6 @@ public class Player extends MovingGameObject {
                 handler.healthPlayer = 0;
             }
         }
-
     }
 
     /**

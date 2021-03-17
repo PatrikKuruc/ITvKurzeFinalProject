@@ -8,7 +8,6 @@ import java.text.DecimalFormat;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-
 /**
  * Class GameTimer simulates the real timer, which measures the time of game played in the format of minutes:seconds.
  */

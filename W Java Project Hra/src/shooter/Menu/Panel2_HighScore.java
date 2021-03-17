@@ -16,7 +16,7 @@ import java.util.Properties;
 import javax.swing.*;
 
 /**
- * Class Panel2_HighScore highscore section in the menu that displays score of players.
+ * Class Panel2_HighScore - high score section in the menu that displays score of players.
  */
 public class Panel2_HighScore extends JPanel {
 
@@ -56,8 +56,6 @@ public class Panel2_HighScore extends JPanel {
         pnlPanelInfo.setBounds(0, 0, 450, 30);
         pnlPanelInfo.setLayout(null);
         pnlPanelInfo.setVisible(true);
-        //pnlPanelInfo.setBackground(Color.YELLOW.brighter().brighter().brighter());
-        //pnlPanelInfo.setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
 
         lblNumber = new JLabel("N.", SwingConstants.CENTER);
         lblNumber.setBounds(5, 5, 50, 20);
@@ -186,8 +184,6 @@ public class Panel2_HighScore extends JPanel {
         add(btnScore);
         add(btnDamageTaken);
         add(btnTime);
-
-        //setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
     }
 
     /**
@@ -202,11 +198,8 @@ public class Panel2_HighScore extends JPanel {
 
             int test = Integer.parseInt(playerProp.getProperty("test"));
             System.out.println(test);
-
         } catch (IOException e) {
-
             e.printStackTrace();
         }
     }
-
 }

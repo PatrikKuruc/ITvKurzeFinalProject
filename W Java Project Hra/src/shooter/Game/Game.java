@@ -19,7 +19,6 @@ public class Game extends JFrame {
     private int WINDOW_WIDTH;
     public static SoundEffect soundEffectBegin = new SoundEffect();
 
-
     /**
      * Creates JFrame window of the game.
      *

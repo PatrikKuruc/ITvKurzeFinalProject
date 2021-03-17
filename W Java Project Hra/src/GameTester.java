@@ -14,25 +14,8 @@ import shooter.Menu.Menu;
 public class GameTester {
 
 	public static void main(String[] args) throws IOException {
-		/*
-		Handler handler = new Handler(null);
-		
-		try {
-			Database database = new Database(handler);
-            //database.updateSettings("fps", "50");
-			database.test();
-            
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-		
-		
-		*/
 		// creates and runs the game
 		Menu game = new Menu();
 		game.run();
-		//game.runMapGen();
-		//game.runWithoutMenu();
-		
 	}
 }

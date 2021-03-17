@@ -19,8 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -35,6 +33,7 @@ public class Panel1_GameSettings extends JPanel {
 
 	Properties playerConfig = new Properties();
 	Properties gameConfig = new Properties();
+	
 	/**
 	 * Create the panel.
 	 */
@@ -62,7 +61,6 @@ public class Panel1_GameSettings extends JPanel {
 		createChooseMapComponents();
 
 		setVisible(false);
-		
 	}
 
 	private void createChooseMapComponents() {
@@ -85,7 +83,6 @@ public class Panel1_GameSettings extends JPanel {
 		comboBox2.setBounds(35, 350, 150, 25);
 		
 		ItemListener chooseMapListener = new ItemListener() {
-			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				String chosenMap = comboBox2.getSelectedItem().toString();
@@ -96,9 +93,7 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.store(fos = new FileOutputStream("resources/gameConfig.properties"), null);
 					fos.close();
 				}
-
 				catch (IOException vynimka1) {
-
 				}
 			}
 		};
@@ -116,7 +111,6 @@ public class Panel1_GameSettings extends JPanel {
 		File directory = new File(dirMaps);
 		File[] mapList = directory.listFiles();
 		maps.addAll(Arrays.asList(mapList));
-		
 		
 		return maps;
 	}
@@ -138,7 +132,6 @@ public class Panel1_GameSettings extends JPanel {
 		rdbtnNewRadioButton.setForeground(Color.WHITE);
 		rdbtnNewRadioButton.setOpaque(false);
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -148,11 +141,8 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.store(fos = new FileOutputStream("resources/gameConfig.properties"), null);
 					fos.close();
 				}
-
 				catch (IOException vynimka1) {
-
 				}
-
 			}
 		});
 		add(rdbtnNewRadioButton);
@@ -165,7 +155,6 @@ public class Panel1_GameSettings extends JPanel {
 		rdbtnNewRadioButton_1.setForeground(Color.WHITE);
 		rdbtnNewRadioButton_1.setOpaque(false);
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -175,9 +164,7 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.store(fos = new FileOutputStream("resources/gameConfig.properties"), null);
 					fos.close();
 				}
-
 				catch (IOException vynimka1) {
-
 				}
 
 			}
@@ -191,7 +178,6 @@ public class Panel1_GameSettings extends JPanel {
 		rdbtnNewRadioButton_2.setForeground(Color.WHITE);
 		rdbtnNewRadioButton_2.setOpaque(false);
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -201,11 +187,8 @@ public class Panel1_GameSettings extends JPanel {
 					gameConfig.store(fos = new FileOutputStream("resources/gameConfig.properties"), null);
 					fos.close();
 				}
-
 				catch (IOException vynimka1) {
-
 				}
-
 			}
 		});
 		add(rdbtnNewRadioButton_2);
@@ -253,25 +236,19 @@ public class Panel1_GameSettings extends JPanel {
 		comboBox.addItem("woman");
 		comboBox.setSelectedItem(meno);
 		comboBox.setBounds(32, 200, 100, 23);
-		//comboBox.setForeground(Color.WHITE);
 		comboBox.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				String hrac = comboBox.getItemAt(comboBox.getSelectedIndex());
-				lblNewLabel.setIcon(new ImageIcon("obr/hrac/" + hrac + "/3.png"));
+				String player = comboBox.getItemAt(comboBox.getSelectedIndex());
+				lblNewLabel.setIcon(new ImageIcon("obr/hrac/" + player + "/3.png"));
 				try {
-
-					playerConfig.setProperty("ImagePath", "obr/hrac/" + hrac + "/3.png");
+					playerConfig.setProperty("ImagePath", "obr/hrac/" + player + "/3.png");
 
 					FileOutputStream fos;
 					playerConfig.store(fos = new FileOutputStream("resources/playerConfig.properties"), null);
 					fos.close();
 				}
-
 				catch (IOException e1) {
-
 					e1.printStackTrace();
 				}
 			}

@@ -30,7 +30,6 @@ public abstract class GameObject extends JComponent {
     protected Rectangle rectangle;
     protected double ID;
 
-
     /**
      * Creates the game object.
      *
@@ -73,7 +72,6 @@ public abstract class GameObject extends JComponent {
      * @param gr graphic canvas
      */
     public void drawObject(Graphics gr) {
-
         Graphics2D g = (Graphics2D) gr.create();
         if (ID == 6 && MamaZombie.isMamaShooting) {        // animation of MamaZombie
             try {

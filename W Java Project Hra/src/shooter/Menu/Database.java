@@ -17,10 +17,8 @@ public class Database {
     private String commandSELECTByDAMAGE;
     private String commandSELECTByTIME;
     private String createTABLE;
-    private String createTABLE2;
     private Connection connectionDB = DriverManager.getConnection(url, userName, password);
     private Statement statement = connectionDB.createStatement();
-    private Statement statement2 = connectionDB.createStatement();
     Handler handler;
 
     /**
@@ -32,31 +30,14 @@ public class Database {
     public Database(Handler handler) throws SQLException {
         this.handler = handler;
 
-        // creates the table "highscore" in the database, if it does not exist
+        // creates the table of high score in the database, if it does not exist
         createTABLE = "create table if not exists highscore(" +
                 "name varchar(50)," +
                 "score int," +
                 "damage_taken int," +
                 "time varchar(10));";
         statement.executeUpdate(createTABLE);
-
     }
-
-    /**
-     * Creates default table "settings" in the database
-     * @throws SQLException
-     */
-    private void createSettingsTable() throws SQLException {
-    	createTABLE2 = "create table if not exists settings(" +
-                "name varchar(20)," +
-                "value varchar(50));";
-        statement2.executeUpdate(createTABLE2);        
-        statement2.executeUpdate("insert into settings value('Speed','3');");
-        statement2.executeUpdate("insert into settings value('PlayerImagePath','obr/hrac/default/3.png');");
-        statement2.executeUpdate("insert into settings value('Difficulty','1');");
-        statement2.executeUpdate("insert into settings value('FPS','120');");
-        statement2.executeUpdate("insert into settings value('Map','defaultMap.txt');");
-	}
 
 	/**
      * Inserts the data into database.
@@ -77,7 +58,7 @@ public class Database {
      * @throws SQLException SQLException
      */
     public void selectDataScore() throws SQLException {
-        // allows to swiwtch data ASC / DESC
+        // allows to switch data ASC / DESC
         if (Panel2_HighScore.scoreMAX[0]) {
             commandSELECTBySCORE = "SELECT * FROM highscore ORDER BY score DESC LIMIT 10;";
             Panel2_HighScore.scoreMAX[0] = false;
@@ -101,7 +82,6 @@ public class Database {
             Panel2_HighScore.txtScore.append("              " + score + "\n\n");
             Panel2_HighScore.txtDamageTaken.append("            " + damageTaken + "\n\n");
             Panel2_HighScore.txtTime.append("          " + time + "\n\n");
-
         }
     }
 
@@ -111,7 +91,7 @@ public class Database {
      * @throws SQLException SQLException
      */
     public void selectDataDamage() throws SQLException {
-        // allows to swiwtch data ASC / DESC
+        // allows to switch data ASC / DESC
         if (Panel2_HighScore.damageTakenMIN[0]) {
             commandSELECTByDAMAGE = "SELECT * FROM highscore ORDER BY damage_taken ASC LIMIT 10;";
             Panel2_HighScore.damageTakenMIN[0] = false;
@@ -135,7 +115,6 @@ public class Database {
             Panel2_HighScore.txtScore.append("              " + score + "\n\n");
             Panel2_HighScore.txtDamageTaken.append("            " + damageTaken + "\n\n");
             Panel2_HighScore.txtTime.append("          " + time + "\n\n");
-
         }
     }
 
@@ -145,7 +124,7 @@ public class Database {
      * @throws SQLException SQLException
      */
     public void selectDataTime() throws SQLException {
-        // allows to swiwtch data ASC / DESC
+        // allows to switch data ASC / DESC
         if (Panel2_HighScore.timeMIN[0]) {
             commandSELECTByTIME = "SELECT * FROM highscore ORDER BY time ASC LIMIT 10;";
             Panel2_HighScore.timeMIN[0] = false;
@@ -182,35 +161,4 @@ public class Database {
         Panel2_HighScore.txtDamageTaken.setText("");
         Panel2_HighScore.txtTime.setText("");
     }
-
-    /**
-     * Updates settings table.
-     * @param parameter parameter to update
-     * @param value value of the parameter
-     */
-	public void updateSettings(String parameter, String value) {
-		String updateSettings = "update settings set value = '" + value +"' where name = '" + parameter + "';";
-		
-		try {
-			statement2.executeUpdate(updateSettings);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void test() {
-		try {
-			
-			ResultSet tabulky = statement2.executeQuery("show tables");
-			while (tabulky.next()) {
-	            String name = tabulky.getString(1);
-	            System.out.println(name);
-	            
-	            
-	        }
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
 }

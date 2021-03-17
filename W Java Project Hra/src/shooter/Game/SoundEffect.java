@@ -32,7 +32,6 @@ public class SoundEffect {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
-
     }
 
     /**

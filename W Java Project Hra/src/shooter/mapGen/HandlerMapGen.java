@@ -10,8 +10,6 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-import shooter.Menu.Menu;
-
 /**
  * Class HandlerMapGen loads and processes the map generator objects.
  */
@@ -144,7 +142,6 @@ public class HandlerMapGen {
             newMap.createNewFile();
             writer = new PrintWriter(newMap);
 
-
         for (ObjectJComp object : currentMap) {
             writer.write(object.getID() + "," + object.getPositionX() + "," + object.getPositionY() + "," + tileSize + "," + tileSize + "\n");
         }
@@ -155,6 +152,5 @@ public class HandlerMapGen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
     }
 }

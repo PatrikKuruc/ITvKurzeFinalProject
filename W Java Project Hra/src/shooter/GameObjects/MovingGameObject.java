@@ -37,7 +37,6 @@ public abstract class MovingGameObject extends GameObject {
      */
     public MovingGameObject(int positionX, int positionY, Handler handler) {
         super(positionX, positionY, handler);
-        
     }
 
     /**

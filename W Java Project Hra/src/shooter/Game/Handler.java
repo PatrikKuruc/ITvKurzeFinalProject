@@ -28,9 +28,10 @@ public class Handler {
     private boolean isRunning = true;
     private Timer timer;
     PopupWindow popupWindow;
-    public static SoundEffect soundEffectShoot = new SoundEffect();
+	private double enemySpeed = 1;
+	
+	public static SoundEffect soundEffectShoot = new SoundEffect();
     public static SoundEffect soundEffectFinalBosssPawn = new SoundEffect();
-
 
     /**
      * Creates handler.
@@ -216,14 +217,13 @@ public class Handler {
 
                     // speeds up the enemy movement
                     if (score >= 9) {
-                        Settings.enemySpeed = 2;
+                        this.enemySpeed  = 2;
                     }
 
                     // speeds up the enemy movement even more
                     if (score >= 9 && score % 2 == 0) {
-                        Settings.enemySpeed = 2.5;
+                    	this.enemySpeed = 2.5;
                     }
-
                     counter++;
                 }
             }
@@ -280,4 +280,12 @@ public class Handler {
         }
     }
 
+    /**
+     * Returns the speed of Enemy.
+     * 
+     * @return enemySpeed returns the speed of Enemy
+     */
+    public double getEnemySpeed() {
+		return enemySpeed;
+	}
 }

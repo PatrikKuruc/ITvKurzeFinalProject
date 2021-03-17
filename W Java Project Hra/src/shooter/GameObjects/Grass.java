@@ -51,5 +51,4 @@ public class Grass extends GameObject {
     public int getY() {
         return positionY;
     }
-
 }

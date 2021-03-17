@@ -1,7 +1,6 @@
 package shooter.GameObjects;
 
 import shooter.Game.Handler;
-import shooter.Game.Settings;
 import shooter.Game.SoundEffect;
 
 /**
@@ -29,8 +28,8 @@ public class Enemy extends MovingGameObject {
         this.width = newObjectWidth;
         this.height = newObjectHeight;
         super.loadImage();
-        velX = Settings.enemySpeed;
-        velY = Settings.enemySpeed;
+        velX = handler.getEnemySpeed();
+        velY = handler.getEnemySpeed();
         this.radius = 300;
     }
 

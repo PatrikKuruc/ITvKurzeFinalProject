@@ -26,7 +26,6 @@ public class Wall extends GameObject {
         this.width = newObjectWidth;
         this.height = newObjectHeight;
         super.loadImage();
-
     }
 
     /**

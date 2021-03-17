@@ -32,9 +32,9 @@ public class GameCanvas extends JPanel {
      */
     public GameCanvas(Properties gameProperties) throws FileNotFoundException {
         this.gameProperties = gameProperties;
-        this.FPS = Integer.parseInt(gameProperties.getProperty("FPS"));
-        this.Height = Integer.parseInt(gameProperties.getProperty("WindowHeight"));
-        this.Width = Integer.parseInt(gameProperties.getProperty("WindowWidth"));
+        this.FPS = Integer.parseInt(this.gameProperties.getProperty("FPS"));
+        this.Height = Integer.parseInt(this.gameProperties.getProperty("WindowHeight"));
+        this.Width = Integer.parseInt(this.gameProperties.getProperty("WindowWidth"));
 
         this.timer = new Timer(1000/FPS, e -> repaint());
 
@@ -45,8 +45,8 @@ public class GameCanvas extends JPanel {
         GameCanvas.handler = new Handler(timer);
 
         // loads map and the game objects
-        MapLoader nahravacMapy = new MapLoader(handler);
-        nahravacMapy.nahrajMapu();
+        MapLoader mapLoader = new MapLoader(handler);
+        mapLoader.loadMap();
 
         // creates the MouseListener and KeyListener and adds it to the canvas
         UserInput UserInput = new UserInput(handler);

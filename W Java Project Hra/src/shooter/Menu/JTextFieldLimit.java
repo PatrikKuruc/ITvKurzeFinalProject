@@ -26,7 +26,7 @@ public class JTextFieldLimit extends PlainDocument {
      *
      * @param offset offset
      * @param str    string
-     * @param attr   atribute
+     * @param attr   attribute
      * @throws BadLocationException BadLocationException
      */
     public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {

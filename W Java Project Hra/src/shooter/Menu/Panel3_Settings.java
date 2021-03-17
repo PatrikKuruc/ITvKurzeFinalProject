@@ -1,11 +1,5 @@
 package shooter.Menu;
 
-import shooter.Game.Game;
-import shooter.Game.Handler;
-import shooter.Game.PopupWindow;
-import shooter.GameObjects.Enemy;
-import shooter.GameObjects.Item;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -38,7 +32,7 @@ public class Panel3_Settings extends JPanel {
 	 */
 	public Panel3_Settings() {
 
-		setOpaque(false); //transparentny JPanel
+		setOpaque(false);
 		setBounds(300, 50, 350, 400);
 		setBackground(Color.WHITE);
 		setLayout(null);
@@ -188,6 +182,5 @@ public class Panel3_Settings extends JPanel {
 		add(effects); 
 		
 		setVisible(false);
-
 	}
 }

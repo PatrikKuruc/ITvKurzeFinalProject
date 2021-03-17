@@ -1,7 +1,6 @@
 package shooter.GameObjects;
 
 import shooter.Game.Handler;
-import shooter.Game.Settings;
 
 import java.awt.*;
 import java.util.Random;
@@ -42,7 +41,6 @@ public class MamaZombie extends Enemy {
             handler.removeObject(gameObject);
         }
     }
-
 
     /**
      * Returns the X coordinate of Enemy.

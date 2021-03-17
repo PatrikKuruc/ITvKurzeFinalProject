@@ -1,8 +1,6 @@
 package shooter.Menu;
 
 import shooter.Game.*;
-import shooter.GameObjects.Enemy;
-import shooter.GameObjects.Item;
 
 import javax.swing.*;
 import java.awt.*;

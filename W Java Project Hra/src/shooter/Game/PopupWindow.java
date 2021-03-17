@@ -19,7 +19,7 @@ public class PopupWindow {
     public static SoundEffect soundEffectWinner = new SoundEffect();
 
     /**
-     * Creates pop-ip window for paused game.
+     * Creates pop-up window for paused game.
      *
      * @param userInput user input
      * @param handler   handler
@@ -36,7 +36,7 @@ public class PopupWindow {
     }
 
     /**
-     * Creates pop-ip window for gameover.
+     * Creates pop-up window for game over.
      *
      * @param handler handler
      */
@@ -58,11 +58,10 @@ public class PopupWindow {
         ContentPanel.game.shutDown();
         PlayerInfo playerInfo = new PlayerInfo(handler);
         playerInfo.run();
-
     }
 
     /**
-     * Creates pop-ip window for winned game.
+     * Creates pop-up window for won game.
      *
      * @param handler handler.
      */
@@ -84,6 +83,5 @@ public class PopupWindow {
         ContentPanel.game.shutDown();
         PlayerInfo playerInfo = new PlayerInfo(handler);
         playerInfo.run();
-
     }
 }

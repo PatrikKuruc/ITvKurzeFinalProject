@@ -11,7 +11,7 @@ public class MouseAdapterMapGen extends MouseAdapter {
     private HandlerMapGen handler;
 
     /**
-     * Creates mouse addapter for the map generator.
+     * Creates mouse adapter for the map generator.
      *
      * @param handler handler
      */

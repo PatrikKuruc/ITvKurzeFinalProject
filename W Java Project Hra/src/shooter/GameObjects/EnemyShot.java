@@ -7,7 +7,6 @@ import shooter.Game.Handler;
  */
 public class EnemyShot extends MovingGameObject {
 
-
     /**
      * Creates the shot of the MamaZombie
      *
@@ -67,7 +66,6 @@ public class EnemyShot extends MovingGameObject {
         if (gameObject instanceof Player) {
             handler.removeObject(this);
         }
-
     }
 
     /**

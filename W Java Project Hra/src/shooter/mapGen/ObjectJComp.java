@@ -39,13 +39,13 @@ public class ObjectJComp extends JComponent {
         this.posX = posX;
         this.posY = posY;
         this.handler = handlerMapGen;
-        loadImage2();
+        loadImagesID();
     }
 
     /**
      * Loads the image of the map generator.
      */
-    public void loadImage2() {
+    public void loadImagesID() {
         try (InputStream input = new FileInputStream("resources/imageID.properties")) {
 
             Properties prop = new Properties();

@@ -1,15 +1,7 @@
 package shooter.mapGen;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import shooter.Menu.Menu;
 
 /**
  * Class MapGenerator creates map generator window.
