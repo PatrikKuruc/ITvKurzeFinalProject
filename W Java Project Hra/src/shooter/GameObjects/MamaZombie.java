@@ -28,7 +28,6 @@ public class MamaZombie extends Enemy {
         super(ID, positionX, positionY, newObjectWidth, newObjectHeight, handler);
         this.radius = 50000000;
         this.healthZombie = handler.healthMama;
-        System.out.println("cav");
     }
 
     @Override

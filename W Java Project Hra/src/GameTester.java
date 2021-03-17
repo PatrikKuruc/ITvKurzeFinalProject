@@ -1,8 +1,10 @@
-import java.io.BufferedReader;
 import java.io.*;
+import java.sql.SQLException;
 
-import java.nio.charset.*;
+import javax.swing.Timer;
 
+import shooter.Game.Handler;
+import shooter.Menu.Database;
 //import junit.framework.Test;
 import shooter.Menu.Menu;
 
@@ -13,19 +15,24 @@ public class GameTester {
 
 	public static void main(String[] args) throws IOException {
 		/*
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(Test.class.getResourceAsStream("/resources/gameConfig.properties"),StandardCharsets.UTF_8))) {
-	            String line;
-	            while ((line = reader.readLine()) != null) {
-	                System.out.println(line);
-	            }
-	        }
-		//alebo
-		//getClass
-		//getResource
+		Handler handler = new Handler(null);
+		
+		try {
+			Database database = new Database(handler);
+            //database.updateSettings("fps", "50");
+			database.test();
+            
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+		
+		
 		*/
 		// creates and runs the game
 		Menu game = new Menu();
-
 		game.run();
+		//game.runMapGen();
+		//game.runWithoutMenu();
+		
 	}
 }

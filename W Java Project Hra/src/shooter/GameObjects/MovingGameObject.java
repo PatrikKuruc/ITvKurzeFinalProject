@@ -146,7 +146,7 @@ public abstract class MovingGameObject extends GameObject {
     @Override
     public void drawObject(Graphics gr) {
         Graphics2D g = (Graphics2D) gr.create();
-        g.draw(getBounds());
+        //g.draw(getBounds());
         g.rotate(rotation, centerX, centerY);
         super.drawObject(g);
         g.dispose();

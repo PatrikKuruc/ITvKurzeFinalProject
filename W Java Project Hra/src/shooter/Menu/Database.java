@@ -17,8 +17,10 @@ public class Database {
     private String commandSELECTByDAMAGE;
     private String commandSELECTByTIME;
     private String createTABLE;
+    private String createTABLE2;
     private Connection connectionDB = DriverManager.getConnection(url, userName, password);
     private Statement statement = connectionDB.createStatement();
+    private Statement statement2 = connectionDB.createStatement();
     Handler handler;
 
     /**
@@ -37,9 +39,26 @@ public class Database {
                 "damage_taken int," +
                 "time varchar(10));";
         statement.executeUpdate(createTABLE);
+
     }
 
     /**
+     * Creates default table "settings" in the database
+     * @throws SQLException
+     */
+    private void createSettingsTable() throws SQLException {
+    	createTABLE2 = "create table if not exists settings(" +
+                "name varchar(20)," +
+                "value varchar(50));";
+        statement2.executeUpdate(createTABLE2);        
+        statement2.executeUpdate("insert into settings value('Speed','3');");
+        statement2.executeUpdate("insert into settings value('PlayerImagePath','obr/hrac/default/3.png');");
+        statement2.executeUpdate("insert into settings value('Difficulty','1');");
+        statement2.executeUpdate("insert into settings value('FPS','120');");
+        statement2.executeUpdate("insert into settings value('Map','defaultMap.txt');");
+	}
+
+	/**
      * Inserts the data into database.
      *
      * @throws SQLException SQLException
@@ -163,4 +182,35 @@ public class Database {
         Panel2_HighScore.txtDamageTaken.setText("");
         Panel2_HighScore.txtTime.setText("");
     }
+
+    /**
+     * Updates settings table.
+     * @param parameter parameter to update
+     * @param value value of the parameter
+     */
+	public void updateSettings(String parameter, String value) {
+		String updateSettings = "update settings set value = '" + value +"' where name = '" + parameter + "';";
+		
+		try {
+			statement2.executeUpdate(updateSettings);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void test() {
+		try {
+			
+			ResultSet tabulky = statement2.executeQuery("show tables");
+			while (tabulky.next()) {
+	            String name = tabulky.getString(1);
+	            System.out.println(name);
+	            
+	            
+	        }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }

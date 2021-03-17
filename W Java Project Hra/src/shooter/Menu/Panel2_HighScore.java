@@ -4,6 +4,7 @@ import shooter.Game.Handler;
 import shooter.Game.SoundEffect;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -29,6 +30,7 @@ public class Panel2_HighScore extends JPanel {
     public static final boolean[] timeMIN = {true};
     Handler handler;
     private Database database;
+    Font font = new Font("Segoe Script", Font.BOLD, 12);
 
     {
         try {
@@ -54,31 +56,38 @@ public class Panel2_HighScore extends JPanel {
         pnlPanelInfo.setBounds(0, 0, 450, 30);
         pnlPanelInfo.setLayout(null);
         pnlPanelInfo.setVisible(true);
-        pnlPanelInfo.setBackground(Color.YELLOW.brighter().brighter().brighter());
-        pnlPanelInfo.setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
+        //pnlPanelInfo.setBackground(Color.YELLOW.brighter().brighter().brighter());
+        //pnlPanelInfo.setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
 
         lblNumber = new JLabel("N.", SwingConstants.CENTER);
         lblNumber.setBounds(5, 5, 50, 20);
+        lblNumber.setFont(font);
         lblNumber.setBorder(BorderFactory.createEtchedBorder());
 
         lblName = new JLabel("Name", SwingConstants.CENTER);
         lblName.setBounds(55, 5, 100, 20);
+        lblName.setFont(font);
         lblName.setBorder(BorderFactory.createEtchedBorder());
 
         lblScore = new JLabel("Score", SwingConstants.CENTER);
         lblScore.setBounds(155, 5, 100, 20);
+        lblScore.setFont(font);
         lblScore.setBorder(BorderFactory.createEtchedBorder());
 
         lblDamageTaken = new JLabel("DMG Taken", SwingConstants.CENTER);
         lblDamageTaken.setBounds(255, 5, 100, 20);
+        lblDamageTaken.setFont(font);
         lblDamageTaken.setBorder(BorderFactory.createEtchedBorder());
 
         lblTime = new JLabel("Time", SwingConstants.CENTER);
         lblTime.setBounds(355, 5, 90, 20);
+        lblTime.setOpaque(false);
+        lblTime.setFont(font);
         lblTime.setBorder(BorderFactory.createEtchedBorder());
 
         lblFilter = new JLabel("CHOOSE FILTER: ");
         lblFilter.setBounds(30, 370, 100, 20);
+        lblFilter.setFont(new Font("Segoe Script", Font.BOLD, 10));
 
         txtPlayerNumber = new JTextArea();
         txtPlayerNumber.setBounds(5, 30, 50, 335);
@@ -112,6 +121,7 @@ public class Panel2_HighScore extends JPanel {
 
         btnScore = new JButton("SCORE");
         btnScore.setBounds(155, 365, 100, 30);
+        btnScore.setFont(font);
 
         btnScore.addActionListener(new ActionListener() {
             @Override
@@ -129,7 +139,7 @@ public class Panel2_HighScore extends JPanel {
 
         btnDamageTaken = new JButton("DMG");
         btnDamageTaken.setBounds(255, 365, 100, 30);
-
+        btnDamageTaken.setFont(font);
         btnDamageTaken.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,7 +156,7 @@ public class Panel2_HighScore extends JPanel {
 
         btnTime = new JButton("TIME");
         btnTime.setBounds(355, 365, 90, 30);
-
+        btnTime.setFont(font);
         btnTime.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -177,7 +187,7 @@ public class Panel2_HighScore extends JPanel {
         add(btnDamageTaken);
         add(btnTime);
 
-        setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
+        //setBorder(BorderFactory.createLineBorder(Color.GREEN.darker().darker(), 5, false));
     }
 
     /**
