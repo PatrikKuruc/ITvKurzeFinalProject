@@ -22,10 +22,15 @@ public abstract class MovingGameObject extends GameObject {
     protected double velX;
     protected double velY;
     
-    // different types of objects behave differently when they collide with another objects
+    /**
+     *  different types of objects behave differently when they collide with another objects
+     * @param gameObject game object
+     */
     public abstract void performCollisionEvent(GameObject gameObject);
 
-    // updates the angles depending on object type
+    /**
+     *  updates the angles depending on object type
+     */
     public abstract void findDirection();
 
     /**

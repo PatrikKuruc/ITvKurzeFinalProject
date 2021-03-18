@@ -36,14 +36,20 @@ public class MapLoader {
         this.handler = handler;
         loadMapFile();
     }
-
+    
+    
+    /**
+     * Loads map file.
+     */
     private void loadMapFile() {
     	try {
     		InputStream input = new FileInputStream("resources/gameConfig.properties");
     		Properties gameProp = new Properties();
     		gameProp.load(input);
     		
-    		String mapPath = "mapy\\" + gameProp.getProperty("Map"); 
+    		String mapPath = "mapy\\" + gameProp.getProperty("Map");
+    		
+    		handler.setDifficulty(gameProp.getProperty("Difficulty"));
     		
 	    	this.mapFile = new File(mapPath);
 			this.scanner = new Scanner(mapFile);

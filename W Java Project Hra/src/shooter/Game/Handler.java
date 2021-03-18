@@ -25,6 +25,7 @@ public class Handler {
     public int finalScore = 100;
     public int blockSize = 32;
     public int damageTaken = 0;
+    public double difficulty = 1;
     private boolean isRunning = true;
     private Timer timer;
     PopupWindow popupWindow;
@@ -35,6 +36,7 @@ public class Handler {
 
     /**
      * Creates handler.
+     * @param timer timer
      */
     public Handler(Timer timer) {
         this.timer = timer;
@@ -194,7 +196,7 @@ public class Handler {
         if (newObject instanceof Enemy && enemyCounter <= 10) {
 
             // spawns MamaZombie
-            if (score == 10) {
+            if (score == 24) {
                 for (Integer i : MapLoader.spawnPointMama.keySet()) {
                     addObject(new MamaZombie(6.1, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
 
@@ -287,5 +289,13 @@ public class Handler {
      */
     public double getEnemySpeed() {
 		return enemySpeed;
+	}
+
+    /**
+     * Sets the difficulty of the game.
+     * @param difficulty difficulty
+     */
+	public void setDifficulty(String difficulty) {
+		this.difficulty = Double.parseDouble(difficulty);
 	}
 }

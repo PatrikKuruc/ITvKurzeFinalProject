@@ -64,8 +64,9 @@ public class PopupWindow {
      * Creates pop-up window for won game.
      *
      * @param handler handler.
+     * @param zombieMamaHP life of final boss
      */
-    public PopupWindow(Handler handler, int zivotMama) {
+    public PopupWindow(Handler handler, int zombieMamaHP) {
         this.handler = handler;
         handler.pauseGame();
 

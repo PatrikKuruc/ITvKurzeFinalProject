@@ -12,6 +12,7 @@ public class MamaZombie extends Enemy {
 
     public static int positionEnemyX, positionEnemyY;
     public static boolean isMamaShooting = false;
+    public int mamaZombieMaxHealth;
 
     /**
      * Creates MamaZombie in the game.
@@ -26,7 +27,8 @@ public class MamaZombie extends Enemy {
     public MamaZombie(double ID, int positionX, int positionY, int newObjectWidth, int newObjectHeight, Handler handler) {
         super(ID, positionX, positionY, newObjectWidth, newObjectHeight, handler);
         this.radius = 50000000;
-        this.healthZombie = handler.healthMama;
+        this.healthZombie = (int)(handler.healthMama*handler.difficulty);
+        this.mamaZombieMaxHealth = (int)(handler.healthMama*handler.difficulty);
     }
 
     @Override
@@ -85,7 +87,7 @@ public class MamaZombie extends Enemy {
         gr.drawRect(462, 5, 200, 22);
 
         gr.setColor(Color.black);
-        gr.drawString(handler.healthMama + " / 1000", 530, 22);
+        gr.drawString(handler.healthMama + " / " + mamaZombieMaxHealth, 530, 22);
 
         Random random = new Random();
         int counter = 0;
