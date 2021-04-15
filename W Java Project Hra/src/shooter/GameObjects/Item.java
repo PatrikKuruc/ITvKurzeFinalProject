@@ -23,11 +23,9 @@ public class Item extends MovingGameObject {
      * @param newObjectWidth  width of new object
      * @param handler         handler
      */
-    public Item(double ID, int positionX, int positionY, int newObjectWidth, int newObjectHeight, Handler handler) {
+    public Item(double ID, int positionX, int positionY, Handler handler) {
         super(positionX, positionY, handler);
         this.ID = ID;
-        this.width = newObjectWidth;
-        this.height = newObjectHeight;
         super.loadImage();
         image = image.getScaledInstance(16, 16, Image.SCALE_FAST);
     }

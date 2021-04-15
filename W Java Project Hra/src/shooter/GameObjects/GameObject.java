@@ -25,8 +25,8 @@ public abstract class GameObject extends JComponent {
     protected Handler handler;
     protected Image image;
     protected Image image2;
-    protected int height = 32;
-    protected int width = 32;
+    protected int height;
+    protected int width;
     protected Rectangle rectangle;
     protected double ID;
 
@@ -38,15 +38,42 @@ public abstract class GameObject extends JComponent {
      * @param handler   handler
      */
     public GameObject(int positionX, int positionY, Handler handler) {
-        this.positionX = positionX;
-        this.positionY = positionY;
-        this.centerX = positionX + (width / 2);
-        this.centerY = positionY + (height / 2);
         this.handler = handler;
+        getMeasurements();
+		this.positionX = positionX;
+        this.positionY = positionY;
+        adjustPosition();
+        this.centerX = positionX + (height / 2);
+        this.centerY = positionY + (width / 2);
         this.rectangle = new Rectangle(positionX, positionY, width, height);
     }
 
-    /**
+    
+    private void adjustPosition() {
+    	if (this instanceof Shot == false) {
+    		this.positionX = positionX/32*handler.getTileSize();
+            this.positionY = positionY/32*handler.getTileSize();
+		}
+	}
+
+	private void getMeasurements() {
+		if (this instanceof Enemy || this instanceof Player) {
+			
+			this.width = handler.getObjectSize();
+			this.height = handler.getObjectSize();
+		}
+		else if (this instanceof Item){
+			this.width = handler.getObjectSize()/2;
+			this.height = handler.getObjectSize()/2;
+		}
+		else {
+			this.width = handler.getTileSize();
+			this.height = handler.getTileSize();
+		}
+		
+	}
+
+	/**
      * Loads the image of the game object.
      */
     public void loadImage() {
@@ -58,7 +85,7 @@ public abstract class GameObject extends JComponent {
             
             image = ImageIO.read(new File(objectImagePath));
             
-            image = image.getScaledInstance(32, 32, Image.SCALE_FAST);
+            image = image.getScaledInstance(width, height, Image.SCALE_FAST);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

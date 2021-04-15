@@ -24,8 +24,8 @@ public class MamaZombie extends Enemy {
      * @param newObjectHeight width of new object
      * @param handler         handler
      */
-    public MamaZombie(double ID, int positionX, int positionY, int newObjectWidth, int newObjectHeight, Handler handler) {
-        super(ID, positionX, positionY, newObjectWidth, newObjectHeight, handler);
+    public MamaZombie(double ID, int positionX, int positionY, Handler handler) {
+        super(ID, positionX, positionY, handler);
         this.radius = 50000000;
         this.healthZombie = (int)(handler.healthMama*handler.difficulty);
         this.mamaZombieMaxHealth = (int)(handler.healthMama*handler.difficulty);

@@ -31,6 +31,8 @@ public class Panel2_HighScore extends JPanel {
     Handler handler;
     private Database database;
     Font font = new Font("Segoe Script", Font.BOLD, 12);
+    
+    
 
     {
         try {

@@ -67,41 +67,43 @@ public class MapLoader {
 
         // adds game objects to the object list according to the map location
         while (scanner.hasNextLine()) {
+        	if (scanner.hasNextInt()) {
+        		int tileSize = scanner.nextInt();
+        		handler.setTileSize(tileSize);
+        		scanner.nextLine();
+			}
+        	
             String line = scanner.nextLine();
-
             String[] lineSplitField = line.split(",");            // splits the string into the array of strings ","
 
             double newObjectID = Double.parseDouble(lineSplitField[0]);
             int newObjectPositionX = Integer.parseInt(lineSplitField[1]);
             int newObjectPositionY = Integer.parseInt(lineSplitField[2]);
-            int newObjectWidth = Integer.parseInt(lineSplitField[3]);
-            int newObjectHeight = Integer.parseInt(lineSplitField[4]);
-
             int ID = (int) newObjectID;
             
             if (ID == 1) {
-                handler.addObject(new Wall(newObjectID, newObjectPositionX, newObjectPositionY, newObjectWidth, newObjectHeight, handler));
+                handler.addObject(new Wall(newObjectID, newObjectPositionX, newObjectPositionY,handler));
             } else if (ID != 1) {
             	if (ID == 0) {
-                handler.addObject(new Grass(newObjectID, newObjectPositionX, newObjectPositionY, newObjectWidth, newObjectHeight, handler));
+                handler.addObject(new Grass(newObjectID, newObjectPositionX, newObjectPositionY, handler));
             	}
                 if (ID == 2) {
                     handler.addObject(new Player(newObjectPositionX, newObjectPositionY, handler));
                 }
                 if (ID == 3) {
-                    handler.addObject(new Enemy(newObjectID, newObjectPositionX, newObjectPositionY, newObjectWidth, newObjectHeight, handler));
+                    handler.addObject(new Enemy(newObjectID, newObjectPositionX, newObjectPositionY, handler));
                     spawnPointEnemy.put(newObjectPositionX, newObjectPositionY);
                 }
                 if (newObjectID == 4.1) {
-                    new Item(newObjectID, newObjectPositionX, newObjectPositionY, newObjectWidth, newObjectHeight, handler);
+                    new Item(newObjectID, newObjectPositionX, newObjectPositionY, handler);
                     spawnPointAmmoKit.put(newObjectPositionX, newObjectPositionY);
                 }
                 if (newObjectID == 4.2) {
-                    new Item(newObjectID, newObjectPositionX, newObjectPositionY, newObjectWidth, newObjectHeight, handler);
+                    new Item(newObjectID, newObjectPositionX, newObjectPositionY, handler);
                     spawnPointHealthKit.put(newObjectPositionX, newObjectPositionY);
                 }
                 if (newObjectID == 6.1) {
-                    new MamaZombie(newObjectID, newObjectPositionX, newObjectPositionY, newObjectWidth, newObjectHeight, handler);
+                    new MamaZombie(newObjectID, newObjectPositionX, newObjectPositionY, handler);
                     spawnPointMama.put(newObjectPositionX, newObjectPositionY);
                 }
             }

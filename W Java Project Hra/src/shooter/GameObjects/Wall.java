@@ -20,11 +20,9 @@ public class Wall extends GameObject {
      * @param newObjectWidth  width of new object
      * @param handler         handler
      */
-    public Wall(double ID, int positionX, int positionY, int newObjectWidth, int newObjectHeight, Handler handler) {
+    public Wall(double ID, int positionX, int positionY, Handler handler) {
         super(positionX, positionY, handler);
         this.ID = ID;
-        this.width = newObjectWidth;
-        this.height = newObjectHeight;
         super.loadImage();
     }
 

@@ -1,11 +1,5 @@
 import java.io.*;
-import java.sql.SQLException;
 
-import javax.swing.Timer;
-
-import shooter.Game.Handler;
-import shooter.Menu.Database;
-//import junit.framework.Test;
 import shooter.Menu.Menu;
 
 /**

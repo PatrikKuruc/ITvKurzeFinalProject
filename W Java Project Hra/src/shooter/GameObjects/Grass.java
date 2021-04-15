@@ -19,19 +19,14 @@ public class Grass extends GameObject {
      * @param newObjectHeight width of new object
      * @param handler         handler
      */
-    public Grass(double ID, int positionX, int positionY, int newObjectWidth, int newObjectHeight, Handler handler) {
+    public Grass(double ID, int positionX, int positionY, Handler handler) {
         super(positionX, positionY, handler);
         this.ID = ID;
 
         if (ID > 0) {
             isSpawnPoint = true;
         }
-
-        this.width = newObjectWidth;
-        this.height = newObjectHeight;
-        
         super.loadImage();
-        
     }
 
     /**

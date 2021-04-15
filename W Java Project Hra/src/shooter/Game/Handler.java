@@ -23,8 +23,9 @@ public class Handler {
     public int ammo = 10;
     public int score = 0;
     public int finalScore = 100;
-    public int blockSize = 32;
-    public int damageTaken = 0;
+    public int tileSize = 32;
+    public int objectSize = 32;
+	public int damageTaken = 0;
     public double difficulty = 1;
     private boolean isRunning = true;
     private Timer timer;
@@ -103,7 +104,7 @@ public class Handler {
 
             for (Integer i : MapLoader.spawnPointHealthKit.keySet()) {
                 if (counter == random && Item.numberOfHealthKits <= 0) {
-                    addObject(new Item(4.2, i, MapLoader.spawnPointHealthKit.get(i), blockSize, blockSize, this));
+                    addObject(new Item(4.2, i, MapLoader.spawnPointHealthKit.get(i), this));
                     Item.numberOfHealthKits++;
                 }
                 counter++;
@@ -129,7 +130,7 @@ public class Handler {
 
             for (Integer i : MapLoader.spawnPointAmmoKit.keySet()) {
                 if (counter == random && Item.numberOfAmmoKits <= 0) {
-                    addObject(new Item(4.1, i, MapLoader.spawnPointAmmoKit.get(i), blockSize, blockSize, this));
+                    addObject(new Item(4.1, i, MapLoader.spawnPointAmmoKit.get(i), this));
                     Item.numberOfAmmoKits++;
                 }
                 counter++;
@@ -198,7 +199,7 @@ public class Handler {
             // spawns MamaZombie
             if (score == 24) {
                 for (Integer i : MapLoader.spawnPointMama.keySet()) {
-                    addObject(new MamaZombie(6.1, i, MapLoader.spawnPointMama.get(i), blockSize, blockSize, this));
+                    addObject(new MamaZombie(6.1, i, MapLoader.spawnPointMama.get(i), this));
 
                     soundEffectFinalBosssPawn.setFileFinalBossSpawn();
                     soundEffectFinalBosssPawn.play();
@@ -214,7 +215,7 @@ public class Handler {
                 for (Integer i : MapLoader.spawnPointEnemy.keySet()) {
 
                     if (counter == random) {
-                        addObject(new Enemy(3.1, i, MapLoader.spawnPointEnemy.get(i), blockSize, blockSize, this));
+                        addObject(new Enemy(3.1, i, MapLoader.spawnPointEnemy.get(i), this));
                     }
 
                     // speeds up the enemy movement
@@ -232,7 +233,7 @@ public class Handler {
         }
     }
 
-    /**
+	/**
      * Returns position X of the player.
      *
      * @return position X of the player
@@ -298,4 +299,30 @@ public class Handler {
 	public void setDifficulty(String difficulty) {
 		this.difficulty = Double.parseDouble(difficulty);
 	}
+	
+    /**
+     * Set the size of a tile
+     * @param tileSize tile size
+     */
+    public void setTileSize(int tileSize) {
+		this.tileSize = tileSize;
+	}
+    
+    /**
+     * Returns the size of an object
+     * @return objectSize size of an object
+     */
+    public int getTileSize() {
+		return tileSize;
+	}
+    
+    /**
+     * Returns the size of an object
+     * @return objectSize size of an object
+     */
+    public int getObjectSize() {
+		return objectSize;
+	}
+    
+
 }

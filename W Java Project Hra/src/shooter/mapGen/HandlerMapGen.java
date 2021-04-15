@@ -50,6 +50,7 @@ public class HandlerMapGen {
 
                 defaultMap.add(new ObjectJComp(newObjectID, newObjectPozX, newObjectPozY, this));
             }
+            scanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -141,9 +142,10 @@ public class HandlerMapGen {
         try {
             newMap.createNewFile();
             writer = new PrintWriter(newMap);
+            writer.write(tileSize + "\n");
 
         for (ObjectJComp object : currentMap) {
-            writer.write(object.getID() + "," + object.getPositionX() + "," + object.getPositionY() + "," + tileSize + "," + tileSize + "\n");
+            writer.write(object.getID() + "," + object.getPositionX() + "," + object.getPositionY() + "\n");
         }
         writer.flush();
         writer.close();
